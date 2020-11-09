@@ -1,9 +1,12 @@
 version: 2.1
 orbs:
-  react-native: react-native-community/react-native@4.4.2
+  node: circleci/node@3.0.0
+workflows:
+  node-tests:
+    jobs:
+      - node/test
+
+
 # orbs:
-#   node: circleci/node@3.0.0
-# workflows:
-#   node-tests:
-#     jobs:
-#       - node/test
+#   react-native: react-native-community/react-native@4.4.2
+# https://circleci.com/developer/orbs/orb/react-native-community/react-native
