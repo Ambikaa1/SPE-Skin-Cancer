@@ -14,7 +14,7 @@ There is an ABCDE guide to recognise the warning signs of melanoma:
 - A for asymmetry; does one half of the mole not match the other half
 - B for border; are the edges of the mole uneven or irregular
 - C for colour; does the mole not have a uniform colour
-- D is for diameter; is the mole larger than normal (i.e. larger than about 6mm)
+- D for diameter; is the mole larger than normal (i.e. larger than about 6mm)
 - E for evolving; is the mole changing in size, shape, colour, etc.
 
 It is important that patients are able to monitor their moles for signs that they are evolving, and have an easy way to contact their doctor if there is anything concerning them about a mole.
