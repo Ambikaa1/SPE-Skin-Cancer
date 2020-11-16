@@ -27,7 +27,7 @@ Our project is to develop an app, with a user-friendly interface, to enable user
 
 ## Vision
 
-Our vision for the project is an app, available on both iOS and Android, that will enable users to effectively monitor their moles for signs of skin cancer.
+Our vision for the project is an app, available on both iOS and Android, that will enable users to monitor their moles for signs of skin cancer.
 
 We believe our app should have the following features:
 - A body diagram to enable users to identify where on their body a mole is located
