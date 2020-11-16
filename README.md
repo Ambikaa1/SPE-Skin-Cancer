@@ -1,7 +1,7 @@
 # SkinCancer
 
 ## Overview
-A React Native app that enables users to effectively monitor their moles for signs of skin cancer.
+A React Native app that enables users to monitor their moles for signs of skin cancer.
 
 The app has the following features:
 * A body diagram to enable users to identify where on their body a mole is located
