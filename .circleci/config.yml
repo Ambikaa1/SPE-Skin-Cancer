@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/SkinCancer
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:12.19.0
     steps:
       - checkout
       - restore_cache:
