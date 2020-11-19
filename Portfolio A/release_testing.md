@@ -7,3 +7,6 @@ An important use of the app will also be to allow doctors and patients to be abl
 
 #### Core User Story
 
+#### Testing Table
+Test | Explanation
+-----|------------
