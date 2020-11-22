@@ -7,7 +7,6 @@ import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
 
-
 const Tab = createBottomTabNavigator();
 
 const MyTabs = () => {
