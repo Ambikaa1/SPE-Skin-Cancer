@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react"
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeScreen from "./src/screens/HomeScreen";
+import InfoScreen from "./src/screens/InfoScreen";
+import CameraScreen from "./src/screens/CameraScreen";
+import DiaryScreen from "./src/screens/DiaryScreen";
+import SendScreen from "./src/screens/SendScreen";
 
-export default function App() {
+const Tab = createBottomTabNavigator();
+
+const MyTabs = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! Hello world!!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name = "Home" component = {HomeScreen} />
+      <Tab.Screen name = "Info" component = {InfoScreen} />
+      <Tab.Screen name = "Camera" component = {CameraScreen} />
+      <Tab.Screen name = "Diary" component = {DiaryScreen} />
+      <Tab.Screen name = "Send" component = {SendScreen} />
+    </Tab.Navigator>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+  return (
+    <NavigationContainer>
+      <MyTabs />
+    </NavigationContainer>
+  );
+};
+
+export default App;
