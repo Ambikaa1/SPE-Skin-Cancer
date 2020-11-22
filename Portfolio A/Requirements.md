@@ -81,7 +81,7 @@ For a subset of user stories, we have created diagrams showing the basic flow, a
 ## Decomposition of basic flow steps
 For a select user story we have decomposed the basic flow steps and identified features that we will need to implement in order for a user to navigate through each flow step.
 > “I want to be able to regularly take pictures of my moles” 
-##### Basic flow steps decomposed: 
 ![Basic Flow 3](https://user-images.githubusercontent.com/57152715/99905059-68e64400-2cc6-11eb-90fc-ca4ee713db9a.png)
+##### Basic flow steps decomposed: 
 ![decomposed flow steps](https://user-images.githubusercontent.com/57152715/99905066-6edc2500-2cc6-11eb-94b6-091dbe556cd4.png)
 
