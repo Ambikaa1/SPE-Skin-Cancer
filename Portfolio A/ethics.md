@@ -16,8 +16,6 @@ When the user first opens our application, we will clearly inform them that the 
 
 We will not be storing any personal data ourselves; all personal data will be stored locally on a user's device.
 
-**INCOMPLETE**
-
 ### Cookie Law
 
 Our application will not be using any cookies.
@@ -26,7 +24,8 @@ Our application will not be using any cookies.
 
 The personal data collected in our application will be stored locally on a user's device. On iOS, each app runs within its own sandbox, so this data will not be visible to other applications on the device. On Android, data within a directory marked as "app-specific storage" is not accessible from other applications either. Therefore the personal data we will be storing will be secure, as it will not be accessible outside of the application itself.
 
-
 ## Ethics Management
 
-Ethics pre-approval was applied for on **INSERT DATE HERE**.
+We are currently in the process of applying for ethics approval.
+
+<!-- Ethics pre-approval was applied for on **INSERT DATE HERE**. -->
