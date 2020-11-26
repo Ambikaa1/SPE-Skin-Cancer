@@ -38,3 +38,10 @@ const styles = StyleSheet.create({
 });
 
 export default SearchBar;
+
+// Once imported use as follows:
+// <SearchBar
+//   term = {term}
+//   onTermChange = {setTerm}
+//   onTermSubmit = {() => {yourFunctionHere}}
+// />
