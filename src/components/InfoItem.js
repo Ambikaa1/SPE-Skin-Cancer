@@ -6,8 +6,8 @@ const InfoItem = ({ name }) => {
   return(
     <TouchableOpacity>
       <View style = {styles.container}>
-          <Text style = {styles.heading}>{name}</Text>
-          <Ionicons name="ios-arrow-forward" style = {styles.icon} size = {24} />
+        <Text style = {styles.heading}>{name}</Text>
+        <Ionicons name = "ios-arrow-forward" size = {24} color = "black" />
       </View>
     </TouchableOpacity>
   );
@@ -16,14 +16,18 @@ const InfoItem = ({ name }) => {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 2.5,
-    padding: 5,
-    backgroundColor: "#E2E2E2",
     marginHorizontal: 10,
+    paddingVertical: 10,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    borderTopColor: "black",
+    borderBottomColor: "black",
+    borderTopWidth: 0.5,
+    borderBottomWidth: 0.5
   },
   heading: {
     fontSize: 20,
+    color: "black",
   },
   icon: {
     color: "black",

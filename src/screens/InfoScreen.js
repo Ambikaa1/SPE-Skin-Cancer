@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, StyleSheet } from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import InfoItem from "../components/InfoItem";
 
@@ -13,15 +13,28 @@ const InfoScreen = () => {
         onTermChange = {setTerm}
         onTermSubmit = {() => {}}
       />
-      <Text style = {styles.heading}>Skin Cancer</Text>
-      <InfoItem name = {"Common types"}/>
-      <InfoItem name = {"Triggers"}/>
-      <InfoItem name = {"Appearance"}/>
-      <InfoItem name = {"Treatments"}/>
-      <Text style = {styles.heading}>Monitoring Moles</Text>
-      <InfoItem name = {"ABCDE Rule"}/>
-      <Text style = {styles.heading}>SCaRF</Text>
-      <InfoItem name = {"About"}/>
+      <ScrollView>
+        <View style = {styles.block}>
+          <Text style = {styles.heading}>Skin Cancer</Text>
+          <InfoItem name = {"Common types"}/>
+          <InfoItem name = {"Triggers"}/>
+          <InfoItem name = {"Appearance"}/>
+          <InfoItem name = {"Treatments"}/>
+        </View>
+        <View style = {styles.block}>
+          <Text style = {styles.heading}>Monitoring Moles</Text>
+          <InfoItem name = {"ABCDE rule"}/>
+          <InfoItem name = {"Signs to look for"}/>
+        </View>
+        <View style = {styles.block}>
+          <Text style = {styles.heading}>SCaRF</Text>
+          <InfoItem name = {"About"}/>
+          <InfoItem name = {"Who we are"}/>
+          <InfoItem name = {"What we do"}/>
+          <InfoItem name = {"Achievements"}/>
+          <InfoItem name = {"The future"}/>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -29,6 +42,9 @@ const InfoScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  block: {
+    marginBottom: 10,
   },
   heading: {
     fontSize: 30,
