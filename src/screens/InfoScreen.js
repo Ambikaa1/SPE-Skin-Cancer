@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { SafeAreaView, FlatList, StyleSheet, TouchableOpacity } from "react-native";
-import { withNavigation } from "react-navigation"
 import SearchBar from "../components/SearchBar";
 import InfoItem from "../components/InfoItem";
 
@@ -34,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(InfoScreen);
+export default InfoScreen;
