@@ -1,15 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
 const InfoItem = ({ name }) => {
   return(
-    <TouchableOpacity>
-      <View style = {styles.container}>
-        <Text style = {styles.heading}>{name}</Text>
-        <Ionicons name = "ios-arrow-forward" size = {24} color = "black" />
-      </View>
-    </TouchableOpacity>
+    <View style = {styles.container}>
+      <Text style = {styles.heading}>{name}</Text>
+      <Ionicons name = "ios-arrow-forward" size = {24} color = "black" />
+    </View>
   );
 };
 

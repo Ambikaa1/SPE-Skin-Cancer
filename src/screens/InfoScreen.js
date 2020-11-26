@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, View, Text, StyleSheet } from "react-native";
+import { SafeAreaView, FlatList, StyleSheet, TouchableOpacity } from "react-native";
+import { withNavigation } from "react-navigation"
 import SearchBar from "../components/SearchBar";
 import InfoItem from "../components/InfoItem";
 
-const InfoScreen = () => {
+const InfoScreen = ({ navigation, data }) => {
   const [term, setTerm] = useState("")
-
   return (
     <SafeAreaView style = {styles.container}>
       <SearchBar
@@ -13,28 +13,17 @@ const InfoScreen = () => {
         onTermChange = {setTerm}
         onTermSubmit = {() => {}}
       />
-      <ScrollView>
-        <View style = {styles.block}>
-          <Text style = {styles.heading}>Skin Cancer</Text>
-          <InfoItem name = {"Common types"}/>
-          <InfoItem name = {"Triggers"}/>
-          <InfoItem name = {"Appearance"}/>
-          <InfoItem name = {"Treatments"}/>
-        </View>
-        <View style = {styles.block}>
-          <Text style = {styles.heading}>Monitoring Moles</Text>
-          <InfoItem name = {"ABCDE rule"}/>
-          <InfoItem name = {"Signs to look for"}/>
-        </View>
-        <View style = {styles.block}>
-          <Text style = {styles.heading}>SCaRF</Text>
-          <InfoItem name = {"About"}/>
-          <InfoItem name = {"Who we are"}/>
-          <InfoItem name = {"What we do"}/>
-          <InfoItem name = {"Achievements"}/>
-          <InfoItem name = {"The future"}/>
-        </View>
-      </ScrollView>
+      <FlatList
+        data = {data}
+        keyExtractor = {({ title }) => title}
+        renderItem = {({ item }) => {
+          return (
+            <TouchableOpacity>
+              <InfoItem name = {item.title}/>
+            </TouchableOpacity>
+          );
+        }}
+      />
     </SafeAreaView>
   );
 };
@@ -43,14 +32,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  block: {
-    marginBottom: 10,
-  },
-  heading: {
-    fontSize: 30,
-    fontWeight: "bold",
-    marginLeft: 10,
-  },
 });
 
-export default InfoScreen;
+export default withNavigation(InfoScreen);
