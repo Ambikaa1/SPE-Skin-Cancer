@@ -2,7 +2,7 @@ import React from "react"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./src/screens/HomeScreen";
-import InfoStack from "./src/screens/InfoScreen";
+import InfoStack from "./src/screens/InfoListScreen";
 import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";

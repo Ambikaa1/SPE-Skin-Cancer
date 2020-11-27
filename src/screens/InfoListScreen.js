@@ -17,7 +17,16 @@ const InfoStack = () => {
   );
 };
 
-const InfoScreen = ({ navigation }) => {
+const InfoScreen = ({ navigation, route }) => {
+  // This is temporary
+  let toDisplay
+  if (typeof route.params == "undefined") {
+    toDisplay = data
+  } else {
+    toDisplay = route.params.children
+  }
+  console.log(toDisplay)
+
   const [term, setTerm] = useState("")
   return (
     <SafeAreaView style = {styles.container}>
@@ -27,14 +36,13 @@ const InfoScreen = ({ navigation }) => {
         onTermSubmit = {() => {}}
       />
       <FlatList
-        data = {data}
-        keyExtractor = {({ title }) => title}
+        data = {toDisplay}
+        keyExtractor = {({ index }) => index}
         renderItem = {({ item }) => {
           return (
             <TouchableOpacity onPress = {() => {
-              navigation.push("Information")
-            }
-            }>
+              navigation.push("Information", {children: item.children})
+            }}>
               <InfoItem name = {item.title}/>
             </TouchableOpacity>
           );
