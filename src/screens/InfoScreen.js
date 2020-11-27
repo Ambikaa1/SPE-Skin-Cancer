@@ -12,7 +12,7 @@ const Stack = createStackNavigator()
 const InfoStack = () => {
   return(
     <Stack.Navigator>
-      <Stack.Screen name = "Info" component = {InfoScreen} />
+      <Stack.Screen name = "Information" component = {InfoScreen} />
     </Stack.Navigator>
   );
 };
@@ -32,7 +32,7 @@ const InfoScreen = ({ navigation }) => {
         renderItem = {({ item }) => {
           return (
             <TouchableOpacity onPress = {() => {
-              navigation.push("Info")
+              navigation.push("Information")
             }
             }>
               <InfoItem name = {item.title}/>
