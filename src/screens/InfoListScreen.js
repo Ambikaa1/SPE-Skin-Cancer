@@ -45,7 +45,7 @@ const InfoListScreen = ({ navigation, route }) => {
       />
       <FlatList
         data = {toDisplay}
-        keyExtractor = {({ index }) => index}
+        keyExtractor = {(item) => item.title}
         renderItem = {({ item }) => {
           return (
             <TouchableOpacity onPress = {() => calculateNavigationFunction(item)}>
