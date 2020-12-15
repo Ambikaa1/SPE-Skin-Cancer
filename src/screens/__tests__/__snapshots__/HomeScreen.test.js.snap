@@ -11,11 +11,7 @@ Array [
     }
   >
     <Text
-      style={
-        Object {
-          "fontFamily": "monospace",
-        }
-      }
+      style={Object {}}
     >
       <Text
         style={
@@ -38,11 +34,7 @@ Array [
     }
   >
     <Text
-      style={
-        Object {
-          "fontFamily": "monospace",
-        }
-      }
+      style={Object {}}
     >
       <View
         accessible={true}
