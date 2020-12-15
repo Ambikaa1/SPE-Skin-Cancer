@@ -15,7 +15,7 @@ const HomeScreen = () => {
             </View>
             <View style = {styles.body}>
                 <Text style = {styles.base}>
-                    <TouchableOpacity onPress={() => Linking.openURL('http://google.com')}>
+                    <TouchableOpacity onPress={() => Linking.openURL('https://www.skincancerresearch.org/what-we-do')}>
                         <Text style = {{color: 'blue'}}>
                             Donate to SCaRF
                         </Text>
