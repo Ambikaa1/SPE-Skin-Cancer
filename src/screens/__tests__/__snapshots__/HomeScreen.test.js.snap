@@ -1,9 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomeScreen /> renders correctly 1`] = `
-<View>
-  <Text>
-    Home Screen
-  </Text>
-</View>
+Array [
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "padding": 35,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontFamily": "monospace",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+          }
+        }
+      >
+         Welcome Joe! 
+      </Text>
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontFamily": "monospace",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "blue",
+            }
+          }
+        >
+          Donate to SCaRF
+        </Text>
+      </View>
+    </Text>
+    <Image
+      source={1}
+    />
+  </View>,
+]
 `;
