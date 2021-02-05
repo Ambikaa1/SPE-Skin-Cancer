@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("g.db")
+const db = SQLite.openDatabase("database.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
@@ -23,7 +23,6 @@ const StorageScreen = ({ route }) => {
         null,
         (t, error) => {console.log(error);}
       );
-      tx.executeSql("create table if not exists test (id integer primary key not null, name text);", []); // temporary
       tx.executeSql("insert into humonculus (name) values ('head');", []);
       tx.executeSql("insert into humonculus (name) values ('body');", []);
       tx.executeSql("insert into humonculus (name) values ('arms');", []);
@@ -36,18 +35,6 @@ const StorageScreen = ({ route }) => {
       <TouchableOpacity onPress = {() => db.transaction(
         tx => {
           tx.executeSql(
-            "insert into test (name) values ('test2');",
-            [],
-            null,
-            (t, error) => {console.log(error);}
-          );
-        }
-      )}>
-        <Text style = {styles.text}>ADD_TEST</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress = {() => db.transaction(
-        tx => {
-          tx.executeSql(
             "insert into mole (name, body_part, description, image) values ('Mole', 'head', 'abcde', null);",
             [],
             null,
@@ -56,18 +43,6 @@ const StorageScreen = ({ route }) => {
         }
       )}>
         <Text style = {styles.text}>ADD_MOLE</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress = {() => db.transaction(
-        tx => {
-          tx.executeSql(
-            "select * from test;",
-            [],
-            (_, { rows }) => {console.log(rows)},
-            (t, error) => {console.log(error);})
-        }
-      )}>
-        <Text style = {styles.text}>VIEW_TEST</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress = {() => db.transaction(
         tx => {
