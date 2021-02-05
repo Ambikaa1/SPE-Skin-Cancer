@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, Alert} from "react-native";
 import { Camera } from "expo-camera";
-
+import {SafeAreaView, Button} from "react-native";
+import {AntDesign, MaterialCommunityIcons, Feather} from "@expo/vector-icons";
 
 
 // import {useAsyncStorage} from "RNAsyncStorage";
@@ -27,40 +28,68 @@ const CameraScreen = () => {
     }
     return (
         <View style={styles.container}>
-            <Camera style={styles.camera} type={type}>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => {
-                            setType(
-                                type === Camera.Constants.Type.back
-                                    ? Camera.Constants.Type.front
-                                    : Camera.Constants.Type.back
-                            );
-                        }}>
-                        <Text style={styles.text}> Flip </Text>
+            <SafeAreaView>
+                <Text>
+                    <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
+                        <AntDesign name="arrowleft" size={24} color="black" />
                     </TouchableOpacity>
-                </View>
+                    <TouchableOpacity onPress={() => Alert.alert('Help Pressed')}>
+                        <AntDesign name="questioncircleo" size={24} color="black" />
+                    </TouchableOpacity>
+                </Text>
+            </SafeAreaView>
+            <Camera style={styles.camera} type={type}>
+
             </Camera>
+            <View style={styles.buttonContainer}>
+                <Text>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                        setType(
+                            type === Camera.Constants.Type.back
+                                ? Camera.Constants.Type.front
+                                : Camera.Constants.Type.back
+                        );
+                    }}>
+                    <MaterialCommunityIcons name="rotate-3d-variant" size={50} color="black" />
+                </TouchableOpacity>
+                <TouchableOpacity stly={styles.takePictureIcon}>
+                    <Feather name="circle" size={50} color="black" />
+                </TouchableOpacity>
+                </Text>
+            </View>
         </View>
     );
 };
 
-
+//
 
 const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: "white",
-        alignItems: "center",
-        justifyContent: "center"
+        alignItems: "stretch",
+
+    },
+    text: {
+        fontSize: 50,
+    },
+    buttonContainer:{
+        backgroundColor: "white",
+    },
+    button:{
+        alignSelf: "flex-end"
+    },
+    takePictureIcon: {
+        alignSelf: "center"
     },
     message: {
         color: '#000',
         fontWeight: 'bold',
     },
     camera: {
-        flex: 1,
+        flex: 5,
     }
 });
 
