@@ -2,16 +2,14 @@ import React, { useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("f.db")
+const db = SQLite.openDatabase("g.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
-// db.exec([{ sql: 'drop table if exists mole;', args: [] }], false, () => {});
 
 const StorageScreen = ({ route }) => {
 
   useEffect(() => {
-
     db.transaction(tx => {
       tx.executeSql(
         "create table if not exists humonculus (name text primary key not null unique);",
@@ -20,7 +18,7 @@ const StorageScreen = ({ route }) => {
         (t, error) => {console.log(error);}
       );
       tx.executeSql(
-        "create table if not exists mole (id integer primary key not null unique, name text, body_part text references humonculus(name));",
+        "create table if not exists mole (id integer primary key not null unique, name text, body_part text references humonculus(name), description text, image text);",
         [],
         null,
         (t, error) => {console.log(error);}
@@ -50,7 +48,7 @@ const StorageScreen = ({ route }) => {
       <TouchableOpacity onPress = {() => db.transaction(
         tx => {
           tx.executeSql(
-            "insert into mole (name, body_part) values ('Mole', 'head');",
+            "insert into mole (name, body_part, description, image) values ('Mole', 'head', 'abcde', null);",
             [],
             null,
             (t, error) => {console.log(error);}
@@ -83,13 +81,13 @@ const StorageScreen = ({ route }) => {
       <TouchableOpacity onPress = {() => db.transaction(
         tx => {
           tx.executeSql(
-            "select * from humon;",
+            "select * from humonculus;",
             [],
             (_, { rows }) => {console.log(rows)},
             (t, error) => {console.log(error);})
         }
       )}>
-        <Text style = {styles.text}>VIEW_</Text>
+        <Text style = {styles.text}>VIEW_BODY</Text>
       </TouchableOpacity>
     </View>
   );
