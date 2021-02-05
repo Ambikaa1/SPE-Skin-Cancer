@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking} from "react-native";
+import * as MailComposer from 'expo-mail-composer';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const SendScreen = () => {
@@ -9,13 +10,17 @@ const SendScreen = () => {
         <View style={styles.container}>
 
             <View style={{flexDirection:'row', width: '100%'}}>
-                <Text style={styles.titleText}>Send your mole</Text>
 
-                <TouchableOpacity
-                    style={styles.helpButton}
-                >
-                    <Text style={styles.helpButtonText}>?</Text>
-                </TouchableOpacity>
+                    <Text style={styles.titleText}>Send your mole</Text>
+
+                <View style={{alignItems:'flex-end'}}>
+                    <TouchableOpacity
+                        style={styles.helpButton}
+                    >
+
+                        <Text style={styles.helpButtonText}>?</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
             <ScrollView>
                 <View style={styles.topButtonView}>
@@ -31,7 +36,7 @@ const SendScreen = () => {
                 <View style={styles.pickerViewStyle1}>
                     <DropDownPicker
                         items={[
-                            {label: 'mole1', value: 'mole1', hidden: true},
+                            {label: 'mole1', value: 'mole1'},
                             {label: 'mole2', value: 'mole2'},
                             {label: 'mole3', value: 'mole3'},
                         ]}
@@ -51,11 +56,11 @@ const SendScreen = () => {
                 <View style={styles.pickerViewStyle2}>
                     <DropDownPicker
                         items={[
-                            {label: 'Today', value: 'today', hidden: true},
+                            {label: 'Today', value: 'today'},
                             {label: 'Yesterday', value: 'yesterday'},
                             {label: 'Some other day', value: 'day3'},
                         ]}
-                        defaultValue={'today'}
+                        defaultValue={''}
                         containerStyle={{height: 40}}
                         style={{backgroundColor: '#fafafa'}}
                         itemStyle={{
@@ -89,6 +94,7 @@ const SendScreen = () => {
                 <View style={styles.bottomButtonView}>
                     <TouchableOpacity
                         style={styles.bottomButtonStyle}
+                        onPress={() => Linking.openURL("mailto:ebagguley1@gmail.com?subject=Mole update&body=Here's some new moles")}
                     >
                         <Text style={styles.ButtonText}>SEND</Text>
                     </TouchableOpacity>
@@ -110,7 +116,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     helpButton:{
-        marginLeft: 60,
         backgroundColor: '#000000',
         borderRadius: 50,
         width: 45,
