@@ -8,7 +8,6 @@ db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
 );
 
 const StorageScreen = ({ route }) => {
-
   useEffect(() => {
     db.transaction(tx => {
       tx.executeSql(
