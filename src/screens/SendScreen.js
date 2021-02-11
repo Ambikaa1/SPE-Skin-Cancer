@@ -1,6 +1,5 @@
 import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking} from "react-native";
-import * as MailComposer from 'expo-mail-composer';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const SendScreen = () => {
