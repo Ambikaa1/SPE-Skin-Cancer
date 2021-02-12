@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView} from "react-native";
+import React, {useEffect, useState, Component} from "react";
+import {View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, Image} from "react-native";
 import { Camera } from "expo-camera";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons, Feather} from "@expo/vector-icons";
 import * as MediaLibrary from 'expo-media-library';
@@ -10,6 +10,7 @@ const CameraScreen = () => {
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [cameraRef, setCameraRef] = useState(null);
     const [mediaPermission, setMediaPermission] = useState(null);
+    const [image, setImage] = useState(null);
 
     useEffect(() => {
         (async () => {
@@ -66,6 +67,7 @@ const CameraScreen = () => {
                                 await MediaLibrary.saveToLibraryAsync(photo.uri)
                                 console.log('Photo saved')
                             }
+                            setImage(photo.uri);
                         }
                     }}>
                     <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
@@ -74,9 +76,19 @@ const CameraScreen = () => {
                     <MaterialIcons name="filter" size={50} color="white" />
                 </TouchableOpacity>
             </View>
+            <Review picture={image}/>
         </View>
     );
 }
+
+const Review = (props) => {
+    return (
+        <View>
+            <Image source={{ uri: props.picture }} style={{ width: 200, height: 200 }}/>
+        </View>
+    );
+}
+
 
 
 const styles = StyleSheet.create({
@@ -93,7 +105,7 @@ const styles = StyleSheet.create({
     cameraBar:{
         backgroundColor: "#71A1D1",
         flexDirection: 'row',
-        justifyContent: 'space-around'                                                                                                                       
+        justifyContent: 'space-around'
     },
     camera:{
         flex: 1,
