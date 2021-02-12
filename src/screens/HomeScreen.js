@@ -88,13 +88,11 @@ const styles = StyleSheet.create({
     },
     date: {
         fontSize: 30,
-        fontWeight: "bold",
         marginLeft: 10,
         marginTop: 10
     },
     welcome: {
         fontSize: 30,
-        fontWeight: "bold",
         marginLeft: 10
     },
     circleContainer: {
@@ -123,7 +121,6 @@ const styles = StyleSheet.create({
     textAboveLogo: {
         marginLeft: 5,
         fontSize: 25,
-        fontWeight: "bold",
         alignSelf: "center"
     },
     scarfLogo: {
