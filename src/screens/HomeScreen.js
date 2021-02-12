@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image, Dimensions } from "react-native";
-import { StatusBar } from "expo-status-bar";
+import { createStackNavigator } from '@react-navigation/stack';
 
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
@@ -54,12 +54,35 @@ const HomeScreen = () => {
                     <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                 </TouchableOpacity>
             </View>
-            <StatusBar style = "dark" />
         </SafeAreaView>
     );
 };
 
+const Stack = createStackNavigator()
+
+const HomeStack = () => {
+    return(
+      <Stack.Navigator
+        screenOptions = {{
+          headerStyle: styles.header,
+          headerTintColor: "white",
+        }}
+      >
+        <Stack.Screen
+          name = "HomeScreen"
+          component = {HomeScreen}
+          options = {{
+            title: "Home",
+          }}
+        />
+      </Stack.Navigator>
+    );
+  };
+
 const styles = StyleSheet.create({
+    header: {
+        backgroundColor: "#71A1D1",
+    },
     container: {
         flex: 1
     },
@@ -77,12 +100,12 @@ const styles = StyleSheet.create({
     circleContainer: {
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 20,
+        flex: 1,
     },
     circle: {
-        height: Dimensions.get("window").width - 30,
-        width: Dimensions.get("window").width - 30,
-        borderRadius: (Dimensions.get("window").width - 30) / 2,
+        height: Dimensions.get("window").width - 100,
+        width: Dimensions.get("window").width - 100,
+        borderRadius: (Dimensions.get("window").width - 100) / 2,
         borderColor: "#71A1D1",
         borderWidth: 25,
     },
@@ -94,10 +117,8 @@ const styles = StyleSheet.create({
     },
     logosContainer: {
         flexDirection: "row",
-        justifyContent: "center",
         marginHorizontal: 5,
         bottom: 10,
-        position: "absolute"
     },
     textAboveLogo: {
         marginLeft: 5,
@@ -112,4 +133,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+export default HomeStack;
