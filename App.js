@@ -1,7 +1,7 @@
 import React from "react"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./src/screens/HomeScreen";
+import HomeStack from "./src/screens/HomeScreen";
 import InfoStack from "./src/screens/InfoListScreen";
 import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
@@ -17,7 +17,7 @@ const Stack = createStackNavigator();
 const MyTabs = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name = "Home" component = {HomeScreen} />
+      <Tab.Screen name = "Home" component = {HomeStack} />
       <Tab.Screen name = "Info" component = {InfoStack} />
       <Tab.Screen name = "Camera" component = {CameraScreen} />
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
