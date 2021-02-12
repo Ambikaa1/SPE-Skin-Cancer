@@ -29,6 +29,7 @@ Array [
       Object {
         "alignItems": "center",
         "flex": 1,
+        "flexDirection": "column",
         "justifyContent": "center",
       }
     }
@@ -59,13 +60,30 @@ Array [
             }
           }
         >
-          Donate to SCaRF
+           Donate to SCaRF 
         </Text>
       </View>
+      <View
+        accessible={true}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={1}
+        />
+      </View>
     </Text>
-    <Image
-      source={1}
-    />
   </View>,
 ]
 `;
