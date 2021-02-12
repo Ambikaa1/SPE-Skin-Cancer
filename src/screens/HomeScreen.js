@@ -69,11 +69,11 @@ const HomeStack = () => {
         }}
       >
         <Stack.Screen
-          name = "HomeScreen"
-          component = {HomeScreen}
-          options = {{
-            title: "Home",
-          }}
+            name = "HomeScreen"
+            component = {HomeScreen}
+            options = {{
+                title: "Home",
+            }}
         />
       </Stack.Navigator>
     );
