@@ -39,13 +39,17 @@ const HomeScreen = () => {
                 <Text style = {styles.welcome}>Welcome Joe!</Text>
             </View>
 
+            <View style = {styles.circleContainer}>
+                <View style = {styles.circle} />
+                <Text style = {styles.circleText}>10 days until mole ARM 1</Text>
+            </View>
             
             <View style = {styles.logosContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
                     <Text style = {styles.textAboveLogo}>About SCaRF</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
                 <Text style = {styles.textAboveLogo}>Donate</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                 </TouchableOpacity>
@@ -62,12 +66,31 @@ const styles = StyleSheet.create({
     date: {
         fontSize: 30,
         fontWeight: "bold",
-        marginLeft: 10
+        marginLeft: 10,
+        marginTop: 10
     },
     welcome: {
         fontSize: 30,
         fontWeight: "bold",
         marginLeft: 10
+    },
+    circleContainer: {
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 20,
+    },
+    circle: {
+        height: Dimensions.get("window").width - 30,
+        width: Dimensions.get("window").width - 30,
+        borderRadius: (Dimensions.get("window").width - 30) / 2,
+        borderColor: "#71A1D1",
+        borderWidth: 25,
+    },
+    circleText: {
+        fontSize: 30,
+        textAlign: "center",
+        width: Dimensions.get("window").width - 200,
+        position: "absolute"
     },
     logosContainer: {
         flexDirection: "row",
