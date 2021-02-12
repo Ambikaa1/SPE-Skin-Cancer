@@ -11,6 +11,7 @@ const CameraScreen = () => {
     const [cameraRef, setCameraRef] = useState(null);
     const [mediaPermission, setMediaPermission] = useState(null);
     const [image, setImage] = useState(null);
+    const [ghostImage, setGhostImage] = useState(true);
 
     useEffect(() => {
         (async () => {
@@ -41,8 +42,12 @@ const CameraScreen = () => {
                 </TouchableOpacity>
             </SafeAreaView>
             <Camera style={styles.camera} type={type}
-                ref={ref => {setCameraRef(ref)}}>
+                    ref={ref => {setCameraRef(ref)}}>
             </Camera>
+            {ghostImage && <Image
+                style={styles.image}
+                source={require('./cute.jpg')}
+            />}
             <View style={styles.cameraBar}>
                 <TouchableOpacity
                     // style={styles.flipCamera}
@@ -55,6 +60,7 @@ const CameraScreen = () => {
                     }}>
                     <MaterialCommunityIcons name="rotate-3d-variant" size={50} color="white" />
                 </TouchableOpacity>
+
                 <TouchableOpacity
                     // style={styles.takePicture}
                     onPress={async() => {
@@ -72,7 +78,12 @@ const CameraScreen = () => {
                     }}>
                     <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    // For now, I have changed the camera roll icon to toggle the ghost image to remove for camera preview.
+                    onPress={() => {
+                        setGhostImage(prevCheck => !prevCheck);
+                        console.log('show ghost image =', ghostImage)
+                    }}>
                     <MaterialIcons name="filter" size={50} color="white" />
                 </TouchableOpacity>
             </View>
@@ -99,8 +110,8 @@ const styles = StyleSheet.create({
 
     },
     topRow:{
-       flexDirection: 'row',
-       justifyContent: 'space-between'
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     cameraBar:{
         backgroundColor: "#71A1D1",
@@ -112,6 +123,20 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'stretch',
     },
+    image: {
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        opacity: 0.6,
+        width: undefined,
+        height: undefined,
+        aspectRatio: 1.5,
+        resizeMode: 'contain'
+    }
 });
 
 export default CameraScreen;
+
+
