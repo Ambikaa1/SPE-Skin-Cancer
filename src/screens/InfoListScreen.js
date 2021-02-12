@@ -6,6 +6,7 @@ import InfoItem from "../components/InfoItem";
 import InfoScreen from "./InfoScreen";
 import StorageScreen from "./StorageScreen";
 import CamCopyScreen from "./CamCopyScreen";
+import ViewImageScreen from "./ViewImageScreen";
 import { NavigationContainer } from "@react-navigation/native";
 
 // This is temporary
@@ -52,6 +53,9 @@ const InfoListScreen = ({ navigation, route }) => {
       <TouchableOpacity onPress = {() => navigation.navigate("CamCopyScreen")}>
         <InfoItem name = {"CAMERA"}/>
       </TouchableOpacity>
+      <TouchableOpacity onPress = {() => navigation.navigate("ViewImageScreen")}>
+        <InfoItem name = {"IMAGE"}/>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -87,6 +91,10 @@ const InfoStack = () => {
       <Stack.Screen
         name = "CamCopyScreen"
         component = {CamCopyScreen}
+      />
+      <Stack.Screen
+        name = "ViewImageScreen"
+        component = {ViewImageScreen}
       />
     </Stack.Navigator>
   );

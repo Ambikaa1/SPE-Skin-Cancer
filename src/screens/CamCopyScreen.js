@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, Image} fr
 import { Camera } from "expo-camera";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons, Feather} from "@expo/vector-icons";
 import * as MediaLibrary from 'expo-media-library';
+import * as FileSystem from 'expo-file-system';
 
 const CameraScreen = () => {
     //Set initial camera permissions as null.
@@ -67,11 +68,15 @@ const CameraScreen = () => {
                             let photo = await cameraRef.takePictureAsync();
                             // Check users permissions to accessing camera roll
                             console.log('photo taken', photo);
-                            if (mediaPermission) {
-                                console.log('Access to camera roll')
-                                await MediaLibrary.saveToLibraryAsync(photo.uri)
-                                console.log('Photo saved')
+                            folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "near_shot")
+                            if (!Boolean(folder.exists)) {
+                                await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + 'near_shot/');
                             }
+                            await FileSystem.moveAsync({
+                                from: photo.uri,
+                                to: FileSystem.documentDirectory + "near_shot/test.jpg"
+                            });
+                            console.log('Photo saved');
                         }
                     }}>
                     <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
