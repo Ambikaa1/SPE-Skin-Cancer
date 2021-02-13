@@ -6,7 +6,6 @@ import Dialog from "react-native-dialog";
 
 const CameraScreen = () => {
 
-    //Set initial camera permissions as null.
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [cameraRef, setCameraRef] = useState(null);
@@ -14,6 +13,7 @@ const CameraScreen = () => {
     const [ghostImage, setGhostImage] = useState(true);
     const [photoTaken, setPhotoTaken] = useState(false);
 
+    //Handling the dialogue box for when the user wants to re-take an image.
     const [visible, setVisible] = useState(false);
     const handleCancel = () => {
         setVisible(false);
@@ -23,11 +23,11 @@ const CameraScreen = () => {
         setVisible(false);
 
     };
-    const stuff = () => {
+    const showDialog = () => {
         setVisible(true);
     }
 
-
+    //Request the users permission to access their camera.
     useEffect(() => {
         (async () => {
             const { status } = await Camera.requestPermissionsAsync();
@@ -43,10 +43,13 @@ const CameraScreen = () => {
     }
     return (
         <View style={styles.container}>
+            {/*Top bar includes the back button and the help button.*/}
             <ViewTopBar/>
 
             <View style={styles.container}>
-
+                {/*If the user has not taken a picture then the screen should display the camera,
+                if the user has taken a picture then it should display the image so they can check
+                it is what they want.*/}
                 {!photoTaken ?
                     <Camera
                         style={styles.camera}
@@ -59,11 +62,15 @@ const CameraScreen = () => {
                     />
                 }
 
+                {/*Toggles the ghost image on and off when the user clicks the
+                ghost image button.*/}
                 {ghostImage && <Image
                     style={styles.image}
                     source={require('./cute.jpg')}
                 />}
 
+                {/*This dialogue box shows if the user is on the image preview screen and
+                have chosen to re-take the image rather than save it.*/}
                 {visible &&
                         <Dialog.Container visible={visible}>
                             <Dialog.Title>Do you want to delete this image?</Dialog.Title>
@@ -76,6 +83,11 @@ const CameraScreen = () => {
                 }
 
                 <View style={styles.cameraBar}>
+
+                    {/*If the user has not take a picture then the need to see the buttons related
+                    to the camera functionality. If the have taken a picture they want to be
+                    able to accept or reject the image. These following conditionals change the
+                    contents of the bottom bar to suit the needs to of the page.*/}
 
                     {!photoTaken ?
                         <TouchableOpacity
@@ -109,7 +121,7 @@ const CameraScreen = () => {
                             <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
                         </TouchableOpacity> :
                         <View>
-                            <TouchableOpacity onPress={stuff}>
+                            <TouchableOpacity onPress={showDialog}>
                                 <Text style={styles.text}>Try again</Text>
                                 <Feather name="thumbs-down" size={50} color="red"  />
                             </TouchableOpacity>
@@ -124,6 +136,7 @@ const CameraScreen = () => {
                         }}>
                         <MaterialIcons name="filter" size={50} color="white" />
                     </TouchableOpacity>
+
                 </View>
             </View>
         </View>
