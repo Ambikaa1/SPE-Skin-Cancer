@@ -9,7 +9,6 @@ const CameraScreen = () => {
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [cameraRef, setCameraRef] = useState(null);
-    const [mediaPermission, setMediaPermission] = useState(null);
     const [image, setImage] = useState(null);
     const [ghostImage, setGhostImage] = useState(true);
     const [photoTaken, setPhotoTaken] = useState(false);
@@ -18,11 +17,6 @@ const CameraScreen = () => {
         (async () => {
             const { status } = await Camera.requestPermissionsAsync();
             setHasPermission(status === 'granted');
-            const { saveStatus } = await MediaLibrary.requestPermissionsAsync();
-            setMediaPermission( saveStatus === 'granted')
-            console.log(status)
-            console.log(saveStatus)
-            console.log(mediaPermission)
         })();
     }, []);
 
@@ -38,16 +32,17 @@ const CameraScreen = () => {
 
             <View style={styles.container}>
 
-                {/*If photo has not been taken then show the camera*/}
-                {!photoTaken && <Camera style={styles.camera} type={type}
-                        ref={ref => {setCameraRef(ref)}}>
-                </Camera>}
-
-                {/*If a photo has been taken then show the photo*/}
-                {photoTaken && <Image
-                    style = {styles.camera}
-                    source={{uri : image}}
-                />}
+                {!photoTaken ?
+                    <Camera
+                        style={styles.camera}
+                        type={type}
+                        ref={ref => {setCameraRef(ref)}}
+                    /> :
+                    <Image
+                        style = {styles.camera}
+                        source={{uri : image}}
+                    />
+                }
 
                 {ghostImage && <Image
                     style={styles.image}
@@ -55,28 +50,49 @@ const CameraScreen = () => {
                 />}
 
                 <View style={styles.cameraBar}>
-                    <TouchableOpacity
-                        onPress={() => {
-                            setType(
-                                type === Camera.Constants.Type.back
-                                    ? Camera.Constants.Type.front
-                                    : Camera.Constants.Type.back
-                            );
-                        }}>
-                        <MaterialCommunityIcons name="rotate-3d-variant" size={50} color="white" />
-                    </TouchableOpacity>
 
-                    <TouchableOpacity
-                        onPress={async() => {
-                            if (cameraRef) {
-                                let photo = await cameraRef.takePictureAsync();
-                                setImage(photo.uri);
-                                setPhotoTaken(true);
-                                console.log('photo taken', photo);
-                            }
-                        }}>
-                        <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
-                    </TouchableOpacity>
+                    {!photoTaken ?
+                        <TouchableOpacity
+                            onPress={() => {
+                                setType(
+                                    type === Camera.Constants.Type.back
+                                        ? Camera.Constants.Type.front
+                                        : Camera.Constants.Type.back
+                                );
+                            }}>
+                            <MaterialCommunityIcons name="rotate-3d-variant" size={50} color="white" />
+                        </TouchableOpacity> :
+                        <View>
+                            <TouchableOpacity>
+                                <Text style={styles.text}>Accept image</Text>
+                                <Feather name="thumbs-up" size={50} color="green"/>
+                            </TouchableOpacity>
+                        </View>
+                    }
+
+                    {!photoTaken ?
+                        <TouchableOpacity
+                            onPress={async() => {
+                                if (cameraRef) {
+                                    let photo = await cameraRef.takePictureAsync();
+                                    setImage(photo.uri);
+                                    setPhotoTaken(true);
+                                    console.log('photo taken', photo);
+                                }
+                            }}>
+                            <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
+                        </TouchableOpacity> :
+                        <View>
+                            <TouchableOpacity onPress={ () => {
+                                setPhotoTaken(false);
+                            }}>
+                                <Text style={styles.text}>Try again</Text>
+                                <Feather name="thumbs-down" size={50} color="red"  />
+                            </TouchableOpacity>
+                        </View>
+
+                    }
+
                     <TouchableOpacity
                         onPress={() => {
                             setGhostImage(prevCheck => !prevCheck);
@@ -85,6 +101,39 @@ const CameraScreen = () => {
                         <MaterialIcons name="filter" size={50} color="white" />
                     </TouchableOpacity>
                 </View>
+
+                {/*<View style={styles.cameraBar}>*/}
+                {/*    <TouchableOpacity*/}
+                {/*        onPress={() => {*/}
+                {/*            setType(*/}
+                {/*                type === Camera.Constants.Type.back*/}
+                {/*                    ? Camera.Constants.Type.front*/}
+                {/*                    : Camera.Constants.Type.back*/}
+                {/*            );*/}
+                {/*        }}>*/}
+                {/*        <MaterialCommunityIcons name="rotate-3d-variant" size={50} color="white" />*/}
+                {/*    </TouchableOpacity>*/}
+                {/*    */}
+                {/*    <TouchableOpacity*/}
+                {/*        onPress={async() => {*/}
+                {/*            if (cameraRef) {*/}
+                {/*                let photo = await cameraRef.takePictureAsync();*/}
+                {/*                setImage(photo.uri);*/}
+                {/*                setPhotoTaken(true);*/}
+                {/*                console.log('photo taken', photo);*/}
+                {/*            }*/}
+                {/*        }}>*/}
+                {/*        <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />*/}
+                {/*    </TouchableOpacity>*/}
+                {/*    */}
+                {/*    <TouchableOpacity*/}
+                {/*        onPress={() => {*/}
+                {/*            setGhostImage(prevCheck => !prevCheck);*/}
+                {/*            console.log('show ghost image =', ghostImage)*/}
+                {/*        }}>*/}
+                {/*        <MaterialIcons name="filter" size={50} color="white" />*/}
+                {/*    </TouchableOpacity>*/}
+                {/*</View>*/}
             </View>
         </View>
     );
@@ -127,7 +176,7 @@ const styles = StyleSheet.create({
     cameraBar:{
         backgroundColor: "#71A1D1",
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
     camera:{
         flex: 1,
@@ -145,6 +194,10 @@ const styles = StyleSheet.create({
         height: undefined,
         aspectRatio: 1.5,
         resizeMode: 'contain'
+    },
+    text: {
+        color: 'white',
+        fontSize: 20,
     },
 });
 
