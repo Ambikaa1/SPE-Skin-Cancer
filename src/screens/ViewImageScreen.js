@@ -37,8 +37,8 @@ const ViewImageScreen = () => {
 
 const styles = StyleSheet.create({
   Image: {
-    height: 500,
-    width: 300
+    height: 250,
+    width: 150
   }
 });
 
