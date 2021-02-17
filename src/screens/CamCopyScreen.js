@@ -66,7 +66,6 @@ const CameraScreen = () => {
                     onPress={async() => {
                         if (cameraRef) {
                             let photo = await cameraRef.takePictureAsync();
-                            // Check users permissions to accessing camera roll
                             console.log('photo taken', photo);
                             folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "near_shot")
                             if (!Boolean(folder.exists)) {
