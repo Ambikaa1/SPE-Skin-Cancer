@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, TouchableOpacity, Image, StyleSheet, Alert, Dimensions} from 'react-native';
 
 const Homunc4 = () => {
-    global.MyVar = "hello"
+    //global.MyVar = "hello"
     const [bodyPart, setBodyPart] = useState(null);
     // const onPress = () => Alert.alert("Mole area: " + bodyPart)
     const clickHandler = (e) => {

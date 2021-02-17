@@ -7,10 +7,8 @@ import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
 import {createStackNavigator} from "@react-navigation/stack";
-import Homunculous from "./src/screens/Homunculous";
-import Homunc2 from "./src/screens/Homunc2";
-import Homunc3 from "./src/screens/Homunc3";
 import Homunc4 from "./src/screens/Homunc4";
+import CloseHomunc from "./src/screens/CloseHomunc";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -24,6 +22,7 @@ const MyTabs = () => {
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
       <Tab.Screen name = "Send" component = {SendScreen} />
       <Tab.Screen name = ":(" component = {Homunc4} />
+      <Tab.Screen name = ":)" component = {CloseHomunc} />
     </Tab.Navigator>
   );
 };
