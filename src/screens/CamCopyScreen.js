@@ -66,7 +66,6 @@ const CameraScreen = () => {
                     onPress={async() => {
                         if (cameraRef) {
                             let photo = await cameraRef.takePictureAsync();
-                            // Check users permissions to accessing camera roll
                             console.log('photo taken', photo);
                             folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "near_shot")
                             if (!Boolean(folder.exists)) {
@@ -74,7 +73,7 @@ const CameraScreen = () => {
                             }
                             await FileSystem.moveAsync({
                                 from: photo.uri,
-                                to: FileSystem.documentDirectory + "near_shot/test.jpg"
+                                to: FileSystem.documentDirectory + "near_shot/" + Math.floor(Math.random() * 1000) + "jpg"
                             });
                             console.log('Photo saved');
                         }

@@ -1,13 +1,35 @@
-import React from "react";
-import {View, Text, StyleSheet, Image, TouchableOpacity} from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, StyleSheet, Image, FlatList } from "react-native";
 import * as FileSystem from 'expo-file-system';
 
 const ViewImageScreen = () => {
+  const [locations, setLocations] = useState();
+
+  const getFiles = async () => {
+    let files = await FileSystem.readDirectoryAsync(FileSystem.documentDirectory + "/near_shot");
+    setLocations(files)
+    console.log(files);
+  }
+
+  useEffect(() => {
+    getFiles()
+  }, []);
+
+  const displayImages = ({item}) => {
+    return(
+      <Image 
+        style = {styles.Image}
+        source = {{ uri: FileSystem.documentDirectory + "/near_shot/" + item }} 
+      />
+    );
+  };
+
   return (
     <View>
-      <Image
-        style = {styles.Image}
-        source = {{ uri: "file:///var/mobile/Containers/Data/Application/B6F3B8DD-AAC7-42FF-B4FA-368369425E9D/Documents/ExponentExperienceData/%2540anonymous%252Fapp-8345b4ac-2bbe-446b-9745-ddcdc28f1dbb/near_shot/test.jpg"}}
+      <FlatList 
+        data = {locations}
+        renderItem = {displayImages}
+        keyExtractor = {({item}) => Math.floor(Math.random() * 1000).toString()}
       />
     </View>
   );
@@ -15,8 +37,8 @@ const ViewImageScreen = () => {
 
 const styles = StyleSheet.create({
   Image: {
-    height: 500,
-    width: 300
+    height: 250,
+    width: 150
   }
 });
 
