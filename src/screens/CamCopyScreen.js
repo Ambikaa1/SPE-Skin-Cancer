@@ -74,7 +74,7 @@ const CameraScreen = () => {
                             }
                             await FileSystem.moveAsync({
                                 from: photo.uri,
-                                to: FileSystem.documentDirectory + "near_shot/test.jpg"
+                                to: FileSystem.documentDirectory + "near_shot/" + Math.floor(Math.random() * 1000) + "jpg"
                             });
                             console.log('Photo saved');
                         }
