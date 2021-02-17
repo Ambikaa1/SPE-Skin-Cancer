@@ -10,6 +10,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import Homunculous from "./src/screens/Homunculous";
 import Homunc2 from "./src/screens/Homunc2";
 import Homunc3 from "./src/screens/Homunc3";
+import Homunc4 from "./src/screens/Homunc4";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -22,9 +23,7 @@ const MyTabs = () => {
       <Tab.Screen name = "Camera" component = {CameraScreen} />
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
       <Tab.Screen name = "Send" component = {SendScreen} />
-      <Tab.Screen name = "GridView" component = {Homunc2} />
-      <Tab.Screen name = "Homunculous" component = {Homunculous} />
-      <Tab.Screen name = "Body" component = {Homunc3} />
+      <Tab.Screen name = ":(" component = {Homunc4} />
     </Tab.Navigator>
   );
 };
