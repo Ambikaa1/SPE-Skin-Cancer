@@ -29,7 +29,7 @@ const ViewImageScreen = () => {
       <FlatList 
         data = {locations}
         renderItem = {displayImages}
-        keyExtractor = {({item}) => item}
+        keyExtractor = {({item}) => Math.floor(Math.random() * 1000).toString()}
       />
     </View>
   );
