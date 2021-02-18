@@ -73,7 +73,7 @@ const CameraScreen = () => {
                             }
                             await FileSystem.moveAsync({
                                 from: photo.uri,
-                                to: FileSystem.documentDirectory + "near_shot/" + Math.floor(Math.random() * 1000)
+                                to: FileSystem.documentDirectory + "near_shot/" + Math.floor(Math.random() * 1000) + "jpg"
                             });
                             console.log('Photo saved');
                         }
@@ -130,5 +130,3 @@ const styles = StyleSheet.create({
 });
 
 export default CameraScreen;
-
-
