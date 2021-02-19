@@ -7,12 +7,10 @@ import InfoStack from "./src/screens/InfoListScreen";
 import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
-import {createStackNavigator} from "@react-navigation/stack";
-import Homunc4 from "./src/screens/Homunc4";
-import CloseHomunc from "./src/screens/CloseHomunc";
+import {BodyStackNavigator} from "./src/navigation/StackNavigator";
+
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
 
 const db = SQLite.openDatabase("6.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
@@ -27,8 +25,7 @@ const MyTabs = () => {
       <Tab.Screen name = "Camera" component = {CameraScreen} />
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
       <Tab.Screen name = "Send" component = {SendScreen} />
-      <Tab.Screen name = ":(" component = {Homunc4} />
-      <Tab.Screen name = ":)" component = {CloseHomunc} />
+      <Tab.Screen name = "Humunc" component = {BodyStackNavigator} />
     </Tab.Navigator>
   );
 };
@@ -62,9 +59,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <MyTabs />
-      {/*<Stack.Navigator initialRouteName="Home">*/}
-      {/*    <Stack.Screen name="Homunculous" component={Homunculous} />*/}
-      {/*</Stack.Navigator>*/}
     </NavigationContainer>
   );
 };
