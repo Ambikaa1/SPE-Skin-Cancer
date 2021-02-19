@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
-import HomunculusScreen from "./HomunculusScreen";
-import BodyPartScreen from "./BodyPartScreen"
-import CameraScreen from "./CameraScreen";
+import HomunculusScreen from "../screens/HomunculusScreen";
+import BodyPartScreen from "../screens/BodyPartScreen"
+import CameraScreen from "../screens/CameraScreen";
 
 const Stack = createStackNavigator();
 
@@ -19,14 +19,14 @@ const PhotoStack = () => {
         name = "Homunculus"
         component = {HomunculusScreen}
         options = {{
-          title: "Homunculus",
+          title: "Mole Location",
         }}
       />
       <Stack.Screen
         name = "BodyPart"
         component = {BodyPartScreen}
         options = {{
-          title: "Body Part",
+          title: "Mole Location",
         }}
       />
       <Stack.Screen

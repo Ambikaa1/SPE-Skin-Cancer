@@ -4,10 +4,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import * as SQLite from "expo-sqlite";
 import HomeStack from "./src/screens/HomeScreen";
 import InfoStack from "./src/screens/InfoListScreen";
-import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
-import PhotoStack from "./src/screens/PhotoScreen"
+import PhotoStack from "./src/navigation/PhotoStack"
 
 const Tab = createBottomTabNavigator();
 
@@ -21,10 +20,9 @@ const MyTabs = () => {
     <Tab.Navigator>
       <Tab.Screen name = "Home" component = {HomeStack} />
       <Tab.Screen name = "Info" component = {InfoStack} />
-      <Tab.Screen name = "Camera" component = {CameraScreen} />
+      <Tab.Screen name = "Photo" component = {PhotoStack} />
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
       <Tab.Screen name = "Send" component = {SendScreen} />
-      <Tab.Screen name = "Photo" component = {PhotoStack} />
     </Tab.Navigator>
   );
 };
