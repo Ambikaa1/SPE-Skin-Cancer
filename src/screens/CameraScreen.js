@@ -51,7 +51,6 @@ const CameraScreen = () => {
     return (
         <View style={styles.container}>
             {/*Top bar includes the back button and the help button.*/}
-            <ViewTopBar/>
 
             <View style={styles.container}>
                 {/*If the user has not taken a picture then the screen should display the camera,
@@ -189,23 +188,6 @@ const CameraScreen = () => {
                 </View>
             </View>
         </View>
-    );
-}
-
-const ViewTopBar = () => {
-    return (
-        <SafeAreaView style={styles.topRow}>
-            <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
-                <AntDesign name="arrowleft" size={35} color="black"/>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => {
-                Alert.alert('Now is the time to photograph the part of the body you selected.' +
-                    ' You can use the outline to line up your photograph.' +
-                    ' It is best if someone takes the photograph for you while you stay still.');
-            }}>
-                <AntDesign name="questioncircleo" size={35} color="black" />
-            </TouchableOpacity>
-        </SafeAreaView>
     );
 }
 

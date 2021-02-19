@@ -7,8 +7,7 @@ import InfoStack from "./src/screens/InfoListScreen";
 import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
-import {BodyStackNavigator} from "./src/navigation/StackNavigator";
-
+import PhotoStack from "./src/screens/PhotoScreen"
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +24,7 @@ const MyTabs = () => {
       <Tab.Screen name = "Camera" component = {CameraScreen} />
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
       <Tab.Screen name = "Send" component = {SendScreen} />
-      <Tab.Screen name = "Humunc" component = {BodyStackNavigator} />
+      <Tab.Screen name = "Photo" component = {PhotoStack} />
     </Tab.Navigator>
   );
 };

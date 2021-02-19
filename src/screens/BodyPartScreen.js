@@ -6,26 +6,24 @@ const clickHandler = (a) => {
     Alert.alert("Close up area: " + a)
 }
 
-
-
-const CloseHomunc = () => {
+const BodyPartScreen = ({ navigation }) => {
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <View style={{flex: 6, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
 
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("top of foot")}>
+                <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
                     <Image style={styles.feet} source={require('../../assets/TopFoot.png')}/>
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("middle of foot")}>
+                <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
                     <Image style={styles.feet} source={require('../../assets/MiddleFoot.png')}/>
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("bottom of foot")}>
+                <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
                     <Image style={styles.feet} source={require('../../assets/BottomFoot.png')}/>
                 </TouchableOpacity>
             </View>
@@ -54,4 +52,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CloseHomunc;
+export default BodyPartScreen;
