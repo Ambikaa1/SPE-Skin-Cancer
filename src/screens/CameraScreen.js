@@ -1,8 +1,9 @@
 import React, {useEffect, useState, Component} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, Image} from "react-native";
 import { Camera } from "expo-camera";
-import {AntDesign, MaterialCommunityIcons, MaterialIcons, Feather} from "@expo/vector-icons";
+import {AntDesign, MaterialCommunityIcons, MaterialIcons, Feather, FontAwesome, SimpleLineIcons} from "@expo/vector-icons";
 import Dialog from "react-native-dialog";
+
 
 const CameraScreen = () => {
 
@@ -12,6 +13,12 @@ const CameraScreen = () => {
     const [image, setImage] = useState(null);
     const [ghostImage, setGhostImage] = useState(true);
     const [photoTaken, setPhotoTaken] = useState(false);
+
+    //Drawing stuff
+    const [drawing, setDrawing] = useState(false);
+    const acceptImage = () => {
+        setDrawing(true);
+    }
 
     //Handling the dialogue box for when the user wants to re-take an image.
     const [visible, setVisible] = useState(false);
@@ -50,16 +57,27 @@ const CameraScreen = () => {
                 {/*If the user has not taken a picture then the screen should display the camera,
                 if the user has taken a picture then it should display the image so they can check
                 it is what they want.*/}
-                {!photoTaken ?
+                {!photoTaken && !drawing ?
                     <Camera
                         style={styles.camera}
                         type={type}
                         ref={ref => {setCameraRef(ref)}}
-                    /> :
-                    <Image
-                        style = {styles.camera}
-                        source={{uri : image}}
                     />
+
+                    : photoTaken && !drawing ?
+
+                        <Image
+                            style = {styles.camera}
+                            source={{uri : image}}
+                        />
+
+                        :
+
+                        <Image
+                            style = {styles.camera}
+                            source={{uri : image}}
+                        />
+
                 }
 
                 {/*Toggles the ghost image on and off when the user clicks the
@@ -89,7 +107,7 @@ const CameraScreen = () => {
                     able to accept or reject the image. These following conditionals change the
                     contents of the bottom bar to suit the needs to of the page.*/}
 
-                    {!photoTaken ?
+                    {!photoTaken && !drawing ?
                         <TouchableOpacity
                             onPress={() => {
                                 setType(
@@ -99,16 +117,29 @@ const CameraScreen = () => {
                                 );
                             }}>
                             <MaterialCommunityIcons name="rotate-3d-variant" size={50} color="white" />
-                        </TouchableOpacity> :
-                        <View>
-                            <TouchableOpacity>
-                                <Text style={styles.text}>Accept image</Text>
-                                <Feather name="thumbs-up" size={50} color="green"/>
-                            </TouchableOpacity>
-                        </View>
+                        </TouchableOpacity>
+
+                        : photoTaken && !drawing ?
+
+                            <View>
+                                <TouchableOpacity onPress={acceptImage}>
+                                    <Text style={styles.text}>Accept image</Text>
+                                    <Feather name="thumbs-up" size={50} color="green"/>
+                                </TouchableOpacity>
+                            </View>
+
+                            :
+
+                            <View>
+                                <TouchableOpacity>
+                                    <Text style={styles.text}>Draw</Text>
+                                    <FontAwesome name="paint-brush" size={48} color="white" />
+                                </TouchableOpacity>
+                            </View>
+
                     }
 
-                    {!photoTaken ?
+                    {!photoTaken && !drawing ?
                         <TouchableOpacity
                             onPress={async() => {
                                 if (cameraRef) {
@@ -119,13 +150,26 @@ const CameraScreen = () => {
                                 }
                             }}>
                             <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
-                        </TouchableOpacity> :
-                        <View>
-                            <TouchableOpacity onPress={showDialog}>
-                                <Text style={styles.text}>Try again</Text>
-                                <Feather name="thumbs-down" size={50} color="red"  />
-                            </TouchableOpacity>
-                        </View>
+                        </TouchableOpacity>
+
+                        : photoTaken && !drawing ?
+
+                            <View>
+                                <TouchableOpacity onPress={showDialog}>
+                                    <Text style={styles.text}>Try again</Text>
+                                    <Feather name="thumbs-down" size={50} color="red"  />
+                                </TouchableOpacity>
+                            </View>
+
+                            :
+
+                            <View>
+                                <TouchableOpacity>
+                                    <Text style={styles.text}>Clear</Text>
+                                    <MaterialCommunityIcons name="eraser" size={50} color="white" />
+                                </TouchableOpacity>
+                            </View>
+
 
                     }
 
@@ -134,7 +178,12 @@ const CameraScreen = () => {
                             setGhostImage(prevCheck => !prevCheck);
                             console.log('show ghost image =', ghostImage)
                         }}>
-                        <MaterialIcons name="filter" size={50} color="white" />
+                        {ghostImage ?
+                            <SimpleLineIcons name="ghost" size={50} color="white" />
+                            :
+                            <MaterialCommunityIcons name="ghost-off" size={50} color="white" />
+                        }
+
                     </TouchableOpacity>
 
                 </View>
