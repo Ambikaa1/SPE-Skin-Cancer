@@ -46,7 +46,7 @@ const CameraScreen = () => {
             </Camera>
             {ghostImage && <Image
                 style={styles.image}
-                source={require('./cute.jpg')}
+                source={require("../../assets/cute.jpg")}
             />}
             <View style={styles.cameraBar}>
                 <TouchableOpacity

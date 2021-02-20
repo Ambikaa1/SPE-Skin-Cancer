@@ -4,6 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomunculusScreen from "../screens/HomunculusScreen";
 import BodyPartScreen from "../screens/BodyPartScreen"
 import CameraScreen2 from "../screens/CameraScreen2";
+import CameraFarScreen from "../screens/CameraFarScreen"
+import CameraNearScreen from "../screens/CameraNearScreen"
+import ReviewFarScreen from "../screens/ReviewFarScreen";
+import ReviewNearScreen from "../screens/ReviewNearScreen";
 import ReviewPhotoScreen from "../screens/ReviewPhotoScreen"
 
 const Stack = createStackNavigator();
@@ -35,6 +39,34 @@ const PhotoStack = () => {
         component = {CameraScreen2}
         options = {{
           title: "Camera",
+        }}
+      />
+      <Stack.Screen
+        name = "CameraFar"
+        component = {CameraFarScreen}
+        options = {{
+          title: "Take Far Shot",
+        }}
+      />
+      <Stack.Screen
+        name = "CameraNear"
+        component = {CameraNearScreen}
+        options = {{
+          title: "Take Near Shot",
+        }}
+      />
+      <Stack.Screen
+        name = "ReviewFar"
+        component = {ReviewFarScreen}
+        options = {{
+          title: "Review Far Shot",
+        }}
+      />
+      <Stack.Screen
+        name = "ReviewNear"
+        component = {ReviewNearScreen}
+        options = {{
+          title: "Review Near Shot",
         }}
       />
       <Stack.Screen

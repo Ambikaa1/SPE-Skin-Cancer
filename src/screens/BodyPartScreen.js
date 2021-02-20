@@ -13,17 +13,17 @@ const BodyPartScreen = ({ navigation }) => {
 
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
+                <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
                     <Image style={styles.feet} source={require('../../assets/TopFoot.png')}/>
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
+                <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
                     <Image style={styles.feet} source={require('../../assets/MiddleFoot.png')}/>
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
+                <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
                     <Image style={styles.feet} source={require('../../assets/BottomFoot.png')}/>
                 </TouchableOpacity>
             </View>
