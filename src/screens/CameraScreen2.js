@@ -52,7 +52,7 @@ const CameraScreen2 = ({ navigation }) => {
           onPress = {async() => {
             if (cameraRef) {
                 let photo = await cameraRef.takePictureAsync();
-                navigation.navigate("ReviewPhoto", { photo: photo.uri })
+                navigation.push("ReviewPhoto", { photo: photo.uri })
                 // console.log('photo taken', photo);
             }
           }}>
