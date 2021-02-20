@@ -7,6 +7,7 @@ import CameraFarScreen from "../screens/CameraFarScreen"
 import CameraNearScreen from "../screens/CameraNearScreen"
 import ReviewFarScreen from "../screens/ReviewFarScreen";
 import ReviewNearScreen from "../screens/ReviewNearScreen";
+import MoleFormScreen from "../screens/MoleFormScreen";
 
 const Stack = createStackNavigator();
 
@@ -58,6 +59,13 @@ const PhotoStack = () => {
         component = {ReviewNearScreen}
         options = {{
           title: "Review Near Shot",
+        }}
+      />
+      <Stack.Screen
+        name = "MoleForm"
+        component = {MoleFormScreen}
+        options = {{
+          title: "Your Mole",
         }}
       />
     </Stack.Navigator>
