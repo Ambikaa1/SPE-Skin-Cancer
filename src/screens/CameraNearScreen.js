@@ -2,9 +2,9 @@ import React from "react"
 import { StyleSheet } from "react-native";
 import TakePhoto from "../components/TakePhoto"
 
-const CameraNearScreen = ({ navigation }) => {
+const CameraNearScreen = ({ navigation, route }) => {
   return(
-    <TakePhoto navigation = {navigation} nextScreen = "ReviewNear" />
+    <TakePhoto navigation = {navigation} nextScreen = "ReviewNear" uris = {route.params.uris} />
   );
 };
 

@@ -5,6 +5,7 @@ import { Ionicons, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icon
 const Review = ({ navigation, route, nextScreen }) => {
   const [drawing, setDrawing] = useState(false);
   const photo = route.params.photo
+  const uris = route.params.uris
 
   const acceptImage = () => {
     setDrawing(true);
@@ -28,11 +29,11 @@ const Review = ({ navigation, route, nextScreen }) => {
         {drawing
           ?
             <>
-              <TouchableOpacity style = {styles.optionButton} onPress = {() => navigation.navigate(nextScreen)}>
+              <TouchableOpacity style = {styles.optionButton} onPress = {() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
                 <FontAwesome name="paint-brush" size={48} color="white" />
                 <Text style = {styles.text}>Draw</Text>
               </TouchableOpacity>
-              <TouchableOpacity style = {styles.optionButton} onPress = {() => navigation.navigate(nextScreen)}>
+              <TouchableOpacity style = {styles.optionButton} onPress = {() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
                   <MaterialCommunityIcons name="eraser" size={50} color="white" />
                   <Text style = {styles.text}>Clear</Text>
               </TouchableOpacity>

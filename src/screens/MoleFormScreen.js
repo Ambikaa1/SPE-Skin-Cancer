@@ -1,7 +1,8 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-const MoleFormScreen = () => {
+const MoleFormScreen = ({ route }) => {
+  console.log(route.params.uris);
   return (
     <View>
       <Text>TEST</Text>
