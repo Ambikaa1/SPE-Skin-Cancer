@@ -4,7 +4,7 @@ import Review from "../components/Review"
 
 const ReviewNearScreen = ({ navigation, route }) => {
   return (
-    <Review navigation = {navigation} route = {route} nextScreen = "Camera" />
+    <Review navigation = {navigation} route = {route} nextScreen = "" />
   );
 };
 

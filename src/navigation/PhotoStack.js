@@ -1,14 +1,12 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import HomunculusScreen from "../screens/HomunculusScreen";
 import BodyPartScreen from "../screens/BodyPartScreen"
-import CameraScreen2 from "../screens/CameraScreen2";
 import CameraFarScreen from "../screens/CameraFarScreen"
 import CameraNearScreen from "../screens/CameraNearScreen"
 import ReviewFarScreen from "../screens/ReviewFarScreen";
 import ReviewNearScreen from "../screens/ReviewNearScreen";
-import ReviewPhotoScreen from "../screens/ReviewPhotoScreen"
 
 const Stack = createStackNavigator();
 
@@ -32,13 +30,6 @@ const PhotoStack = () => {
         component = {BodyPartScreen}
         options = {{
           title: "Mole Location",
-        }}
-      />
-      <Stack.Screen
-        name = "Camera"
-        component = {CameraScreen2}
-        options = {{
-          title: "Camera",
         }}
       />
       <Stack.Screen
@@ -67,13 +58,6 @@ const PhotoStack = () => {
         component = {ReviewNearScreen}
         options = {{
           title: "Review Near Shot",
-        }}
-      />
-      <Stack.Screen
-        name = "ReviewPhoto"
-        component = {ReviewPhotoScreen}
-        options = {{
-          title: "Review Photo",
         }}
       />
     </Stack.Navigator>
