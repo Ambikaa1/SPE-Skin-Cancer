@@ -3,7 +3,8 @@ import { Text, StyleSheet } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import HomunculusScreen from "../screens/HomunculusScreen";
 import BodyPartScreen from "../screens/BodyPartScreen"
-import CameraScreen from "../screens/CameraScreen";
+import CameraScreen2 from "../screens/CameraScreen2";
+import ReviewPhotoScreen from "../screens/ReviewPhotoScreen"
 
 const Stack = createStackNavigator();
 
@@ -31,9 +32,16 @@ const PhotoStack = () => {
       />
       <Stack.Screen
         name = "Camera"
-        component = {CameraScreen}
+        component = {CameraScreen2}
         options = {{
           title: "Camera",
+        }}
+      />
+      <Stack.Screen
+        name = "ReviewPhoto"
+        component = {ReviewPhotoScreen}
+        options = {{
+          title: "Review Photo",
         }}
       />
     </Stack.Navigator>

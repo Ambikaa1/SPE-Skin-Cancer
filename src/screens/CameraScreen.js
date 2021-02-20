@@ -49,10 +49,10 @@ const CameraScreen = () => {
         return <Text>No access to camera</Text>;
     }
     return (
-        <View style={styles.container}>
+        <View style = {styles.container}>
             {/*Top bar includes the back button and the help button.*/}
 
-            <View style={styles.container}>
+            <View style = {styles.container}>
                 {/*If the user has not taken a picture then the screen should display the camera,
                 if the user has taken a picture then it should display the image so they can check
                 it is what they want.*/}
@@ -198,8 +198,6 @@ const Review = (props) => {
         </View>
     );
 }
-
-
 
 const styles = StyleSheet.create({
     container:{
