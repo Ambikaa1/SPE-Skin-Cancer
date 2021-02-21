@@ -1,54 +1,95 @@
-import React from "react";
-import { View, Text, StyleSheet, SafeAreaView, Button, Alert, Image, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, Alert, Image, TouchableOpacity, FlatList } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 import { AntDesign, Feather } from '@expo/vector-icons';
+import * as SQLite from "expo-sqlite";
+import * as FileSystem from 'expo-file-system';
 
-
+const db = SQLite.openDatabase("app.db");
 
 const DiaryScreen = () => {
-  return (
-      <SafeAreaView>
-          <View>
-              <Text>
-              <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
-                  <AntDesign name="arrowleft" size={24} color="black" />
-              </TouchableOpacity>
-                  <TouchableOpacity onPress={() => Alert.alert('Help Pressed')}>
-                      <AntDesign name="questioncircleo" size={24} color="black" />
-                  </TouchableOpacity>
-              </Text>
-          </View>
+    const [entryIds, setEntryIds] = useState([]);
+    const isFocused = useIsFocused();
 
-          <Text style={styles.title}>Diary Page</Text>
-          <Text style={styles.subtitle}>Choose a mole to view pictures:</Text>
-          <View>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => Alert.alert('Mole 1 Pressed')}>
-                  <Text>
-                      <Text style={styles.buttonText}>Mole 1</Text>
-                      <Text>
-                          <Feather style={styles.imageContainer} name="image" size={24} color="black" />
-                      </Text>
-                  </Text>
-              </TouchableOpacity>
-              <Text>
+    const displayImages = ({ item }) => {
+        return(
+            <View style = {styles.nearFarShot}>
+                <Image 
+                    style = {styles.image}
+                    source = {{ uri: FileSystem.documentDirectory + "/far_shot/" + item }} 
+                />
+                <Image 
+                    style = {styles.image}
+                    source = {{ uri: FileSystem.documentDirectory + "/near_shot/" + item }} 
+                />
+            </View>
+        );
+    };
 
-              </Text>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => Alert.alert('Mole 2 Pressed')}>
-                  <Text>
-                      <Text style={styles.buttonText}>Mole 2</Text>
-                      <Text>
-                          <Feather style={styles.imageContainer} name="image" size={24} color="black" />
-                      </Text>
-                  </Text>
-              </TouchableOpacity>
-          </View>
-      </SafeAreaView>
-  );
+    const getIdsFromEntries = entries => {
+        let ids = [];
+        for (let i = 0; i < entries.length; i++) {
+            ids.push(entries[i].entry_id);
+        }
+        return ids;
+    }
+
+    useEffect(() => {
+        db.transaction(
+            tx => {
+                tx.executeSql("SELECT entry_id FROM mole_entry;", [], (_, { rows }) => setEntryIds(getIdsFromEntries(rows._array)));
+            }
+        );
+    }, [isFocused]);
+
+    return (
+        <View style = {styles.container}>
+            <View>
+                <Text>
+                <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
+                    <AntDesign name="arrowleft" size={24} color="black" />
+                </TouchableOpacity>
+                    <TouchableOpacity onPress={() => Alert.alert('Help Pressed')}>
+                        <AntDesign name="questioncircleo" size={24} color="black" />
+                    </TouchableOpacity>
+                </Text>
+            </View>
+
+            <Text style={styles.title}>Diary Page</Text>
+            <Text style={styles.subtitle}>Choose a mole to view pictures:</Text>
+            <View>
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => Alert.alert('Mole 1 Pressed')}>
+                    <Text>
+                        <Text style={styles.buttonText}>Mole 1</Text>
+                        <Text>
+                            <Feather style={styles.imageContainer} name="image" size={24} color="black" />
+                        </Text>
+                    </Text>
+                </TouchableOpacity>
+                <Text>
+
+                </Text>
+                <TouchableOpacity style={styles.buttonContainer} onPress={() => Alert.alert('Mole 2 Pressed')}>
+                    <Text>
+                        <Text style={styles.buttonText}>Mole 2</Text>
+                        <Text>
+                            <Feather style={styles.imageContainer} name="image" size={24} color="black" />
+                        </Text>
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <FlatList 
+                data = {entryIds}
+                renderItem = {displayImages}
+                keyExtractor = {({item}) => Math.floor(Math.random() * 1000).toString()}
+            />
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
     container: {
-        padding: 24,
-        backgroundColor: "#fff"
+        flex: 1
     },
     title: {
         marginTop: 16,
@@ -81,6 +122,13 @@ const styles = StyleSheet.create({
     imageContainer: {
         fontSize: 50,
         textAlign: 'right',
+    },
+    image: {
+        height: 200,
+        width: 100
+    },
+    nearFarShot: {
+        flexDirection: "row"
     }
 });
 

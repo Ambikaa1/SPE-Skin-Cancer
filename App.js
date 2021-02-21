@@ -1,31 +1,64 @@
 import React from "react"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from '@expo/vector-icons';
 import * as SQLite from "expo-sqlite";
 import HomeStack from "./src/screens/HomeScreen";
 import InfoStack from "./src/screens/InfoListScreen";
-import CameraScreen from "./src/screens/CameraScreen";
 import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
-import {BodyStackNavigator} from "./src/navigation/StackNavigator";
+import PhotoStack from "./src/navigation/PhotoStack"
 
-
-const Tab = createBottomTabNavigator();
-
-const db = SQLite.openDatabase("6.db")
+const db = SQLite.openDatabase("app.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
 
+const Tab = createBottomTabNavigator();
+
 const MyTabs = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            if (route.name === 'Home') {
+              iconName = focused
+                ? 'ios-home'
+                : 'ios-home-outline';
+            } else if (route.name === 'Info') {
+              iconName = focused 
+                ? 'information-circle'
+                : 'information-circle-outline';
+            } else if (route.name === "Photo") {
+              iconName = focused
+                ? 'camera'
+                : 'camera-outline'
+            } else if (route.name === "Diary") {
+              iconName = focused
+                ? 'ios-book'
+                : 'ios-book-outline'
+            } else if (route.name === "Send") {
+              iconName = focused
+                ? 'ios-send'
+                : 'ios-send-outline'
+            }
+            return <Ionicons name = {iconName} size = {size} color = {color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'white',
+          inactiveTintColor: 'white',
+          style: {
+            backgroundColor: "#71A1D1"
+          }
+        }}
+      >
       <Tab.Screen name = "Home" component = {HomeStack} />
       <Tab.Screen name = "Info" component = {InfoStack} />
-      <Tab.Screen name = "Camera" component = {CameraScreen} />
+      <Tab.Screen name = "Photo" component = {PhotoStack} />
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
       <Tab.Screen name = "Send" component = {SendScreen} />
-      <Tab.Screen name = "Humunc" component = {BodyStackNavigator} />
     </Tab.Navigator>
   );
 };
@@ -45,7 +78,7 @@ const App = () => {
       (t, error) => {console.log(error);}
     );
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS mole_entry (entry_id INTEGER PRIMARY KEY NOT NULL UNIQUE, date TEXT NOT NULL, far_shot_file TEXT NOT NULL, near_shot_file TEXT NOT NULL, mole_id INTEGER REFERENCES mole(mole_id) NOT NULL);",
+      "CREATE TABLE IF NOT EXISTS mole_entry (entry_id INTEGER PRIMARY KEY NOT NULL UNIQUE, date TEXT NOT NULL, mole_id INTEGER REFERENCES mole(mole_id) NOT NULL);",
       [],
       null,
       (t, error) => {console.log(error);}

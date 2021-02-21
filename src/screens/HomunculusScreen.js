@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Image, StyleSheet, Alert, Dimensions} from 'react-native';
 
-const Homunc4 = ({navigation}) => {
+const HomunculusScreen = ({ navigation }) => {
     //global.MyVar = "hello"
     const [bodyPart, setBodyPart] = useState(null);
     // const onPress = () => Alert.alert("Mole area: " + bodyPart)
@@ -13,72 +13,72 @@ const Homunc4 = ({navigation}) => {
         <View style={{flex: 1, flexDirection: 'column'}}>
             <View style={{width: Dimensions.get('window').width, height: 25, backgroundColor: 'white'}} />
             <View style={{flex: 0.8, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("head")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.tinyHead} source={require('../../assets/Head.png')}/>
                 </TouchableOpacity>
             </View>
             <View style={{flex: 0.25, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("neck")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.tinyNeck} source={require('../../assets/Neck.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("left upper arm ")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.upperArm} source={require('../../assets/RightUA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("upper body")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.upperBody} source={require('../../assets/UpperB.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("right upper arm")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.upperArm} source={require('../../assets/LeftUA.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flex: 0.8, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("left lower arm")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.lowerArm} source={require('../../assets/LeftLowerArm.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("lower body")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.lowerBody} source={require('../../assets/LowerBody.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("right lower arm")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.lowerArm} source={require('../../assets/RightLowerArm.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("left hand")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.hands} source={require('../../assets/LHand.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("left thigh")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.upperLeg} source={require('../../assets/LeftThigh.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("right thigh")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.upperLeg} source={require('../../assets/RightThigh.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("right hand")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.hands} source={require('../../assets/RHand.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flex: 0.4, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("left knee")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.knees} source={require('../../assets/LeftKnee.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("right knee")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.knees} source={require('../../assets/RightKnee.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("left lower leg")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.lowerLeg} source={require('../../assets/LeftLowerLeg.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("right lower leg")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.lowerLeg} source={require('../../assets/RightLowerLeg.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flex: 0.4, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("left foot")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.feet} source={require('../../assets/LeftFoot.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("RightFoot")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BodyPart")}>
                     <Image style={styles.feet} source={require('../../assets/RightFoot.png')} />
                 </TouchableOpacity>
             </View>
@@ -157,4 +157,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Homunc4;
+export default HomunculusScreen;
