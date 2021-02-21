@@ -1,12 +1,285 @@
 import React, {useEffect, useState, Component} from "react";
-import {View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, Image} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, Image,
+AppRegistry} from "react-native";
 import { Camera } from "expo-camera";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons, Feather, FontAwesome, SimpleLineIcons} from "@expo/vector-icons";
 import Dialog from "react-native-dialog";
+import PullToRefreshViewNativeComponent
+    from "react-native/Libraries/Components/RefreshControl/PullToRefreshViewNativeComponent";
+import {Button} from "react-native-web";
 
 
 const CameraScreen = () => {
 
+    const [hasPermission, setHasPermission] = useState(null);
+    const [photoTaken, setPhotoTaken] = useState(false);
+    const [image, setImage] = useState(null);
+    const [drawing, setDrawing] = useState(false);
+
+    const handleImageTaken = (newUri) => {
+        setImage(newUri);
+        setPhotoTaken(true);
+    }
+
+    const handlePictureDeleted = () => {
+        setPhotoTaken(false);
+    }
+
+    const handlePictureAccepted = () => {
+        setDrawing(true);
+    }
+
+
+    //Request the users permission to access their camera
+    useEffect(() => {
+        (async () => {
+            const { status } = await Camera.requestPermissionsAsync();
+            setHasPermission(status === 'granted');
+        })();
+    }, []);
+
+    if (hasPermission === null) {
+        return <View />;
+    }
+    if (hasPermission === false) {
+        return <Text>No access to camera</Text>;
+    }
+
+    return (
+      <View style={styles.container}>
+          {/*Top bar includes the back button and the help button.*/}
+          <ViewTopBar/>
+
+          {/*The camera screen will show if no picture has been taken and the user is not drawing.*/}
+          {!photoTaken && !drawing ?
+              <TakePhotoScreen
+                  CallbackPhotoTaken = {handleImageTaken}
+              />
+
+              : photoTaken && !drawing ?
+
+                  <PreviewPhotoScreen
+                      photoURI = {image}
+                      CallbackDeletePhoto={handlePictureDeleted}
+                      CallbackAcceptPhoto={handlePictureAccepted}
+                  />
+
+                  :
+
+                  <DrawingScreen
+                    photoURI = {image}
+                  />
+
+          }
+
+      </View>
+    );
+
+
+}
+
+const DrawingScreen = (props) => {
+    console.log("Drawing on a photo");
+    return(
+
+        <View style={styles.container}>
+
+            <Image
+                style = {styles.camera}
+                source={{uri : props.photoURI}}
+            />
+
+            <View style={styles.cameraBar}>
+                {/*Paintbrush button*/}
+                <TouchableOpacity>
+                    <Text style={styles.text}>Draw</Text>
+                    <FontAwesome name="paint-brush" size={48} color="white" />
+                </TouchableOpacity>
+
+                {/*Clear button*/}
+                <TouchableOpacity>
+                    <Text style={styles.text}>Clear</Text>
+                    <MaterialCommunityIcons name="eraser" size={50} color="white" />
+                </TouchableOpacity>
+            </View>
+
+        </View>
+
+
+    );
+
+}
+
+const PreviewPhotoScreen = (props) => {
+
+    /*If the user has taken a picture they want to be able to accept or reject the image.
+    These following conditionals change the contents of the bottom bar to suit the needs of the page.
+    Ghost image functionality remains the same.
+    */
+    console.log("Previewing a photo");
+    const [ghostImage, setGhostImage] = useState(true);
+
+    //Dialogue box stuff for the when the user rejects an image.
+    const [visible, setVisible] = useState(false);
+    const handleCancel = () => {
+        setVisible(false);
+    };
+    const handleDelete = () => {
+        props.CallbackDeletePhoto()
+        setVisible(false);
+
+    };
+    const showDialog = () => {
+        setVisible(true);
+    }
+
+    return(
+      <View style={styles.container}>
+
+          <Image
+              style = {styles.camera}
+              source={{uri : props.photoURI}}
+          />
+
+          {ghostImage && <Image
+              style={styles.image}
+              source={require('./cute.jpg')}
+          />}
+
+          {/*This dialogue box shows if the user is on the image preview screen and
+                have chosen to re-take the image rather than save it.*/}
+          {visible &&
+              <Dialog.Container visible={visible}>
+                  <Dialog.Title>Do you want to delete this image?</Dialog.Title>
+                  <Dialog.Description>
+                      You cannot undo this action.
+                  </Dialog.Description>
+                  <Dialog.Button label={"Cancel"} onPress={handleCancel}/>
+                  <Dialog.Button label={"Delete"} onPress={handleDelete}/>
+              </Dialog.Container>
+          }
+
+          <View style={styles.cameraBar}>
+
+              {/*Accept image button*/}
+              <TouchableOpacity onPress={props.CallbackAcceptPhoto}>
+                  <Text style={styles.text}>Accept image</Text>
+                  <Feather name="thumbs-up" size={50} color="green"/>
+              </TouchableOpacity>
+
+              {/*Reject image button*/}
+              <TouchableOpacity onPress={showDialog}>
+                  <Text style={styles.text}>Try again</Text>
+                  <Feather name="thumbs-down" size={50} color="red"  />
+              </TouchableOpacity>
+
+              {/*Ghost image button*/}
+              <TouchableOpacity
+                  onPress={() => {
+                      setGhostImage(prevCheck => !prevCheck);
+                      console.log('show ghost image =', ghostImage)
+                  }}>
+                  {ghostImage ?
+                      <SimpleLineIcons name="ghost" size={50} color="white" />
+                      :
+                      <MaterialCommunityIcons name="ghost-off" size={50} color="white" />
+                  }
+              </TouchableOpacity>
+          </View>
+      </View>
+    );
+
+}
+
+const TakePhotoScreen = (props) => {
+    //CAMERA SCREEN
+    console.log("Taking a photo");
+    const [cameraRef, setCameraRef] = useState(null);
+    const [ghostImage, setGhostImage] = useState(true);
+    const [type, setType] = useState(Camera.Constants.Type.back);
+
+    const ChangeCameraFace = () => {
+        setType(
+            type === Camera.Constants.Type.back
+                ? Camera.Constants.Type.front
+                : Camera.Constants.Type.back
+        );
+    }
+
+    const TakePhoto = async() => {
+        if (cameraRef) {
+            let photo = await cameraRef.takePictureAsync();
+            props.CallbackPhotoTaken(photo.uri);
+            console.log('photo taken', photo);
+        }
+    }
+
+    const ToggleGhostImage = () => {
+        setGhostImage(prevCheck => !prevCheck);
+        console.log('show ghost image =', ghostImage)
+    }
+
+    return(
+      <View style={styles.container}>
+
+          <Camera
+              style={styles.camera}
+              type={type}
+              ref={ref => {setCameraRef(ref)}}
+          />
+
+          {/*Toggles the ghost image on and off when the user clicks the ghost image button.*/}
+          {ghostImage && <Image
+              style={styles.image}
+              source={require('./cute.jpg')}
+          />}
+
+          <View style={styles.cameraBar}>
+
+              {/*Camera flip button*/}
+              <TouchableOpacity onPress={ChangeCameraFace}>
+                  <MaterialCommunityIcons name="rotate-3d-variant" size={50} color="white" />
+              </TouchableOpacity>
+
+              {/*Take picture button*/}
+              <TouchableOpacity onPress={TakePhoto}>
+                <MaterialCommunityIcons name="circle-slice-8" size={70} color="white" />
+              </TouchableOpacity>
+
+              {/*Ghost image button*/}
+              <TouchableOpacity onPress={ToggleGhostImage}>
+                  {ghostImage ?
+                      <SimpleLineIcons name="ghost" size={50} color="white" />
+                      :
+                      <MaterialCommunityIcons name="ghost-off" size={50} color="white" />
+                  }
+              </TouchableOpacity>
+
+
+          </View>
+
+      </View>
+    );
+}
+
+const ViewTopBar = () => {
+    return (
+        <SafeAreaView style={styles.topRow}>
+            <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
+                <AntDesign name="arrowleft" size={35} color="black"/>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                Alert.alert('Now is the time to photograph the part of the body you selected.' +
+                    ' You can use the outline to line up your photograph.' +
+                    ' It is best if someone takes the photograph for you while you stay still.');
+            }}>
+                <AntDesign name="questioncircleo" size={35} color="black" />
+            </TouchableOpacity>
+        </SafeAreaView>
+    );
+}
+
+const CameraScreenOG = () => {
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [cameraRef, setCameraRef] = useState(null);
@@ -100,7 +373,7 @@ const CameraScreen = () => {
                         </Dialog.Container>
                 }
 
-                <View style={styles.cameraBar}>
+                    <View style={styles.cameraBar}>
 
                     {/*If the user has not take a picture then the need to see the buttons related
                     to the camera functionality. If the have taken a picture they want to be
@@ -191,33 +464,6 @@ const CameraScreen = () => {
         </View>
     );
 }
-
-const ViewTopBar = () => {
-    return (
-        <SafeAreaView style={styles.topRow}>
-            <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
-                <AntDesign name="arrowleft" size={35} color="black"/>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => {
-                Alert.alert('Now is the time to photograph the part of the body you selected.' +
-                    ' You can use the outline to line up your photograph.' +
-                    ' It is best if someone takes the photograph for you while you stay still.');
-            }}>
-                <AntDesign name="questioncircleo" size={35} color="black" />
-            </TouchableOpacity>
-        </SafeAreaView>
-    );
-}
-
-const Review = (props) => {
-    return (
-        <View>
-            <Image source={{ uri: props.picture }} style={{ width: 200, height: 200 }}/>
-        </View>
-    );
-}
-
-
 
 const styles = StyleSheet.create({
     container:{
