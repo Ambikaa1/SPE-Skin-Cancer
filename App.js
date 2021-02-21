@@ -9,7 +9,7 @@ import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
 import PhotoStack from "./src/navigation/PhotoStack"
 
-const db = SQLite.openDatabase("7.db")
+const db = SQLite.openDatabase("app.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
