@@ -4,9 +4,6 @@ AppRegistry} from "react-native";
 import { Camera } from "expo-camera";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons, Feather, FontAwesome, SimpleLineIcons} from "@expo/vector-icons";
 import Dialog from "react-native-dialog";
-import PullToRefreshViewNativeComponent
-    from "react-native/Libraries/Components/RefreshControl/PullToRefreshViewNativeComponent";
-import {Button} from "react-native-web";
 
 
 const CameraScreen = () => {
@@ -48,7 +45,10 @@ const CameraScreen = () => {
     return (
       <View style={styles.container}>
           {/*Top bar includes the back button and the help button.*/}
-          <ViewTopBar/>
+          <ViewTopBar
+              photoTaken = {photoTaken}
+              drawing = {drawing}
+          />
 
           {/*The camera screen will show if no picture has been taken and the user is not drawing.*/}
           {!photoTaken && !drawing ?
@@ -79,7 +79,6 @@ const CameraScreen = () => {
 }
 
 const DrawingScreen = (props) => {
-    console.log("Drawing on a photo");
     return(
 
         <View style={styles.container}>
@@ -101,6 +100,12 @@ const DrawingScreen = (props) => {
                     <Text style={styles.text}>Clear</Text>
                     <MaterialCommunityIcons name="eraser" size={50} color="white" />
                 </TouchableOpacity>
+
+                {/*Accept Button*/}
+                <TouchableOpacity onPress={props.CallbackAcceptPhoto}>
+                    <Text style={styles.text}>Accept</Text>
+                    <Feather name="thumbs-up" size={50} color="green"/>
+                </TouchableOpacity>
             </View>
 
         </View>
@@ -116,7 +121,6 @@ const PreviewPhotoScreen = (props) => {
     These following conditionals change the contents of the bottom bar to suit the needs of the page.
     Ghost image functionality remains the same.
     */
-    console.log("Previewing a photo");
     const [ghostImage, setGhostImage] = useState(true);
 
     //Dialogue box stuff for the when the user rejects an image.
@@ -193,7 +197,6 @@ const PreviewPhotoScreen = (props) => {
 
 const TakePhotoScreen = (props) => {
     //CAMERA SCREEN
-    console.log("Taking a photo");
     const [cameraRef, setCameraRef] = useState(null);
     const [ghostImage, setGhostImage] = useState(true);
     const [type, setType] = useState(Camera.Constants.Type.back);
@@ -262,16 +265,46 @@ const TakePhotoScreen = (props) => {
     );
 }
 
-const ViewTopBar = () => {
+const ViewTopBar = (props) => {
+    const CameraHelp = () => {
+        return(
+            Alert.alert('Now is the time to photograph the part of the body you selected.' +
+                ' You can use the outline to line up your photograph.' +
+                ' It is best if someone takes the photograph for you whilst you stay still.'+
+                '\n\nTips:\n-Natural light is best\n-Green or blue background\n-No shadows or'+
+                ' make-up\n-Have the camera square on and steady')
+        );
+    }
+
+    const PreviewHelp = () => {
+        return(
+            Alert.alert('It is important to check that this image is a reliable photo of your mole.'+
+            '\nUse the ghost image to ensure that it is a similar distance from the camera as your'+
+            ' previous pictures.\nYou can reject this image and take another, or accept it and proceed.')
+        );
+    }
+
+    const DrawingHelp = () => {
+        return(
+            Alert.alert('For the far shot picture it is important to circle the specific mole you'+
+            ' are documenting. This helps ensure that anyone you show the image to knows what mole'+
+            ' is being discussed.\n\nTo start drawing, press on the paintbrush and use your finger'+
+                ' to draw around the mole.\nTo clear drawings press the rubber.'+
+            '\n\nOnce you are happy with your circle, press the accept button'+
+            ' to proceed.')
+        );
+    }
+
     return (
         <SafeAreaView style={styles.topRow}>
-            <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
-                <AntDesign name="arrowleft" size={35} color="black"/>
-            </TouchableOpacity>
             <TouchableOpacity onPress={() => {
-                Alert.alert('Now is the time to photograph the part of the body you selected.' +
-                    ' You can use the outline to line up your photograph.' +
-                    ' It is best if someone takes the photograph for you while you stay still.');
+                {!props.photoTaken && !props.drawing ?
+                    CameraHelp()
+                    : props.photoTaken && !props.drawing ?
+                        PreviewHelp()
+                        :
+                            DrawingHelp()
+                }
             }}>
                 <AntDesign name="questioncircleo" size={35} color="black" />
             </TouchableOpacity>
