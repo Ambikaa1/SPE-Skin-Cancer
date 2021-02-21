@@ -5,8 +5,6 @@ import SearchBar from "../components/SearchBar";
 import InfoItem from "../components/InfoItem";
 import InfoScreen from "./InfoScreen";
 import StorageScreen from "./StorageScreen";
-import CamCopyScreen from "./CamCopyScreen";
-import ViewImageScreen from "./ViewImageScreen";
 
 // This is temporary
 const data = [{title: "What is skin cancer?", children: [{title: "The common types of skin cancer", children: [{title: "Basal cell carcinoma"}, {title: "Squamous cell carcinoma"}, {title: "Malignant melanoma"}]}, {title: "How skin cancers are triggered"}, {title: "What skin cancer looks like"}, {title: "Treatments for skin cancer"}]},{title: "How do I monitor my moles?",},{title: "What is the charity SCaRF?",},{title: "How do I donate?",}]
@@ -49,12 +47,6 @@ const InfoListScreen = ({ navigation, route }) => {
       <TouchableOpacity onPress = {() => navigation.navigate("StorageScreen")}>
         <InfoItem name = {"STORAGE"}/>
       </TouchableOpacity>
-      <TouchableOpacity onPress = {() => navigation.navigate("CamCopyScreen")}>
-        <InfoItem name = {"CAMERA"}/>
-      </TouchableOpacity>
-      <TouchableOpacity onPress = {() => navigation.navigate("ViewImageScreen")}>
-        <InfoItem name = {"IMAGE"}/>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -86,14 +78,6 @@ const InfoStack = () => {
       <Stack.Screen
         name = "StorageScreen"
         component = {StorageScreen}
-      />
-      <Stack.Screen
-        name = "CamCopyScreen"
-        component = {CamCopyScreen}
-      />
-      <Stack.Screen
-        name = "ViewImageScreen"
-        component = {ViewImageScreen}
       />
     </Stack.Navigator>
   );
