@@ -19,33 +19,6 @@ const Tab = createBottomTabNavigator();
 const MyTabs = () => {
   return (
     <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-            if (route.name === 'Home') {
-              iconName = focused
-                ? 'ios-home'
-                : 'ios-home-outline';
-            } else if (route.name === 'Info') {
-              iconName = focused 
-                ? 'information-circle'
-                : 'information-circle-outline';
-            } else if (route.name === "Photo") {
-              iconName = focused
-                ? 'camera'
-                : 'camera-outline'
-            } else if (route.name === "Diary") {
-              iconName = focused
-                ? 'ios-book'
-                : 'ios-book-outline'
-            } else if (route.name === "Send") {
-              iconName = focused
-                ? 'ios-send'
-                : 'ios-send-outline'
-            }
-            return <Ionicons name = {iconName} size = {size} color = {color} />;
-          },
-        })}
         tabBarOptions={{
           activeTintColor: 'white',
           inactiveTintColor: 'white',
