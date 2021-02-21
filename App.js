@@ -9,7 +9,7 @@ import DiaryScreen from "./src/screens/DiaryScreen";
 import SendScreen from "./src/screens/SendScreen";
 import PhotoStack from "./src/navigation/PhotoStack"
 
-const db = SQLite.openDatabase("6.db")
+const db = SQLite.openDatabase("7.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
@@ -78,7 +78,7 @@ const App = () => {
       (t, error) => {console.log(error);}
     );
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS mole_entry (entry_id INTEGER PRIMARY KEY NOT NULL UNIQUE, date TEXT NOT NULL, far_shot_file TEXT NOT NULL, near_shot_file TEXT NOT NULL, mole_id INTEGER REFERENCES mole(mole_id) NOT NULL);",
+      "CREATE TABLE IF NOT EXISTS mole_entry (entry_id INTEGER PRIMARY KEY NOT NULL UNIQUE, date TEXT NOT NULL, mole_id INTEGER REFERENCES mole(mole_id) NOT NULL);",
       [],
       null,
       (t, error) => {console.log(error);}

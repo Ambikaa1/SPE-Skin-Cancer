@@ -1,9 +1,53 @@
 import React, { useState } from "react";
 import { Text, Image, View, StyleSheet, TextInput, Dimensions, TouchableOpacity } from "react-native";
+import * as SQLite from "expo-sqlite";
+import * as FileSystem from 'expo-file-system';
 
-const MoleFormScreen = ({ route }) => {
+const db = SQLite.openDatabase("7.db");
+
+const MoleFormScreen = ({ navigation, route }) => {
   const uris = route.params.uris;
+  const date = new Date()
   const [name, setName] = useState(null);
+
+  const savePhoto = async (uri, folderName, id) => {
+    console.log(uri);
+    console.log(folderName);
+    console.log(id);
+    let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + folderName);
+    if (!Boolean(folder.exists)) {
+      await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + folderName + "/");
+    }
+    await FileSystem.moveAsync({
+      from: uri,
+      to: FileSystem.documentDirectory + folderName + "/" + id
+    });
+    console.log("Photo saved")
+  };
+
+  const addToDatabase = () => {
+    db.transaction(
+      tx => {
+        tx.executeSql(
+          "INSERT INTO mole (name, sub_body_part) values (?, 'toes_left_foot');",
+          [name],
+          (t, result) => {
+            tx.executeSql(
+              "INSERT INTO mole_entry (date, mole_id) values (?, ?);",
+              [date, result.insertId],
+              (t, result2) => {
+                savePhoto(uris[0], "far_shot", result2.insertId);
+                savePhoto(uris[1], "near_shot", result2.insertId)
+              },
+              (t, error) => {console.log(error);}
+            );
+          },
+          (t, error) => {console.log(error);}
+        );
+      },
+    );
+    navigation.navigate("Homunculus");
+  };
 
   return (
     <View style = {styles.container}>
@@ -29,7 +73,7 @@ const MoleFormScreen = ({ route }) => {
           <Text style = {styles.caption}>Near Shot</Text>
         </View>
       </View>
-      <TouchableOpacity style = {styles.doneBox}>
+      <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
         <Text style = {styles.doneText}>Done</Text>
       </TouchableOpacity>
     </View>
