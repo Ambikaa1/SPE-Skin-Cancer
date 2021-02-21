@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, TouchableOpacity, Image, StyleSheet, Alert, Dimensions} from 'react-native';
 
-const Homunc4 = () => {
+const Homunc4 = ({navigation}) => {
     //global.MyVar = "hello"
     const [bodyPart, setBodyPart] = useState(null);
     // const onPress = () => Alert.alert("Mole area: " + bodyPart)
@@ -78,7 +78,7 @@ const Homunc4 = () => {
                 <TouchableOpacity onPress={() => clickHandler("left foot")}>
                     <Image style={styles.feet} source={require('../../assets/LeftFoot.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("right foot")}>
+                <TouchableOpacity onPress={() => navigation.navigate("RightFoot")}>
                     <Image style={styles.feet} source={require('../../assets/RightFoot.png')} />
                 </TouchableOpacity>
             </View>
