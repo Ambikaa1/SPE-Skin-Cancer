@@ -1,6 +1,6 @@
-import React, {useEffect, useState, Component} from "react";
+import React, {useEffect, useState, useRef, Component} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Alert, SafeAreaView, Image,
-AppRegistry} from "react-native";
+AppRegistry, PanResponder, Animated} from "react-native";
 import { Camera } from "expo-camera";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons, Feather, FontAwesome, SimpleLineIcons} from "@expo/vector-icons";
 import Dialog from "react-native-dialog";
@@ -79,6 +79,30 @@ const CameraScreen = () => {
 }
 
 const DrawingScreen = (props) => {
+    const pan = useRef(new Animated.ValueXY()).current;
+
+    const panResponder = useRef(
+        PanResponder.create({
+            onMoveShouldSetPanResponder: () => true,
+            onPanResponderGrant: () => {
+                pan.setOffset({
+                    x: pan.x._value,
+                    y: pan.y._value
+                });
+            },
+            onPanResponderMove: Animated.event(
+                [
+                    null,
+                    { dx: pan.x, dy: pan.y }
+                ],
+                {useNativeDriver: false}
+            ),
+            onPanResponderRelease: () => {
+                pan.flattenOffset();
+            }
+        })
+    ).current;
+
     return(
 
         <View style={styles.container}>
@@ -107,6 +131,17 @@ const DrawingScreen = (props) => {
                     <Feather name="thumbs-up" size={50} color="green"/>
                 </TouchableOpacity>
             </View>
+
+
+            <Animated.View
+                style={{
+                    position: 'absolute',
+                    transform: [{ translateX: pan.x }, { translateY: pan.y }]
+                }}
+                {...panResponder.panHandlers}
+            >
+                <View style={styles.circle} />
+            </Animated.View>
 
         </View>
 
@@ -541,6 +576,16 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+
+    circle :{
+        height: 100,
+        width: 100,
+        borderRadius: 50,
+        backgroundColor: 'transparent',
+        borderStyle : 'solid',
+        borderColor : 'red',
+        borderWidth : 5,
+    }
 });
 
 export default CameraScreen;
