@@ -1,9 +1,34 @@
-import React, { useState } from "react";
-import { View, Text,Image, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import React, {useRef, useState} from "react";
+import {View, Text, Image, TouchableOpacity, StyleSheet, Alert, Animated, PanResponder} from "react-native";
 import { Ionicons, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
 
 const Review = ({ navigation, route, nextScreen }) => {
   const [drawing, setDrawing] = useState(false);
+  const pan = useRef(new Animated.ValueXY()).current;
+
+  const panResponder = useRef(
+      PanResponder.create({
+        onMoveShouldSetPanResponder: () => true,
+        onPanResponderGrant: () => {
+          pan.setOffset({
+            x: pan.x._value,
+            y: pan.y._value
+          });
+        },
+        onPanResponderMove: Animated.event(
+            [
+              null,
+              { dx: pan.x, dy: pan.y }
+            ],
+            {useNativeDriver: false}
+        ),
+        onPanResponderRelease: () => {
+          pan.flattenOffset();
+        }
+      })
+  ).current;
+
+
   const photo = route.params.photo
   const uris = route.params.uris
 
@@ -13,18 +38,29 @@ const Review = ({ navigation, route, nextScreen }) => {
 
   const rejectImage = () => {
     Alert.alert(
-      "Do you want to delete this image?", 
+      "Do you want to delete this image?",
       "You cannot undo this action.",
       [{text: "Cancel", style: "cancel"}, {text: "Delete", onPress: () => navigation.goBack()}],
     );
   };
-  
+
   return (
     <View style = {styles.container}>
       <Image
         style = { styles.camera }
         source = {{ uri: photo }}
       />
+
+      {drawing &&  <Animated.View
+          style={{
+            position: 'absolute',
+            transform: [{ translateX: pan.x }, { translateY: pan.y }]
+          }}
+          {...panResponder.panHandlers}
+      >
+        <View style={styles.circle} />
+      </Animated.View>}
+
       <View style = { styles.cameraBar }>
         {drawing
           ?
@@ -82,7 +118,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginHorizontal: 10
-  }
+  },
+  circle :{
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+    backgroundColor: 'transparent',
+    borderStyle : 'solid',
+    borderColor : 'red',
+    borderWidth : 5,
+  },
 });
 
 export default Review;
