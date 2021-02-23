@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Alert, Image, TouchableOpacity, FlatList } from "react-native";
-import { useIsFocused } from "@react-navigation/native";
 import { AntDesign, Feather } from '@expo/vector-icons';
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
@@ -9,7 +8,7 @@ const db = SQLite.openDatabase("app.db");
 
 const DiaryScreen = () => {
     const [entryIds, setEntryIds] = useState([]);
-    const isFocused = useIsFocused();
+    const [refresh, setRefresh] = useState(0);
 
     const displayImages = ({ item }) => {
         return(
@@ -40,7 +39,7 @@ const DiaryScreen = () => {
                 tx.executeSql("SELECT entry_id FROM mole_entry;", [], (_, { rows }) => setEntryIds(getIdsFromEntries(rows._array)));
             }
         );
-    }, [isFocused]);
+    }, [refresh]);
 
     return (
         <View style = {styles.container}>
@@ -78,6 +77,9 @@ const DiaryScreen = () => {
                     </Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity onPress = {() => setRefresh(refresh + 1)}>
+                <Text style = {{ fontSize: 30 }}>Refresh</Text>
+            </TouchableOpacity>
             <FlatList 
                 data = {entryIds}
                 renderItem = {displayImages}
