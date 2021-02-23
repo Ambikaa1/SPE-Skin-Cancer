@@ -4,7 +4,11 @@ import { Ionicons, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icon
 
 const Review = ({ navigation, route, nextScreen }) => {
   const [drawing, setDrawing] = useState(false);
+
   const pan = useRef(new Animated.ValueXY()).current;
+  const [maxX, setMaxX] = useState(0)
+  const [maxY, setMaxY] = useState(0)
+
 
   const panResponder = useRef(
       PanResponder.create({
@@ -28,6 +32,12 @@ const Review = ({ navigation, route, nextScreen }) => {
       })
   ).current;
 
+  //Might need to floor these values, apparently can cause issues on Android
+  const getDimensions = ({nativeEvent}) => {
+    setMaxX(nativeEvent.layout.width);
+    setMaxY(nativeEvent.layout.height);
+  }
+
 
   const photo = route.params.photo
   const uris = route.params.uris
@@ -46,6 +56,10 @@ const Review = ({ navigation, route, nextScreen }) => {
 
   return (
     <View style = {styles.container}>
+
+      <View style = {styles.camera}
+            onLayout = {getDimensions}
+      >
       <Image
         style = { styles.camera }
         source = {{ uri: photo }}
@@ -60,6 +74,8 @@ const Review = ({ navigation, route, nextScreen }) => {
       >
         <View style={styles.circle} />
       </Animated.View>}
+      </View>
+
 
       <View style = { styles.cameraBar }>
         {drawing
