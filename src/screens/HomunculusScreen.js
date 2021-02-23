@@ -2,16 +2,14 @@ import React, {useState} from 'react';
 import {View, TouchableOpacity, Image, StyleSheet, Alert, Dimensions} from 'react-native';
 
 const HomunculusScreen = ({ navigation }) => {
-    //global.MyVar = "hello"
     const [bodyPart, setBodyPart] = useState(null);
     // const onPress = () => Alert.alert("Mole area: " + bodyPart)
-    const clickHandler = (e) => {
+    const clickHandler = (bodyPart) => {
         //setBodyPart(e)
-        console.log(e, "homunc log")
-        //console.log(setBodyPart)
-        navigation.navigate("BodyPart", {paramKey: e})
-        //Alert.alert("Mole area: " + e)
+        console.log(bodyPart, "homunc log")
+        navigation.navigate("BodyPart", {paramKey: bodyPart})
     }
+
     return (
         <View style={{flex: 1, flexDirection: 'column'}}>
             {/*<View style={{width: Dimensions.get('window').width, height: 25, backgroundColor: 'white'}} />*/}
@@ -27,7 +25,6 @@ const HomunculusScreen = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
 
-            {/*<TouchableOpacity onPress={() => clickHandler("right upper arm")}>*/}
             <View style={{flex: 0.8, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
                 <TouchableOpacity onPress={() => clickHandler("Left Upper Arm")}>
                     <Image style={styles.upperArm} source={require('../../assets/RightUA.png')} />

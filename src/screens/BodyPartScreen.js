@@ -1,37 +1,37 @@
 import React from 'react';
 import {Image, StyleSheet, View, Text, Button} from 'react-native';
 
-const checkSwitch = (m) => {
-    switch(m) {
+const checkSwitch = (bodyPart) => {
+    switch(bodyPart) {
         case 'Head':
             return (<Image style={styles.feet} source={require('../../assets/Head.png')}/>)
         // break;
         case 'Neck':
-            return (<Image style={styles.feet} source={require('../../assets/Neck.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Neck.png')}/>)
         case 'Upper Body':
-            return (<Image style={styles.feet} source={require('../../assets/UpperB.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/UpperB.png')}/>)
         case 'Left Upper Arm':
-            return (<Image style={styles.feet} source={require('../../assets/RightUA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/RightUA.png')}/>)
         case 'Right Upper Arm':
-            return (<Image style={styles.feet} source={require('../../assets/LeftUA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/LeftUA.png')}/>)
         case 'Lower Body':
-            return (<Image style={styles.feet} source={require('../../assets/LowerBody.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/LowerBody.png')}/>)
         case 'Left Lower Arm':
-            return (<Image style={styles.feet} source={require('../../assets/LeftLowerArm.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/LeftLowerArm.png')}/>)
         case 'Right Lower Arm':
-            return (<Image style={styles.feet} source={require('../../assets/RightLowerArm.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/RightLowerArm.png')}/>)
     }
 }
 
 const BodyPartScreen = ({route, navigation }) => {
-    const a = route.params.paramKey
+    const bodyPart = route.params.paramKey
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <View style={{flex: 2, justifyContent: 'center'}}>
-                <Text style={styles.titleText} >Your mole is located in the: {a} </Text>
+            <View style={{flex: 2, width: 250, justifyContent: 'center'}}>
+                <Text style={styles.titleText} >Your mole is located in the: {bodyPart} </Text>
             </View>
             <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
-                {checkSwitch(a)}
+                {checkSwitch(bodyPart)}
             </View>
             <View style={{flex: 2.5, width: 200, justifyContent: 'center'}}>
                 <Button
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 50,
     },
-    feet: {
+    closeUp: {
         flex:10,
         resizeMode: 'contain',
         width: 200,
@@ -55,8 +55,9 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 20,
-        fontWeight: "bold"
-    }
+        fontWeight: "bold",
+        textAlign: 'center'
+    },
 });
 
 //https://www.geeksforgeeks.org/switch-vs-else/ ---- may be useful for explaining decisions in portfolio
