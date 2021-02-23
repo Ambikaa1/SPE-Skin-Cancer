@@ -7,7 +7,7 @@ const HomunculusScreen = ({ navigation }) => {
     // const onPress = () => Alert.alert("Mole area: " + bodyPart)
     const clickHandler = (e) => {
         //setBodyPart(e)
-        console.log(e)
+        console.log(e, "homunc log")
         //console.log(setBodyPart)
         navigation.navigate("BodyPart", {paramKey: e})
         //Alert.alert("Mole area: " + e)
