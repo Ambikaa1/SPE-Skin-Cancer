@@ -9,7 +9,7 @@ const HomunculusScreen = ({ navigation }) => {
         //setBodyPart(e)
         console.log(e)
         //console.log(setBodyPart)
-        navigation.navigate("BodyPart")
+        navigation.navigate("BodyPart", {paramKey: e})
         //Alert.alert("Mole area: " + e)
     }
     return (

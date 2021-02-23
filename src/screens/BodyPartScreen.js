@@ -1,39 +1,40 @@
 import React from 'react';
-import {Alert, Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Alert, Image, StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 
-const clickHandler = (a) => {
+const closeClickHandler = (a) => {
     //setBodyPart(e)
-    Alert.alert("Close up area: " + a)
+    console.log(a, "hi")
+    //Alert.alert("Close up area: " + a)
 }
 
-const BodyPartScreen = ({ navigation }) => {
+const BodyPartScreen = ({route, navigation }) => {
     return (
-        // <View>
-        //
-        // </View>
-        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <View style={{flex: 6, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-
-            </View>
-            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
-                    <Image style={styles.feet} source={require('../../assets/TopFoot.png')}/>
-                </TouchableOpacity>
-            </View>
-            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
-                    <Image style={styles.feet} source={require('../../assets/MiddleFoot.png')}/>
-                </TouchableOpacity>
-            </View>
-            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
-                    <Image style={styles.feet} source={require('../../assets/BottomFoot.png')}/>
-                </TouchableOpacity>
-            </View>
-            <View style={{flex: 6, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-
-            </View>
+        <View>
+            <Text> {route.params.paramKey} </Text>
         </View>
+        // <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        //     <View style={{flex: 6, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+        //
+        //     </View>
+        //     <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+        //         <TouchableOpacity onPress={() => closeClickHandler(navigation.params.paramKey)}>
+        //             <Image style={styles.feet} source={require('../../assets/TopFoot.png')}/>
+        //         </TouchableOpacity>
+        //     </View>
+        //     <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+        //         <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
+        //             <Image style={styles.feet} source={require('../../assets/MiddleFoot.png')}/>
+        //         </TouchableOpacity>
+        //     </View>
+        //     <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+        //         <TouchableOpacity onPress={() => navigation.navigate("CameraFar")}>
+        //             <Image style={styles.feet} source={require('../../assets/BottomFoot.png')}/>
+        //         </TouchableOpacity>
+        //     </View>
+        //     <View style={{flex: 6, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+        //
+        //     </View>
+        // </View>
     );
 };
 
