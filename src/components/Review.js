@@ -5,6 +5,8 @@ import { Ionicons, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icon
 const Review = ({ navigation, route, nextScreen }) => {
   const [drawing, setDrawing] = useState(false);
   const pan = useRef(new Animated.ValueXY()).current;
+  const [maxX, setMaxX] = useState(0);
+  const [maxY, setMaxY] = useState(0)
 
   const panResponder = useRef(
       PanResponder.create({
@@ -28,6 +30,11 @@ const Review = ({ navigation, route, nextScreen }) => {
       })
   ).current;
 
+  const getDimensions = ({nativeEvent}) => {
+        setMaxX(nativeEvent.layout.width);
+        setMaxY(nativeEvent.layout.height);
+  }
+
   const photo = route.params.photo
   const uris = route.params.uris
 
@@ -45,24 +52,26 @@ const Review = ({ navigation, route, nextScreen }) => {
 
   return (
     <View style = {styles.container}>
-      <Image
-        style = { styles.camera }
-        source = {{ uri: photo }}
-      />
+        <View style = {styles.camera} onLayout = {getDimensions}>
+            <Image
+                style = { styles.camera }
+                source = {{ uri: photo }}
+            />
 
-      {drawing
-        ? 
-          <Animated.View
-            style={{
-              position: 'absolute',
-              transform: [{ translateX: pan.x }, { translateY: pan.y }]
-            }}
-            {...panResponder.panHandlers}
-          >
-            <View style={styles.circle} />
-          </Animated.View>
-        : null
-      }
+            {drawing
+                ?
+                <Animated.View
+                    style={{
+                    position: 'absolute',
+                    transform: [{ translateX: pan.x }, { translateY: pan.y }]
+                    }}
+                    {...panResponder.panHandlers}
+                >
+                    <View style={styles.circle} />
+                </Animated.View>
+              : null
+            }
+        </View>
 
       <View style = { styles.cameraBar }>
         {drawing
