@@ -83,7 +83,7 @@ const DiaryScreen = () => {
             <FlatList 
                 data = {entryIds}
                 renderItem = {displayImages}
-                keyExtractor = {({item}) => Math.floor(Math.random() * 1000).toString()}
+                keyExtractor = {({item}) => {item}}
             />
         </View>
     );
