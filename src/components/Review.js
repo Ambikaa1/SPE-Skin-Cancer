@@ -28,7 +28,6 @@ const Review = ({ navigation, route, nextScreen }) => {
       })
   ).current;
 
-
   const photo = route.params.photo
   const uris = route.params.uris
 
@@ -51,15 +50,19 @@ const Review = ({ navigation, route, nextScreen }) => {
         source = {{ uri: photo }}
       />
 
-      {drawing &&  <Animated.View
-          style={{
-            position: 'absolute',
-            transform: [{ translateX: pan.x }, { translateY: pan.y }]
-          }}
-          {...panResponder.panHandlers}
-      >
-        <View style={styles.circle} />
-      </Animated.View>}
+      {drawing
+        ? 
+          <Animated.View
+            style={{
+              position: 'absolute',
+              transform: [{ translateX: pan.x }, { translateY: pan.y }]
+            }}
+            {...panResponder.panHandlers}
+          >
+            <View style={styles.circle} />
+          </Animated.View>
+        : null
+      }
 
       <View style = { styles.cameraBar }>
         {drawing
