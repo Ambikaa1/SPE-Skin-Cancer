@@ -8,6 +8,9 @@ const clickHandler = (a) => {
 
 const BodyPartScreen = ({ navigation }) => {
     return (
+        // <View>
+        //
+        // </View>
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <View style={{flex: 6, flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
 
