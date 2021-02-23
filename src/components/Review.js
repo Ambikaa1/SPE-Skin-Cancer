@@ -11,13 +11,17 @@ const Review = ({ navigation, route, nextScreen }) => {
   const panResponder = useRef(
       PanResponder.create({
         onMoveShouldSetPanResponder: () => true,
+
         onPanResponderGrant: () => {
           pan.setOffset({
             x: pan.x._value,
             y: pan.y._value
           });
         },
-        onPanResponderMove: Animated.event(
+
+        onPanResponderMove:
+
+            Animated.event(
             [
               null,
               { dx: pan.x, dy: pan.y }
@@ -33,6 +37,9 @@ const Review = ({ navigation, route, nextScreen }) => {
   const getDimensions = ({nativeEvent}) => {
         setMaxX(nativeEvent.layout.width);
         setMaxY(nativeEvent.layout.height);
+        console.log("MaxX =", maxX);
+        console.log("MaxY = ", maxY);
+
   }
 
   const photo = route.params.photo
@@ -63,7 +70,10 @@ const Review = ({ navigation, route, nextScreen }) => {
                 <Animated.View
                     style={{
                     position: 'absolute',
-                    transform: [{ translateX: pan.x }, { translateY: pan.y }]
+                    transform: [
+                        { translateX: pan.x.interpolate({inputRange : [-50, maxX-50], outputRange : [-50, maxX-50], extrapolateLeft:"clamp", extrapolateRight:"clamp"})},
+                        { translateY: pan.y.interpolate({inputRange : [-50, maxY-50], outputRange : [-50, maxY-50], extrapolateLeft:"clamp", extrapolateRight:"clamp"}) }
+                        ]
                     }}
                     {...panResponder.panHandlers}
                 >
