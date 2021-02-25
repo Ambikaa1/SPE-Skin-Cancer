@@ -29,7 +29,7 @@ const MyTabs = () => {
       >
       <Tab.Screen name = "Home" component = {HomeStack} />
       <Tab.Screen name = "Info" component = {InfoStack} />
-      <Tab.Screen name = "Photo" component = {PhotoStack} />
+      <Tab.Screen name = "Camera" component = {PhotoStack} />
       <Tab.Screen name = "Diary" component = {DiaryScreen} />
       <Tab.Screen name = "Send" component = {SendScreen} />
     </Tab.Navigator>

@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
 import {View, Text, Image, TouchableOpacity, StyleSheet, Alert, Animated, PanResponder, Slider} from "react-native";
-import {Ionicons, MaterialCommunityIcons, FontAwesome} from "@expo/vector-icons";
+import {Ionicons, MaterialCommunityIcons, FontAwesome, Feather} from "@expo/vector-icons";
 
 const Review = ({navigation, route, nextScreen}) => {
     const [drawing, setDrawing] = useState(false);
@@ -121,12 +121,16 @@ const Review = ({navigation, route, nextScreen}) => {
                         <TouchableOpacity style={styles.optionButton}
                                           onPress={() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
                             <FontAwesome name="paint-brush" size={48} color="white"/>
-                            <Text style={styles.text}>Draw</Text>
-                        </TouchableOpacity>
+                            <Text style={styles.text}>Draw</Text></TouchableOpacity>
                         <TouchableOpacity style={styles.optionButton}
                                           onPress={() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
                             <MaterialCommunityIcons name="eraser" size={50} color="white"/>
                             <Text style={styles.text}>Clear</Text>
+                        </TouchableOpacity>
+                        {/*Accept Button*/}
+                        <TouchableOpacity onPress={() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
+                            <Text style={styles.text}>Accept</Text>
+                            <Feather name="thumbs-up" size={50} color="green"/>
                         </TouchableOpacity>
                     </>
                     :
