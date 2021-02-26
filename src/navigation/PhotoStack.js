@@ -8,7 +8,8 @@ import CameraNearScreen from "../screens/CameraNearScreen"
 import ReviewFarScreen from "../screens/ReviewFarScreen";
 import ReviewNearScreen from "../screens/ReviewNearScreen";
 import MoleFormScreen from "../screens/MoleFormScreen";
-import HeaderBar from "../components/HeaderBar";
+import HeaderText from "../components/HeaderText";
+import HeaderButton from "../components/HeaderButton"
 
 const Stack = createStackNavigator();
 
@@ -23,37 +24,65 @@ const PhotoStack = () => {
       <Stack.Screen
         name = "Homunculus"
         component = {HomunculusScreen}
-        options = {{ title: "Location", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Location",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
       <Stack.Screen
         name = "BodyPart"
         component = {BodyPartScreen}
-        options = {{ title: "Location", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Location",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
       <Stack.Screen
         name = "CameraFar"
         component = {CameraFarScreen}
-        options = {{ title: "Far Shot", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Far Shot",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
       <Stack.Screen
         name = "CameraNear"
         component = {CameraNearScreen}
-        options = {{ title: "Near Shot", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Near Shot",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
       <Stack.Screen
         name = "ReviewFar"
         component = {ReviewFarScreen}
-        options = {{ title: "Review", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Review",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
       <Stack.Screen
         name = "ReviewNear"
         component = {ReviewNearScreen}
-        options = {{ title: "Review", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Review",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
       <Stack.Screen
         name = "MoleForm"
         component = {MoleFormScreen}
-        options = {{ title: "Confirm", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Confirm",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
     </Stack.Navigator>
   );

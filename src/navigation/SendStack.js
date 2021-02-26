@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import SendScreen from "../screens/SendScreen";
-import HeaderBar from "../components/HeaderBar";
+import HeaderText from "../components/HeaderText";
+import HeaderButton from "../components/HeaderButton"
 
 const Stack = createStackNavigator()
 
@@ -17,7 +18,11 @@ const SendStack = () => {
       <Stack.Screen
         name = "Send"
         component = {SendScreen}
-        options = {{ title: "Send", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Send",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
     </Stack.Navigator>
   );

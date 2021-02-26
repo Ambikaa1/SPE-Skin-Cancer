@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from "../screens/HomeScreen"
-import HeaderBar from "../components/HeaderBar";
+import HeaderText from "../components/HeaderText";
+import HeaderButton from "../components/HeaderButton"
 
 const Stack = createStackNavigator()
 
@@ -17,7 +18,11 @@ const HomeStack = () => {
       <Stack.Screen
         name = "HomeScreen"
         component = {HomeScreen}
-        options = {{ title: "Home", headerTitle: props => <HeaderBar {...props} />}}
+        options = {{ 
+          title: "Home",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
     </Stack.Navigator>
   );
