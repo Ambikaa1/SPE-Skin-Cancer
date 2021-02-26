@@ -71,7 +71,7 @@ const DiaryScreen = () => {
             <FlatList 
                 data = {entryIds}
                 renderItem = {displayImages}
-                keyExtractor = {({item}) => {item}}
+                keyExtractor = {(index) => `${index}`}
             />
         </View>
     );

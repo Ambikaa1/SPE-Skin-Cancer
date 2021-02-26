@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from '@expo/vector-icons';
 import * as SQLite from "expo-sqlite";
-import HomeStack from "./src/screens/HomeScreen";
+import HomeStack from "./src/navigation/HomeStack";
 import InfoStack from "./src/navigation/InfoStack";
 import PhotoStack from "./src/navigation/PhotoStack"
 import DiaryStack from "./src/navigation/DiaryStack";
