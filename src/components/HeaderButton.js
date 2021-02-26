@@ -2,11 +2,12 @@ import React from "react";
 import { StyleSheet, TouchableOpacity, Alert, } from "react-native";
 import { Ionicons } from "@expo/vector-icons"
 
-const onPressFunction = () => {
-  Alert.alert("Help Title", "Help text goes here");
-}
+// const onPressFunction = () => {
+//   Alert.alert("Help Title", "Help text goes here");
+// }
 
-const HeaderButton = () => {
+const HeaderButton = ({ onPressFunction }) => {
+  console.log(onPressFunction);
   return (
     <TouchableOpacity onPress = {onPressFunction} style =  {styles.button}>
       <Ionicons name = "help-circle" size = {35} color = {"white"} />
