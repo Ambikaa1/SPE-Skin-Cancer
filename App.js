@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from '@expo/vector-icons';
 import * as SQLite from "expo-sqlite";
-import HomeStack from "./src/screens/HomeScreen";
-import InfoStack from "./src/screens/InfoListScreen";
-import DiaryScreen from "./src/screens/DiaryScreen";
-import SendScreen from "./src/screens/SendScreen";
+import HomeStack from "./src/navigation/HomeStack";
+import InfoStack from "./src/navigation/InfoStack";
 import PhotoStack from "./src/navigation/PhotoStack"
+import DiaryStack from "./src/navigation/DiaryStack";
+import SendStack from "./src/navigation/SendStack";
 
 const db = SQLite.openDatabase("app.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
@@ -29,9 +29,9 @@ const MyTabs = () => {
       >
       <Tab.Screen name = "Home" component = {HomeStack} />
       <Tab.Screen name = "Info" component = {InfoStack} />
-      <Tab.Screen name = "Camera" component = {PhotoStack} />
-      <Tab.Screen name = "Diary" component = {DiaryScreen} />
-      <Tab.Screen name = "Send" component = {SendScreen} />
+      <Tab.Screen name = "Photo" component = {PhotoStack} />
+      <Tab.Screen name = "Diary" component = {DiaryStack} />
+      <Tab.Screen name = "Send" component = {SendStack} />
     </Tab.Navigator>
   );
 };

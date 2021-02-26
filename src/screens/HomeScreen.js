@@ -1,24 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image, Dimensions } from "react-native";
-import { createStackNavigator } from '@react-navigation/stack';
-
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
-// import Homunculous from "./Homunculous";
-
-//import NavigationContainer from "@react-navigation/native/lib/typescript/src/NavigationContainer";
-
-// ShowDate = () => {
-//     var date = new Date().getDate();
-// }
-
-
-// {/*<Button*/}
-// {/*    title="Go to homunculous"*/}
-// {/*    onPress={() => navigation.navigate('Homunculous')}*/}
-// {/*/>*/}
-// {/*<NavigationContainer>*/}
-// {/*</NavigationContainer>*/}
 
 const HomeScreen = () => {
     const [currentDate, setCurrentDate] = useState("");
@@ -58,31 +39,7 @@ const HomeScreen = () => {
     );
 };
 
-const Stack = createStackNavigator()
-
-const HomeStack = () => {
-    return(
-      <Stack.Navigator
-        screenOptions = {{
-          headerStyle: styles.header,
-          headerTintColor: "white",
-        }}
-      >
-        <Stack.Screen
-            name = "HomeScreen"
-            component = {HomeScreen}
-            options = {{
-                title: "Home",
-            }}
-        />
-      </Stack.Navigator>
-    );
-  };
-
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: "#71A1D1",
-    },
     container: {
         flex: 1
     },
@@ -130,4 +87,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeStack;
+export default HomeScreen;

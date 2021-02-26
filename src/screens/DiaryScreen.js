@@ -43,18 +43,6 @@ const DiaryScreen = () => {
 
     return (
         <View style = {styles.container}>
-            <View>
-                <Text>
-                <TouchableOpacity onPress={() => Alert.alert('Arrow Pressed')}>
-                    <AntDesign name="arrowleft" size={24} color="black" />
-                </TouchableOpacity>
-                    <TouchableOpacity onPress={() => Alert.alert('Help Pressed')}>
-                        <AntDesign name="questioncircleo" size={24} color="black" />
-                    </TouchableOpacity>
-                </Text>
-            </View>
-
-            <Text style={styles.title}>Diary Page</Text>
             <Text style={styles.subtitle}>Choose a mole to view pictures:</Text>
             <View>
                 <TouchableOpacity style={styles.buttonContainer} onPress={() => Alert.alert('Mole 1 Pressed')}>
@@ -83,7 +71,7 @@ const DiaryScreen = () => {
             <FlatList 
                 data = {entryIds}
                 renderItem = {displayImages}
-                keyExtractor = {({item}) => {item}}
+                keyExtractor = {(index) => `${index}`}
             />
         </View>
     );
@@ -92,15 +80,6 @@ const DiaryScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1
-    },
-    title: {
-        marginTop: 16,
-        paddingVertical: 8,
-        borderRadius: 6,
-        color: "#20232a",
-        textAlign: "center",
-        fontSize: 30,
-        fontWeight: "bold"
     },
     subtitle: {
         marginTop: 16,
