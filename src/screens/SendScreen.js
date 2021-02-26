@@ -7,20 +7,6 @@ const SendScreen = () => {
     const [value2, onChangeText2] = React.useState('Placeholder');
     return (
         <View style={styles.container}>
-
-            <View style={{flexDirection:'row', width: '100%'}}>
-
-                    <Text style={styles.titleText}>Send your mole</Text>
-
-                <View style={{alignItems:'flex-end'}}>
-                    <TouchableOpacity
-                        style={styles.helpButton}
-                    >
-
-                        <Text style={styles.helpButtonText}>?</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
             <ScrollView>
                 <View style={styles.topButtonView}>
                     <TouchableOpacity
@@ -104,28 +90,12 @@ const SendScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    titleText:{
-        marginLeft: 30,
-        fontWeight: 'bold',
-        fontSize: 35,
-    },
     container:{
         width: '100%',
         marginTop: 50,
         flex: 1,
     },
-    helpButton:{
-        backgroundColor: '#000000',
-        borderRadius: 50,
-        width: 45,
-        alignItems: 'center'
-    },
-    helpButtonText:{
-        color: '#ffffff',
-        fontSize: 35,
-    },
     topButtonView:{
-        marginTop: 60,
         marginLeft: 55,
         marginRight: 55,
         marginBottom:10,
