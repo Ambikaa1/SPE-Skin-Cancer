@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import DiaryScreen from "../screens/DiaryScreen";
+import HeaderBar from "../components/HeaderBar";
 
 const Stack = createStackNavigator()
 
@@ -16,9 +17,7 @@ const DiaryStack = () => {
       <Stack.Screen
         name = "Diary"
         component = {DiaryScreen}
-        options = {{
-          title: "Diary",
-        }}
+        options = {{ title: "Diary", headerTitle: props => <HeaderBar {...props} />}}
       />
     </Stack.Navigator>
   );
