@@ -7,7 +7,6 @@ import { Ionicons } from "@expo/vector-icons"
 // }
 
 const HeaderButton = ({ onPressFunction }) => {
-  console.log(onPressFunction);
   return (
     <TouchableOpacity onPress = {onPressFunction} style =  {styles.button}>
       <Ionicons name = "help-circle" size = {35} color = {"white"} />
