@@ -3,7 +3,7 @@ import { Text, Image, View, StyleSheet, TextInput, Dimensions, TouchableOpacity 
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
-const db = SQLite.openDatabase("app.db");
+const db = SQLite.openDatabase("10.db");
 
 const MoleFormScreen = ({ navigation, route }) => {
   const uris = route.params.uris;
