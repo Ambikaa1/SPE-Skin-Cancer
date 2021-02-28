@@ -67,6 +67,12 @@ const MyTabs = () => {
 const App = () => {
   db.transaction(tx => {
     tx.executeSql(
+      "CREATE TABLE IF NOT EXISTS user (user_id INTEGER PRIMARY KEY NOT NULL UNIQUE, first_name TEXT NOT NULL, last_name TEXT NOT NULL, date_of_birth TEXT NOT NULL);",
+      [],
+      null,
+      (t, error) => {console.log(error);}
+    );
+    tx.executeSql(
       "CREATE TABLE IF NOT EXISTS sub_body_part (name TEXT PRIMARY KEY NOT NULL UNIQUE, body_part TEXT NOT NULL);",
       [],
       null,
