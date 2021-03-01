@@ -44,7 +44,7 @@ const PhotoStack = () => {
           name = "MoleType"
           component = {MoleType}
           options = {{
-              title: "Is this a new mole",
+              title: "Choose mole",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
           }}
