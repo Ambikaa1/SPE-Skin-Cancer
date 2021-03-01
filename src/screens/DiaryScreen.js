@@ -4,7 +4,7 @@ import { AntDesign, Feather } from '@expo/vector-icons';
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
-const db = SQLite.openDatabase("10.db");
+const db = SQLite.openDatabase("13.db");
 
 const DiaryScreen = () => {
     const [entryIds, setEntryIds] = useState([]);
