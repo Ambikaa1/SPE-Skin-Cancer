@@ -9,7 +9,7 @@ import PhotoStack from "./src/navigation/PhotoStack"
 import DiaryStack from "./src/navigation/DiaryStack";
 import SendStack from "./src/navigation/SendStack";
 
-const db = SQLite.openDatabase("app.db")
+const db = SQLite.openDatabase("13.db")
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
@@ -67,6 +67,12 @@ const MyTabs = () => {
 const App = () => {
   db.transaction(tx => {
     tx.executeSql(
+      "CREATE TABLE IF NOT EXISTS user (user_id INTEGER PRIMARY KEY NOT NULL UNIQUE, first_name TEXT, last_name TEXT, date_of_birth TEXT);",
+      [],
+      null,
+      (t, error) => {console.log(error);}
+    );
+    tx.executeSql(
       "CREATE TABLE IF NOT EXISTS sub_body_part (name TEXT PRIMARY KEY NOT NULL UNIQUE, body_part TEXT NOT NULL);",
       [],
       null,
@@ -84,6 +90,7 @@ const App = () => {
       null,
       (t, error) => {console.log(error);}
     );
+    tx.executeSql("INSERT INTO user (first_name, last_name, date_of_birth) VALUES (null, null, null);", []);
     tx.executeSql("insert into sub_body_part (name, body_part) values ('top_left_foot', 'left_foot');", []);
     tx.executeSql("insert into sub_body_part (name, body_part) values ('middle_left_foot', 'left_foot');", []);
     tx.executeSql("insert into sub_body_part (name, body_part) values ('toes_left_foot', 'left_foot');", []);
