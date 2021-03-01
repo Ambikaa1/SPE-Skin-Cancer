@@ -1,8 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
+const OptionalRender = (moleChoice) => {
+    switch(moleChoice) {
+        case 'Yes':
+            return (<Text> yes</Text>)
+
+        case 'No':
+            return (<Text> Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>)
+    }
+}
+
+
 const MoleType = ({navigation}) => {
+    const [moleChoice, setChoice] = useState(null);
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <View style={{flex: 2, width: 250, justifyContent: 'center'}}>
@@ -14,13 +26,13 @@ const MoleType = ({navigation}) => {
                     ]}
                     containerStyle={{height: 40}}
                     defaultIndex={0}
-                    // onChangeItem={item => console.log(item.label)}
+                    //onChangeItem={item => console.log(item.label)}
+                    onChangeItem={item => setChoice(item.label)}
                 />
             </View>
             <View style={{flex: 6, justifyContent: 'center', width:250}}>
-                <Text> Space to add images if an existing mole.</Text>
-                <Text> If it is we need to ask them for info about it e.g. mole name </Text>
-                <Text> Can be done after we have diary screen done as page is similar </Text>
+                <Text> {moleChoice}</Text>
+                {OptionalRender(moleChoice)}
             </View>
             <View style={{flex: 2.5, width: 200, justifyContent: 'center'}}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("CameraFar")}>
