@@ -3,60 +3,58 @@ import {StyleSheet, View, Text, TouchableOpacity, Image, ScrollView, TextInput, 
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const defaultValues = (bodyPart) => {
+    const date = new Date().getDate(); //To get the Current Date
+    const month =  new Date().getMonth() + 1; //Current Month
+    const year = new Date().getFullYear(); //Current Year
+    const fullDate = date + "/" + month + "/" + year
+
     return (
         <View style={styles.container}>
-                <Text style={styles.normalText}>Mole location</Text>
-                <View style={styles.pickerViewStyle1}>
-                    <DropDownPicker
-                        items={[
-                            {label: bodyPart, value: 'mole1'},
-                        ]}
-                        defaultValue={''}
-                        containerStyle={{height: 40}}
-                    />
-                </View>
+            <Text style={styles.normalText}>Mole name</Text>
 
-                <Text style={styles.normalText}>Date of photo</Text>
+            <View style={styles.textInputStyle}>
+                <TextInput
+                    placeholder = "Please enter the name of the mole"
+                    placeholderTextColor = "#838b8b"
+                    // onChangeText = {}
+                />
+            </View>
 
-                <View style={styles.pickerViewStyle2}>
-                    <DropDownPicker
-                        items={[
-                            {label: 'Today', value: 'today'},
-                        ]}
-                        defaultValue={''}
-                        containerStyle={{height: 40}}
-                        style={{backgroundColor: '#fafafa'}}
-                        itemStyle={{
-                            justifyContent: 'flex-start'
-                        }}
-                        dropDownStyle={{backgroundColor: '#fafafa'}}
-                        onChangeItem={item => {}}
-                    />
-                </View>
+            <Text style={styles.normalText}>Mole location</Text>
+            <View style={styles.pickerViewStyle1}>
+                <DropDownPicker
+                    items={[
+                        {label: bodyPart, value: 'mole1'},
+                    ]}
+                    defaultValue={''}
+                    containerStyle={{height: 40}}
+                />
+            </View>
 
-                <Text style={styles.normalText}>Mole name</Text>
+            <Text style={styles.normalText}>Mole Date</Text>
 
-                {/*<View style={styles.textInputViewStyle}>*/}
-                {/*    <TextInput*/}
-                {/*        style={styles.textInputStyle}*/}
-                {/*        onChangeText={text => onChangeText1(text)}*/}
-                {/*        value={value1}*/}
-                {/*    />*/}
-                {/*</View>*/}
+            <View style={styles.pickerViewStyle2}>
+                <DropDownPicker
+                    items={[
+                        {label: fullDate},
+                    ]}
+                    defaultValue={''}
+                    containerStyle={{height: 40}}
+                />
+            </View>
 
-                {/*<Text style={styles.normalText}>Comments about photo</Text>*/}
+            <Text style={styles.normalText}>Mole comments</Text>
 
-                {/*<View style={styles.textInputViewStyle}>*/}
-                {/*    <TextInput*/}
-                {/*        style={styles.textInputStyle}*/}
-                {/*        onChangeText={text => onChangeText2(text)}*/}
-                {/*        value={value2}*/}
-                {/*    />*/}
-                {/*</View>*/}
+            <View style={styles.textInputStyle}>
+                <TextInput
+                    placeholder = "Comments about the mole"
+                    placeholderTextColor = "#838b8b"
+                    // onChangeText = {}
+                />
+            </View>
         </View>
     )
 }
-
 
 const OptionalRender = (moleChoice, bodyPart) => {
     switch(moleChoice) {
@@ -89,7 +87,7 @@ const MoleType = ({route, navigation }) => {
             <View style={{flex: 6, justifyContent: 'center', width:250}}>
                 {OptionalRender(moleChoice, bodyPart)}
             </View>
-            <View style={{flex: 2.5, width: 200, justifyContent: 'center'}}>
+            <View style={{flex: 3, width: 200, justifyContent: 'center'}}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("CameraFar")}>
                     <Text style = {styles.text}> Confirm choice</Text>
                  </TouchableOpacity>
@@ -100,7 +98,7 @@ const MoleType = ({route, navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 50,
+        paddingTop: 10,
     },
     button: {
         alignItems: "center",
@@ -110,6 +108,18 @@ const styles = StyleSheet.create({
     text: {
         color: "white",
     },
+    textInputStyle:{
+        height: 40,
+        borderColor: '#D3D3D3',
+        borderWidth: 1,
+        borderRadius: 5,
+        backgroundColor: 'white',
+    },
+    textInputViewStyle:{
+        zIndex: 1,
+        marginLeft: 30,
+        marginRight: 30,
+    }
 });
 
 export default MoleType;
