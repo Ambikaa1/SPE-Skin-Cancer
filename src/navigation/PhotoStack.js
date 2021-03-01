@@ -10,6 +10,7 @@ import ReviewNearScreen from "../screens/ReviewNearScreen";
 import MoleFormScreen from "../screens/MoleFormScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
+import MoleType from "../screens/MoleType";
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,15 @@ const PhotoStack = () => {
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
+      />
+      <Stack.Screen
+          name = "MoleType"
+          component = {MoleType}
+          options = {{
+              title: "Is this a new mole",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
       />
       <Stack.Screen
         name = "CameraFar"

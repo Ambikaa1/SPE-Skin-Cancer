@@ -37,7 +37,7 @@ const BodyPartScreen = ({route, navigation }) => {
                 <Button
                     title="Click here if this is the correct area"
                     color="#71A1D1"
-                    onPress={() => navigation.navigate("CameraFar")} />
+                    onPress={() => navigation.navigate("MoleType")} />
             </View>
         </View>
     )
