@@ -4,7 +4,7 @@ import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("13.db");
 
-const UserScreen = () => {
+const UserScreen = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -33,6 +33,7 @@ const UserScreen = () => {
         );
       }
     );
+    navigation.goBack();
   };
 
   return (

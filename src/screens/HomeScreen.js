@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image, Dimensions } from "react-native";
+import { useIsFocused } from "@react-navigation/native"
 import { Ionicons } from "@expo/vector-icons";
+import * as SQLite from "expo-sqlite";
+
+const db = SQLite.openDatabase("13.db");
 
 const HomeScreen = ({ navigation }) => {
     const [currentDate, setCurrentDate] = useState("");
+    const [name, setName] = useState("")
+
+    const isFocused = useIsFocused();
 
     useEffect(() => {
         let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -12,14 +19,22 @@ const HomeScreen = ({ navigation }) => {
         let date = new Date().getDate();
         let month = months[new Date().getMonth()];
         setCurrentDate(day + " " + date + " " + month);
-    }, []);
+
+        db.transaction(
+            tx => {
+                tx.executeSql("select first_name from user;", [], (_, { rows }) =>
+                    setName(" " + rows._array[0].first_name)
+                );
+            }
+        );
+    }, [isFocused]);
 
     return (
         <SafeAreaView style = {styles.container}>
             <View style = {styles.top}>
                 <View style = {styles.toptext}>
                     <Text style = {styles.date}>{currentDate}</Text>
-                    <Text style = {styles.welcome}>Welcome Joe!</Text>
+                    <Text style = {styles.welcome}>Welcome{name}!</Text>
                 </View>
                 <TouchableOpacity onPress = {() => navigation.navigate("UserScreen")}>
                     <Ionicons name = "person-circle" size = {50} />
