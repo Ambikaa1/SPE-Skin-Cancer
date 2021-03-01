@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, Image, ScrollView, TextInput, Linking} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, Image, ScrollView, TextInput, Linking, Dimensions} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const defaultValues = (bodyPart) => {
@@ -9,6 +9,7 @@ const defaultValues = (bodyPart) => {
     const fullDate = date + "/" + month + "/" + year
 
     return (
+        //Needs editing, pretty much copied from SendScreen
         <View style={styles.container}>
             <Text style={styles.normalText}>Mole name</Text>
 
@@ -17,6 +18,7 @@ const defaultValues = (bodyPart) => {
                     placeholder = "Please enter the name of the mole"
                     placeholderTextColor = "#838b8b"
                     // onChangeText = {}
+                    // Need to add functionality that actually does something with inputs
                 />
             </View>
 
@@ -24,7 +26,7 @@ const defaultValues = (bodyPart) => {
             <View style={styles.pickerViewStyle1}>
                 <DropDownPicker
                     items={[
-                        {label: bodyPart, value: 'mole1'},
+                        {label: bodyPart},
                     ]}
                     defaultValue={''}
                     containerStyle={{height: 40}}
@@ -50,6 +52,7 @@ const defaultValues = (bodyPart) => {
                     placeholder = "Comments about the mole"
                     placeholderTextColor = "#838b8b"
                     // onChangeText = {}
+                    // Need to add functionality that actually does something with inputs
                 />
             </View>
         </View>
@@ -61,17 +64,16 @@ const OptionalRender = (moleChoice, bodyPart) => {
         case 'Yes':
             return defaultValues(bodyPart)
         case 'No':
-            return (<Text>Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>)
+            return (<Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>)
     }
 }
-
 
 const MoleType = ({route, navigation }) => {
     const [moleChoice, setChoice] = useState(null);
     const bodyPart = route.params.paramKey
     return (
-        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <View style={{flex: 2, width: 250, justifyContent: 'center'}}>
+        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: "white"}}>
+            <View style={{flex: 2, justifyContent: 'center', width:Dimensions.get("window").width -100}}>
                 <Text> Is this a new mole? </Text>
                 <DropDownPicker
                     items={[
@@ -84,7 +86,7 @@ const MoleType = ({route, navigation }) => {
                     onChangeItem={item => setChoice(item.label)}
                 />
             </View>
-            <View style={{flex: 6, justifyContent: 'center', width:250}}>
+            <View style={{flex: 6, justifyContent: 'center', width:Dimensions.get("window").width -50}}>
                 {OptionalRender(moleChoice, bodyPart)}
             </View>
             <View style={{flex: 3, width: 200, justifyContent: 'center'}}>
@@ -98,7 +100,7 @@ const MoleType = ({route, navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 10,
+        paddingTop: 15,
     },
     button: {
         alignItems: "center",
@@ -119,7 +121,11 @@ const styles = StyleSheet.create({
         zIndex: 1,
         marginLeft: 30,
         marginRight: 30,
-    }
+    },
+    normalText:{
+        marginTop:10,
+        fontSize: 14,
+    },
 });
 
 export default MoleType;
