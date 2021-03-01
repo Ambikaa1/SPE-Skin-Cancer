@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, Image, ScrollView, TextInput, Linking, Dimensions} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const defaultValues = (bodyPart) => {
@@ -11,7 +11,7 @@ const defaultValues = (bodyPart) => {
     return (
         //Needs editing, pretty much copied from SendScreen
         <View style={styles.container}>
-            <Text style={styles.normalText}>Mole name</Text>
+            <Text style={styles.normalText}>Mole name (max: __) </Text>
 
             <View style={styles.textInputStyle}>
                 <TextInput
@@ -45,7 +45,7 @@ const defaultValues = (bodyPart) => {
                 />
             </View>
 
-            <Text style={styles.normalText}>Mole comments</Text>
+            <Text style={styles.normalText}>Mole comments (max: __) </Text>
 
             <View style={styles.textInputStyle}>
                 <TextInput
