@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("11.db");
+const db = SQLite.openDatabase("13.db");
 
 const UserScreen = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
+
+  useEffect(() => {
+    db.transaction(
+      tx => {
+        tx.executeSql("select * from user;", [], (_, { rows }) => {
+            setFirstName(rows._array[0].first_name);
+            setLastName(rows._array[0].last_name);
+            setDateOfBirth(rows._array[0].date_of_birth);
+          }
+        );
+      }
+    );
+  }, []);
 
   const addToDatabase = () => {
     db.transaction(
