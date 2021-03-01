@@ -91,7 +91,7 @@ const MoleType = ({route, navigation }) => {
             </View>
             <View style={{flex: 3, width: 200, justifyContent: 'center'}}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("CameraFar")}>
-                    <Text style = {styles.text}> Confirm choice</Text>
+                    <Text style = {styles.text}>CONFIRM CHOICE</Text>
                  </TouchableOpacity>
             </View>
         </View>

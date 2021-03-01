@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, View, Text, Button} from 'react-native';
+import {Image, StyleSheet, View, Text, Button, TouchableOpacity} from 'react-native';
 
 const checkSwitch = (bodyPart) => {
     switch(bodyPart) {
@@ -34,10 +34,9 @@ const BodyPartScreen = ({route, navigation }) => {
                 {checkSwitch(bodyPart)}
             </View>
             <View style={{flex: 2.5, width: 200, justifyContent: 'center'}}>
-                <Button
-                    title="Click here if this is the correct area"
-                    color="#71A1D1"
-                    onPress={() => navigation.navigate("MoleType", {paramKey: bodyPart})} />
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("MoleType", {paramKey: bodyPart})}>
+                    <Text style = {styles.text}>CONFIRM AREA</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -57,6 +56,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         textAlign: 'center'
+    },
+    button: {
+        alignItems: "center",
+        backgroundColor: "#71A1D1",
+        padding: 15,
+    },
+    text: {
+        color: "white",
     },
 });
 
