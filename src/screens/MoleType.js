@@ -4,8 +4,8 @@ import {StyleSheet, View, Text} from 'react-native';
 
 const MoleType = () => {
     return (
-        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <Text> hi </Text>
+        <View >
+            <Text> Take me to the next screen </Text>
         </View>
     )
 };
@@ -16,5 +16,4 @@ const styles = StyleSheet.create({
     },
 });
 
-//https://www.geeksforgeeks.org/switch-vs-else/ ---- may be useful for explaining decisions in portfolio
 export default MoleType;
