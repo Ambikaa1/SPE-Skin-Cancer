@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("10.db");
+const db = SQLite.openDatabase("11.db");
 
 const UserScreen = () => {
   const [firstName, setFirstName] = useState("");
@@ -13,7 +13,7 @@ const UserScreen = () => {
     db.transaction(
       tx => {
         tx.executeSql(
-          `INSERT INTO user (first_name, last_name, date_of_birth) values (?, ?, ?);`,
+          `UPDATE user SET first_name = ?, last_name = ?, date_of_birth = ? WHERE user_id = 1;`,
           [firstName, lastName, dateOfBirth],
           null,
           (t, error) => {console.log(error);}
