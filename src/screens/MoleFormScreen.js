@@ -54,7 +54,7 @@ const MoleFormScreen = ({ navigation, route }) => {
       <TextInput
         value = {name}
         onChangeText = {value => setName(value)}
-        // placeholder = "Mole name"
+        placeholder = "Mole name"
         style = {styles.input}
       />
       <View style = {styles.imagesContainer}>
