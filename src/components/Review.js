@@ -15,6 +15,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     const [scale, setScale] = useState(1);
     const diameter = styles.circle.width;
     const radius = diameter / 2;
+    const sliderCircleDim   = 10;
+    const sliderTrackHeight = 20;
 
     const panResponder = useRef(
         PanResponder.create({
@@ -150,22 +152,62 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                             <View style={styles.circle}/>
                         </Animated.View>
 
+
                         <Slider
+                            //Width changes the width of a horizontal slider. Due to 90deg rotation it will appear to change the height in the application
                             style = {{
-                                transform : [ { rotate: "-90deg" }],
-                                position  : "absolute",
-                                width     : maxX,
-                                bottom    : maxY/2,
-                                right     : -maxX/2 + 10,
+                                transform :  [{ rotate: "-90deg" }],
+                                position  :  "absolute",
+                                width     :  maxX,
+                                bottom    :  maxY/2,
+                                right     : -maxX/2 + 2*sliderCircleDim,
                             }}
                             value = {scale}
                             onValueChange = {(value) => setScale(value)}
                             maximumValue={1.75}
                             minimumValue={0.25}
-                            trackStyle={{ height: 10, backgroundColor: 'red' }}
-                            thumbStyle={{ height: 20, width: 20, backgroundColor: 'transparent' }}
+                            //Height here changes the height of the track for a horizontal slider. Due to 90deg rotation it will appear to change the width of the track
+                            trackStyle={{ height: sliderTrackHeight, backgroundColor: 'red' }}
+                            thumbStyle={{ height: sliderCircleDim, width: sliderCircleDim, backgroundColor: 'transparent' }}
                         >
                         </Slider>
+
+                        {/*Little Circle
+
+                        Just to help align with the slider, I rotate these 90deg aswell so all positioning acts in same way
+
+                        */}
+                        <View
+                            style={[styles.circle,
+                                {
+                                    transform : [
+                                        {scale : 0.1},
+                                        {rotate: "-90deg"}
+                                        ],
+                                    position : "absolute",
+                                    bottom   :  maxY/2 - maxX/2 - sliderTrackHeight - 2*sliderCircleDim,
+                                    right    :  -sliderCircleDim-sliderTrackHeight,
+                                }
+                                ]
+                            }
+                        />
+
+
+                        {/*Big Circle*/}
+                        <View
+                            style={[styles.circle,
+                                {
+                                    transform : [
+                                        {scale : 0.3},
+                                        {rotate: "-90deg"}
+                                    ],
+                                    position : "absolute",
+                                    bottom   : maxY/2 + maxX/2 - 2*sliderCircleDim,
+                                    right    :  -sliderCircleDim-sliderTrackHeight,
+                                }
+                            ]
+                            }
+                        />
                     </>
                     : null
                 }
