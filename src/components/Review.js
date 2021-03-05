@@ -79,7 +79,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         const photoSplit = photo.split("/")
         const photoId = photoSplit[photoSplit.length - 1]
 
-        if (nextScreen == "CameraNear") {
+        if (nextScreen === "CameraNear") {
             let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "far");
             if (!Boolean(folder.exists)) {
                 await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "far" + "/");
@@ -99,7 +99,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                     );
                 },
             );
-        } else if (nextScreen == undefined) {
+        } else if (nextScreen === undefined) {
             let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "near");
             if (!Boolean(folder.exists)) {
                 await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "near" + "/");
@@ -121,6 +121,9 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
             );
         }
     };
+
+    console.log("MaxX = ", maxX);
+    console.log("MaxY = ", maxY);
 
     return (
         <View style={styles.container}>
@@ -148,7 +151,13 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                         </Animated.View>
 
                         <Slider
-                            //style = {{position: ''}}
+                            style = {{
+                                transform : [ { rotate: "-90deg" }],
+                                position  : "absolute",
+                                width     : maxX,
+                                bottom    : maxY/2,
+                                right     : -maxX/2 + 10,
+                            }}
                             value = {scale}
                             onValueChange = {(value) => setScale(value)}
                             maximumValue={1.75}
