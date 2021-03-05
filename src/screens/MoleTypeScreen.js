@@ -3,17 +3,12 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 
 import { Picker } from '@react-native-picker/picker';
 
 const defaultValues = bodyPart => {
-    const date = new Date().getDate(); //To get the Current Date
-    const month =  new Date().getMonth() + 1; //Current Month
-    const year = new Date().getFullYear(); //Current Year
-    const fullDate = date + "/" + month + "/" + year
-
     return (
         //Needs editing, pretty much copied from SendScreen
         <>
             <Text style = {styles.question}>Mole name</Text>
             <TextInput
-                placeholder = "Mole name"
+                placeholder = "Name"
                 style = {styles.input}
                 // onChangeText = {}
                 // Need to add functionality that actually does something with inputs
@@ -22,7 +17,6 @@ const defaultValues = bodyPart => {
             <Text style = {styles.question}>Mole comments</Text>
             <TextInput
                 placeholder = "Comments"
-                placeholderTextColor = "#838b8b"
                 style = {styles.input}
                 // onChangeText = {}
                 // Need to add functionality that actually does something with inputs
