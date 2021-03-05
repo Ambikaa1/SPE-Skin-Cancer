@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions} from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
-const defaultValues = (bodyPart) => {
+const defaultValues = bodyPart => {
     const date = new Date().getDate(); //To get the Current Date
     const month =  new Date().getMonth() + 1; //Current Month
     const year = new Date().getFullYear(); //Current Year
@@ -10,56 +10,28 @@ const defaultValues = (bodyPart) => {
 
     return (
         //Needs editing, pretty much copied from SendScreen
-        <View style={styles.container}>
-            <Text style={styles.normalText}>Mole name (max: __) </Text>
+        <>
+            <Text style = {styles.question}>Mole name</Text>
+            <TextInput
+                placeholder = "Mole name"
+                style = {styles.input}
+                // onChangeText = {}
+                // Need to add functionality that actually does something with inputs
+            />
 
-            <View style={styles.textInputStyle}>
-                <TextInput
-                    placeholder = "Please enter the name of the mole"
-                    placeholderTextColor = "#838b8b"
-                    // onChangeText = {}
-                    // Need to add functionality that actually does something with inputs
-                />
-            </View>
-
-            <Text style={styles.normalText}>Mole location</Text>
-            <View style={styles.pickerViewStyle1}>
-                <DropDownPicker
-                    items={[
-                        {label: bodyPart},
-                    ]}
-                    defaultValue={''}
-                    containerStyle={{height: 40}}
-                />
-            </View>
-
-            <Text style={styles.normalText}>Mole Date</Text>
-
-            <View style={styles.pickerViewStyle2}>
-                <DropDownPicker
-                    items={[
-                        {label: fullDate},
-                    ]}
-                    defaultValue={''}
-                    containerStyle={{height: 40}}
-                />
-            </View>
-
-            <Text style={styles.normalText}>Mole comments (max: __) </Text>
-
-            <View style={styles.textInputStyle}>
-                <TextInput
-                    placeholder = "Comments about the mole"
-                    placeholderTextColor = "#838b8b"
-                    // onChangeText = {}
-                    // Need to add functionality that actually does something with inputs
-                />
-            </View>
-        </View>
+            <Text style = {styles.question}>Mole comments</Text>
+            <TextInput
+                placeholder = "Comments"
+                placeholderTextColor = "#838b8b"
+                style = {styles.input}
+                // onChangeText = {}
+                // Need to add functionality that actually does something with inputs
+            />
+        </>
     )
 }
 
-const OptionalRender = (moleChoice, bodyPart) => {
+const OptionalRender = ({ bodyPart, moleChoice }) => {
     switch(moleChoice) {
         case 'Yes':
             return defaultValues(bodyPart)
@@ -69,63 +41,75 @@ const OptionalRender = (moleChoice, bodyPart) => {
 }
 
 const MoleTypeScreen = ({route, navigation }) => {
-    const [moleChoice, setChoice] = useState(null);
+    const [moleChoice, setChoice] = useState("Yes");
     const bodyPart = route.params.paramKey
     return (
-        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <View style={{flex: 2, justifyContent: 'center', width:Dimensions.get("window").width -100}}>
-                <Text> Is this a new mole? </Text>
-                <DropDownPicker
-                    items={[
-                        {label: 'Yes'},
-                        {label: 'No'},
-                    ]}
-                    containerStyle={{height: 40}}
-                    defaultIndex={0}
-                    //onChangeItem={item => console.log(item.label)}
-                    onChangeItem={item => setChoice(item.label)}
-                />
-            </View>
-            <View style={{flex: 6, justifyContent: 'center', width:Dimensions.get("window").width -50}}>
-                {OptionalRender(moleChoice, bodyPart)}
-            </View>
-            <View style={{flex: 3, width: 200, justifyContent: 'center'}}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("CameraFar")}>
-                    <Text style = {styles.text}>CONFIRM CHOICE</Text>
-                 </TouchableOpacity>
-            </View>
+        <View style = {styles.container}>
+            <Text style = {styles.question}>Is this a new mole?</Text>
+            <Picker
+                selectedValue = {moleChoice}
+                onValueChange = {(itemValue) => setChoice(itemValue)}
+                style = {styles.picker}
+                itemStyle = {styles.pickerItem}
+            >
+                <Picker.Item label = "Yes" value = "Yes" />
+                <Picker.Item label = "No" value = "No" />
+            </Picker>
+            <OptionalRender bodyPart = {bodyPart} moleChoice = {moleChoice} />
+            <TouchableOpacity style = {styles.doneBox} onPress={() => navigation.navigate("CameraFar")}>
+                <Text style = {styles.doneText}>Confirm</Text>
+            </TouchableOpacity>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 15,
+        flex: 1,
+        marginLeft: 10,
+        marginTop: 10
     },
-    button: {
-        alignItems: "center",
+    question: {
+        fontSize: 20
+    },
+    picker: {
+        marginRight: 10,
+        height: 125,
+        // borderColor: "black",
+        // borderWidth: 1
+
+    },
+    pickerItem: {
+        height: 125,
+        // borderColor: "black",
+        // borderWidth: 1
+    },
+    input: {
+        backgroundColor: "#E2E2E2",
+        height: 50,
+        borderRadius: 10,
+        marginRight: 10,
+        marginTop: 10,
+        marginBottom: 7.5,
+        paddingLeft: 10,
+        fontSize: 20,
+    },
+    doneBox: {
+        marginRight: 10,
+        marginTop: 10,
         backgroundColor: "#71A1D1",
-        padding: 15,
+        alignItems: "center",
+        borderRadius: 10,
+        position: "absolute",
+        width: "95%",
+        bottom: 10
     },
-    text: {
+    doneText: {
+        fontSize: 30,
+        fontWeight: "bold",
         color: "white",
-    },
-    textInputStyle:{
-        height: 40,
-        borderColor: '#D3D3D3',
-        borderWidth: 1,
-        borderRadius: 5,
-        backgroundColor: 'white',
-    },
-    textInputViewStyle:{
-        zIndex: 1,
-        marginLeft: 30,
-        marginRight: 30,
-    },
-    normalText:{
-        marginTop:10,
-        fontSize: 14,
-    },
+        marginVertical: 10,
+    }
 });
 
 export default MoleTypeScreen;
