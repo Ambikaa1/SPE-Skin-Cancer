@@ -1,36 +1,12 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import * as SQLite from "expo-sqlite";
-
-const db = SQLite.openDatabase("15.db");
 
 const MoleTypeScreen = ({ route, navigation }) => {
     const [moleChoice, setChoice] = useState(true);
+    const [name, setName] = useState(null);
+    const [comments, setComments] = useState(null);
     const bodyPart = route.params.paramKey
-
-    const NewMole = bodyPart => {
-        return (
-            //Needs editing, pretty much copied from SendScreen
-            <>
-                <Text style = {styles.question}>Mole name:</Text>
-                <TextInput
-                    placeholder = "Name"
-                    style = {styles.input}
-                    // onChangeText = {}
-                    // Need to add functionality that actually does something with inputs
-                />
-    
-                <Text style = {styles.question}>Mole comments:</Text>
-                <TextInput
-                    placeholder = "Comments"
-                    style = {styles.input}
-                    // onChangeText = {}
-                    // Need to add functionality that actually does something with inputs
-                />
-            </>
-        );
-    };
 
     return (
         <View style = {styles.container}>
@@ -45,12 +21,28 @@ const MoleTypeScreen = ({ route, navigation }) => {
                 <Picker.Item label = "No" value = {false} />
             </Picker>
             {moleChoice
-                ? <NewMole bodyPart = {bodyPart} />
+                ?   
+                    <>
+                        <Text style = {styles.question}>Mole name:</Text>
+                        <TextInput
+                            value = {name}
+                            onChangeText = {value => setName(value)}
+                            placeholder = "Mole name"
+                            style = {styles.input}
+                        />
+                        <Text style = {styles.question}>Mole comments:</Text>
+                        <TextInput
+                            value = {comments}
+                            onChangeText = {value => setComments(value)}
+                            placeholder = "Mole comments"
+                            style = {styles.input}
+                        />
+                    </>
                 : <Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>
             }
             <TouchableOpacity style = {styles.doneBox} onPress={() => 
                 {moleChoice
-                    ? navigation.navigate("CameraFar")
+                    ? navigation.navigate("CameraFar", { name: name, comments: comments })
                     : null
                 }}
             >

@@ -1,6 +1,10 @@
 import React, {useRef, useState} from "react";
 import {View, Text, Image, TouchableOpacity, StyleSheet, Alert, Animated, PanResponder, Slider} from "react-native";
 import {Ionicons, MaterialCommunityIcons, FontAwesome, Feather} from "@expo/vector-icons";
+import * as SQLite from "expo-sqlite";
+import * as FileSystem from 'expo-file-system';
+
+const db = SQLite.openDatabase("16.db");
 
 const Review = ({navigation, route, nextScreen}) => {
     const [drawing, setDrawing] = useState(false);
@@ -74,6 +78,24 @@ const Review = ({navigation, route, nextScreen}) => {
         );
     };
 
+    const doneDrawing = () => {
+        if (nextScreen == "CameraNear") {
+            db.transaction(
+                tx => {
+                  tx.executeSql(
+                    "INSERT INTO mole (name, comments, far_shot, sub_body_part) values (?, ?, ?, 'toes_left_foot');",
+                    [route.params.name, route.params.comments, null],
+                    null,
+                    (t, error) => {console.log(error);}
+                  );
+                },
+              );
+        }
+
+
+        navigation.navigate(nextScreen, {uris: uris.concat([photo])});
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.camera} onLayout={getDimensions}>
@@ -128,7 +150,7 @@ const Review = ({navigation, route, nextScreen}) => {
                             <Text style={styles.text}>Clear</Text>
                         </TouchableOpacity>
                         {/*Accept Button*/}
-                        <TouchableOpacity onPress={() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
+                        <TouchableOpacity onPress = {doneDrawing}>
                             <Text style={styles.text}>Accept</Text>
                             <Feather name="thumbs-up" size={50} color="green"/>
                         </TouchableOpacity>

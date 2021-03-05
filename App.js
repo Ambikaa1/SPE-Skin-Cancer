@@ -10,7 +10,7 @@ import PhotoStack from "./src/navigation/PhotoStack"
 import DiaryStack from "./src/navigation/DiaryStack";
 import SendStack from "./src/navigation/SendStack";
 
-const db = SQLite.openDatabase("15.db");
+const db = SQLite.openDatabase("16.db");
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
@@ -74,7 +74,7 @@ const App = () => {
       (t, error) => {console.log(error);}
     );
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, comments TEXT, far_shot TEXT, sub_body_part TEXT REFERENCES sub_body_part(name) NOT NULL);",
+      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, comments TEXT, far_shot TEXT, sub_body_part TEXT);",
       [],
       null,
       (t, error) => {console.log(error);}

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("7.db");
+const db = SQLite.openDatabase("16.db");
 console.log(db);
 
 const StorageScreen = ({ route }) => {
@@ -10,31 +10,6 @@ const StorageScreen = ({ route }) => {
 
   return (
     <View>
-      <TouchableOpacity onPress = {() => db.transaction(
-        tx => {
-          tx.executeSql(
-            "INSERT INTO mole (name, sub_body_part) values ('Mole on a toe', 'toes_left_foot');",
-            [],
-            null,
-            (t, error) => {console.log(error);}
-          );
-        }
-      )}>
-        <Text style = {styles.text}>ADD_MOLE</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress = {() => db.transaction(
-        tx => {
-          tx.executeSql(
-            `INSERT INTO mole_entry (date, far_shot_file, near_shot_file, mole_id) values ('${date}', 'far_shot/1', 'near_shot/1', 1);`,
-            [],
-            null,
-            (t, error) => {console.log(error);}
-          );
-        }
-      )}>
-        <Text style = {styles.text}>ADD_ENTRY</Text>
-      </TouchableOpacity>
 
       <TouchableOpacity onPress = {() => db.transaction(
         tx => {
