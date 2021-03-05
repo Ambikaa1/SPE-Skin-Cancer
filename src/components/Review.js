@@ -4,7 +4,7 @@ import {Ionicons, MaterialCommunityIcons, FontAwesome, Feather} from "@expo/vect
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
-const db = SQLite.openDatabase("16.db");
+const db = SQLite.openDatabase("17.db");
 
 const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     const [drawing, setDrawing] = useState(false);
@@ -75,24 +75,45 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         );
     };
 
-    const doneDrawing = () => {
+    const doneDrawing = async () => {
+        const photoSplit = photo.split("/")
+        const photoId = photoSplit[photoSplit.length - 1]
+
         if (nextScreen == "CameraNear") {
+            let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "far");
+            if (!Boolean(folder.exists)) {
+                await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "far" + "/");
+            }
+            let newLocation = FileSystem.documentDirectory + "far/" + photoId
+            await FileSystem.moveAsync({
+                from: photo,
+                to: newLocation
+            });
             db.transaction(
                 tx => {
                     tx.executeSql(
                         "INSERT INTO mole (name, comments, far_shot, sub_body_part) values (?, ?, ?, 'toes_left_foot');",
-                        [name, comments, null],
+                        [name, comments, newLocation],
                         (t, result) => navigation.navigate(nextScreen, {id: result.insertId}),
                         (t, error) => {console.log(error);}
                     );
                 },
             );
         } else if (nextScreen == undefined) {
+            let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "near");
+            if (!Boolean(folder.exists)) {
+                await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "near" + "/");
+            }
+            let newLocation = FileSystem.documentDirectory + "near/" + photoId
+            await FileSystem.moveAsync({
+                from: photo,
+                to: newLocation
+            });
             db.transaction(
                 tx => {
                     tx.executeSql(
                         "INSERT INTO mole_entry (date, near_shot, mole_id) values (?, ?, ?);",
-                        ["01/01/2001", null, id],
+                        ["01/01/2001", newLocation, id],
                         (t, result) => navigation.navigate("Homunculus"),
                         (t, error) => {console.log(error);}
                     );

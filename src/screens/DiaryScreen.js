@@ -4,39 +4,37 @@ import { AntDesign, Feather } from '@expo/vector-icons';
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
-const db = SQLite.openDatabase("13.db");
+const db = SQLite.openDatabase("17.db");
 
 const DiaryScreen = () => {
-    const [entryIds, setEntryIds] = useState([]);
+    const [moles, setMoles] = useState([]);
     const [refresh, setRefresh] = useState(0);
 
     const displayImages = ({ item }) => {
+        console.log(item);
         return(
             <View style = {styles.nearFarShot}>
                 <Image 
                     style = {styles.image}
-                    source = {{ uri: FileSystem.documentDirectory + "/far_shot/" + item }} 
+                    source = {{ uri: item.far_shot }} 
                 />
-                <Image 
-                    style = {styles.image}
-                    source = {{ uri: FileSystem.documentDirectory + "/near_shot/" + item }} 
-                />
+                <Text>{item.name}</Text>
             </View>
         );
     };
 
-    const getIdsFromEntries = entries => {
-        let ids = [];
-        for (let i = 0; i < entries.length; i++) {
-            ids.push(entries[i].entry_id);
-        }
-        return ids;
-    }
+    // const getIdsFromEntries = entries => {
+    //     let ids = [];
+    //     for (let i = 0; i < entries.length; i++) {
+    //         ids.push(entries[i].entry_id);
+    //     }
+    //     return ids;
+    // }
 
     useEffect(() => {
         db.transaction(
             tx => {
-                tx.executeSql("SELECT entry_id FROM mole_entry;", [], (_, { rows }) => setEntryIds(getIdsFromEntries(rows._array)));
+                tx.executeSql("SELECT name, far_shot FROM mole;", [], (_, { rows }) => setMoles(rows._array));
             }
         );
     }, [refresh]);
@@ -69,9 +67,9 @@ const DiaryScreen = () => {
                 <Text style = {{ fontSize: 30 }}>Refresh</Text>
             </TouchableOpacity>
             <FlatList 
-                data = {entryIds}
+                data = {moles}
                 renderItem = {displayImages}
-                keyExtractor = {(index) => `${index}`}
+                keyExtractor = {() => `${Math.floor(Math.random() * 10000)}`}
             />
         </View>
     );
