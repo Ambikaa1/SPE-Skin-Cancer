@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Alert, Image, TouchableOpacity, FlatList } from "react-native";
-import { Feather } from '@expo/vector-icons';
 import { useIsFocused } from "@react-navigation/native"
 import * as SQLite from "expo-sqlite";
 
@@ -11,7 +10,6 @@ const DiaryScreen = ({ navigation }) => {
     const isFocused = useIsFocused();
 
     const displayImages = ({ item }) => {
-        console.log(item);
         return(
             <TouchableOpacity style = {styles.nearFarShot} onPress = {() => navigation.navigate("MoleInfo", { id: item.mole_id })}>
                 <Image 
@@ -36,7 +34,7 @@ const DiaryScreen = ({ navigation }) => {
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.title}>Select a mole to view information</Text>
+            <Text style = {styles.title}>Select a mole to view near shots</Text>
             <FlatList 
                 data = {moles}
                 renderItem = {displayImages}
