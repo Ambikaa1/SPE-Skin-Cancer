@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
-const newMole = bodyPart => {
+const NewMole = bodyPart => {
     return (
         //Needs editing, pretty much copied from SendScreen
         <>
@@ -25,15 +25,6 @@ const newMole = bodyPart => {
     )
 }
 
-const OptionalRender = ({ bodyPart, moleChoice }) => {
-    switch(moleChoice) {
-        case true:
-            return newMole(bodyPart)
-        case false:
-            return (<Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>)
-    }
-}
-
 const MoleTypeScreen = ({route, navigation }) => {
     const [moleChoice, setChoice] = useState(true);
     const bodyPart = route.params.paramKey
@@ -49,10 +40,10 @@ const MoleTypeScreen = ({route, navigation }) => {
                 <Picker.Item label = "Yes" value = {true} />
                 <Picker.Item label = "No" value = {false} />
             </Picker>
-            {}
-
-
-            <OptionalRender bodyPart = {bodyPart} moleChoice = {moleChoice} />
+            {moleChoice
+                ? <NewMole bodyPart = {bodyPart} />
+                : <Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>
+            }
             <TouchableOpacity style = {styles.doneBox} onPress={() => navigation.navigate("CameraFar")}>
                 <Text style = {styles.doneText}>Confirm</Text>
             </TouchableOpacity>
