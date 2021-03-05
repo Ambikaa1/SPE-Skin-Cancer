@@ -6,7 +6,7 @@ const NewMole = bodyPart => {
     return (
         //Needs editing, pretty much copied from SendScreen
         <>
-            <Text style = {styles.question}>Mole name</Text>
+            <Text style = {styles.question}>Mole name:</Text>
             <TextInput
                 placeholder = "Name"
                 style = {styles.input}
@@ -14,7 +14,7 @@ const NewMole = bodyPart => {
                 // Need to add functionality that actually does something with inputs
             />
 
-            <Text style = {styles.question}>Mole comments</Text>
+            <Text style = {styles.question}>Mole comments:</Text>
             <TextInput
                 placeholder = "Comments"
                 style = {styles.input}
