@@ -5,32 +5,33 @@ import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("15.db");
 
-const NewMole = bodyPart => {
-    return (
-        //Needs editing, pretty much copied from SendScreen
-        <>
-            <Text style = {styles.question}>Mole name:</Text>
-            <TextInput
-                placeholder = "Name"
-                style = {styles.input}
-                // onChangeText = {}
-                // Need to add functionality that actually does something with inputs
-            />
-
-            <Text style = {styles.question}>Mole comments:</Text>
-            <TextInput
-                placeholder = "Comments"
-                style = {styles.input}
-                // onChangeText = {}
-                // Need to add functionality that actually does something with inputs
-            />
-        </>
-    )
-}
-
-const MoleTypeScreen = ({route, navigation }) => {
+const MoleTypeScreen = ({ route, navigation }) => {
     const [moleChoice, setChoice] = useState(true);
     const bodyPart = route.params.paramKey
+
+    const NewMole = bodyPart => {
+        return (
+            //Needs editing, pretty much copied from SendScreen
+            <>
+                <Text style = {styles.question}>Mole name:</Text>
+                <TextInput
+                    placeholder = "Name"
+                    style = {styles.input}
+                    // onChangeText = {}
+                    // Need to add functionality that actually does something with inputs
+                />
+    
+                <Text style = {styles.question}>Mole comments:</Text>
+                <TextInput
+                    placeholder = "Comments"
+                    style = {styles.input}
+                    // onChangeText = {}
+                    // Need to add functionality that actually does something with inputs
+                />
+            </>
+        );
+    };
+
     return (
         <View style = {styles.container}>
             <Text style = {styles.question}>Is this a new mole?</Text>
