@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import DiaryScreen from "../screens/DiaryScreen";
+import MoleInfoScreen from "../screens/MoleInfoScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 
@@ -20,6 +21,15 @@ const DiaryStack = () => {
         component = {DiaryScreen}
         options = {{ 
           title: "Diary",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
+      />
+      <Stack.Screen
+        name = "MoleInfo"
+        component = {MoleInfoScreen}
+        options = {{ 
+          title: "Mole",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
