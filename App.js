@@ -40,8 +40,8 @@ const MyTabs = () => {
               : 'ios-book-outline'
           } else if (route.name === "Send") {
             iconName = focused
-              ? 'ios-send'
-              : 'ios-send-outline'
+              ? 'ios-mail'
+              : 'ios-mail-outline'
           }
           return <Ionicons name = {iconName} size = {size} color = {color} />;
         },
