@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import * as SQLite from "expo-sqlite";
+
+const db = SQLite.openDatabase("15.db");
 
 const NewMole = bodyPart => {
     return (
@@ -83,13 +86,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     doneBox: {
-        marginRight: 10,
-        marginTop: 10,
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
         position: "absolute",
-        width: "95%",
+        width: "97.5%",
         bottom: 10
     },
     doneText: {
