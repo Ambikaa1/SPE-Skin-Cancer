@@ -48,11 +48,16 @@ const MoleTypeScreen = ({ route, navigation }) => {
                 ? <NewMole bodyPart = {bodyPart} />
                 : <Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>
             }
-            <TouchableOpacity style = {styles.doneBox} onPress={() => navigation.navigate("CameraFar")}>
+            <TouchableOpacity style = {styles.doneBox} onPress={() => 
+                {moleChoice
+                    ? navigation.navigate("CameraFar")
+                    : null
+                }}
+            >
                 <Text style = {styles.doneText}>Confirm</Text>
             </TouchableOpacity>
         </View>
-    )
+    );
 };
 
 const styles = StyleSheet.create({
