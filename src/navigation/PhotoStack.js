@@ -64,6 +64,8 @@ const PhotoStack = () => {
           title: "Near Shot",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
+          headerLeft: null,
+          gestureEnabled: false
         }}
       />
       <Stack.Screen
@@ -73,6 +75,8 @@ const PhotoStack = () => {
           title: "Review",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
+          headerLeft: null,
+          gestureEnabled: false
         }}
       />
       <Stack.Screen
@@ -82,6 +86,8 @@ const PhotoStack = () => {
           title: "Review",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
+          headerLeft: null,
+          gestureEnabled: false
         }}
       />
     </Stack.Navigator>
