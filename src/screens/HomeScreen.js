@@ -4,7 +4,7 @@ import { useIsFocused } from "@react-navigation/native"
 import { Ionicons } from "@expo/vector-icons";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("13.db");
+const db = SQLite.openDatabase("17.db");
 
 const HomeScreen = ({ navigation }) => {
     const [currentDate, setCurrentDate] = useState("");

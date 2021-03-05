@@ -7,7 +7,6 @@ import CameraFarScreen from "../screens/CameraFarScreen"
 import CameraNearScreen from "../screens/CameraNearScreen"
 import ReviewFarScreen from "../screens/ReviewFarScreen";
 import ReviewNearScreen from "../screens/ReviewNearScreen";
-import MoleFormScreen from "../screens/MoleFormScreen";
 import MoleTypeScreen from "../screens/MoleTypeScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
@@ -81,15 +80,6 @@ const PhotoStack = () => {
         component = {ReviewNearScreen}
         options = {{ 
           title: "Review",
-          headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
-        }}
-      />
-      <Stack.Screen
-        name = "MoleForm"
-        component = {MoleFormScreen}
-        options = {{ 
-          title: "Confirm",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
