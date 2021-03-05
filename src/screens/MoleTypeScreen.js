@@ -68,7 +68,7 @@ const OptionalRender = (moleChoice, bodyPart) => {
     }
 }
 
-const MoleType = ({route, navigation }) => {
+const MoleTypeScreen = ({route, navigation }) => {
     const [moleChoice, setChoice] = useState(null);
     const bodyPart = route.params.paramKey
     return (
@@ -128,4 +128,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default MoleType;
+export default MoleTypeScreen;
