@@ -166,19 +166,10 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                 {drawing
                     ?
                     <>
-                        <TouchableOpacity style={styles.optionButton}
-                                          onPress={() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
-                            <FontAwesome name="paint-brush" size={48} color="white"/>
-                            <Text style={styles.text}>Draw</Text></TouchableOpacity>
-                        <TouchableOpacity style={styles.optionButton}
-                                          onPress={() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
-                            <MaterialCommunityIcons name="eraser" size={50} color="white"/>
-                            <Text style={styles.text}>Clear</Text>
-                        </TouchableOpacity>
                         {/*Accept Button*/}
-                        <TouchableOpacity onPress = {doneDrawing}>
-                            <Text style={styles.text}>Accept</Text>
-                            <Feather name="thumbs-up" size={50} color="green"/>
+                        <TouchableOpacity style={styles.doneButton} onPress = {doneDrawing}>
+                            <Ionicons name="ios-checkmark-done-circle" size={50} color="white"/>
+                            <Text style={styles.text}>Done</Text>
                         </TouchableOpacity>
                     </>
                     :
@@ -219,6 +210,12 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         marginVertical: 5,
+    },
+    doneButton: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginVertical: 5,
+        paddingHorizontal: 50,
     },
     text: {
         color: "white",
