@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from "rea
 import { Camera } from "expo-camera";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
 
-const TakePhoto = ({ navigation, nextScreen, uris }) => {
+const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [ghostImage, setGhostImage] = useState(true);
   const [type, setType] = useState(Camera.Constants.Type.back);
@@ -52,7 +52,7 @@ const TakePhoto = ({ navigation, nextScreen, uris }) => {
           onPress = {async() => {
             if (cameraRef) {
                 let photo = await cameraRef.takePictureAsync();
-                navigation.navigate(nextScreen, { photo: photo.uri, uris, })
+                navigation.navigate(nextScreen, { photo: photo.uri, name: name, comments: comments, id: id })
                 // console.log('photo taken', photo);
             }
           }}>

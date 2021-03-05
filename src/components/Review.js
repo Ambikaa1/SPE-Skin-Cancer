@@ -1,8 +1,12 @@
 import React, {useRef, useState} from "react";
 import {View, Text, Image, TouchableOpacity, StyleSheet, Alert, Animated, PanResponder, Slider} from "react-native";
 import {Ionicons, MaterialCommunityIcons, FontAwesome, Feather} from "@expo/vector-icons";
+import * as SQLite from "expo-sqlite";
+import * as FileSystem from 'expo-file-system';
 
-const Review = ({navigation, route, nextScreen}) => {
+const db = SQLite.openDatabase("17.db");
+
+const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     const [drawing, setDrawing] = useState(false);
 
     const pan = useRef(new Animated.ValueXY()).current;
@@ -59,9 +63,6 @@ const Review = ({navigation, route, nextScreen}) => {
         extrapolateRight: "clamp"
     })
 
-    const photo = route.params.photo
-    const uris = route.params.uris
-
     const acceptImage = () => {
         setDrawing(true);
     };
@@ -72,6 +73,53 @@ const Review = ({navigation, route, nextScreen}) => {
             "You cannot undo this action.",
             [{text: "Cancel", style: "cancel"}, {text: "Delete", onPress: () => navigation.goBack()}],
         );
+    };
+
+    const doneDrawing = async () => {
+        const photoSplit = photo.split("/")
+        const photoId = photoSplit[photoSplit.length - 1]
+
+        if (nextScreen == "CameraNear") {
+            let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "far");
+            if (!Boolean(folder.exists)) {
+                await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "far" + "/");
+            }
+            let newLocation = FileSystem.documentDirectory + "far/" + photoId
+            await FileSystem.moveAsync({
+                from: photo,
+                to: newLocation
+            });
+            db.transaction(
+                tx => {
+                    tx.executeSql(
+                        "INSERT INTO mole (name, comments, far_shot, sub_body_part) values (?, ?, ?, 'toes_left_foot');",
+                        [name, comments, newLocation],
+                        (t, result) => navigation.navigate(nextScreen, {id: result.insertId}),
+                        (t, error) => {console.log(error);}
+                    );
+                },
+            );
+        } else if (nextScreen == undefined) {
+            let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "near");
+            if (!Boolean(folder.exists)) {
+                await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "near" + "/");
+            }
+            let newLocation = FileSystem.documentDirectory + "near/" + photoId
+            await FileSystem.moveAsync({
+                from: photo,
+                to: newLocation
+            });
+            db.transaction(
+                tx => {
+                    tx.executeSql(
+                        "INSERT INTO mole_entry (date, near_shot, mole_id) values (?, ?, ?);",
+                        ["01/01/2001", newLocation, id],
+                        (t, result) => navigation.navigate("Homunculus"),
+                        (t, error) => {console.log(error);}
+                    );
+                },
+            );
+        }
     };
 
     return (
@@ -128,7 +176,7 @@ const Review = ({navigation, route, nextScreen}) => {
                             <Text style={styles.text}>Clear</Text>
                         </TouchableOpacity>
                         {/*Accept Button*/}
-                        <TouchableOpacity onPress={() => navigation.navigate(nextScreen, {uris: uris.concat([photo])})}>
+                        <TouchableOpacity onPress = {doneDrawing}>
                             <Text style={styles.text}>Accept</Text>
                             <Feather name="thumbs-up" size={50} color="green"/>
                         </TouchableOpacity>

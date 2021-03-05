@@ -3,13 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from '@expo/vector-icons';
 import * as SQLite from "expo-sqlite";
+
 import HomeStack from "./src/navigation/HomeStack";
 import InfoStack from "./src/navigation/InfoStack";
 import PhotoStack from "./src/navigation/PhotoStack"
 import DiaryStack from "./src/navigation/DiaryStack";
 import SendStack from "./src/navigation/SendStack";
 
-const db = SQLite.openDatabase("13.db")
+const db = SQLite.openDatabase("17.db");
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
@@ -73,27 +74,18 @@ const App = () => {
       (t, error) => {console.log(error);}
     );
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS sub_body_part (name TEXT PRIMARY KEY NOT NULL UNIQUE, body_part TEXT NOT NULL);",
+      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, comments TEXT, far_shot TEXT, sub_body_part TEXT);",
       [],
       null,
       (t, error) => {console.log(error);}
     );
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, sub_body_part TEXT REFERENCES sub_body_part(name) NOT NULL);",
-      [],
-      null,
-      (t, error) => {console.log(error);}
-    );
-    tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS mole_entry (entry_id INTEGER PRIMARY KEY NOT NULL UNIQUE, date TEXT NOT NULL, mole_id INTEGER REFERENCES mole(mole_id) NOT NULL);",
+      "CREATE TABLE IF NOT EXISTS mole_entry (entry_id INTEGER PRIMARY KEY NOT NULL UNIQUE, date TEXT NOT NULL, near_shot TEXT, mole_id INTEGER REFERENCES mole(mole_id) NOT NULL);",
       [],
       null,
       (t, error) => {console.log(error);}
     );
     tx.executeSql("INSERT INTO user (first_name, last_name, date_of_birth) VALUES (null, null, null);", []);
-    tx.executeSql("insert into sub_body_part (name, body_part) values ('top_left_foot', 'left_foot');", []);
-    tx.executeSql("insert into sub_body_part (name, body_part) values ('middle_left_foot', 'left_foot');", []);
-    tx.executeSql("insert into sub_body_part (name, body_part) values ('toes_left_foot', 'left_foot');", []);
   });
   console.log("Database test");
 
