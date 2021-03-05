@@ -3,9 +3,8 @@ import { StyleSheet} from "react-native";
 import TakePhoto from "../components/TakePhoto"
 
 const CameraFarScreen = ({ navigation, route }) => {
-  let uris = []
   return (
-    <TakePhoto navigation = {navigation} nextScreen = "ReviewFar" uris = {uris} name = {route.params.name} comments = {route.params.comments} />
+    <TakePhoto navigation = {navigation} nextScreen = "ReviewFar" name = {route.params.name} comments = {route.params.comments} />
   );
 };
 

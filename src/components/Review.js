@@ -6,7 +6,7 @@ import * as FileSystem from 'expo-file-system';
 
 const db = SQLite.openDatabase("16.db");
 
-const Review = ({navigation, route, nextScreen}) => {
+const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     const [drawing, setDrawing] = useState(false);
 
     const pan = useRef(new Animated.ValueXY()).current;
@@ -63,9 +63,6 @@ const Review = ({navigation, route, nextScreen}) => {
         extrapolateRight: "clamp"
     })
 
-    const photo = route.params.photo
-    const uris = route.params.uris
-
     const acceptImage = () => {
         setDrawing(true);
     };
@@ -82,18 +79,26 @@ const Review = ({navigation, route, nextScreen}) => {
         if (nextScreen == "CameraNear") {
             db.transaction(
                 tx => {
-                  tx.executeSql(
-                    "INSERT INTO mole (name, comments, far_shot, sub_body_part) values (?, ?, ?, 'toes_left_foot');",
-                    [route.params.name, route.params.comments, null],
-                    null,
-                    (t, error) => {console.log(error);}
-                  );
+                    tx.executeSql(
+                        "INSERT INTO mole (name, comments, far_shot, sub_body_part) values (?, ?, ?, 'toes_left_foot');",
+                        [name, comments, null],
+                        (t, result) => navigation.navigate(nextScreen, {id: result.insertId}),
+                        (t, error) => {console.log(error);}
+                    );
                 },
-              );
+            );
+        } else if (nextScreen == undefined) {
+            db.transaction(
+                tx => {
+                    tx.executeSql(
+                        "INSERT INTO mole_entry (date, near_shot, mole_id) values (?, ?, ?);",
+                        ["01/01/2001", null, id],
+                        (t, result) => navigation.navigate("Homunculus"),
+                        (t, error) => {console.log(error);}
+                    );
+                },
+            );
         }
-
-
-        navigation.navigate(nextScreen, {uris: uris.concat([photo])});
     };
 
     return (
