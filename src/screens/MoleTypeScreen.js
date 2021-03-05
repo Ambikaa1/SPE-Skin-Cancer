@@ -72,7 +72,7 @@ const MoleTypeScreen = ({route, navigation }) => {
     const [moleChoice, setChoice] = useState(null);
     const bodyPart = route.params.paramKey
     return (
-        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: "white"}}>
+        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <View style={{flex: 2, justifyContent: 'center', width:Dimensions.get("window").width -100}}>
                 <Text> Is this a new mole? </Text>
                 <DropDownPicker
