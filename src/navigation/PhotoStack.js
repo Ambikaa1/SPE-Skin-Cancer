@@ -41,13 +41,13 @@ const PhotoStack = () => {
         }}
       />
       <Stack.Screen
-          name = "MoleType"
-          component = {MoleTypeScreen}
-          options = {{
-              title: "Choose Mole",
-              headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
-          }}
+        name = "MoleType"
+        component = {MoleTypeScreen}
+        options = {{
+          title: "Choose Mole",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
       />
       <Stack.Screen
         name = "CameraFar"
