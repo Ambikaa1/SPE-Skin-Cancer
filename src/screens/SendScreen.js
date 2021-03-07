@@ -1,10 +1,29 @@
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
 
 const SendScreen = () => {
     const [value1, onChangeText1] = React.useState('Placeholder');
     const [value2, onChangeText2] = React.useState('Placeholder');
+
+    const Notice = () =>
+        Alert.alert(
+            "Notice",
+            "The email to your gp will not be protected by any extra encryption and you're email app is responsible for anything bad happening, not the amazing people that kindly developed this app",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+
+                },
+                {   text: "OK",
+                    onPress: () => Linking.openURL("mailto:yourgp'semal@blahblahblah.com?subject=Update on mole blah&body=Here's some new moles buddy!!!!!!"),
+                    style: "cancel",
+                }
+            ],
+            { cancelable: false }
+        );
+
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -79,7 +98,7 @@ const SendScreen = () => {
                 <View style={styles.bottomButtonView}>
                     <TouchableOpacity
                         style={styles.bottomButtonStyle}
-                        onPress={() => Linking.openURL("mailto:ebagguley1@gmail.com?subject=Mole update&body=Here's some new moles")}
+                        onPress={() => Notice()}
                     >
                         <Text style={styles.ButtonText}>SEND</Text>
                     </TouchableOpacity>
