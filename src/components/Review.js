@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 import {View, Text, Image, TouchableOpacity, StyleSheet, Alert, Animated, PanResponder, Slider} from "react-native";
 import {Ionicons, MaterialCommunityIcons, FontAwesome, Feather} from "@expo/vector-icons";
+import {captureRef} from "react-native-view-shot";
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
@@ -9,6 +10,8 @@ const db = SQLite.openDatabase("17.db");
 const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     const [drawing, setDrawing] = useState(false);
 
+    const viewShotRef = useRef()
+    const [hideOnScreenShot, setHideOnScreenShot] = useState(false)
     const pan = useRef(new Animated.ValueXY()).current;
     const [maxX, setMaxX] = useState(0);
     const [maxY, setMaxY] = useState(0);
@@ -77,7 +80,22 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         );
     };
 
+    const takeScreenShot = async  () => {
+        setHideOnScreenShot(true)
+        photo = await captureRef(viewShotRef,
+            {
+                result: "tmpfile",
+                quality: 1,
+                format: "jpg"
+            }
+            )
+    }
+
     const doneDrawing = async () => {
+        if(nextScreen === "CameraNear"){
+            await takeScreenShot()
+        }
+
         const photoSplit = photo.split("/")
         const photoId = photoSplit[photoSplit.length - 1]
 
@@ -129,7 +147,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.camera} onLayout={getDimensions}>
+            <View ref = {viewShotRef} style={styles.camera} onLayout={getDimensions}>
                 <Image
                     style={styles.camera}
                     source={{uri: photo}}
@@ -153,7 +171,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                         </Animated.View>
 
 
-                        <Slider
+                        {!hideOnScreenShot && <Slider
                             //Width changes the width of a horizontal slider. Due to 90deg rotation it will appear to change the height in the application
                             style = {{
                                 transform :  [{ rotate: "-90deg" }],
@@ -170,14 +188,14 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                             trackStyle={{ height: sliderTrackHeight, backgroundColor: 'red' }}
                             thumbStyle={{ height: sliderCircleDim, width: sliderCircleDim, backgroundColor: 'transparent' }}
                         >
-                        </Slider>
+                        </Slider>}
 
                         {/*Little Circle
 
                         Just to help align with the slider, I rotate these 90deg aswell so all positioning acts in same way
 
                         */}
-                        <View
+                        {!hideOnScreenShot && <View
                             style={[styles.circle,
                                 {
                                     transform : [
@@ -190,11 +208,11 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                                 }
                                 ]
                             }
-                        />
+                        />}
 
 
                         {/*Big Circle*/}
-                        <View
+                        {!hideOnScreenShot && <View
                             style={[styles.circle,
                                 {
                                     transform : [
@@ -207,7 +225,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                                 }
                             ]
                             }
-                        />
+                        />}
                     </>
                     : null
                 }
