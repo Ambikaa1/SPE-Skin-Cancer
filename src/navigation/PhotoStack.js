@@ -10,6 +10,9 @@ import ReviewNearScreen from "../screens/ReviewNearScreen";
 import MoleTypeScreen from "../screens/MoleTypeScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
+import HelpFarShotScreen from "../screens/HelpFarShotScreen";
+import HelpNearShotScreen from "../screens/HelpNearShotScreen";
+import DrawingHelpScreen from "../screens/DrawingHelpScreen";
 
 const Stack = createStackNavigator();
 
@@ -24,7 +27,7 @@ const PhotoStack = () => {
       <Stack.Screen
         name = "Homunculus"
         component = {HomunculusScreen}
-        options = {{ 
+        options = {{
           title: "Location",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
@@ -33,7 +36,7 @@ const PhotoStack = () => {
       <Stack.Screen
         name = "BodyPart"
         component = {BodyPartScreen}
-        options = {{ 
+        options = {{
           title: "Location",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
@@ -49,9 +52,14 @@ const PhotoStack = () => {
         }}
       />
       <Stack.Screen
+          name = "HelpFarShot"
+          component = {HelpFarShotScreen}
+          options = {{title: 'Help'}}
+      />
+      <Stack.Screen
         name = "CameraFar"
         component = {CameraFarScreen}
-        options = {{ 
+        options = {{
           title: "Far Shot",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
@@ -60,7 +68,7 @@ const PhotoStack = () => {
       <Stack.Screen
         name = "CameraNear"
         component = {CameraNearScreen}
-        options = {{ 
+        options = {{
           title: "Near Shot",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
@@ -71,7 +79,7 @@ const PhotoStack = () => {
       <Stack.Screen
         name = "ReviewFar"
         component = {ReviewFarScreen}
-        options = {{ 
+        options = {{
           title: "Review",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
@@ -80,9 +88,16 @@ const PhotoStack = () => {
         }}
       />
       <Stack.Screen
+          name = "HelpNearShot"
+          component = {HelpNearShotScreen}
+          options = {{
+              title: "Help"
+          }}
+      />
+      <Stack.Screen
         name = "ReviewNear"
         component = {ReviewNearScreen}
-        options = {{ 
+        options = {{
           title: "Review",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,

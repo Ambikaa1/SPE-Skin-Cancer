@@ -99,7 +99,9 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         const photoSplit = photo.split("/")
         const photoId = photoSplit[photoSplit.length - 1]
 
-        if (nextScreen === "CameraNear") {
+        //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
+        console.log(nextScreen);
+        if (nextScreen === "HelpNearShot") {
             let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "far");
             if (!Boolean(folder.exists)) {
                 await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "far" + "/");
@@ -139,6 +141,9 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                     );
                 },
             );
+        } else {
+            //Added this to get rid of the "possible unhandled rejection warning - can remove this once ^ is finalised.
+            return <View />;
         }
     };
 

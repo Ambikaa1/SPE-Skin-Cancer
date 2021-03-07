@@ -21,7 +21,7 @@ const MoleTypeScreen = ({ route, navigation }) => {
                 <Picker.Item label = "No" value = {false} />
             </Picker>
             {moleChoice
-                ?   
+                ?
                     <>
                         <Text style = {styles.question}>Mole name:</Text>
                         <TextInput
@@ -40,9 +40,9 @@ const MoleTypeScreen = ({ route, navigation }) => {
                     </>
                 : <Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>
             }
-            <TouchableOpacity style = {styles.doneBox} onPress={() => 
+            <TouchableOpacity style = {styles.doneBox} onPress={() =>
                 {moleChoice
-                    ? navigation.navigate("CameraFar", { name: name, comments: comments })
+                    ? navigation.navigate("HelpFarShot", { name: name, comments: comments })
                     : null
                 }}
             >
