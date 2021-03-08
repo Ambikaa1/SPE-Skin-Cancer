@@ -82,13 +82,11 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
 
     const takeScreenShot = async  () => {
         setHideOnScreenShot(true)
-        photo = await captureRef(viewShotRef,
-            {
-                result: "tmpfile",
-                quality: 1,
-                format: "jpg"
-            }
-            )
+        photo = await captureRef(viewShotRef, {
+            result: "base64",
+            quality: 1,
+            format: "jpg"
+        });
     }
 
     const doneDrawing = async () => {
@@ -107,10 +105,12 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                 await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "far" + "/");
             }
             let newLocation = FileSystem.documentDirectory + "far/" + photoId
-            await FileSystem.moveAsync({
-                from: photo,
-                to: newLocation
+
+
+            await FileSystem.writeAsStringAsync(newLocation, photo, {
+                encoding: FileSystem.EncodingType.Base64,
             });
+
             db.transaction(
                 tx => {
                     tx.executeSql(
