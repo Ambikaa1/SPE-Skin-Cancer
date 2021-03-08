@@ -1,36 +1,58 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import DropDownPicker from 'react-native-dropdown-picker';
+//import { Picker } from '@react-native-picker/picker';
 
-const MoleTypeScreen = ({ route, navigation }) => {
+const MoleTypeScreen = (navigation) => {
     const [moleChoice, setChoice] = useState(true);
     const [name, setName] = useState(null);
     const [comments, setComments] = useState(null);
-    const bodyPart = route.params.paramKey
 
     return (
         <View style = {styles.container}>
             <Text style = {styles.question}>Is this a new mole?</Text>
-            <Picker
-                selectedValue = {moleChoice}
-                onValueChange = {(itemValue) => setChoice(itemValue)}
-                style = {styles.picker}
-                itemStyle = {styles.pickerItem}
-            >
-                <Picker.Item label = "Yes!!" value = {true} />
-                <Picker.Item label = "No" value = {false} />
-            </Picker>
+            {/*<Picker*/}
+            {/*    selectedValue = {moleChoice}*/}
+            {/*    onValueChange = {(itemValue) => setChoice(itemValue)}*/}
+            {/*    style = {styles.picker}*/}
+            {/*    itemStyle = {styles.pickerItem}*/}
+            {/*>*/}
+            {/*    <Picker.Item label = "Yes!!" value = {true} />*/}
+            {/*    <Picker.Item label = "No" value = {false} />*/}
+            {/*</Picker>*/}
+            <DropDownPicker
+                items = {[
+                {label: 'Yes', value: true},
+                {label: 'No', value: false},
+            ]}
+            containerStyle={{height: 40}}
+            onChangeItem={item => setChoice(item.value)}
+           // onChangeItem={item => console.log(item.label, item.value)}
+
+
+            />
+            {/*<DropDownPicker style={styles.dropdown}*/}
+            {/*                items={[*/}
+            {/*                    {label: 'Yes'},*/}
+            {/*                    {label: 'No'},*/}
+            {/*                ]}*/}
+            {/*                containerStyle={{height: 35}}*/}
+            {/*                defaultIndex={0}*/}
+            {/*    //onChangeItem={item => console.log(item.label)}*/}
+            {/*                onChangeItem={item => setChoice(item.label)}*/}
+            {/*/>*/}
+
             {moleChoice
                 ?
                     <>
-                        <Text style = {styles.question}>Mole name:</Text>
+                        <Text style = {styles.question1}>Mole name:</Text>
                         <TextInput
                             value = {name}
                             onChangeText = {value => setName(value)}
                             placeholder = "Mole name"
                             style = {styles.input}
                         />
-                        <Text style = {styles.question}>Mole comments:</Text>
+                        <Text style = {styles.question2}>Mole comments:</Text>
                         <TextInput
                             value = {comments}
                             onChangeText = {value => setComments(value)}
@@ -61,18 +83,26 @@ const styles = StyleSheet.create({
     question: {
         fontSize: 20
     },
-    picker: {
-        marginRight: 10,
-        height: 125,
-        // borderColor: "black",
-        // borderWidth: 1
-
+    question1: {
+        marginTop: 80,
+        fontSize: 20
     },
-    pickerItem: {
-        height: 125,
-        // borderColor: "black",
-        // borderWidth: 1
+    question2: {
+        marginTop: 10,
+        fontSize: 20
     },
+    // picker: {
+    //     marginRight: 10,
+    //     height: 125,
+    //     // borderColor: "black",
+    //     // borderWidth: 1
+    //
+    // },
+    // pickerItem: {
+    //     height: 125,
+    //     // borderColor: "black",
+    //     // borderWidth: 1
+    // },
     input: {
         backgroundColor: "#E2E2E2",
         height: 50,

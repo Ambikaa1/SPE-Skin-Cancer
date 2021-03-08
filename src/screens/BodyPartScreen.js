@@ -34,7 +34,7 @@ const BodyPartScreen = ({route, navigation }) => {
                 {checkSwitch(bodyPart)}
             </View>
             <View style={{flex: 2.5, width: 200, justifyContent: 'center'}}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("MoleType", {paramKey: bodyPart})}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("MoleType")}>
                     <Text style = {styles.text}>CONFIRM AREA</Text>
                 </TouchableOpacity>
             </View>
