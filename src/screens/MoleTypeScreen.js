@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
         height: 40,
         marginTop: 5,
         marginRight: 10,
-        fontSize: 20,
     },
     dropDownLabel: {
         fontSize: 20,
