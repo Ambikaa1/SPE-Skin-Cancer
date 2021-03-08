@@ -9,7 +9,7 @@ const SendScreen = () => {
     const Notice = () =>
         Alert.alert(
             "Notice",
-            "The email to your gp will not be protected by any extra encryption and you're email app is responsible for anything bad happening, not the amazing people that kindly developed this app",
+            "The email to your GP will not be protected by any extra encryption and your email app is responsible for anything bad happening, not the amazing people that kindly developed this app",
             [
                 {
                     text: "Cancel",

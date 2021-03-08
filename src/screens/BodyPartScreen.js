@@ -33,9 +33,9 @@ const BodyPartScreen = ({route, navigation }) => {
             <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
                 {checkSwitch(bodyPart)}
             </View>
-            <View style={{flex: 2.5, width: 200, justifyContent: 'center'}}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("MoleType", {paramKey: bodyPart})}>
-                    <Text style = {styles.text}>CONFIRM AREA</Text>
+            <View style={{flex: 2.5, width: 300, justifyContent: 'center'}}>
+                <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
+                    <Text style = {styles.doneText}>Confirm</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -57,14 +57,28 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: 'center'
     },
-    button: {
-        alignItems: "center",
+    // button: {
+    //     alignItems: "center",
+    //     backgroundColor: "#71A1D1",
+    //     padding: 15,
+    // },
+    // text: {
+    //     color: "white",
+    // },
+    doneBox: {
         backgroundColor: "#71A1D1",
-        padding: 15,
+        alignItems: "center",
+        borderRadius: 10,
+        position: "absolute",
+        width: "97.5%",
+        bottom: 10
     },
-    text: {
+    doneText: {
+        fontSize: 30,
+        fontWeight: "bold",
         color: "white",
-    },
+        marginVertical: 10,
+    }
 });
 
 //https://www.geeksforgeeks.org/switch-vs-else/ ---- may be useful for explaining decisions in portfolio
