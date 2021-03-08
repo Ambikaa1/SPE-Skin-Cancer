@@ -33,6 +33,7 @@
     "react-native-dropdown-picker": "^3.7.1",
     "react-native-gesture-handler": "~1.8.0",
     "react-native-screens": "~2.15.0",
+    "react-native-view-shot": "^3.1.2",
     "react-native-web": "^0.15.0",
     "react-test-renderer": "^17.0.1"
   },
