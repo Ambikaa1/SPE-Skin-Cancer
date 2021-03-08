@@ -13,6 +13,7 @@ import HeaderButton from "../components/HeaderButton"
 import HelpFarShotScreen from "../screens/HelpFarShotScreen";
 import HelpNearShotScreen from "../screens/HelpNearShotScreen";
 import DrawingHelpScreen from "../screens/DrawingHelpScreen";
+import PhotoSuccess from "../screens/PhotoSuccess";
 
 const Stack = createStackNavigator();
 
@@ -104,6 +105,13 @@ const PhotoStack = () => {
           headerLeft: null,
           gestureEnabled: false
         }}
+      />
+      <Stack.Screen
+          name = "Success"
+          component = {PhotoSuccess}
+          options = {{
+              title: "Success!"
+          }}
       />
     </Stack.Navigator>
   );
