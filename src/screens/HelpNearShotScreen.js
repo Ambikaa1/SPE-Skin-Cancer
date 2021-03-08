@@ -27,8 +27,7 @@ const HelpNearShotScreen = ({navigation, route}) => {
 
                 <TouchableOpacity style={styles.doneBox}
                                   onPress={() => {
-                                      navigation.navigate("CameraNear", { photo: route.params.photo, name: route.params.name,
-                                          comments: route.params.comments, id: route.params.id})
+                                      navigation.navigate("CameraNear", { id: route.params.id })
                                   }}>
                     <Text style={styles.doneText}>Continue</Text>
                 </TouchableOpacity>
