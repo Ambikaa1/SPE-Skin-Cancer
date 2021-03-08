@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 
 import DropDownPicker from 'react-native-dropdown-picker';
 //import { Picker } from '@react-native-picker/picker';
 
-const MoleTypeScreen = (navigation) => {
+const MoleTypeScreen = ({navigation}) => {
     const [moleChoice, setChoice] = useState(true);
     const [name, setName] = useState(null);
     const [comments, setComments] = useState(null);
@@ -27,21 +27,8 @@ const MoleTypeScreen = (navigation) => {
             ]}
             containerStyle={{height: 40}}
             onChangeItem={item => setChoice(item.value)}
-           // onChangeItem={item => console.log(item.label, item.value)}
-
 
             />
-            {/*<DropDownPicker style={styles.dropdown}*/}
-            {/*                items={[*/}
-            {/*                    {label: 'Yes'},*/}
-            {/*                    {label: 'No'},*/}
-            {/*                ]}*/}
-            {/*                containerStyle={{height: 35}}*/}
-            {/*                defaultIndex={0}*/}
-            {/*    //onChangeItem={item => console.log(item.label)}*/}
-            {/*                onChangeItem={item => setChoice(item.label)}*/}
-            {/*/>*/}
-
             {moleChoice
                 ?
                     <>
@@ -65,7 +52,7 @@ const MoleTypeScreen = (navigation) => {
             <TouchableOpacity style = {styles.doneBox} onPress={() =>
                 {moleChoice
                     ? navigation.navigate("HelpFarShot", { name: name, comments: comments })
-                    : null
+                    : navigation.navigate("HelpNearShot", { name: name, comments: comments })
                 }}
             >
                 <Text style = {styles.doneText}>Confirm</Text>
@@ -88,7 +75,7 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     question2: {
-        marginTop: 10,
+        marginTop: 20,
         fontSize: 20
     },
     // picker: {
