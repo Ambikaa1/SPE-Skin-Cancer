@@ -17,7 +17,7 @@ const MoleTypeScreen = ({ route, navigation }) => {
                 style = {styles.picker}
                 itemStyle = {styles.pickerItem}
             >
-                <Picker.Item label = "Yes" value = {true} />
+                <Picker.Item label = "Yes!!" value = {true} />
                 <Picker.Item label = "No" value = {false} />
             </Picker>
             {moleChoice
