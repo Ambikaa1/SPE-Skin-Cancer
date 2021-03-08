@@ -107,7 +107,7 @@ const PhotoStack = () => {
         }}
       />
       <Stack.Screen
-          name = "Success"
+          name = "PhotoSuccess"
           component = {PhotoSuccess}
           options = {{
               title: "Success!"
