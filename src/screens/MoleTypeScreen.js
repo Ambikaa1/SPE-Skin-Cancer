@@ -4,50 +4,41 @@ import DropDownPicker from 'react-native-dropdown-picker';
 //import { Picker } from '@react-native-picker/picker';
 
 const MoleTypeScreen = ({navigation}) => {
-    const [moleChoice, setChoice] = useState(true);
+    const [moleChoice, setChoice] = useState(null);
     const [name, setName] = useState(null);
     const [comments, setComments] = useState(null);
 
     return (
         <View style = {styles.container}>
             <Text style = {styles.question}>Is this a new mole?</Text>
-            {/*<Picker*/}
-            {/*    selectedValue = {moleChoice}*/}
-            {/*    onValueChange = {(itemValue) => setChoice(itemValue)}*/}
-            {/*    style = {styles.picker}*/}
-            {/*    itemStyle = {styles.pickerItem}*/}
-            {/*>*/}
-            {/*    <Picker.Item label = "Yes!!" value = {true} />*/}
-            {/*    <Picker.Item label = "No" value = {false} />*/}
-            {/*</Picker>*/}
             <DropDownPicker
                 items = {[
-                {label: 'Yes', value: true},
-                {label: 'No', value: false},
+                {label: 'Yes', value: 1},
+                {label: 'No', value: 0},
             ]}
             containerStyle={{height: 40}}
             onChangeItem={item => setChoice(item.value)}
-
             />
-            {moleChoice
-                ?
-                    <>
-                        <Text style = {styles.question1}>Mole name:</Text>
-                        <TextInput
-                            value = {name}
-                            onChangeText = {value => setName(value)}
-                            placeholder = "Mole name"
-                            style = {styles.input}
-                        />
-                        <Text style = {styles.question2}>Mole comments:</Text>
-                        <TextInput
-                            value = {comments}
-                            onChangeText = {value => setComments(value)}
-                            placeholder = "Mole comments"
-                            style = {styles.input}
-                        />
-                    </>
-                : <Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>
+            {(moleChoice == 1) && 
+                <>
+                    <Text style = {styles.question1}>Mole name:</Text>
+                    <TextInput
+                        value = {name}
+                        onChangeText = {value => setName(value)}
+                        placeholder = "Mole name"
+                        style = {styles.input}
+                    />
+                    <Text style = {styles.question2}>Mole comments:</Text>
+                    <TextInput
+                        value = {comments}
+                        onChangeText = {value => setComments(value)}
+                        placeholder = "Mole comments"
+                        style = {styles.input}
+                    />
+                </>
+            }
+            {(moleChoice == 0) && 
+                <Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>
             }
             <TouchableOpacity style = {styles.doneBox} onPress={() =>
                 {moleChoice
