@@ -4,7 +4,7 @@ import {StyleSheet, View, Text,TouchableOpacity} from 'react-native';
 const PhotoSuccess = ({navigation}) => {
     return (
         <View>
-            <Text> hi! </Text>
+            <Text style={styles.text}> Your mole photos are saved! </Text>
             <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("Homunculus")}>
                 <Text style = {styles.doneText}>Finish</Text>
             </TouchableOpacity>
@@ -16,13 +16,17 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 50,
     },
+    text: {
+        marginTop: 10,
+        alignSelf: "center",
+        color: "black"
+    },
     doneBox: {
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
-        position: "absolute",
+        marginTop: 20,
         width: "97.5%",
-        bottom: 10
     },
     doneText: {
         fontSize: 30,

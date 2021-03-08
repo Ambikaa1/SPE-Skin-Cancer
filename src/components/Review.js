@@ -92,7 +92,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     }
 
     const doneDrawing = async () => {
-        if(nextScreen === "CameraNear"){
+        if(nextScreen === "HelpNearShot"){
             await takeScreenShot()
         }
 
@@ -136,7 +136,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                     tx.executeSql(
                         "INSERT INTO mole_entry (date, near_shot, mole_id) values (?, ?, ?);",
                         ["01/01/2001", newLocation, id],
-                        (t, result) => navigation.navigate("PhotoSuccess"),
+                        (t, result) => navigation.navigate(nextScreen),
                         (t, error) => {console.log(error);}
                     );
                 },
