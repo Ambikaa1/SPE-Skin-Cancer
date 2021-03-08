@@ -1,38 +1,38 @@
 import React from 'react';
-import {StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native'
+import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView} from 'react-native'
 
 const HelpNearShotScreen = ({navigation, route}) => {
     return (
         <SafeAreaView style={styles.container}>
+            <ScrollView persistentScrollbar={true}>
+                <Text style={styles.title}>Near Shot Guidance</Text>
 
-            <Text style={styles.title}>Near Shot Guidance</Text>
+                <Text style={styles.mainBodyText}>Now is the time to take a close-up picture of your mole.</Text>
 
-            <Text style={styles.mainBodyText}>Now is the time to take a close-up picture of your mole.</Text>
+                <Text style={styles.mainBodyText}>The camera should be as close as it can be to the mole, without ruining the
+                    quality of the image.</Text>
 
-            <Text style={styles.mainBodyText}>The camera should be as close as it can be to the mole, without ruining the
-                quality of the image.</Text>
+                <Text style={styles.mainBodyText}>Tips:</Text>
+                <Text style={styles.bulletPoints}>
+                    <Text>{'\u2022'}</Text>
+                    <Text> Use the ghost image to ensure that it is a similar distance from the camera as your
+                        previous pictures. You can toggle the ghost image on and off using the ghost button to right
+                        of the picture button.</Text>
+                </Text>
+                <Text style={styles.bulletPoints}>
+                    <Text>{'\u2022'}</Text>
+                    <Text> It is best if someone takes the photograph
+                        whilst you stay still.</Text>
+                </Text>
 
-            <Text style={styles.mainBodyText}>Tips:</Text>
-            <Text style={styles.bulletPoints}>
-                <Text>{'\u2022'}</Text>
-                <Text> Use the ghost image to ensure that it is a similar distance from the camera as your
-                    previous pictures. You can toggle the ghost image on and off using the ghost button to right
-                    of the picture button.</Text>
-            </Text>
-            <Text style={styles.bulletPoints}>
-                <Text>{'\u2022'}</Text>
-                <Text> It is best if someone takes the photograph
-                    whilst you stay still.</Text>
-            </Text>
-
-            <TouchableOpacity style={styles.doneBox}
-                              onPress={() => {
-                                  navigation.navigate("CameraNear", { photo: route.params.photo, name: route.params.name,
-                                      comments: route.params.comments, id: route.params.id})
-                              }}>
-                <Text style={styles.doneText}>Continue</Text>
-            </TouchableOpacity>
-
+                <TouchableOpacity style={styles.doneBox}
+                                  onPress={() => {
+                                      navigation.navigate("CameraNear", { photo: route.params.photo, name: route.params.name,
+                                          comments: route.params.comments, id: route.params.id})
+                                  }}>
+                    <Text style={styles.doneText}>Continue</Text>
+                </TouchableOpacity>
+            </ScrollView>
         </SafeAreaView>
 
     );
@@ -68,8 +68,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
-        position: "absolute",
+        //position: "absolute",
         width: "97.5%",
+        marginTop: 5,
         bottom: 10
     },
     doneText: {
