@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-//import { Picker } from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 
 const MoleTypeScreen = ({navigation}) => {
     const [moleChoice, setChoice] = useState(null);
@@ -13,11 +13,12 @@ const MoleTypeScreen = ({navigation}) => {
             <Text style = {styles.question}>Is this a new mole?</Text>
             <DropDownPicker
                 items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
-            ]}
-            containerStyle={{height: 40}}
-            onChangeItem={item => setChoice(item.value)}
+                    {label: 'Yes', value: 1},
+                    {label: 'No', value: 0},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setChoice(item.value)}
             />
             {(moleChoice == 1) && 
                 <>
@@ -58,29 +59,26 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 10
     },
+    dropDownContainer: {
+        height: 40,
+        marginTop: 5,
+        marginRight: 10,
+        fontSize: 20,
+    },
+    dropDownLabel: {
+        fontSize: 20,
+    },
     question: {
         fontSize: 20
     },
     question1: {
-        marginTop: 80,
+        marginTop: 20,
         fontSize: 20
     },
     question2: {
         marginTop: 20,
         fontSize: 20
     },
-    // picker: {
-    //     marginRight: 10,
-    //     height: 125,
-    //     // borderColor: "black",
-    //     // borderWidth: 1
-    //
-    // },
-    // pickerItem: {
-    //     height: 125,
-    //     // borderColor: "black",
-    //     // borderWidth: 1
-    // },
     input: {
         backgroundColor: "#E2E2E2",
         height: 50,
