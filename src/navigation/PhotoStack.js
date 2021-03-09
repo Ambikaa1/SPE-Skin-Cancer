@@ -14,6 +14,7 @@ import HelpFarShotScreen from "../screens/HelpFarShotScreen";
 import HelpNearShotScreen from "../screens/HelpNearShotScreen";
 import DrawingHelpScreen from "../screens/DrawingHelpScreen";
 import PhotoSuccess from "../screens/PhotoSuccess";
+import FrontHomuncScreen from "../screens/FrontHomuncScreen";
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,13 @@ const PhotoStack = () => {
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
+      />
+      <Stack.Screen
+          name = "FrontHomunc"
+          component = {FrontHomuncScreen}
+          options = {{
+              title: "Front View"
+          }}
       />
       <Stack.Screen
         name = "BodyPart"
