@@ -10,9 +10,15 @@ const clickHandler = (bodyPart) => {
 const FrontHomuncScreen = ({}) => {
     return (
         <ScrollView persistentScrollbar={true}>
-            <View style={{backgroundColor: 'white'}}>
+            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+                <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
+                    <Image style={styles.rotate} source={require('../../assets/New/Rotate.png')} />
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
                     <Image style={styles.head} source={require('../../assets/New/Head.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
+                    <Image style={styles.rotate} source={require('../../assets/New/Rotate.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
@@ -78,9 +84,9 @@ const FrontHomuncScreen = ({}) => {
 
 const styles = StyleSheet.create({
     head: {
-        width: 365,
+        width: 115,
         //width: Dimensions.get("window").width,
-        height: 102,
+        height: 95,
         resizeMode: 'contain',
     },
     arm: {
@@ -128,7 +134,11 @@ const styles = StyleSheet.create({
         height: 50,
         resizeMode: 'contain',
     },
-
+    rotate: {
+        width: 160,
+        height: 95,
+        resizeMode: 'contain',
+    },
 
 });
 
