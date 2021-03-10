@@ -9,13 +9,13 @@ const FrontHomuncScreen = ({navigation}) => {
     return (
         <ScrollView persistentScrollbar={true}>
             <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
+                <TouchableOpacity onPress={() => clickHandler("Rotate")}>
                     <Image style={styles.rotate} source={require('../../assets/New/Rotate.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
+                <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
                     <Image style={styles.head} source={require('../../assets/New/Head.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
+                <TouchableOpacity onPress={() => clickHandler("Rotate")}>
                     <Image style={styles.rotate} source={require('../../assets/New/Rotation.png')} />
                 </TouchableOpacity>
             </View>
@@ -23,7 +23,7 @@ const FrontHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Right Upper Arm")}>
                     <Image style={styles.arm} source={require('../../assets/New/RightUA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Front")}>
+                <TouchableOpacity onPress={() => clickHandler("Torso")}>
                     <Image style={styles.chest} source={require('../../assets/New/ChestTop.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Left Upper Arm")}>
@@ -34,7 +34,7 @@ const FrontHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Right Lower Arm")}>
                     <Image style={styles.lowerArm} source={require('../../assets/New/RightLA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Front")}>
+                <TouchableOpacity onPress={() => clickHandler("Torso")}>
                     <Image style={styles.body} source={require('../../assets/New/FrontMiddle.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Left Lower Arm")}>
@@ -45,7 +45,7 @@ const FrontHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Volar Right Hand")}>
                     <Image style={styles.hand} source={require('../../assets/New/RightHand.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Front")}>
+                <TouchableOpacity onPress={() => clickHandler("Torso")}>
                     <Image style={styles.lowerBody} source={require('../../assets/New/FrontLower.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Volar Left Hand")}>

@@ -3,23 +3,22 @@ import {Image, StyleSheet, View, Text, Button, TouchableOpacity} from 'react-nat
 
 const checkSwitch = (bodyPart) => {
     switch(bodyPart) {
-        case 'Head':
-            return (<Image style={styles.feet} source={require('../../assets/Head.png')}/>)
-        // break;
-        case 'Neck':
-            return (<Image style={styles.closeUp} source={require('../../assets/Neck.png')}/>)
-        case 'Upper Body':
-            return (<Image style={styles.closeUp} source={require('../../assets/UpperB.png')}/>)
+        case 'Head or Neck':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseHead.png')}/>)
+        case 'Torso':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseFront.png')}/>)
         case 'Left Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/RightUA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftUA.png')}/>)
         case 'Right Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/LeftUA.png')}/>)
-        case 'Lower Body':
-            return (<Image style={styles.closeUp} source={require('../../assets/LowerBody.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightUA.png')}/>)
         case 'Left Lower Arm':
             return (<Image style={styles.closeUp} source={require('../../assets/LeftLowerArm.png')}/>)
         case 'Right Lower Arm':
             return (<Image style={styles.closeUp} source={require('../../assets/RightLowerArm.png')}/>)
+        case 'Upper Body':
+            return (<Image style={styles.closeUp} source={require('../../assets/UpperB.png')}/>)
+        case 'Lower Body':
+            return (<Image style={styles.closeUp} source={require('../../assets/LowerBody.png')}/>)
     }
 }
 
@@ -57,14 +56,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: 'center'
     },
-    // button: {
-    //     alignItems: "center",
-    //     backgroundColor: "#71A1D1",
-    //     padding: 15,
-    // },
-    // text: {
-    //     color: "white",
-    // },
     doneBox: {
         backgroundColor: "#71A1D1",
         alignItems: "center",
