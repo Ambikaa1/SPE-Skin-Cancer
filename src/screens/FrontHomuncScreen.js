@@ -6,6 +6,8 @@ const FrontHomuncScreen = ({navigation}) => {
         console.log(bodyPart, "homunc log")
         navigation.navigate("BodyPart", {paramKey: bodyPart})
     }
+    const screenWidth = Dimensions.get("window").width
+    const screenHeight = Dimensions.get("window").height - 787
     return (
         <ScrollView persistentScrollbar={true}>
             <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
@@ -76,6 +78,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.foot} source={require('../../assets/New/LeftFoot.png')} />
                 </TouchableOpacity>
             </View>
+            <View style={{width: screenWidth, height: screenHeight, backgroundColor: 'powderblue'}} />
         </ScrollView>
     );
 };
@@ -134,7 +137,6 @@ const styles = StyleSheet.create({
         height: 95,
         resizeMode: 'contain',
     },
-
 });
 
 export default FrontHomuncScreen;
