@@ -16,13 +16,21 @@ const checkSwitch = (bodyPart) => {
         case 'Right Lower Arm':
             return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightLA.png')}/>)
         case 'Volar Left Hand':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/VolarLH.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/New/LeftHand.png')}/>)
         case 'Volar Right Hand':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/VolarRH.png')}/>)
-        case 'Upper Body':
-            return (<Image style={styles.closeUp} source={require('../../assets/UpperB.png')}/>)
-        case 'Lower Body':
-            return (<Image style={styles.closeUp} source={require('../../assets/LowerBody.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/New/RightHand.png')}/>)
+        case 'Left Upper Leg':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftUL.png')}/>)
+        case 'Right Upper Leg':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightUL.png')}/>)
+        case 'Left Lower Leg':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftLL.png')}/>)
+        case 'Right Lower Leg':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightLL.png')}/>)
+        case 'Dorsum Left Foot':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftFoot.png')}/>)
+        case 'Dorsum Right Foot':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightFoot.png')}/>)
     }
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, ScrollView, TouchableOpacity, Image, Dimensions} from "react-native";
+import {View, StyleSheet, ScrollView, TouchableOpacity, Image, Dimensions} from "react-native";
 
 const FrontHomuncScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
@@ -10,7 +10,7 @@ const FrontHomuncScreen = ({navigation}) => {
         <ScrollView persistentScrollbar={true}>
             <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
                 <TouchableOpacity onPress={() => clickHandler("Rotate")}>
-                    <Image style={styles.rotate} source={require('../../assets/New/Rotate.png')} />
+                    <Image style={styles.rotate} source={require('../../assets/New/Rotation.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
                     <Image style={styles.head} source={require('../../assets/New/Head.png')} />
@@ -46,7 +46,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.hand} source={require('../../assets/New/RightHand.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Torso")}>
-                    <Image style={styles.lowerBody} source={require('../../assets/New/FrontLower.png')} />
+                    <Image style={styles.body} source={require('../../assets/New/FrontLower.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Volar Left Hand")}>
                     <Image style={styles.hand} source={require('../../assets/New/LeftHand.png')} />
@@ -80,6 +80,8 @@ const FrontHomuncScreen = ({navigation}) => {
     );
 };
 
+//although some of the values are similar, they are very accurate so the body flows completely.
+//so they can't be merged together!
 const styles = StyleSheet.create({
     head: {
         width: 115,
@@ -103,12 +105,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     body: {
-        width: 110,
-        height: 58,
-        resizeMode: 'contain',
-    },
-    lowerBody: {
-        width: 110,
+        width: 109,
         height: 57,
         resizeMode: 'contain',
     },
