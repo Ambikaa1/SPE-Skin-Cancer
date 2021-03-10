@@ -10,41 +10,65 @@ const clickHandler = (bodyPart) => {
 const FrontHomuncScreen = ({}) => {
     return (
         <ScrollView persistentScrollbar={true}>
-            <View style={{backgroundColor: 'pink'}}>
-                <TouchableOpacity onPress={() => clickHandler("Neck")}>
-                    <Image style={styles.tinyNeck} source={require('../../assets/New/Head.png')} />
+            <View style={{backgroundColor: 'white'}}>
+                <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
+                    <Image style={styles.head} source={require('../../assets/New/Head.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("chest")}>
-                    <Image style={styles.tinyNeck} source={require('../../assets/New/ChestTop.png')} />
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+                <TouchableOpacity onPress={() => clickHandler("Right Upper Arm")}>
+                    <Image style={styles.arm} source={require('../../assets/New/RightUA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("front")}>
-                    <Image style={styles.chest} source={require('../../assets/New/FrontMiddle.png')} />
+                <TouchableOpacity onPress={() => clickHandler("Front")}>
+                    <Image style={styles.chest} source={require('../../assets/New/ChestTop.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("bottom")}>
-                    <Image style={styles.chest} source={require('../../assets/New/FrontBottom.png')} />
+                <TouchableOpacity onPress={() => clickHandler("Left Upper Arm")}>
+                    <Image style={styles.arm} source={require('../../assets/New/LeftUA.png')} />
+                </TouchableOpacity>
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+                <TouchableOpacity onPress={() => clickHandler("Right Lower Arm")}>
+                    <Image style={styles.lowerArm} source={require('../../assets/New/RightLA.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => clickHandler("Front")}>
+                    <Image style={styles.body} source={require('../../assets/New/FrontMiddle.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => clickHandler("Left Lower Arm")}>
+                    <Image style={styles.lowerArm} source={require('../../assets/New/LeftLA.png')} />
+                </TouchableOpacity>
+            </View>
+            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+                <TouchableOpacity onPress={() => clickHandler("Volar Right Hand")}>
+                    <Image style={styles.hand} source={require('../../assets/New/RightHand.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => clickHandler("Front")}>
+                    <Image style={styles.lowerBody} source={require('../../assets/New/FrontLower.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => clickHandler("Volar Left Hand")}>
+                    <Image style={styles.hand} source={require('../../assets/New/LeftHand.png')} />
                 </TouchableOpacity>
             </View>
             <View style = {{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("Left Knee")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Upper Leg")}>
                     <Image style={styles.leg} source={require('../../assets/New/RightUL.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Left Knee")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Upper Leg")}>
                     <Image style={styles.leg} source={require('../../assets/New/LeftUL.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("Left Knee")}>
-                    <Image style={styles.leg} source={require('../../assets/New/RightLL.png')} />
+                <TouchableOpacity onPress={() => clickHandler("Right Lower Leg")}>
+                    <Image style={styles.lowerLeg} source={require('../../assets/New/RightLL.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Right Knee")}>
-                    <Image style={styles.leg} source={require('../../assets/New/LeftLL.png')} />
+                <TouchableOpacity onPress={() => clickHandler("Left Lower Leg")}>
+                    <Image style={styles.lowerLeg} source={require('../../assets/New/LeftLL.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
-                <TouchableOpacity onPress={() => clickHandler("Left Knee")}>
+                <TouchableOpacity onPress={() => clickHandler("Dorsum Right Foot")}>
                     <Image style={styles.foot} source={require('../../assets/New/RightFoot.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Right Knee")}>
+                <TouchableOpacity onPress={() => clickHandler("Dorsum Left Foot")}>
                     <Image style={styles.foot} source={require('../../assets/New/LeftFoot.png')} />
                 </TouchableOpacity>
             </View>
@@ -53,26 +77,58 @@ const FrontHomuncScreen = ({}) => {
 };
 
 const styles = StyleSheet.create({
-    tinyNeck: {
-        width: Dimensions.get("window").width,
+    head: {
+        width: 365,
+        //width: Dimensions.get("window").width,
+        height: 102,
+        resizeMode: 'contain',
+    },
+    arm: {
+        width: 75,
         height: 100,
         resizeMode: 'contain',
     },
     chest: {
-        width: Dimensions.get("window").width,
-        height: 59,
+        width: 110,
+        height: 100,
+        resizeMode: 'contain',
+    },
+    lowerArm: {
+        width: 76,
+        height: 58,
+        resizeMode: 'contain',
+    },
+    body: {
+        width: 110,
+        height: 58,
+        resizeMode: 'contain',
+    },
+    lowerBody: {
+        width: 110,
+        height: 57,
+        resizeMode: 'contain',
+    },
+    hand: {
+        width: 69,
+        height: 55,
         resizeMode: 'contain',
     },
     leg: {
-        width: 140,
-        height: 93,
+        width: 137,
+        height: 87,
+        resizeMode: 'contain',
+    },
+    lowerLeg: {
+        width: 133,
+        height: 90,
         resizeMode: 'contain',
     },
     foot: {
         width: 138,
-        height: 49,
+        height: 50,
         resizeMode: 'contain',
     },
+
 
 });
 
