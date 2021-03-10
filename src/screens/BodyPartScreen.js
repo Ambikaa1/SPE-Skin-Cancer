@@ -12,9 +12,13 @@ const checkSwitch = (bodyPart) => {
         case 'Right Upper Arm':
             return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightUA.png')}/>)
         case 'Left Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/LeftLowerArm.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftLA.png')}/>)
         case 'Right Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/RightLowerArm.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightLA.png')}/>)
+        case 'Volar Left Hand':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/VolarLH.png')}/>)
+        case 'Volar Right Hand':
+            return (<Image style={styles.closeUp} source={require('../../assets/New/VolarRH.png')}/>)
         case 'Upper Body':
             return (<Image style={styles.closeUp} source={require('../../assets/UpperB.png')}/>)
         case 'Lower Body':
