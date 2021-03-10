@@ -26,20 +26,13 @@ const PhotoStack = () => {
         headerTintColor: "white",
       }}
     >
-      {/*<Stack.Screen*/}
-      {/*  name = "Homunculus"*/}
-      {/*  component = {HomunculusScreen}*/}
-      {/*  options = {{*/}
-      {/*    title: "Location",*/}
-      {/*    headerTitle: props => <HeaderText {...props} />,*/}
-      {/*    headerRight: props => <HeaderButton {...props} />,*/}
-      {/*  }}*/}
-      {/*/>*/}
       <Stack.Screen
           name = "FrontHomunc"
           component = {FrontHomuncScreen}
           options = {{
-              title: "Front View"
+              title: "Front View",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
           }}
       />
       <Stack.Screen

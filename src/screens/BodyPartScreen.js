@@ -39,7 +39,7 @@ const BodyPartScreen = ({route, navigation }) => {
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <View style={{flex: 2, width: 250, justifyContent: 'center'}}>
-                <Text style={styles.titleText} >Your mole is located in the: {bodyPart} </Text>
+                <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
             </View>
             <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
                 {checkSwitch(bodyPart)}
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 20,
-        fontWeight: "bold",
         textAlign: 'center'
     },
     doneBox: {
