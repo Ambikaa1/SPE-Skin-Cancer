@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     scrollView: {
-        backgroundColor: 'pink',
+        backgroundColor: 'white',
     },
 
 });
