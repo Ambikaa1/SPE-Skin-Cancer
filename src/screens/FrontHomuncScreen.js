@@ -18,7 +18,7 @@ const FrontHomuncScreen = ({}) => {
                     <Image style={styles.head} source={require('../../assets/New/Head.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Head and Neck")}>
-                    <Image style={styles.rotate} source={require('../../assets/New/Rotate.png')} />
+                    <Image style={styles.rotate} source={require('../../assets/New/Rotation.png')} />
                 </TouchableOpacity>
             </View>
             <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
