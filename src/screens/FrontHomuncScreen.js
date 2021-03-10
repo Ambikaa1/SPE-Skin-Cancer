@@ -1,16 +1,14 @@
 import React from "react";
-import {View, StyleSheet, ScrollView, TouchableOpacity, Image, Dimensions} from "react-native";
+import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-native";
 
 const FrontHomuncScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
         console.log(bodyPart, "homunc log")
         navigation.navigate("BodyPart", {paramKey: bodyPart})
     }
-    const screenWidth = Dimensions.get("window").width
-    const screenHeight = Dimensions.get("window").height - 787
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
-            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+            <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Rotate")}>
                     <Image style={styles.rotate} source={require('../../assets/New/Rotation.png')} />
                 </TouchableOpacity>
@@ -21,7 +19,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.rotate} source={require('../../assets/New/Rotation.png')} />
                 </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+            <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Upper Arm")}>
                     <Image style={styles.arm} source={require('../../assets/New/RightUA.png')} />
                 </TouchableOpacity>
@@ -32,7 +30,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.arm} source={require('../../assets/New/LeftUA.png')} />
                 </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+            <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Lower Arm")}>
                     <Image style={styles.lowerArm} source={require('../../assets/New/RightLA.png')} />
                 </TouchableOpacity>
@@ -43,7 +41,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.lowerArm} source={require('../../assets/New/LeftLA.png')} />
                 </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+            <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Volar Right Hand")}>
                     <Image style={styles.hand} source={require('../../assets/New/RightHand.png')} />
                 </TouchableOpacity>
@@ -54,7 +52,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.hand} source={require('../../assets/New/LeftHand.png')} />
                 </TouchableOpacity>
             </View>
-            <View style = {{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+            <View style = {styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Upper Leg")}>
                     <Image style={styles.leg} source={require('../../assets/New/RightUL.png')} />
                 </TouchableOpacity>
@@ -62,7 +60,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.leg} source={require('../../assets/New/LeftUL.png')} />
                 </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+            <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Lower Leg")}>
                     <Image style={styles.lowerLeg} source={require('../../assets/New/RightLL.png')} />
                 </TouchableOpacity>
@@ -70,7 +68,7 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.lowerLeg} source={require('../../assets/New/LeftLL.png')} />
                 </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row', justifyContent: 'center', backgroundColor: 'white'}}>
+            <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Dorsum Right Foot")}>
                     <Image style={styles.foot} source={require('../../assets/New/RightFoot.png')} />
                 </TouchableOpacity>
@@ -78,7 +76,6 @@ const FrontHomuncScreen = ({navigation}) => {
                     <Image style={styles.foot} source={require('../../assets/New/LeftFoot.png')} />
                 </TouchableOpacity>
             </View>
-            {/*<View style={{width: screenWidth, height: screenHeight, backgroundColor: 'powderblue'}} />*/}
         </ScrollView>
     );
 };
@@ -86,9 +83,15 @@ const FrontHomuncScreen = ({navigation}) => {
 //although some of the values are similar, they are very accurate so the body flows completely.
 //so they can't be merged together!
 const styles = StyleSheet.create({
+    scrollView: {
+        backgroundColor: 'white',
+    },
+    flexbox: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
     head: {
         width: 115,
-        //width: Dimensions.get("window").width,
         height: 95,
         resizeMode: 'contain',
     },
@@ -137,10 +140,6 @@ const styles = StyleSheet.create({
         height: 95,
         resizeMode: 'contain',
     },
-    scrollView: {
-        backgroundColor: 'white',
-    },
-
 });
 
 export default FrontHomuncScreen;
