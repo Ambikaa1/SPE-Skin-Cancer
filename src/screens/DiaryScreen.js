@@ -19,7 +19,7 @@ const DiaryScreen = ({ navigation }) => {
                 <View style = {styles.moleInfo}>
                     <Text style = {styles.moleName}>{item.name}</Text>
                     <Text style = {styles.moleDetails}>{item.comments}</Text>
-                    <Text style = {styles.moleDetails}>Last updated: </Text>
+                    <Text style = {styles.moleDetails}>Last updated: {item.lastUpdated}</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -28,7 +28,7 @@ const DiaryScreen = ({ navigation }) => {
     useEffect(() => {
         db.transaction(
             tx => {
-                tx.executeSql("SELECT mole_id, name, comments, far_shot FROM mole;",
+                tx.executeSql("SELECT mole_id, name, comments, far_shot, lastUpdated FROM mole;",
                     [],
                     (_, { rows }) => setMoles(rows._array));
             }

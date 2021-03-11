@@ -28,7 +28,7 @@ const MyTabs = () => {
               ? 'ios-home'
               : 'ios-home-outline';
           } else if (route.name === 'Info') {
-            iconName = focused 
+            iconName = focused
               ? 'information-circle'
               : 'information-circle-outline';
           } else if (route.name === "Photo") {
@@ -74,7 +74,7 @@ const App = () => {
       (t, error) => {console.log(error);}
     );
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, comments TEXT, far_shot TEXT, sub_body_part TEXT);",
+      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, comments TEXT, far_shot TEXT, sub_body_part TEXT, lastUpdated TEXT);",
       [],
       null,
       (t, error) => {console.log(error);}
