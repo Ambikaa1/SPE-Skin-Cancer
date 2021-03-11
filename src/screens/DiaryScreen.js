@@ -12,13 +12,14 @@ const DiaryScreen = ({ navigation }) => {
     const displayImages = ({ item }) => {
         return(
             <TouchableOpacity style = {styles.nearFarShot} onPress = {() => navigation.navigate("MoleInfo", { id: item.mole_id })}>
-                <Image 
+                <Image
                     style = {styles.image}
-                    source = {{ uri: item.far_shot }} 
+                    source = {{ uri: item.far_shot }}
                 />
                 <View style = {styles.moleInfo}>
                     <Text style = {styles.moleName}>{item.name}</Text>
-                    <Text>{item.comments}</Text>
+                    <Text style = {styles.moleDetails}>{item.comments}</Text>
+                    <Text style = {styles.moleDetails}>Last updated: </Text>
                 </View>
             </TouchableOpacity>
         );
@@ -27,15 +28,17 @@ const DiaryScreen = ({ navigation }) => {
     useEffect(() => {
         db.transaction(
             tx => {
-                tx.executeSql("SELECT mole_id, name, comments, far_shot FROM mole;", [], (_, { rows }) => setMoles(rows._array));
+                tx.executeSql("SELECT mole_id, name, comments, far_shot FROM mole;",
+                    [],
+                    (_, { rows }) => setMoles(rows._array));
             }
         );
     }, [isFocused]);
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.title}>Select a mole to view near shots</Text>
-            <FlatList 
+            <Text style = {styles.title}>Select a mole to view near shots:</Text>
+            <FlatList
                 data = {moles}
                 renderItem = {displayImages}
                 keyExtractor = {item => `${item.mole_id}`}
@@ -63,18 +66,23 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         paddingVertical: 5,
         marginVertical: 5,
-        borderTopColor: "black",
-        borderBottomColor: "black",
-        borderTopWidth: 0.5,
-        borderBottomWidth: 0.5
+        borderTopColor: "#71A1D1",
+        borderBottomColor: "#71A1D1",
+        borderTopWidth: 5,
+        borderBottomWidth: 5,
     },
     moleInfo: {
         marginLeft: 10,
     },
     moleName: {
         fontSize: 20,
-        fontWeight: "bold"
-    }
+        fontWeight: "bold",
+        paddingTop: 10,
+        paddingBottom: 10,
+    },
+    moleDetails: {
+        paddingBottom: 10,
+    },
 });
 
 export default DiaryScreen;
