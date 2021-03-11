@@ -99,8 +99,9 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
 
         //Get date
         let today = new Date();
-        let todayFormatted = today.getDay()+'/'+today.getMonth()+'/'+today.getFullYear();
-
+        //+ 1 to month because by default January is 0.
+        let todayFormatted = today.getDate()+'/'+(today.getMonth() + 1)+'/'+today.getFullYear();
+        console.log("date: ", todayFormatted);
         //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
         console.log(nextScreen);
         if (nextScreen === "HelpNearShot") {
