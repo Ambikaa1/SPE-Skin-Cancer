@@ -8,6 +8,12 @@ const PhotoSuccess = ({navigation}) => {
             <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("FrontHomunc")}>
                 <Text style = {styles.doneText}>Finish</Text>
             </TouchableOpacity>
+            <TouchableOpacity style = {styles.doneBox} onPress={() => navigation.navigate("Survay")}>
+                <Text style = {styles.doneText}>
+                    take questionaire
+                </Text>
+
+            </TouchableOpacity>
         </View>
     )
 };

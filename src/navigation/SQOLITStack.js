@@ -21,10 +21,10 @@ const Stack = createStackNavigator()
 const SCQOLITStack = () => {
     return(
         <Stack.Navigator
-            screenOptions = {{
-                headerStyle: styles.header,
-                headerTintColor: "white",
-            }}
+            // screenOptions = {{
+            //     headerStyle: styles.header,
+            //     headerTintColor: "white",
+            // }}
         >
             <Stack.Screen
                 name = "SCQOLIT"

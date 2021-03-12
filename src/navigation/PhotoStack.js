@@ -15,7 +15,7 @@ import HelpNearShotScreen from "../screens/HelpNearShotScreen";
 import DrawingHelpScreen from "../screens/DrawingHelpScreen";
 import PhotoSuccess from "../screens/PhotoSuccess";
 import FrontHomuncScreen from "../screens/FrontHomuncScreen";
-
+import SCQOLITStack from "./SQOLITStack";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -114,6 +114,14 @@ const PhotoStack = () => {
               title: "Success!"
           }}
       />
+      <Stack.Screen
+          name= "Survay"
+          component= {SCQOLITStack}
+          />
+
+
+
+
     </Stack.Navigator>
   );
 };
