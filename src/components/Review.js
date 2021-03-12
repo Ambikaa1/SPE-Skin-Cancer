@@ -97,6 +97,11 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         const photoSplit = photo.split("/")
         const photoId = photoSplit[photoSplit.length - 1]
 
+        //Get date
+        let today = new Date();
+        //+ 1 to month because by default January is 0.
+        let todayFormatted = today.getDate()+'/'+(today.getMonth() + 1)+'/'+today.getFullYear();
+        console.log("date: ", todayFormatted);
         //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
         console.log(nextScreen);
         if (nextScreen === "HelpNearShot") {
@@ -114,8 +119,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
             db.transaction(
                 tx => {
                     tx.executeSql(
-                        "INSERT INTO mole (name, comments, far_shot, sub_body_part) values (?, ?, ?, 'toes_left_foot');",
-                        [name, comments, newLocation],
+                        "INSERT INTO mole (name, comments, far_shot, sub_body_part, lastUpdated) values (?, ?, ?, 'toes_left_foot', ?);",
+                        [name, comments, newLocation, todayFormatted],
                         (t, result) => navigation.navigate(nextScreen, {id: result.insertId}),
                         (t, error) => {console.log(error);}
                     );
@@ -135,7 +140,17 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                 tx => {
                     tx.executeSql(
                         "INSERT INTO mole_entry (date, near_shot, mole_id) values (?, ?, ?);",
-                        ["01/01/2001", newLocation, id],
+                        [todayFormatted, newLocation, id],
+                        (t, error) => {console.log(error);}
+                    );
+                },
+            );
+            //Update the date in the mole table.
+            db.transaction(
+                tx => {
+                    tx.executeSql(
+                        "UPDATE mole SET lastUpdated = ? WHERE mole_id = ?;",
+                        [todayFormatted, id],
                         (t, result) => navigation.navigate(nextScreen),
                         (t, error) => {console.log(error);}
                     );

@@ -7,12 +7,13 @@ const db = SQLite.openDatabase("17.db");
 const MoleInfoScreen = ({ route }) => {
   const [entries, setEntries] = useState([]);
 
+  //Get a list of all the near shot images for a particular mole entry
   useEffect(() => {
     db.transaction(
       tx => {
         tx.executeSql(
-          "SELECT near_shot FROM mole_entry WHERE mole_id = ?;", 
-          [route.params.id], 
+          "SELECT near_shot, date FROM mole_entry WHERE mole_id = ?;",
+          [route.params.id],
           (_, { rows }) => setEntries(rows._array)
         );
       }
@@ -21,16 +22,19 @@ const MoleInfoScreen = ({ route }) => {
 
   const displayImages = ({ item }) => {
     return (
-      <Image 
-        style = {styles.image}
-        source = {{ uri: item.near_shot }} 
-      />
+        <View style={styles.nearFarShot}>
+          <Image
+            style = {styles.image}
+            source = {{ uri: item.near_shot }}
+          />
+          <Text style={styles.moleDetails}>Date taken: {item.date}</Text>
+        </View>
     );
   }
-
   return (
-    <View>
-      <FlatList 
+    <View style={styles.container}>
+      <Text style = {styles.title}>Near shot images:</Text>
+      <FlatList
         data = {entries}
         renderItem = {displayImages}
         keyExtractor = {() => `${Math.floor(Math.random() * 10000)}`}
@@ -40,9 +44,28 @@ const MoleInfoScreen = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   image: {
-    height: 200,
-    width: 100
+    height: 300,
+    width: 150,
+  },
+  nearFarShot: {
+    flexDirection: "row",
+    marginHorizontal: 10,
+    paddingVertical: 5,
+    marginVertical: 5,
+  },
+  title: {
+    marginTop: 10,
+    marginBottom: 5,
+    marginLeft: 10,
+    fontSize: 20,
+  },
+  moleDetails: {
+    fontSize: 18,
+    paddingLeft: 10,
   },
 });
 
