@@ -4,7 +4,7 @@ import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking
 
 const WhySCQOLIT = ({navigation}) =>{
     return(
-        <View style = {styles.container}>
+        <ScrollView style = {styles.container}>
             <View>
                 <Text style = {styles.title}>
                     Why should I complete the SCQOLIT?
@@ -29,7 +29,7 @@ const WhySCQOLIT = ({navigation}) =>{
                     Yes
                 </Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     );
 };
 

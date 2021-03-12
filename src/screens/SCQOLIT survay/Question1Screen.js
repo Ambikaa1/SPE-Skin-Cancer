@@ -11,7 +11,7 @@ const Question1Screen = ({navigation}) => {
     }
 
     return(
-        <View style = {styles.container}>
+        <ScrollView style = {styles.container}>
             <View>
                 <Text style ={styles.text}>
                     Over the last week, how much have you been concerned that your skin cancer might come back?
@@ -45,7 +45,7 @@ const Question1Screen = ({navigation}) => {
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
