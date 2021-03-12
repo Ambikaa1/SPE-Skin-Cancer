@@ -7,7 +7,7 @@ const HomunculusScreen = ({ navigation }) => {
     const clickHandler = (bodyPart) => {
         //setBodyPart(e)
         console.log(bodyPart, "homunc log")
-        navigation.navigate("BodyPart", {paramKey: bodyPart})
+        navigation.navigate("FrontHomunc", {paramKey: bodyPart})
     }
 
     return (

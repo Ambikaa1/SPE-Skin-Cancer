@@ -38,7 +38,7 @@ const DiaryScreen = ({ navigation }) => {
             <FlatList 
                 data = {moles}
                 renderItem = {displayImages}
-                keyExtractor = {() => `${Math.floor(Math.random() * 10000)}`}
+                keyExtractor = {item => `${item.mole_id}`}
             />
         </View>
     );

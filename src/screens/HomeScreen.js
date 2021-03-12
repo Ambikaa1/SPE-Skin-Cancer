@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image, Dimensions } from "react-native";
+import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image, Dimensions, ScrollView} from "react-native";
 import { useIsFocused } from "@react-navigation/native"
 import { Ionicons } from "@expo/vector-icons";
 import * as SQLite from "expo-sqlite";
@@ -31,31 +31,33 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <SafeAreaView style = {styles.container}>
-            <View style = {styles.top}>
-                <View style = {styles.toptext}>
-                    <Text style = {styles.date}>{currentDate}</Text>
-                    <Text style = {styles.welcome}>Welcome{name}!</Text>
+            <ScrollView>
+                <View style = {styles.top}>
+                    <View style = {styles.toptext}>
+                        <Text style = {styles.date}>{currentDate}</Text>
+                        <Text style = {styles.welcome}>Welcome{name}!</Text>
+                    </View>
+                    <TouchableOpacity onPress = {() => navigation.navigate("UserScreen")}>
+                        <Ionicons name = "person-circle" size = {50} />
+                    </TouchableOpacity>
                 </View>
-                <TouchableOpacity onPress = {() => navigation.navigate("UserScreen")}>
-                    <Ionicons name = "person-circle" size = {50} />
-                </TouchableOpacity>
-            </View>
 
-            <View style = {styles.circleContainer}>
-                <View style = {styles.circle} />
-                <Text style = {styles.circleText}>10 days until mole ARM 1</Text>
-            </View>
-            
-            <View style = {styles.logosContainer}>
-                <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
-                    <Text style = {styles.textAboveLogo}>About SCaRF</Text>
-                    <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
-                <Text style = {styles.textAboveLogo}>Donate</Text>
-                    <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
-                </TouchableOpacity>
-            </View>
+                <View style = {styles.circleContainer}>
+                    <View style = {styles.circle} />
+                    <Text style = {styles.circleText}>10 days until mole ARM 1</Text>
+                </View>
+
+                <View style = {styles.logosContainer}>
+                    <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
+                        <Text style = {styles.textAboveLogo}>About SCaRF</Text>
+                        <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
+                    <Text style = {styles.textAboveLogo}>Donate</Text>
+                        <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -83,8 +85,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     circle: {
-        height: Dimensions.get("window").width - 100,
-        width: Dimensions.get("window").width - 100,
+        marginTop: 10,
+        height: Dimensions.get("window").width - 120,
+        width: Dimensions.get("window").width - 120,
         borderRadius: (Dimensions.get("window").width - 100) / 2,
         borderColor: "#71A1D1",
         borderWidth: 25,
@@ -101,11 +104,13 @@ const styles = StyleSheet.create({
         bottom: 10,
     },
     textAboveLogo: {
+        marginTop: 15,
         marginLeft: 5,
         fontSize: 25,
         alignSelf: "center"
     },
     scarfLogo: {
+        marginTop: 2,
         width: Dimensions.get("window").width / 2 - 15,
         height: Dimensions.get("window").width / 2 - 15,
         marginHorizontal: 5,

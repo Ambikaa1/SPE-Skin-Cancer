@@ -82,17 +82,15 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
 
     const takeScreenShot = async  () => {
         setHideOnScreenShot(true)
-        photo = await captureRef(viewShotRef,
-            {
-                result: "tmpfile",
-                quality: 1,
-                format: "jpg"
-            }
-            )
+        photo = await captureRef(viewShotRef, {
+            result: "base64",
+            quality: 1,
+            format: "jpg"
+        });
     }
 
     const doneDrawing = async () => {
-        if(nextScreen === "CameraNear"){
+        if(nextScreen === "HelpNearShot"){
             await takeScreenShot()
         }
 
@@ -107,10 +105,12 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                 await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "far" + "/");
             }
             let newLocation = FileSystem.documentDirectory + "far/" + photoId
-            await FileSystem.moveAsync({
-                from: photo,
-                to: newLocation
+
+
+            await FileSystem.writeAsStringAsync(newLocation, photo, {
+                encoding: FileSystem.EncodingType.Base64,
             });
+
             db.transaction(
                 tx => {
                     tx.executeSql(
@@ -121,7 +121,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                     );
                 },
             );
-        } else if (nextScreen === undefined) {
+        } else if (nextScreen === "PhotoSuccess") {
             let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "near");
             if (!Boolean(folder.exists)) {
                 await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "near" + "/");
@@ -136,7 +136,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                     tx.executeSql(
                         "INSERT INTO mole_entry (date, near_shot, mole_id) values (?, ?, ?);",
                         ["01/01/2001", newLocation, id],
-                        (t, result) => navigation.navigate("Homunculus"),
+                        (t, result) => navigation.navigate(nextScreen),
                         (t, error) => {console.log(error);}
                     );
                 },

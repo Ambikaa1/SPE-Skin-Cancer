@@ -1,53 +1,84 @@
-import React, {useState} from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
+import * as SQLite from "expo-sqlite";
 
-const MoleTypeScreen = ({ route, navigation }) => {
-    const [moleChoice, setChoice] = useState(true);
+const db = SQLite.openDatabase("17.db");
+
+const MoleTypeScreen = ({navigation}) => {
+    const [moleChoice, setChoice] = useState(null);
     const [name, setName] = useState(null);
     const [comments, setComments] = useState(null);
-    const bodyPart = route.params.paramKey
+    const [moles, setMoles] = useState([]);
+
+    const displayMoles = ({ item }) => {
+        return(
+            <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
+                <Text style = {styles.moleListItem}>{item.name}</Text>
+            </TouchableOpacity>
+        );
+    };
+
+    useEffect(() => {
+        db.transaction(
+            tx => {
+                tx.executeSql("SELECT mole_id, name FROM mole;", [], (_, { rows }) => setMoles(rows._array));
+            }
+        );
+    }, []);
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.question}>Is this a new mole?</Text>
-            <Picker
-                selectedValue = {moleChoice}
-                onValueChange = {(itemValue) => setChoice(itemValue)}
-                style = {styles.picker}
-                itemStyle = {styles.pickerItem}
-            >
-                <Picker.Item label = "Yes" value = {true} />
-                <Picker.Item label = "No" value = {false} />
-            </Picker>
-            {moleChoice
-                ?
-                    <>
-                        <Text style = {styles.question}>Mole name:</Text>
-                        <TextInput
-                            value = {name}
-                            onChangeText = {value => setName(value)}
-                            placeholder = "Mole name"
-                            style = {styles.input}
-                        />
-                        <Text style = {styles.question}>Mole comments:</Text>
-                        <TextInput
-                            value = {comments}
-                            onChangeText = {value => setComments(value)}
-                            placeholder = "Mole comments"
-                            style = {styles.input}
-                        />
-                    </>
-                : <Text>PRESS YES. Space to add images if an existing mole. Can be done after we have diary screen done as page is similar </Text>
+            <Text style = {styles.questionTop}>Is this a new mole?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: 1},
+                    {label: 'No', value: 0},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setChoice(item.value)}
+            />
+            {(moleChoice == 1) && 
+                <>
+                    <Text style = {styles.question}>Mole name:</Text>
+                    <TextInput
+                        value = {name}
+                        onChangeText = {value => setName(value)}
+                        placeholder = "Mole name"
+                        style = {styles.input}
+                    />
+                    <Text style = {styles.question}>Mole comments:</Text>
+                    <TextInput
+                        value = {comments}
+                        onChangeText = {value => setComments(value)}
+                        placeholder = "Mole comments"
+                        style = {styles.input}
+                    />
+                </>
             }
-            <TouchableOpacity style = {styles.doneBox} onPress={() =>
-                {moleChoice
-                    ? navigation.navigate("HelpFarShot", { name: name, comments: comments })
-                    : null
-                }}
-            >
-                <Text style = {styles.doneText}>Confirm</Text>
-            </TouchableOpacity>
+            {(moleChoice == 0) && 
+                <>
+                <Text style = {styles.question}>Select a mole below to photograph:</Text>
+                    <FlatList 
+                        data = {moles}
+                        renderItem = {displayMoles}
+                        keyExtractor = {item => `${item.mole_id}`}
+                        style = {styles.moleList}
+                    />
+                </>
+            }
+            {(moleChoice != null) &&
+                <TouchableOpacity style = {styles.doneBox} onPress={() =>
+                    {moleChoice
+                        ? navigation.navigate("HelpFarShot", { name: name, comments: comments })
+                        : navigation.navigate("HelpNearShot", { name: name, comments: comments })
+                    }}
+                >
+                    <Text style = {styles.doneText}>Confirm</Text>
+                </TouchableOpacity>
+            }
+                
         </View>
     );
 };
@@ -58,20 +89,20 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 10
     },
-    question: {
+    dropDownContainer: {
+        height: 40,
+        marginTop: 5,
+        marginRight: 10,
+    },
+    dropDownLabel: {
+        fontSize: 20,
+    },
+    questionTop: {
         fontSize: 20
     },
-    picker: {
-        marginRight: 10,
-        height: 125,
-        // borderColor: "black",
-        // borderWidth: 1
-
-    },
-    pickerItem: {
-        height: 125,
-        // borderColor: "black",
-        // borderWidth: 1
+    question: {
+        marginTop: 20,
+        fontSize: 20
     },
     input: {
         backgroundColor: "#E2E2E2",
@@ -82,6 +113,13 @@ const styles = StyleSheet.create({
         marginBottom: 7.5,
         paddingLeft: 10,
         fontSize: 20,
+    },
+    moleList: {
+        marginBottom: 80,
+    },
+    moleListItem: {
+        fontSize: 20,
+        marginTop: 5
     },
     doneBox: {
         backgroundColor: "#71A1D1",
