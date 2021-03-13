@@ -3,7 +3,7 @@ import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-nativ
 
 const RightHomuncScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
-        navigation.navigate("BodyPart", {bodyPart: bodyPart})
+        navigation.navigate("SideBodyPart", {bodyPart: bodyPart})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>

@@ -19,6 +19,7 @@ import SCQOLITStack from "./SQOLITStack";
 import BackHomuncScreen from "../screens/BackHomuncScreen";
 import LeftHomuncScreen from "../screens/LeftHomuncScreen";
 import RightHomuncScreen from "../screens/RightHomuncScreen";
+import SideBodyPartScreen from "../screens/SideBodyPartScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -81,6 +82,15 @@ const PhotoStack = () => {
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
+      />
+      <Stack.Screen
+          name = "SideBodyPart"
+          component = {SideBodyPartScreen}
+          options = {{
+              title: "Location",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
       />
       <Stack.Screen
         name = "MoleType"
