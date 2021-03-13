@@ -1,7 +1,7 @@
 import React from 'react';
-import {Image, StyleSheet, View, Text, Button, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, View, Text,TouchableOpacity} from 'react-native';
 
-const checkSwitch = (bodyPart) => {
+const checkFrontSwitch = (bodyPart) => {
     switch(bodyPart) {
         case 'Head or Neck':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseHead.png')}/>)
@@ -34,15 +34,30 @@ const checkSwitch = (bodyPart) => {
     }
 }
 
+// const checkViewSwitch = (view, bodyPart) => {
+//     switch(view) {
+//         case 'Left':
+//             return <Text> hi 4</Text>
+//         case 'Right':
+//             return <Text> hi3 </Text>
+//         case 'front':
+//            // console.log(bodyPart)
+//             checkFrontSwitch(bodyPart)
+//             break
+//         case 'Back':
+//             return <Text> hi 2 </Text>
+//     }
+// }
+
 const BodyPartScreen = ({route, navigation }) => {
-    const bodyPart = route.params.paramKey
+    const bodyPart = route.params;
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
             <View style={{flex: 2, width: 250, justifyContent: 'center'}}>
                 <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
             </View>
             <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
-                {checkSwitch(bodyPart)}
+                {checkFrontSwitch(bodyPart)}
             </View>
             <View style={{flex: 2.5, width: 300, justifyContent: 'center'}}>
                 <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>

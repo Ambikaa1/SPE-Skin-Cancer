@@ -2,9 +2,8 @@ import React from "react";
 import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-native";
 
 const FrontHomuncScreen = ({navigation}) => {
-    const clickHandler = (bodyPart) => {
-        //console.log(bodyPart, "homunc log")
-        navigation.navigate("BodyPart", {paramKey: bodyPart})
+    const clickHandler = (bodyPart, view) => {
+        navigation.navigate("BodyPart", {bodyPart: bodyPart, view: view,})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
