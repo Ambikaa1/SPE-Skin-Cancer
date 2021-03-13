@@ -39,24 +39,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     head: {
-        width: 140,
-        height: 80,
+        width: 155,
+        height: 88,
         resizeMode: 'contain',
     },
     torso: {
         width: 360,
-        height: 175,
+        height: 156,
         resizeMode: 'contain',
     },
     legs: {
-        width: 370,
-        height: 190,
+        width: 365,
+        height: 185,
         resizeMode: 'contain',
         alignSelf: 'center',
     },
     rotate: {
-        width: 150,
-        height: 80,
+        width: 135,
+        height: 88,
         resizeMode: 'contain',
     },
 });
