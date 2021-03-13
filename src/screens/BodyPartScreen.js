@@ -50,7 +50,8 @@ const checkFrontSwitch = (bodyPart) => {
 // }
 
 const BodyPartScreen = ({route, navigation }) => {
-    const bodyPart = route.params;
+    const bodyPart = route.params.bodyPart;
+    console.log(bodyPart)
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
             <View style={{flex: 2, width: 250, justifyContent: 'center'}}>

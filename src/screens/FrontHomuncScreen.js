@@ -2,8 +2,8 @@ import React from "react";
 import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-native";
 
 const FrontHomuncScreen = ({navigation}) => {
-    const clickHandler = (bodyPart, view) => {
-        navigation.navigate("BodyPart", {bodyPart: bodyPart, view: view,})
+    const clickHandler = (bodyPart) => {
+        navigation.navigate("BodyPart", {bodyPart: bodyPart})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
