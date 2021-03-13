@@ -9,14 +9,14 @@ const FrontHomuncScreen = ({navigation}) => {
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Front/Rotation.png')} />
+                <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
+                    <Image style={styles.rotate} source={require('../../assets/Front/RightView.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
                     <Image style={styles.head} source={require('../../assets/Front/Head.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Front/Rotation.png')} />
+                <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
+                    <Image style={styles.rotate} source={require('../../assets/Front/LeftView.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>

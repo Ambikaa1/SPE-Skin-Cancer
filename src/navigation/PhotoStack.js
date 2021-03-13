@@ -36,6 +36,8 @@ const PhotoStack = () => {
               title: "Front View",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
           }}
       />
       <Stack.Screen
@@ -45,6 +47,8 @@ const PhotoStack = () => {
               title: "Back View",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
           }}
       />
       <Stack.Screen
@@ -54,6 +58,8 @@ const PhotoStack = () => {
               title: "Left Side View",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
           }}
       />
       <Stack.Screen
@@ -63,6 +69,8 @@ const PhotoStack = () => {
               title: "Right Side View",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
           }}
       />
       <Stack.Screen
