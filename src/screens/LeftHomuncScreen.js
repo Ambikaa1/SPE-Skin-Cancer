@@ -18,12 +18,17 @@ const LeftHomuncScreen = ({navigation}) => {
                     <Image style={styles.rotate} source={require('../../assets/Side/FrontView.png')} />
                 </TouchableOpacity>
             </View>
+            <View style={styles.flexbox}>
             <TouchableOpacity onPress={() => clickHandler("Left Torso")}>
                 <Image style={styles.torso} source={require('../../assets/Side/LeftTorso.png')} />
             </TouchableOpacity>
+            </View>
+            <View style={styles.flexbox}>
             <TouchableOpacity onPress={() => clickHandler("Left Legs")}>
                 <Image style={styles.legs} source={require('../../assets/Side/LeftLegs.png')} />
             </TouchableOpacity>
+            </View>
+
         </ScrollView>
     );
 };
@@ -52,7 +57,6 @@ const styles = StyleSheet.create({
         width: 365,
         height: 185,
         resizeMode: 'contain',
-        alignSelf: 'center',
     },
     rotate: {
         width: 135,
