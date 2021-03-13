@@ -3,19 +3,19 @@ import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-nativ
 
 const FrontHomuncScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
-        console.log(bodyPart, "homunc log")
+        //console.log(bodyPart, "homunc log")
         navigation.navigate("BodyPart", {paramKey: bodyPart})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Rotate")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Front/Rotation.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
                     <Image style={styles.head} source={require('../../assets/Front/Head.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Rotate")}>
+                <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Front/Rotation.png')} />
                 </TouchableOpacity>
             </View>

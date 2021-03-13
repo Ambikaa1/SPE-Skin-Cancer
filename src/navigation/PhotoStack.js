@@ -16,6 +16,7 @@ import DrawingHelpScreen from "../screens/DrawingHelpScreen";
 import PhotoSuccess from "../screens/PhotoSuccess";
 import FrontHomuncScreen from "../screens/FrontHomuncScreen";
 import SCQOLITStack from "./SQOLITStack";
+import BackHomuncScreen from "../screens/BackHomuncScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -31,6 +32,15 @@ const PhotoStack = () => {
           component = {FrontHomuncScreen}
           options = {{
               title: "Front View",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
+      />
+      <Stack.Screen
+          name = "BackHomunc"
+          component = {BackHomuncScreen}
+          options = {{
+              title: "Back View",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
           }}
@@ -118,10 +128,6 @@ const PhotoStack = () => {
           name= "Survay"
           component= {SCQOLITStack}
           />
-
-
-
-
     </Stack.Navigator>
   );
 };
