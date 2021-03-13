@@ -17,6 +17,8 @@ import PhotoSuccess from "../screens/PhotoSuccess";
 import FrontHomuncScreen from "../screens/FrontHomuncScreen";
 import SCQOLITStack from "./SQOLITStack";
 import BackHomuncScreen from "../screens/BackHomuncScreen";
+import LeftHomuncScreen from "../screens/LeftHomuncScreen";
+import RightHomuncScreen from "../screens/RightHomuncScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -41,6 +43,24 @@ const PhotoStack = () => {
           component = {BackHomuncScreen}
           options = {{
               title: "Back View",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
+      />
+      <Stack.Screen
+          name = "LeftHomunc"
+          component = {LeftHomuncScreen}
+          options = {{
+              title: "Left Side View",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
+      />
+      <Stack.Screen
+          name = "RightHomunc"
+          component = {RightHomuncScreen}
+          options = {{
+              title: "Right Side View",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
           }}
