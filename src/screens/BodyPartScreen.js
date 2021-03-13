@@ -6,15 +6,15 @@ const checkFrontSwitch = (bodyPart) => {
         case 'Head or Neck':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseHead.png')}/>)
         case 'Torso':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseFront.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseTorso2.png')}/>)
         case 'Left Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftUA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftUA2.png')}/>)
         case 'Right Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightUA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightUA2.png')}/>)
         case 'Left Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLA2.png')}/>)
         case 'Right Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLA2.png')}/>)
         case 'Volar Left Hand':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/LeftHand.png')}/>)
         case 'Volar Right Hand':
@@ -24,9 +24,9 @@ const checkFrontSwitch = (bodyPart) => {
         case 'Right Upper Leg':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/RightUL2.png')}/>)
         case 'Left Lower Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLL.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLL2.png')}/>)
         case 'Right Lower Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLL.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLL2.png')}/>)
         case 'Dorsum Left Foot':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftFoot.png')}/>)
         case 'Dorsum Right Foot':
