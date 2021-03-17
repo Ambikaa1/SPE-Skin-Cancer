@@ -19,14 +19,14 @@ const RightHomuncScreen = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-            <TouchableOpacity onPress={() => clickHandler("Right Torso")}>
-                <Image style={styles.torso} source={require('../../assets/Side/RightTorso.png')} />
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => clickHandler("Right Torso")}>
+                    <Image style={styles.torso} source={require('../../assets/Side/RightTorso.png')} />
+                </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-            <TouchableOpacity onPress={() => clickHandler("Right Legs")}>
-                <Image style={styles.legs} source={require('../../assets/Side/RightLegs.png')} />
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => clickHandler("Right Legs")}>
+                    <Image style={styles.legs} source={require('../../assets/Side/RightLegs.png')} />
+                </TouchableOpacity>
             </View>
         </ScrollView>
     );
