@@ -4,7 +4,7 @@ import {Image, StyleSheet, View, Text,TouchableOpacity} from 'react-native';
 const checkBackSwitch = (bodyPart) => {
     switch(bodyPart) {
         case 'Head or Neck':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseHead.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Back/CloseHead.png')}/>)
         case 'Torso':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseTorso2.png')}/>)
         case 'Left Upper Arm':
@@ -43,8 +43,7 @@ const BackBodyPartScreen = ({route, navigation }) => {
                 <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
             </View>
             <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
-                {/*{checkBackSwitch(bodyPart)}*/}
-                <Text> hi </Text>
+                {checkBackSwitch(bodyPart)}
             </View>
             <View style={{flex: 2.5, width: 300, justifyContent: 'center'}}>
                 <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
