@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     lowerArm: {
-        width: 76,
-        height: 58,
+        width: 85,
+        height: 50,
         resizeMode: 'contain',
     },
     body: {
-        width: 109,
-        height: 57,
+        width: 103,
+        height: 48,
         resizeMode: 'contain',
     },
     hand: {
