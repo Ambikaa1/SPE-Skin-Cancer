@@ -19,54 +19,54 @@ const BackHomuncScreen = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Right Upper Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Upper Arm")}>
                     <Image style={styles.arm} source={require('../../assets/Back/LeftUA.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Torso")}>
                     <Image style={styles.chest} source={require('../../assets/Back/BackTorso.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Left Upper Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Upper Arm")}>
                     <Image style={styles.arm} source={require('../../assets/Back/RightUA.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Right Lower Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Lower Arm")}>
                     <Image style={styles.lowerArm} source={require('../../assets/Back/LeftLA.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Torso")}>
                     <Image style={styles.body} source={require('../../assets/Back/LowerTorso.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Left Lower Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Lower Arm")}>
                     <Image style={styles.lowerArm} source={require('../../assets/Back/RightLA.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Volar Right Hand")}>
+                <TouchableOpacity onPress={() => clickHandler("Dorsum Left Hand")}>
                     <Image style={styles.hand} source={require('../../assets/Back/LeftHand.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Torso")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Upper Leg")}>
                     <Image style={styles.leg} source={require('../../assets/Back/LeftUL.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Torso")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Upper Leg")}>
                     <Image style={styles.leg} source={require('../../assets/Back/RightUL.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Volar Left Hand")}>
+                <TouchableOpacity onPress={() => clickHandler("Dorsum Right Hand")}>
                     <Image style={styles.hand} source={require('../../assets/Back/RightHand.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Right Lower Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Lower Leg")}>
                     <Image style={styles.lowerLeg} source={require('../../assets/Back/LeftLL.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Left Lower Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Lower Leg")}>
                     <Image style={styles.lowerLeg} source={require('../../assets/Back/RightLL.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Dorsum Right Foot")}>
+                <TouchableOpacity onPress={() => clickHandler("Plantar Surface Left Foot")}>
                     <Image style={styles.foot} source={require('../../assets/Back/LeftFoot.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Dorsum Left Foot")}>
+                <TouchableOpacity onPress={() => clickHandler("Plantar Surface Right Foot")}>
                     <Image style={styles.foot} source={require('../../assets/Back/RightFoot.png')} />
                 </TouchableOpacity>
             </View>
