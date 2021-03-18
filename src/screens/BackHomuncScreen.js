@@ -9,13 +9,21 @@ const BackHomuncScreen = ({navigation}) => {
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/LeftView.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
-                    <Image style={styles.head} source={require('../../assets/Back/Head.png')} />
+                    <Image style={styles.rotate} source={require('../../assets/Back/Front2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/RightView.png')} />
+                    <Image style={styles.rotate} source={require('../../assets/Back/Left2.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
+                    <Image style={styles.rotate} source={require('../../assets/Back/Right2.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
+                    <Image style={styles.rotate} source={require('../../assets/Back/Back2.png')} />
+                </TouchableOpacity>
+            </View>
+            <View style={styles.flexbox}>
+                <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
+                    <Image style={styles.head} source={require('../../assets/Back/Head.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
@@ -130,8 +138,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     rotate: {
-        width: 160,
-        height: 95,
+        width: 90,
+        height: 120,
         resizeMode: 'contain',
     },
 });
