@@ -90,13 +90,13 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     arm: {
-        width: 75,
+        width: 90,
         height: 100,
         resizeMode: 'contain',
     },
     chest: {
-        width: 120,
-        height: 90,
+        width: 94,
+        height: 100,
         resizeMode: 'contain',
     },
     lowerArm: {
