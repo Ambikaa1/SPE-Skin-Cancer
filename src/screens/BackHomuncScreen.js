@@ -115,13 +115,13 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     leg: {
-        width: 137,
-        height: 87,
+        width: 50,
+        height: 140,
         resizeMode: 'contain',
     },
     lowerLeg: {
         width: 133,
-        height: 90,
+        height: 100,
         resizeMode: 'contain',
     },
     foot: {
