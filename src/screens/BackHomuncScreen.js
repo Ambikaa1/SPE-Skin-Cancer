@@ -3,7 +3,7 @@ import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-nativ
 
 const BackHomuncScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
-        navigation.navigate("BodyPart", {paramKey: bodyPart})
+        navigation.navigate("BackBodyPart", {paramKey: bodyPart})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
