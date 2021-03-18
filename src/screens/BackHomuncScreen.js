@@ -50,7 +50,7 @@ const BackHomuncScreen = ({navigation}) => {
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Dorsum Left Hand")}>
-                    <Image style={styles.hand} source={require('../../assets/Back/LeftHand.png')} />
+                    <Image style={styles.hand} source={require('../../assets/Back/LH2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Left Upper Leg")}>
                     <Image style={styles.leg} source={require('../../assets/Back/LeftUL.png')} />
@@ -59,7 +59,7 @@ const BackHomuncScreen = ({navigation}) => {
                     <Image style={styles.leg} source={require('../../assets/Back/RightUL.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Dorsum Right Hand")}>
-                    <Image style={styles.hand} source={require('../../assets/Back/RightHand.png')} />
+                    <Image style={styles.hand} source={require('../../assets/Back/RH2.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     lowerArm: {
-        width: 85,
+        width: 84,
         height: 50,
         resizeMode: 'contain',
     },
@@ -118,9 +118,9 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     hand: {
-        width: 77,
-        height: 135,
-        resizeMode: 'contain',
+        width: 83,
+        height: 125,
+        // resizeMode: 'contain',
     },
     leg: {
         width: 55,
