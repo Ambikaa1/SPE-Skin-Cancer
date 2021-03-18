@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from "react-native";
 import { Camera } from "expo-camera";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
+import * as SQLite from "expo-sqlite";
+
+const db = SQLite.openDatabase("17.db");
 
 const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [ghostImage, setGhostImage] = useState(true);
+  const [ghostImageFile, setGhostImageFile] = useState(null)
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [cameraRef, setCameraRef] = useState(null);
 
@@ -14,6 +18,22 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
         const { status } = await Camera.requestPermissionsAsync();
         setHasPermission(status === 'granted');
     })();
+
+    if (nextScreen == "ReviewNear") {
+      db.transaction(
+        tx => {
+          tx.executeSql(
+            "SELECT near_shot FROM mole_entry WHERE mole_id = ?;",
+            [id],
+            (_, { rows }) => {
+              if (rows.length > 0) {
+                setGhostImageFile(rows._array[0].near_shot)
+              }
+            }
+          );
+        }
+      );
+    }
   }, []);
 
   // Conditional rendering based on permissions
@@ -33,7 +53,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
       />
 
       {ghostImage
-        ? <Image style = { styles.image } source = { require("../../assets/cute.jpg") }/>
+        ? <Image style = { styles.image } source = {{ uri: ghostImageFile }}/>
         : null
       }
 
@@ -65,8 +85,8 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
           }
         }>
           {ghostImage 
-            ? <MaterialCommunityIcons name = "ghost" size = {40} style = {styles.cameraOption} />
-            : <MaterialCommunityIcons name = "ghost-off" size = {40} style = {styles.cameraOption} />
+            ? <MaterialCommunityIcons name = "ghost" size = {40} style = {styles.ghostOption} color = {(ghostImageFile == null) ? "black" : "white"} />
+            : <MaterialCommunityIcons name = "ghost-off" size = {40} style = {styles.ghostOption} color = {(ghostImageFile == null) ? "black" : "white"} />
           }
         </TouchableOpacity>
       </View>
@@ -109,6 +129,9 @@ const styles = StyleSheet.create({
   },
   cameraOption: {
     color: "white",
+    marginHorizontal: (Dimensions.get("window").width) / 5,
+  },
+  ghostOption: {
     marginHorizontal: (Dimensions.get("window").width) / 5,
   }
 });
