@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
     head: {
         width: 115,
-        height: 95,
+        height: 100,
         resizeMode: 'contain',
     },
     arm: {
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     chest: {
-        width: 110,
-        height: 100,
+        width: 120,
+        height: 90,
         resizeMode: 'contain',
     },
     lowerArm: {
