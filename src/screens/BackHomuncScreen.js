@@ -110,23 +110,23 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     hand: {
-        width: 69,
-        height: 55,
+        width: 77,
+        height: 135,
         resizeMode: 'contain',
     },
     leg: {
-        width: 50,
-        height: 140,
+        width: 55,
+        height: 130,
         resizeMode: 'contain',
     },
     lowerLeg: {
-        width: 133,
-        height: 100,
+        width: 130,
+        height: 70,
         resizeMode: 'contain',
     },
     foot: {
-        width: 138,
-        height: 50,
+        width: 140,
+        height: 67,
         resizeMode: 'contain',
     },
     rotate: {
