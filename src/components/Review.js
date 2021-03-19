@@ -93,6 +93,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
             quality: 1,
             format: "jpg"
         });
+
         await doneDrawing()
     }
 
@@ -106,8 +107,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         //+ 1 to month because by default January is 0.
         let todayFormatted = today.getDate()+'/'+(today.getMonth() + 1)+'/'+today.getFullYear();
         console.log("date: ", todayFormatted);
-        //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
         console.log(nextScreen);
+        //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
         if (nextScreen === "HelpNearShot") {
             let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "far");
             if (!Boolean(folder.exists)) {
