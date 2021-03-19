@@ -9,13 +9,18 @@ const LeftHomuncScreen = ({navigation}) => {
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Side/BackView.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Left Head or Neck")}>
-                    <Image style={styles.head} source={require('../../assets/Side/LeftHead.png')} />
+                    <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("FrontHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Side/FrontView.png')} />
+                    <Image style={styles.rotate} source={require('../../assets/Back/Front3.png')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
+                    <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />
+                </TouchableOpacity>
+            </View>
+            <View style={styles.flexbox}>
+                <TouchableOpacity onPress={() => clickHandler("Left Head or Neck")}>
+                    <Image style={styles.head} source={require('../../assets/Side/LeftHead.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
@@ -58,8 +63,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     rotate: {
-        width: 135,
-        height: 88,
+        width: 120,
+        height: 120,
         resizeMode: 'contain',
     },
 });
