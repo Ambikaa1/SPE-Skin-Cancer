@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhotoSuccess /> renders correctly 1`] = `
+<View>
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "color": "black",
+        "marginTop": 10,
+      }
+    }
+  >
+     Your mole photos are saved! 
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#71A1D1",
+        "borderRadius": 10,
+        "marginTop": 20,
+        "opacity": 1,
+        "width": "97.5%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 30,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+        }
+      }
+    >
+      Finish
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#71A1D1",
+        "borderRadius": 10,
+        "marginTop": 20,
+        "opacity": 1,
+        "width": "97.5%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 30,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+        }
+      }
+    >
+      take questionaire
+    </Text>
+  </View>
+</View>
+`;
