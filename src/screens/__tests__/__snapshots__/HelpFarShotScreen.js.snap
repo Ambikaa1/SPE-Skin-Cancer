@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FrontHomuncScreen /> renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "flex": 1,
+      "marginLeft": 10,
+      "marginTop": 10,
+    }
+  }
+>
+  <RCTScrollView
+    persistentScrollbar={true}
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "fontSize": 40,
+            "paddingTop": 10,
+            "textDecorationLine": "underline",
+          }
+        }
+      >
+        Far Shot Guidance
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 10,
+          }
+        }
+      >
+        Now is the time to photograph the part of your body you just selected.
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 10,
+          }
+        }
+      >
+        There will be an outline available of the body part to help you line up the camera. This will be accessible by pressing the ghost shaped button, to the right of the picture button on the next page.
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 10,
+          }
+        }
+      >
+        Tips:
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 10,
+            "paddingTop": 5,
+          }
+        }
+      >
+        <Text>
+          •
+        </Text>
+        <Text>
+           It is best if someone takes the photograph whilst you stay still.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 10,
+            "paddingTop": 5,
+          }
+        }
+      >
+        <Text>
+          •
+        </Text>
+        <Text>
+           Use good lighting - ideally, natural daylight at mid-day.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 10,
+            "paddingTop": 5,
+          }
+        }
+      >
+        <Text>
+          •
+        </Text>
+        <Text>
+           Take the photograph approximately 10-15cm away from the skin (the width of 1-2 hands).
+        </Text>
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 10,
+            "paddingTop": 5,
+          }
+        }
+      >
+        <Text>
+          •
+        </Text>
+        <Text>
+           Try to get a good contrast (green or blue is good).
+        </Text>
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 10,
+            "paddingTop": 5,
+          }
+        }
+      >
+        <Text>
+          •
+        </Text>
+        <Text>
+           Touch the screen to focus the image.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 10,
+            "paddingTop": 5,
+          }
+        }
+      >
+        <Text>
+          •
+        </Text>
+        <Text>
+           If you are not happy with the image, retake it.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 5,
+            "paddingLeft": 15,
+            "paddingRight": 10,
+            "paddingTop": 5,
+          }
+        }
+      >
+        <Text>
+          •
+        </Text>
+        <Text>
+           For more advice see this youtube video.
+        </Text>
+      </Text>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71A1D1",
+            "borderRadius": 10,
+            "bottom": 10,
+            "marginTop": 25,
+            "opacity": 1,
+            "width": "97.5%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
+          }
+        >
+          Continue
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
