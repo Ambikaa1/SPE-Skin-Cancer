@@ -68,8 +68,14 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         extrapolateRight: "clamp"
     })
 
-    const acceptImage = () => {
-        setDrawing(true);
+    const acceptImage = async () => {
+        if (nextScreen === "HelpNearShot"){
+            setDrawing(true);
+        }
+        else{
+            setDrawing(false);
+            await doneDrawing()
+        }
     };
 
     const rejectImage = () => {
@@ -87,12 +93,10 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
             quality: 1,
             format: "jpg"
         });
+        await doneDrawing()
     }
 
     const doneDrawing = async () => {
-        if(nextScreen === "HelpNearShot"){
-            await takeScreenShot()
-        }
 
         const photoSplit = photo.split("/")
         const photoId = photoSplit[photoSplit.length - 1]
@@ -256,7 +260,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
                     ?
                     <>
                         {/*Accept Button*/}
-                        <TouchableOpacity style={styles.doneButton} onPress = {doneDrawing}>
+                        <TouchableOpacity style={styles.doneButton} onPress = {async() => await takeScreenShot()}>
                             <Ionicons name="ios-checkmark-done-circle" size={50} color="white"/>
                             <Text style={styles.text}>Done</Text>
                         </TouchableOpacity>
