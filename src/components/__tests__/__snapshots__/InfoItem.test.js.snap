@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InfoItem /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomColor": "black",
+      "borderBottomWidth": 0.5,
+      "borderTopColor": "black",
+      "borderTopWidth": 0.5,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginHorizontal": 10,
+      "marginVertical": 2.5,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "black",
+        "fontSize": 20,
+      }
+    }
+  />
+  <Text />
+</View>
+`;
