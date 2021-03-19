@@ -16,6 +16,11 @@ import DrawingHelpScreen from "../screens/DrawingHelpScreen";
 import PhotoSuccess from "../screens/PhotoSuccess";
 import FrontHomuncScreen from "../screens/FrontHomuncScreen";
 import SCQOLITStack from "./SQOLITStack";
+import BackHomuncScreen from "../screens/BackHomuncScreen";
+import LeftHomuncScreen from "../screens/LeftHomuncScreen";
+import RightHomuncScreen from "../screens/RightHomuncScreen";
+import SideBodyPartScreen from "../screens/SideBodyPartScreen";
+import BackBodyPartScreen from "../screens/BackBodyPartScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -33,6 +38,41 @@ const PhotoStack = () => {
               title: "Front View",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
+          }}
+      />
+      <Stack.Screen
+          name = "BackHomunc"
+          component = {BackHomuncScreen}
+          options = {{
+              title: "Back View",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
+          }}
+      />
+      <Stack.Screen
+          name = "LeftHomunc"
+          component = {LeftHomuncScreen}
+          options = {{
+              title: "Left Side View",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
+          }}
+      />
+      <Stack.Screen
+          name = "RightHomunc"
+          component = {RightHomuncScreen}
+          options = {{
+              title: "Right Side View",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+              headerLeft: null,
+              gestureEnabled: false
           }}
       />
       <Stack.Screen
@@ -43,6 +83,24 @@ const PhotoStack = () => {
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
+      />
+      <Stack.Screen
+          name = "SideBodyPart"
+          component = {SideBodyPartScreen}
+          options = {{
+              title: "Location",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
+      />
+      <Stack.Screen
+          name = "BackBodyPart"
+          component = {BackBodyPartScreen}
+          options = {{
+              title: "Location",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
       />
       <Stack.Screen
         name = "MoleType"
@@ -118,10 +176,6 @@ const PhotoStack = () => {
           name= "Survay"
           component= {SCQOLITStack}
           />
-
-
-
-
     </Stack.Navigator>
   );
 };

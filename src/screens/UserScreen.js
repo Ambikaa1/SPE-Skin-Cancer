@@ -53,9 +53,15 @@ const UserScreen = ({ navigation }) => {
       <TextInput
         value = {dateOfBirth}
         onChangeText = {value => setDateOfBirth(value)}
-        placeholder = "Date of birth"
+        placeholder = "DD/MM/YYYY"
         style = {styles.input}
       />
+      {/*<TextInput*/}
+      {/*    value = {dateOfBirth}*/}
+      {/*    onChangeText = {value => setDateOfBirth(value)}*/}
+      {/*    placeholder = "Date of birth"*/}
+      {/*    style = {styles.input}*/}
+      {/*/>*/}
 
       <TouchableOpacity onPress = {() => {
         db.transaction(

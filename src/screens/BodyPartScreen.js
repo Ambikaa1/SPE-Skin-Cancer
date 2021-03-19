@@ -1,48 +1,63 @@
 import React from 'react';
-import {Image, StyleSheet, View, Text, Button, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, View, Text,TouchableOpacity} from 'react-native';
 
-const checkSwitch = (bodyPart) => {
+const checkFrontSwitch = (bodyPart) => {
     switch(bodyPart) {
         case 'Head or Neck':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseHead.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseHead.png')}/>)
         case 'Torso':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseFront.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseTorso2.png')}/>)
         case 'Left Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftUA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftUA2.png')}/>)
         case 'Right Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightUA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightUA2.png')}/>)
         case 'Left Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftLA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLA2.png')}/>)
         case 'Right Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightLA.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLA2.png')}/>)
         case 'Volar Left Hand':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/LeftHand.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/LeftHand.png')}/>)
         case 'Volar Right Hand':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/RightHand.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/RightHand.png')}/>)
         case 'Left Upper Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/LeftUL2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/LeftUL2.png')}/>)
         case 'Right Upper Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/RightUL2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/RightUL2.png')}/>)
         case 'Left Lower Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftLL.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLL2.png')}/>)
         case 'Right Lower Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightLL.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLL2.png')}/>)
         case 'Dorsum Left Foot':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseLeftFoot.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftFoot.png')}/>)
         case 'Dorsum Right Foot':
-            return (<Image style={styles.closeUp} source={require('../../assets/New/CloseRightFoot.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightFoot.png')}/>)
     }
 }
 
+// const checkViewSwitch = (view, bodyPart) => {
+//     switch(view) {
+//         case 'Left':
+//             return <Text> hi 4</Text>
+//         case 'Right':
+//             return <Text> hi3 </Text>
+//         case 'front':
+//            // console.log(bodyPart)
+//             checkFrontSwitch(bodyPart)
+//             break
+//         case 'Back':
+//             return <Text> hi 2 </Text>
+//     }
+// }
+
 const BodyPartScreen = ({route, navigation }) => {
-    const bodyPart = route.params.paramKey
+    const bodyPart = route.params.bodyPart;
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
             <View style={{flex: 2, width: 250, justifyContent: 'center'}}>
                 <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
             </View>
             <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
-                {checkSwitch(bodyPart)}
+                {checkFrontSwitch(bodyPart)}
             </View>
             <View style={{flex: 2.5, width: 300, justifyContent: 'center'}}>
                 <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>

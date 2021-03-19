@@ -92,10 +92,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
-        //position: "absolute",
         width: "97.5%",
-        marginTop: 5,
-        bottom: 10
+        marginTop: 25,
+        bottom: 10,
     },
     doneText: {
         fontSize: 30,
