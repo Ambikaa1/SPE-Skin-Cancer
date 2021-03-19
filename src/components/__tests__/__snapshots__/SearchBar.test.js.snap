@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchBar /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#E2E2E2",
+      "borderRadius": 10,
+      "flexDirection": "row",
+      "height": 50,
+      "marginBottom": 7.5,
+      "marginHorizontal": 10,
+      "marginTop": 10,
+    }
+  }
+>
+  <Text />
+  <TextInput
+    allowFontScaling={true}
+    autoCorrect={false}
+    placeholder="Search"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "flex": 1,
+        "fontSize": 18,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;
