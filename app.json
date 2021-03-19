@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/scarf_logo.jpg",
+      "image": "./assets/splashLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#74a4d4"
     },
