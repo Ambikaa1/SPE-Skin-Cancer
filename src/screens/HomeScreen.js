@@ -1,14 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image, Dimensions, ScrollView} from "react-native";
+import React, { useEffect, useState, useRef } from "react";
+import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image,
+    Dimensions, ScrollView, Platform, Button} from "react-native";
 import { useIsFocused } from "@react-navigation/native"
 import { Ionicons } from "@expo/vector-icons";
 import * as SQLite from "expo-sqlite";
+
+import Constants from 'expo-constants';
+import * as Notifications from 'expo-notifications';
+
+Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false,
+    }),
+});
+
 
 const db = SQLite.openDatabase("17.db");
 
 const HomeScreen = ({ navigation }) => {
     const [currentDate, setCurrentDate] = useState("");
-    const [name, setName] = useState("")
+    const [name, setName] = useState("");
+
+    const [expoPushToken, setExpoPushToken] = useState('');
+    const [notification, setNotification] = useState(false);
+    const notificationListener = useRef();
+    const responseListener = useRef();
+
+    useEffect(() => {
+        registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+
+        notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+            setNotification(notification);
+        });
+
+        responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+            console.log(response);
+        });
+
+        return () => {
+            Notifications.removeNotificationSubscription(notificationListener);
+            Notifications.removeNotificationSubscription(responseListener);
+        };
+    }, []);
 
     const isFocused = useIsFocused();
 
@@ -57,10 +92,58 @@ const HomeScreen = ({ navigation }) => {
                         <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                     </TouchableOpacity>
                 </View>
+                {/*Button that triggers a notification.*/}
+                <TouchableOpacity style={{fontSize: 200}}
+                                  onPress={async () => {await schedulePushNotification();}}>
+                    <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
+                </TouchableOpacity>
             </ScrollView>
         </SafeAreaView>
     );
 };
+
+//Push notification functions - straight from the expo documentation.
+async function schedulePushNotification() {
+    await Notifications.scheduleNotificationAsync({
+        content: {
+            title: "You've got mail! 📬",
+            body: 'Take another picture of your mole!',
+            data: { data: 'goes here' },
+        },
+        trigger: { seconds: 2 },
+    });
+}
+
+async function registerForPushNotificationsAsync() {
+    let token;
+    if (Constants.isDevice) {
+        const { status: existingStatus } = await Notifications.getPermissionsAsync();
+        let finalStatus = existingStatus;
+        if (existingStatus !== 'granted') {
+            const { status } = await Notifications.requestPermissionsAsync();
+            finalStatus = status;
+        }
+        if (finalStatus !== 'granted') {
+            alert('Failed to get push token for push notification!');
+            return;
+        }
+        token = (await Notifications.getExpoPushTokenAsync()).data;
+        console.log(token);
+    } else {
+        alert('Must use physical device for Push Notifications');
+    }
+
+    if (Platform.OS === 'android') {
+        await Notifications.setNotificationChannelAsync('default', {
+            name: 'default',
+            importance: Notifications.AndroidImportance.MAX,
+            vibrationPattern: [0, 250, 250, 250],
+            lightColor: '#FF231F7C',
+        });
+    }
+
+    return token;
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -71,9 +154,10 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     date: {
-        fontSize: 30,
+        fontSize: 25,
         marginLeft: 10,
-        marginTop: 10
+        marginTop: 10,
+        paddingVertical: 10,
     },
     welcome: {
         fontSize: 30,
@@ -83,6 +167,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         flex: 1,
+        paddingVertical: 10,
     },
     circle: {
         marginTop: 10,
@@ -102,6 +187,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginHorizontal: 5,
         bottom: 10,
+        paddingVertical: 10,
     },
     textAboveLogo: {
         marginTop: 15,

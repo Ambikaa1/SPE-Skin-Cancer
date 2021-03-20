@@ -24,7 +24,7 @@
     "expo": "^40.0.1",
     "expo-file-system": "^9.3.0",
     "expo-media-library": "~10.0.0",
-    "expo-sqlite": "^9.0.0",
+    "expo-sqlite": "~8.5.0",
     "expo-status-bar": "~1.0.3",
     "npm-autolink": "^1.0.0",
     "react": "16.13.1",
@@ -36,7 +36,8 @@
     "react-native-screens": "~2.15.0",
     "react-native-view-shot": "^3.1.2",
     "react-native-web": "^0.15.0",
-    "react-test-renderer": "^17.0.1"
+    "react-test-renderer": "^17.0.1",
+    "expo-notifications": "~0.8.2"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
