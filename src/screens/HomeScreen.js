@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image,
-    Dimensions, ScrollView, Platform } from "react-native";
+    Dimensions, ScrollView, Platform, FlatList } from "react-native";
 import { useIsFocused } from "@react-navigation/native"
 import * as SQLite from "expo-sqlite";
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
+
+import MoleCountdown from "../components/MoleCountdown";
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -39,20 +41,43 @@ const HomeScreen = ({ navigation }) => {
         };
     }, []);
 
+    const [moles, setMoles] = useState([])
+
     const isFocused = useIsFocused();
 
     useEffect(() => {
+        db.transaction(
+            tx => {
+                tx.executeSql("SELECT name, nextUpdate, mole_id FROM mole ORDER BY nextUpdate;",
+                    [],
+                    (_, { rows }) => setMoles(rows._array.slice(0, 5)));
+            }
+        );
     }, [isFocused]);
+
+    console.log(moles)
 
     return (
         <SafeAreaView style = {styles.container}>
-            <ScrollView>
 
-                <View style = {styles.circleContainer}>
+            <Text style = {styles.countdownText}>The following moles need updating next:</Text>
+            <FlatList
+                data = {moles}
+                renderItem = {MoleCountdown}
+                keyExtractor = {item => `${item.mole_id}`}
+                style = {styles.countdowns}
+            />
+                
+            {/* <ScrollView> */}
+                {/* <View style = {styles.circleContainer}>
                     <View style = {styles.circle} />
                     <Text style = {styles.circleText}>10 days until mole ARM 1</Text>
-                </View>
+                </View> */}
 
+                <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
+                    <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
+                </TouchableOpacity>
+                
                 <View style = {styles.logosContainer}>
                     <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
                         <Text style = {styles.textAboveLogo}>About SCaRF</Text>
@@ -63,12 +88,8 @@ const HomeScreen = ({ navigation }) => {
                         <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                     </TouchableOpacity>
                 </View>
-                {/*Button that triggers a notification.*/}
-                <TouchableOpacity style={{fontSize: 200}}
-                                  onPress={async () => {await schedulePushNotification();}}>
-                    <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
-                </TouchableOpacity>
-            </ScrollView>
+                
+            {/* </ScrollView> */}
         </SafeAreaView>
     );
 };
@@ -120,41 +141,27 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    top: {
-        flexDirection: "row",
-        justifyContent: "space-between"
-    },
-    circleContainer: {
-        alignItems: "center",
-        justifyContent: "center",
-        flex: 1,
-        paddingVertical: 10,
-    },
-    circle: {
+    countdownText: {
         marginTop: 10,
-        height: Dimensions.get("window").width - 120,
-        width: Dimensions.get("window").width - 120,
-        borderRadius: (Dimensions.get("window").width - 100) / 2,
-        borderColor: "#71A1D1",
-        borderWidth: 25,
+        marginLeft: 10,
+        fontSize: 17,
     },
-    circleText: {
-        fontSize: 30,
-        textAlign: "center",
-        width: Dimensions.get("window").width - 200,
-        position: "absolute"
+    countdowns: {
+        marginTop: 10,
+        marginHorizontal: 10,
+        borderTopWidth: 0.5,
+        borderColor: "black"
     },
     logosContainer: {
         flexDirection: "row",
         marginHorizontal: 5,
-        bottom: 10,
         paddingVertical: 10,
     },
     textAboveLogo: {
         marginTop: 15,
         marginLeft: 5,
-        fontSize: 25,
-        alignSelf: "center"
+        fontSize: 17,
+        // alignSelf: "center"
     },
     scarfLogo: {
         marginTop: 2,
@@ -165,3 +172,24 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+// circleContainer: {
+//     alignItems: "center",
+//     justifyContent: "center",
+//     flex: 1,
+//     paddingVertical: 10,
+// },
+// circle: {
+//     marginTop: 10,
+//     height: Dimensions.get("window").width - 120,
+//     width: Dimensions.get("window").width - 120,
+//     borderRadius: (Dimensions.get("window").width - 100) / 2,
+//     borderColor: "#71A1D1",
+//     borderWidth: 25,
+// },
+// circleText: {
+//     fontSize: 30,
+//     textAlign: "center",
+//     width: Dimensions.get("window").width - 200,
+//     position: "absolute"
+// },
