@@ -16,7 +16,7 @@ Notifications.setNotificationHandler({
     }),
 });
 
-const db = SQLite.openDatabase("19.db");
+const db = SQLite.openDatabase("20.db");
 
 const HomeScreen = ({ navigation }) => {
     const [expoPushToken, setExpoPushToken] = useState('');
@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
             tx => {
                 tx.executeSql("SELECT name, nextUpdate, mole_id FROM mole ORDER BY nextUpdate;",
                     [],
-                    (_, { rows }) => setMoles(rows._array.slice(0, 5)));
+                    (_, { rows }) => setMoles(rows._array));
             }
         );
     }, [isFocused]);
@@ -149,8 +149,6 @@ const styles = StyleSheet.create({
     countdowns: {
         marginTop: 10,
         marginHorizontal: 10,
-        borderTopWidth: 0.5,
-        borderColor: "black"
     },
     logosContainer: {
         flexDirection: "row",
