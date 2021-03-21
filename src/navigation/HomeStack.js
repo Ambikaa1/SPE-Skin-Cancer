@@ -5,7 +5,7 @@ import HomeScreen from "../screens/HomeScreen";
 import UserScreen from "../screens/UserScreen"
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
-import UserButton from "../components/UserButton"
+import SettingsButton from "../components/SettingsButton"
 
 const Stack = createStackNavigator()
 
@@ -30,7 +30,7 @@ const HomeStack = () => {
         component = {HomeScreen}
         options = {{ 
           title: "Home",
-          headerLeft: props => <UserButton {...props} />,
+          headerLeft: props => <SettingsButton {...props} />,
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} onPressFunction = {HomeHelp} />,
         }}
