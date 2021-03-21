@@ -75,7 +75,7 @@ const HomeScreen = ({ navigation }) => {
                 </View> */}
 
                 <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
-                    {/* <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text> */}
+                    <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
                 </TouchableOpacity>
                 
                 <View style = {styles.logosContainer}>

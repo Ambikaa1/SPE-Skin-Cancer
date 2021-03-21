@@ -10,7 +10,7 @@ const MoleCountdown = ({ item, index }) => {
         console.log(percentage);
         return ({
             height: "100%",
-            width: `${percentage * 10}%`,
+            width: `${percentage * 100}%`,
             backgroundColor: "#71A1D1"
         })
     }
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 17,
-        fontWeight: "bold"
     },
     numDays: {
         fontSize: 17
