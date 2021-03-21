@@ -107,7 +107,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         //+ 1 to month because by default January is 0.
         let todayFormatted = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
         // Mole should next be updated in one month
-        let nextUpdate = today.now() + (30 * 24 * 60 * 60 * 1000)
+        let nextUpdate = Date.now() + (30 * 24 * 60 * 60 * 1000)
 
         console.log("date: ", todayFormatted);
         console.log(nextScreen);
