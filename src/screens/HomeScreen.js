@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image,
-    Dimensions, ScrollView, Platform, Button} from "react-native";
+    Dimensions, ScrollView, Platform } from "react-native";
 import { useIsFocused } from "@react-navigation/native"
-import { Ionicons } from "@expo/vector-icons";
 import * as SQLite from "expo-sqlite";
-
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
 
@@ -16,13 +14,9 @@ Notifications.setNotificationHandler({
     }),
 });
 
-
 const db = SQLite.openDatabase("18.db");
 
 const HomeScreen = ({ navigation }) => {
-    const [currentDate, setCurrentDate] = useState("");
-    const [name, setName] = useState("");
-
     const [expoPushToken, setExpoPushToken] = useState('');
     const [notification, setNotification] = useState(false);
     const notificationListener = useRef();
@@ -48,34 +42,11 @@ const HomeScreen = ({ navigation }) => {
     const isFocused = useIsFocused();
 
     useEffect(() => {
-        let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        let day = daysOfWeek[new Date().getDay()]
-        let date = new Date().getDate();
-        let month = months[new Date().getMonth()];
-        setCurrentDate(day + " " + date + " " + month);
-
-        db.transaction(
-            tx => {
-                tx.executeSql("select first_name from user;", [], (_, { rows }) =>
-                    setName(" " + rows._array[0].first_name)
-                );
-            }
-        );
     }, [isFocused]);
 
     return (
         <SafeAreaView style = {styles.container}>
             <ScrollView>
-                <View style = {styles.top}>
-                    <View style = {styles.toptext}>
-                        <Text style = {styles.date}>{currentDate}</Text>
-                        <Text style = {styles.welcome}>Welcome{name}!</Text>
-                    </View>
-                    <TouchableOpacity onPress = {() => navigation.navigate("UserScreen")}>
-                        <Ionicons name = "person-circle" size = {50} />
-                    </TouchableOpacity>
-                </View>
 
                 <View style = {styles.circleContainer}>
                     <View style = {styles.circle} />
@@ -152,16 +123,6 @@ const styles = StyleSheet.create({
     top: {
         flexDirection: "row",
         justifyContent: "space-between"
-    },
-    date: {
-        fontSize: 25,
-        marginLeft: 10,
-        marginTop: 10,
-        paddingVertical: 10,
-    },
-    welcome: {
-        fontSize: 30,
-        marginLeft: 10
     },
     circleContainer: {
         alignItems: "center",
