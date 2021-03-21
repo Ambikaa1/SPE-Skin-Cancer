@@ -5,7 +5,7 @@ import {captureRef} from "react-native-view-shot";
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
-const db = SQLite.openDatabase("17.db");
+const db = SQLite.openDatabase("20.db");
 
 const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     const [drawing, setDrawing] = useState(false);
@@ -97,15 +97,18 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         await doneDrawing()
     }
 
-    const doneDrawing = async () => {
+    const photoSplit = photo.split("/");
+    const photoId = photoSplit[photoSplit.length - 1];
 
-        const photoSplit = photo.split("/")
-        const photoId = photoSplit[photoSplit.length - 1]
+    const doneDrawing = async () => {
 
         //Get date
         let today = new Date();
         //+ 1 to month because by default January is 0.
-        let todayFormatted = today.getDate()+'/'+(today.getMonth() + 1)+'/'+today.getFullYear();
+        let todayFormatted = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+        // Mole should next be updated in one month
+        let nextUpdate = Date.now() + (30 * 24 * 60 * 60 * 1000);
+
         console.log("date: ", todayFormatted);
         console.log(nextScreen);
         //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
@@ -154,8 +157,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
             db.transaction(
                 tx => {
                     tx.executeSql(
-                        "UPDATE mole SET lastUpdated = ? WHERE mole_id = ?;",
-                        [todayFormatted, id],
+                        "UPDATE mole SET lastUpdated = ?, nextUpdate = ? WHERE mole_id = ?;",
+                        [todayFormatted, nextUpdate, id],
                         (t, result) => navigation.navigate(nextScreen),
                         (t, error) => {console.log(error);}
                     );

@@ -20,7 +20,7 @@ exports[`<InfoItem /> renders correctly 1`] = `
     style={
       Object {
         "color": "black",
-        "fontSize": 20,
+        "fontSize": 17,
       }
     }
   />

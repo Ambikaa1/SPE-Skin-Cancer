@@ -6,7 +6,7 @@ const InfoItem = ({ name }) => {
   return(
     <View style = {styles.container}>
       <Text style = {styles.heading}>{name}</Text>
-      <Ionicons name = "ios-arrow-forward" size = {24} color = "black" />
+      <Ionicons name = "ios-arrow-forward" size = {17} color = "black" />
     </View>
   );
 };
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5
   },
   heading: {
-    fontSize: 20,
+    fontSize: 17,
     color: "black",
   },
   icon: {

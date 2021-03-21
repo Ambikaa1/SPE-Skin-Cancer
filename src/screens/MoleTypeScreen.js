@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList } from 'r
 import DropDownPicker from 'react-native-dropdown-picker';
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("17.db");
+const db = SQLite.openDatabase("20.db");
 
 const MoleTypeScreen = ({navigation}) => {
     const [moleChoice, setChoice] = useState(null);
