@@ -5,7 +5,7 @@ import {captureRef} from "react-native-view-shot";
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
-const db = SQLite.openDatabase("17.db");
+const db = SQLite.openDatabase("18.db");
 
 const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
     const [drawing, setDrawing] = useState(false);

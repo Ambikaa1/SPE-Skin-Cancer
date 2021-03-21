@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("17.db");
+const db = SQLite.openDatabase("18.db");
 
 const UserScreen = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");

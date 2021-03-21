@@ -17,7 +17,7 @@ Notifications.setNotificationHandler({
 });
 
 
-const db = SQLite.openDatabase("17.db");
+const db = SQLite.openDatabase("18.db");
 
 const HomeScreen = ({ navigation }) => {
     const [currentDate, setCurrentDate] = useState("");
