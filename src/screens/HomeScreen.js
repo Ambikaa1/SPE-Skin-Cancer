@@ -60,7 +60,7 @@ const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style = {styles.container}>
 
-            <Text style = {styles.countdownText}>The following moles need updating next:</Text>
+            <Text style = {styles.countdownText}>Upcoming mole photographs:</Text>
             <FlatList
                 data = {moles}
                 renderItem = {MoleCountdown}
