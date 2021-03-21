@@ -60,7 +60,7 @@ const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style = {styles.container}>
 
-            <Text style = {styles.countdownText}>Upcoming mole photographs:</Text>
+            <Text style = {styles.countdownText}>Upcoming mole photographs</Text>
             <FlatList
                 data = {moles}
                 renderItem = {MoleCountdown}
@@ -75,16 +75,16 @@ const HomeScreen = ({ navigation }) => {
                 </View> */}
 
                 <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
-                    <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
+                    {/* <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text> */}
                 </TouchableOpacity>
                 
                 <View style = {styles.logosContainer}>
                     <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
-                        <Text style = {styles.textAboveLogo}>About SCaRF</Text>
+                        {/* <Text style = {styles.textAboveLogo}>About SCaRF</Text> */}
                         <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
-                    <Text style = {styles.textAboveLogo}>Donate</Text>
+                        {/* <Text style = {styles.textAboveLogo}>Donate</Text> */}
                         <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                     </TouchableOpacity>
                 </View>
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 10,
         fontSize: 17,
+        fontWeight: "bold"
     },
     countdowns: {
         marginTop: 10,
@@ -155,17 +156,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         paddingVertical: 10,
     },
-    textAboveLogo: {
-        marginTop: 15,
-        marginLeft: 5,
-        fontSize: 17,
-        // alignSelf: "center"
-    },
     scarfLogo: {
         marginTop: 2,
         width: Dimensions.get("window").width / 2 - 15,
         height: Dimensions.get("window").width / 2 - 15,
         marginHorizontal: 5,
+        borderRadius: 10
     }
 });
 
@@ -190,4 +186,10 @@ export default HomeScreen;
 //     textAlign: "center",
 //     width: Dimensions.get("window").width - 200,
 //     position: "absolute"
+// },
+// textAboveLogo: {
+//     marginTop: 15,
+//     marginLeft: 5,
+//     fontSize: 17,
+//     // alignSelf: "center"
 // },

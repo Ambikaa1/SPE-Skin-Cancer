@@ -9,9 +9,8 @@ const MoleCountdown = ({ item, index }) => {
     const barStyle = () => {
         console.log(percentage);
         return ({
-            marginTop: 5,
-            height: 10,
-            width: `${percentage * 100}%`,
+            height: "100%",
+            width: `${percentage * 10}%`,
             backgroundColor: "#71A1D1"
         })
     }
@@ -19,7 +18,7 @@ const MoleCountdown = ({ item, index }) => {
     const numOfDays = () => {
         const days = Math.floor(difference / 86400000)
         let message;
-        if (days === 0) {
+        if (days <= 0) {
             message = "Today"
         } else {
             message = days + " days"
@@ -29,11 +28,15 @@ const MoleCountdown = ({ item, index }) => {
 
     return (
         <View style = {(index === 0) ? styles.containerTop : styles.container}>
-            <Text style = {styles.name}>{item.name}</Text>
-            <Text style = {styles.numDays}>{numOfDays()}</Text>
-            <View style = {styles.bar}>
-                <View style = {barStyle()} />
-                <View style = {styles.remainingBar} />
+            <View style = {styles.info}>
+                <Text style = {styles.name}>{item.name}</Text>
+                <Text style = {styles.numDays}>{numOfDays()}</Text>
+            </View>
+            <View style = {styles.barContainer}>
+                <View style = {styles.bar}>
+                    <View style = {barStyle()} />
+                    <View style = {styles.remainingBar} />
+                </View>
             </View>
         </View>
     );
@@ -44,12 +47,16 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderTopWidth: 0.5,
         borderBottomWidth: 0.5,
-        borderColor: "black",
+        borderColor: "#AAAAAA",
     },
     container: {
         paddingVertical: 10,
         borderBottomWidth: 0.5,
-        borderColor: "black",
+        borderColor: "#AAAAAA",
+    },
+    info: {
+        flexDirection: "row",
+        justifyContent: "space-between"
     },
     name: {
         fontSize: 17,
@@ -58,12 +65,17 @@ const styles = StyleSheet.create({
     numDays: {
         fontSize: 17
     },
+    barContainer: {
+        marginTop: 5,
+    },
     bar: {
-        flexDirection: "row"
+        flexDirection: "row",
+        height: 10,
+        borderRadius: 5,
+        overflow: "hidden"
     },
     remainingBar: {
-        marginTop: 5,
-        height: 10,
+        height: "100%",
         backgroundColor: "#71A1D120",
         opacity: 10,
         flex: 1,
