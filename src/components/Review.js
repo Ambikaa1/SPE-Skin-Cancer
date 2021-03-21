@@ -105,7 +105,10 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
         //Get date
         let today = new Date();
         //+ 1 to month because by default January is 0.
-        let todayFormatted = today.getDate()+'/'+(today.getMonth() + 1)+'/'+today.getFullYear();
+        let todayFormatted = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+        // Mole should next be updated in one month
+        let nextUpdateFormatted = today.getDate() + '/' + (today.getMonth() + 2) + '/' + today.getFullYear();
+
         console.log("date: ", todayFormatted);
         console.log(nextScreen);
         //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
@@ -154,8 +157,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
             db.transaction(
                 tx => {
                     tx.executeSql(
-                        "UPDATE mole SET lastUpdated = ? WHERE mole_id = ?;",
-                        [todayFormatted, id],
+                        "UPDATE mole SET lastUpdated = ?, nextUpdate = ? WHERE mole_id = ?;",
+                        [todayFormatted, nextUpdateFormatted, id],
                         (t, result) => navigation.navigate(nextScreen),
                         (t, error) => {console.log(error);}
                     );

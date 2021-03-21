@@ -74,7 +74,7 @@ const App = () => {
       (t, error) => {console.log(error);}
     );
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, comments TEXT, far_shot TEXT, sub_body_part TEXT, lastUpdated TEXT);",
+      "CREATE TABLE IF NOT EXISTS mole (mole_id INTEGER PRIMARY KEY NOT NULL UNIQUE, name TEXT, comments TEXT, far_shot TEXT, sub_body_part TEXT, lastUpdated TEXT, nextUpdate TEXT);",
       [],
       null,
       (t, error) => {console.log(error);}
