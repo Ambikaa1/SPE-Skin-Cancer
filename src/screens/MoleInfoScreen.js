@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("18.db");
+const db = SQLite.openDatabase("19.db");
 
 const MoleInfoScreen = ({ route }) => {
   const [entries, setEntries] = useState([]);
