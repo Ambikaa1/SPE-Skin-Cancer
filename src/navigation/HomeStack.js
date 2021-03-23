@@ -39,7 +39,7 @@ const HomeStack = () => {
         name = "UserScreen"
         component = {UserScreen}
         options = {{ 
-          title: "User",
+          title: "Basic Information",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
         }}

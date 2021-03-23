@@ -38,6 +38,9 @@ const UserScreen = ({ navigation }) => {
 
   return (
     <View style = {styles.container}>
+      <Text style = {styles.info}>You now need to put in some basic information to help the App identify you and your moles.</Text>
+      <Text style = {styles.info}>This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.
+      </Text>
       <TextInput
         value = {firstName}
         onChangeText = {value => setFirstName(value)}
@@ -86,6 +89,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
+  info: {
+      fontSize: 15,
+      paddingBottom: 5,
+  },
   input: {
     backgroundColor: "#E2E2E2",
     height: 50,
@@ -110,7 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     marginVertical: 10,
-  }
+  },
 });
 
 export default UserScreen;
