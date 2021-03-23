@@ -50,7 +50,7 @@ const UserScreen = ({ navigation }) => {
       <TextInput
         value = {lastName}
         onChangeText = {value => setLastName(value)}
-        placeholder = "Last name"
+        placeholder = "Family name"
         style = {styles.input}
       />
       <TextInput
