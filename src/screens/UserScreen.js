@@ -69,7 +69,7 @@ const UserScreen = ({navigation}) => {
           }
         );
       }}>
-        {/*<Text>VIEW_USER</Text>*/}
+        <Text>VIEW_USER</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
   },
   info: {
       fontSize: 15,
-      paddingBottom: 5,
+      paddingTop: 5,
+      fontWeight: "bold",
   },
   title:{
       fontSize: 20,
