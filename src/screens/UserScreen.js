@@ -39,8 +39,8 @@ const UserScreen = ({ navigation }) => {
   return (
     <View style = {styles.container}>
       <Text style = {styles.info}>You now need to put in some basic information to help the App identify you and your moles.</Text>
-      <Text style = {styles.info}>This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.
-      </Text>
+      <Text style = {styles.info}>This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.</Text>
+      <Text style = {styles.title}> Basic Information</Text>
       <TextInput
         value = {firstName}
         onChangeText = {value => setFirstName(value)}
@@ -65,6 +65,7 @@ const UserScreen = ({ navigation }) => {
       {/*    placeholder = "Date of birth"*/}
       {/*    style = {styles.input}*/}
       {/*/>*/}
+      <Text style = {styles.title}>Judging risk factors for skin cancer </Text>
 
       <TouchableOpacity onPress = {() => {
         db.transaction(
@@ -93,12 +94,16 @@ const styles = StyleSheet.create({
       fontSize: 15,
       paddingBottom: 5,
   },
+  title:{
+      fontSize: 20,
+      paddingTop: 5,
+  },
   input: {
     backgroundColor: "#E2E2E2",
     height: 50,
     borderRadius: 10,
     marginHorizontal: 10,
-    marginTop: 10,
+    marginTop: 5,
     paddingLeft: 10,
     fontSize: 20,
   },
