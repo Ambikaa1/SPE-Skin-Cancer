@@ -40,7 +40,6 @@ const UserScreen = ({navigation}) => {
     <View style = {styles.container}>
       <Text style = {styles.info}>You now need to put in some basic information to help the App identify you and your moles.</Text>
       <Text style = {styles.info}>This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.</Text>
-      {/*<Text style = {styles.title}> Basic Information</Text>*/}
       <TextInput
         value = {firstName}
         onChangeText = {value => setFirstName(value)}
