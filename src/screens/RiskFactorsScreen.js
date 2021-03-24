@@ -16,7 +16,7 @@ const RiskFactorsScreen = ({ navigation }) => {
     const [chemicalExposure, setChemicalExposure] = useState("");
     const [radiationExposure, setRadiationExposure] = useState("");
 
-    // useEffect(() => {
+    // useEffect(() => { //this one selects the values???
     //     db.transaction(
     //         tx => {
     //             tx.executeSql("select * from user;", [], (_, { rows }) => {
@@ -29,7 +29,7 @@ const RiskFactorsScreen = ({ navigation }) => {
     //     );
     // }, []);
 
-    // const addToDatabase = () => {
+    // const addToDatabase = () => { //updates the values
     //     db.transaction(
     //         tx => {
     //             tx.executeSql(
@@ -58,111 +58,100 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Has anyone in your family had a skin cancer?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Have you ever had sunburn?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
 
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Have you ever had a job that involved working outside?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
 
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Are you immunosuppressed?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Have you got a large number of moles on your skin surface?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Have you ever been exposed to any chemicals during your occupation?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text style = {styles.questions}>Have you ever been exposed to any radiation during your occupation?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            // onChangeItem = {item => setChoice(item.value)}
         />
         <Text></Text>
         <Text></Text>
         <Text style = {styles.title}>Thank you, now it's time to assess your skin. </Text>
-
-
 
 
     {/*    <TouchableOpacity onPress = {() => {*/}
