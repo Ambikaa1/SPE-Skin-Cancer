@@ -40,7 +40,6 @@ const RiskFactorsScreen = ({ navigation }) => {
     //             );
     //         }
     //     );
-    //     navigation.goBack();
     // };
 
     return (
@@ -58,6 +57,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setHistory(item.value)}
         />
         <Text style = {styles.questions}>Has anyone in your family had a skin cancer?</Text>
         <DropDownPicker
@@ -69,6 +69,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setFamilyHistory(item.value)}
         />
         <Text style = {styles.questions}>Have you ever had sunburn?</Text>
         <DropDownPicker
@@ -81,6 +82,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setSunburn(item.value)}
         />
         <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
         <DropDownPicker
@@ -92,6 +94,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setSunbed(item.value)}
         />
         <Text style = {styles.questions}>Have you ever had a job that involved working outside?</Text>
         <DropDownPicker
@@ -100,10 +103,10 @@ const RiskFactorsScreen = ({ navigation }) => {
                 {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
-
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setWorkOutside(item.value)}
         />
         <Text style = {styles.questions}>Are you immunosuppressed?</Text>
         <DropDownPicker
@@ -115,6 +118,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setImmunosuppressed(item.value)}
         />
         <Text style = {styles.questions}>Have you got a large number of moles on your skin surface?</Text>
         <DropDownPicker
@@ -126,6 +130,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setMoleNo(item.value)}
         />
         <Text style = {styles.questions}>Have you ever been exposed to any chemicals during your occupation?</Text>
         <DropDownPicker
@@ -137,6 +142,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setChemicalExposure(item.value)}
         />
         <Text style = {styles.questions}>Have you ever been exposed to any radiation during your occupation?</Text>
         <DropDownPicker
@@ -148,6 +154,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setRadiationExposure(item.value)}
         />
         <Text></Text>
         <Text></Text>
