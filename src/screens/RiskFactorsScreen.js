@@ -6,15 +6,15 @@ import DropDownPicker from "react-native-dropdown-picker";
 const db = SQLite.openDatabase("20.db");
 
 const RiskFactorsScreen = ({ navigation }) => {
-    const [history, setHistory] = useState("");
-    const [familyHistory, setFamilyHistory] = useState("");
-    const [sunburn, setSunburn] = useState("");
-    const [sunbed, setSunbed] = useState("");
-    const [workOutside, setWorkOutside] = useState("");
-    const [immunosuppressed, setImmunosuppressed] = useState("");
-    const [moleNo, setMoleNo] = useState("");
-    const [chemicalExposure, setChemicalExposure] = useState("");
-    const [radiationExposure, setRadiationExposure] = useState("");
+    const [history, setHistory] = useState(null);
+    const [familyHistory, setFamilyHistory] = useState(null);
+    const [sunburn, setSunburn] = useState(null);
+    const [sunbed, setSunbed] = useState(null);
+    const [workOutside, setWorkOutside] = useState(null);
+    const [immunosuppressed, setImmunosuppressed] = useState(null);
+    const [moleNo, setMoleNo] = useState(null);
+    const [chemicalExposure, setChemicalExposure] = useState(null);
+    const [radiationExposure, setRadiationExposure] = useState(null);
 
     // useEffect(() => { //this one selects the values???
     //     db.transaction(
@@ -29,18 +29,19 @@ const RiskFactorsScreen = ({ navigation }) => {
     //     );
     // }, []);
 
-    // const addToDatabase = () => { //updates the values
-    //     db.transaction(
-    //         tx => {
-    //             tx.executeSql(
-    //                 `UPDATE user SET first_name = ?, last_name = ?, date_of_birth = ? WHERE user_id = 1;`,
-    //                 [firstName, lastName, dateOfBirth],
-    //                 null,
-    //                 (t, error) => {console.log(error);}
-    //             );
-    //         }
-    //     );
-    // };
+    const addToDatabase = () => { //updates the values
+        db.transaction(
+            tx => {
+                tx.executeSql(
+                    `UPDATE user SET history = ?, family_history = ?, sunburn = ?, sunbed = ?, work_outside = ?, immunosuppressed = ?, number_of_moles = ?, chemical_exposure = ?, radiation_exposure = ? WHERE user_id = 1;`,
+                    [history, familyHistory, sunburn, sunbed, workOutside, immunosuppressed, moleNo, chemicalExposure, radiationExposure],
+                    null,
+                    (t, error) => {console.log(error);}
+                );
+            }
+        );
+        navigation.navigate("HomeScreen")
+    };
 
     return (
     <ScrollView style = {styles.container}>
@@ -164,8 +165,8 @@ const RiskFactorsScreen = ({ navigation }) => {
     {/*    <TouchableOpacity onPress = {() => {*/}
     {/*        db.transaction(*/}
     {/*            tx => {*/}
-    {/*                tx.executeSql("select * from user;", [], (_, { rows }) =>*/}
-    {/*                    console.log(rows)*/}
+    {/*                tx.execonsolcuteSql("select * from user;", [], (_, { rows }) =>*/}
+    {/*                    e.log(rows)*/}
     {/*                );*/}
     {/*            }*/}
     {/*        );*/}
@@ -173,7 +174,7 @@ const RiskFactorsScreen = ({ navigation }) => {
     {/*    /!*<Text>VIEW_USER</Text>*!/*/}
     {/*</TouchableOpacity>*/}
 
-        <TouchableOpacity style = {styles.doneBox} onPress={() => navigation.navigate("HomeScreen")}>
+        <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
             <Text style = {styles.doneText}>Done</Text>
         </TouchableOpacity>
     </ScrollView>
