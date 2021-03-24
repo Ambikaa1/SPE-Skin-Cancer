@@ -32,16 +32,6 @@ exports[`<UserScreen /> renders correctly 1`] = `
   >
     This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.
   </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 20,
-        "paddingTop": 5,
-      }
-    }
-  >
-     Basic Information
-  </Text>
   <TextInput
     allowFontScaling={true}
     onChangeText={[Function]}
