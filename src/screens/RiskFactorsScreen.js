@@ -38,9 +38,54 @@ const RiskFactorsScreen = ({ navigation }) => {
     // };
 
     return (
-    <ScrollView style = {styles.container}>
-
+    <View style = {styles.container}>
         <Text style = {styles.title}>Judging risk factors for skin cancer </Text>
+        <Text style = {styles.title}>Have you ever had a skin cancer?</Text>
+        <DropDownPicker
+            items = {[
+                {label: 'Yes', value: 1},
+                {label: 'No', value: 0},
+                {label: 'Unsure', value: "unsure"},
+                {label: 'Rather not say', value: "not say"},
+
+            ]}
+            containerStyle = {styles.dropDownContainer}
+            labelStyle = {styles.dropDownLabel}
+            // onChangeItem = {item => setChoice(item.value)}
+        />
+        <Text style = {styles.title}>Has anyone in your family had a skin cancer?</Text>
+        <DropDownPicker
+            items = {[
+                {label: 'Yes', value: 1},
+                {label: 'No', value: 0},
+            ]}
+            containerStyle = {styles.dropDownContainer}
+            labelStyle = {styles.dropDownLabel}
+            // onChangeItem = {item => setChoice(item.value)}
+        />
+        <Text style = {styles.title}>Have you ever had a skin cancer?</Text>
+        <DropDownPicker
+            items = {[
+                {label: 'Yes', value: 1},
+                {label: 'No', value: 0},
+                {label: 'Unsure', value: "unsure"},
+                {label: 'Rather not say', value: "not say"},
+
+            ]}
+            containerStyle = {styles.dropDownContainer}
+            labelStyle = {styles.dropDownLabel}
+            // onChangeItem = {item => setChoice(item.value)}
+        />
+        <Text style = {styles.title}>Has anyone in your family had skin cancer?</Text>
+        <DropDownPicker
+            items = {[
+                {label: 'Yes', value: 1},
+                {label: 'No', value: 0},
+            ]}
+            containerStyle = {styles.dropDownContainer}
+            labelStyle = {styles.dropDownLabel}
+            // onChangeItem = {item => setChoice(item.value)}
+        />
         <Text style = {styles.title}>Have you ever had skin cancer?</Text>
         <DropDownPicker
             items = {[
@@ -54,7 +99,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             labelStyle = {styles.dropDownLabel}
             // onChangeItem = {item => setChoice(item.value)}
         />
-        <Text style = {styles.title}>Have you ever had skin cancer</Text>
+        <Text style = {styles.title}>Has anyone in your family had skin cancer?</Text>
         <DropDownPicker
             items = {[
                 {label: 'Yes', value: 1},
@@ -64,6 +109,9 @@ const RiskFactorsScreen = ({ navigation }) => {
             labelStyle = {styles.dropDownLabel}
             // onChangeItem = {item => setChoice(item.value)}
         />
+
+
+
 
     {/*    <TouchableOpacity onPress = {() => {*/}
     {/*        db.transaction(*/}
@@ -80,13 +128,15 @@ const RiskFactorsScreen = ({ navigation }) => {
         {/*<TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>*/}
         {/*    <Text style = {styles.doneText}>Done</Text>*/}
         {/*</TouchableOpacity>*/}
-    </ScrollView>
+    </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        marginLeft: 10,
+        marginTop: 10,
     },
     info: {
         fontSize: 15,
