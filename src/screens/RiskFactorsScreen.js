@@ -16,18 +16,25 @@ const RiskFactorsScreen = ({ navigation }) => {
     const [chemicalExposure, setChemicalExposure] = useState(null);
     const [radiationExposure, setRadiationExposure] = useState(null);
 
-    // useEffect(() => { //this one selects the values???
-    //     db.transaction(
-    //         tx => {
-    //             tx.executeSql("select * from user;", [], (_, { rows }) => {
-    //                     setFirstName(rows._array[0].first_name);
-    //                     setLastName(rows._array[0].last_name);
-    //                     setDateOfBirth(rows._array[0].date_of_birth);
-    //                 }
-    //             );
-    //         }
-    //     );
-    // }, []);
+    // history = ?, family_history = ?, sunburn = ?, sunbed = ?, work_outside = ?, immunosuppressed = ?, number_of_moles = ?, chemical_exposure = ?, radiation_exposure = ?
+    useEffect(() => { //this one selects the values???
+        db.transaction(
+            tx => {
+                tx.executeSql("select * from user;", [], (_, { rows }) => {
+                    setHistory(rows._array[0].history);
+                    setFamilyHistory(rows._array[0].family_history);
+                    setSunburn(rows._array[0].sunburn);
+                    setSunbed(rows._array[0].sunbed);
+                    setWorkOutside(rows._array[0].work_outside);
+                    setImmunosuppressed(rows._array[0].immunosuppressed);
+                    setMoleNo(rows._array[0].number_of_moles);
+                    setChemicalExposure(rows._array[0].chemical_exposure);
+                    setRadiationExposure(rows._array[0].radiation_exposure);
+                    }
+                );
+            }
+        );
+    }, []);
 
     const addToDatabase = () => { //updates the values
         db.transaction(

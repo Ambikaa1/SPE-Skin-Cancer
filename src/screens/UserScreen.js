@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import * as SQLite from "expo-sqlite";
-import DropDownPicker from "react-native-dropdown-picker";
 
 const db = SQLite.openDatabase("21.db");
 
@@ -60,17 +59,17 @@ const UserScreen = ({navigation}) => {
         placeholder = "DD/MM/YYYY"
         style = {styles.input}
       />
-      <TouchableOpacity onPress = {() => {
-        db.transaction(
-          tx => {
-            tx.executeSql("select * from user;", [], (_, { rows }) =>
-              console.log(rows)
-            );
-          }
-        );
-      }}>
-        <Text>VIEW_USER</Text>
-      </TouchableOpacity>
+      {/*<TouchableOpacity onPress = {() => {*/}
+      {/*  db.transaction(*/}
+      {/*    tx => {*/}
+      {/*      tx.executeSql("select * from user;", [], (_, { rows }) =>*/}
+      {/*        console.log(rows)*/}
+      {/*      );*/}
+      {/*    }*/}
+      {/*  );*/}
+      {/*}}>*/}
+      {/*  <Text>VIEW_USER</Text>*/}
+      {/*</TouchableOpacity>*/}
 
       <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
           <Text style = {styles.doneText}>Next</Text>
