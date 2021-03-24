@@ -6,9 +6,15 @@ import DropDownPicker from "react-native-dropdown-picker";
 const db = SQLite.openDatabase("20.db");
 
 const RiskFactorsScreen = ({ navigation }) => {
-    // const [firstName, setFirstName] = useState("");
-    // const [lastName, setLastName] = useState("");
-    // const [dateOfBirth, setDateOfBirth] = useState("");
+    const [history, setHistory] = useState("");
+    const [familyHistory, setFamilyHistory] = useState("");
+    const [sunburn, setSunburn] = useState("");
+    const [sunbed, setSunbed] = useState("");
+    const [workOutside, setWorkOutside] = useState("");
+    const [immunosuppressed, setImmunosuppressed] = useState("");
+    const [moleNo, setMoleNo] = useState("");
+    const [chemicalExposure, setChemicalExposure] = useState("");
+    const [radiationExposure, setRadiationExposure] = useState("");
 
     // useEffect(() => {
     //     db.transaction(
