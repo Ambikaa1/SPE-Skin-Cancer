@@ -12,7 +12,8 @@ exports[`<UserScreen /> renders correctly 1`] = `
     style={
       Object {
         "fontSize": 15,
-        "paddingBottom": 5,
+        "fontWeight": "bold",
+        "paddingTop": 5,
       }
     }
   >
@@ -22,7 +23,8 @@ exports[`<UserScreen /> renders correctly 1`] = `
     style={
       Object {
         "fontSize": 15,
-        "paddingBottom": 5,
+        "fontWeight": "bold",
+        "paddingTop": 5,
       }
     }
   >
@@ -110,7 +112,11 @@ exports[`<UserScreen /> renders correctly 1`] = `
         "opacity": 1,
       }
     }
-  />
+  >
+    <Text>
+      VIEW_USER
+    </Text>
+  </View>
   <View
     accessible={true}
     focusable={true}
