@@ -80,12 +80,13 @@ const UserScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   info: {
       fontSize: 15,
       paddingTop: 5,
       fontWeight: "bold",
+      marginLeft: 10,
   },
   title:{
       fontSize: 20,

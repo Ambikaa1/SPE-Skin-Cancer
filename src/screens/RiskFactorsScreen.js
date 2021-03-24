@@ -192,7 +192,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginLeft: 10,
-        marginTop: 10,
     },
     questions:{
         fontSize: 15,
