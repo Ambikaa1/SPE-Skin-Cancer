@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from '@expo/vector-icons';
@@ -68,7 +68,7 @@ const MyTabs = () => {
 const App = () => {
   db.transaction(tx => {
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS user (user_id INTEGER PRIMARY KEY NOT NULL UNIQUE, first_name TEXT, last_name TEXT, date_of_birth TEXT);",
+      "CREATE TABLE IF NOT EXISTS user (user_id INTEGER PRIMARY KEY NOT NULL UNIQUE, first_name TEXT, last_name TEXT, date_of_birth TEXT, history TEXT, family_history TEXT, sunburn TEXT, sunbed TEXT, work_outside TEXT, immunosuppressed TEXT, number_of_moles TEXT, chemical_exposure TEXT, radiation_exposure TEXT);",
       [],
       null,
       (t, error) => {console.log(error);}
