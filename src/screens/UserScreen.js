@@ -5,7 +5,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 
 const db = SQLite.openDatabase("20.db");
 
-const UserScreen = ({ navigation }) => {
+const UserScreen = ({navigation}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -34,11 +34,11 @@ const UserScreen = ({ navigation }) => {
         );
       }
     );
-    navigation.goBack();
+    navigation.navigate("RiskFactorsScreen")
   };
 
   return (
-    <ScrollView style = {styles.container}>
+    <View style = {styles.container}>
       <Text style = {styles.info}>You now need to put in some basic information to help the App identify you and your moles.</Text>
       <Text style = {styles.info}>This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.</Text>
       <Text style = {styles.title}> Basic Information</Text>
@@ -60,19 +60,6 @@ const UserScreen = ({ navigation }) => {
         placeholder = "DD/MM/YYYY"
         style = {styles.input}
       />
-      <Text style = {styles.title}>Judging risk factors for skin cancer </Text>
-      <Text style = {styles.questionTop}>Is this a new mole?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setChoice(item.value)}
-        />
-
-
       <TouchableOpacity onPress = {() => {
         db.transaction(
           tx => {
@@ -86,9 +73,9 @@ const UserScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
-        <Text style = {styles.doneText}>Done</Text>
+          <Text style = {styles.doneText}>Next</Text>
       </TouchableOpacity>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -109,7 +96,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 10,
     marginHorizontal: 10,
-    marginTop: 5,
+    marginTop: 10,
     paddingLeft: 10,
     fontSize: 20,
   },
@@ -119,23 +106,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#71A1D1",
     alignItems: "center",
     borderRadius: 10,
-    // position: "absolute",
+    position: "absolute",
     width: "95%",
-    bottom: 10
+    bottom: 10,
   },
   doneText: {
     fontSize: 30,
     fontWeight: "bold",
     color: "white",
     marginVertical: 10,
-  },
-  dropDownContainer: {
-    height: 40,
-    marginTop: 5,
-    marginRight: 10,
-  },
-  dropDownLabel: {
-    fontSize: 20,
   },
 });
 
