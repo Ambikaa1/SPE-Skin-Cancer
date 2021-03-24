@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import * as SQLite from "expo-sqlite";
+import DropDownPicker from "react-native-dropdown-picker";
 
 const db = SQLite.openDatabase("20.db");
 
@@ -37,7 +38,7 @@ const UserScreen = ({ navigation }) => {
   };
 
   return (
-    <View style = {styles.container}>
+    <ScrollView style = {styles.container}>
       <Text style = {styles.info}>You now need to put in some basic information to help the App identify you and your moles.</Text>
       <Text style = {styles.info}>This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.</Text>
       <Text style = {styles.title}> Basic Information</Text>
@@ -59,13 +60,18 @@ const UserScreen = ({ navigation }) => {
         placeholder = "DD/MM/YYYY"
         style = {styles.input}
       />
-      {/*<TextInput*/}
-      {/*    value = {dateOfBirth}*/}
-      {/*    onChangeText = {value => setDateOfBirth(value)}*/}
-      {/*    placeholder = "Date of birth"*/}
-      {/*    style = {styles.input}*/}
-      {/*/>*/}
       <Text style = {styles.title}>Judging risk factors for skin cancer </Text>
+      <Text style = {styles.questionTop}>Is this a new mole?</Text>
+        <DropDownPicker
+            items = {[
+                {label: 'Yes', value: 1},
+                {label: 'No', value: 0},
+            ]}
+            containerStyle = {styles.dropDownContainer}
+            labelStyle = {styles.dropDownLabel}
+            onChangeItem = {item => setChoice(item.value)}
+        />
+
 
       <TouchableOpacity onPress = {() => {
         db.transaction(
@@ -76,13 +82,13 @@ const UserScreen = ({ navigation }) => {
           }
         );
       }}>
-        <Text>VIEW_USER</Text>
+        {/*<Text>VIEW_USER</Text>*/}
       </TouchableOpacity>
 
       <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
         <Text style = {styles.doneText}>Done</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -113,7 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#71A1D1",
     alignItems: "center",
     borderRadius: 10,
-    position: "absolute",
+    // position: "absolute",
     width: "95%",
     bottom: 10
   },
@@ -122,6 +128,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     marginVertical: 10,
+  },
+  dropDownContainer: {
+    height: 40,
+    marginTop: 5,
+    marginRight: 10,
+  },
+  dropDownLabel: {
+    fontSize: 20,
   },
 });
 
