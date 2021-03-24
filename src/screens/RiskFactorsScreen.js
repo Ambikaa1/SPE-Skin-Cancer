@@ -45,8 +45,8 @@ const RiskFactorsScreen = ({ navigation }) => {
         <Text style = {styles.questions}>Have you ever had a skin cancer?</Text>
         <DropDownPicker
             items = {[
-                {label: 'Yes', value: 1},
-                {label: 'No', value: 0},
+                {label: 'Yes', value: "yes"},
+                {label: 'No', value: "no"},
                 {label: 'Unsure', value: "unsure"},
                 {label: 'Rather not say', value: "not say"},
             ]}
