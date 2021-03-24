@@ -13,6 +13,7 @@ exports[`<UserScreen /> renders correctly 1`] = `
       Object {
         "fontSize": 15,
         "fontWeight": "bold",
+        "marginLeft": 10,
         "paddingTop": 5,
       }
     }
@@ -24,6 +25,7 @@ exports[`<UserScreen /> renders correctly 1`] = `
       Object {
         "fontSize": 15,
         "fontWeight": "bold",
+        "marginLeft": 10,
         "paddingTop": 5,
       }
     }
