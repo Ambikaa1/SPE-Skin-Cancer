@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
-import DropdownMenu from 'react-native-dropdown-menu';
 import * as SQLite from "expo-sqlite";
 import DropDownPicker from "react-native-dropdown-picker";
-// import {SafeAreaView} from "react-native-web";
 
 const db = SQLite.openDatabase("21.db");
 
@@ -18,7 +16,6 @@ const RiskFactorsScreen = ({ navigation }) => {
     const [chemicalExposure, setChemicalExposure] = useState(null);
     const [radiationExposure, setRadiationExposure] = useState(null);
 
-    // history = ?, family_history = ?, sunburn = ?, sunbed = ?, work_outside = ?, immunosuppressed = ?, number_of_moles = ?, chemical_exposure = ?, radiation_exposure = ?
     useEffect(() => { //this one selects the values???
         db.transaction(
             tx => {
@@ -56,7 +53,7 @@ const RiskFactorsScreen = ({ navigation }) => {
     <ScrollView style = {styles.container}>
         <Text style = {styles.title}>Have you got any risk factors for skin cancer? On the next few questions, please indicate ‘yes’ or ‘no’.</Text>
         <Text style = {styles.title}>This information will only be stored on your phone unless you opt to send it with your images to a clinician. </Text>
-        <View style={{ zIndex: 4 }} >
+        <View style={{ zIndex: 10 }} >
             <Text style = {styles.questions}>Have you ever had a skin cancer?</Text>
             <DropDownPicker
                 items = {[
@@ -70,7 +67,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setHistory(item.value)}
             />
         </View>
-        <View style={{ zIndex: 3 }} >
+        <View style={{ zIndex: 9 }} >
             <Text style = {styles.questions}>Has anyone in your family had a skin cancer?</Text>
             <DropDownPicker
                 items = {[
@@ -84,7 +81,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setFamilyHistory(item.value)}
             />
         </View>
-        <View style={{ zIndex: 2 }} >
+        <View style={{ zIndex: 8 }} >
             <Text style = {styles.questions}>Have you ever had sunburn?</Text>
             <DropDownPicker
                 items = {[
@@ -99,7 +96,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setSunburn(item.value)}
             />
         </View>
-        <View style={{ zIndex: 1 }} >
+        <View style={{ zIndex: 7 }} >
             <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
             <DropDownPicker
                 items = {[
@@ -113,82 +110,79 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setSunbed(item.value)}
             />
         </View>
-        <Text style = {styles.questions}>Have you ever had a job that involved working outside?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setWorkOutside(item.value)}
-        />
-        <Text style = {styles.questions}>Are you immunosuppressed?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setImmunosuppressed(item.value)}
-        />
-        <Text style = {styles.questions}>Have you got a large number of moles on your skin surface?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setMoleNo(item.value)}
-        />
-        <Text style = {styles.questions}>Have you ever been exposed to any chemicals during your occupation?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setChemicalExposure(item.value)}
-        />
-        <Text style = {styles.questions}>Have you ever been exposed to any radiation during your occupation?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setRadiationExposure(item.value)}
-        />
+        <View style={{ zIndex: 6 }} >
+            <Text style = {styles.questions}>Have you ever had a job that involved working outside?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setWorkOutside(item.value)}
+            />
+        </View>
+        <View style={{ zIndex: 5 }} >
+            <Text style = {styles.questions}>Are you immunosuppressed?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setImmunosuppressed(item.value)}
+            />
+        </View>
+        <View style={{ zIndex: 4 }} >
+            <Text style = {styles.questions}>Have you got a large number of moles on your skin surface?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setMoleNo(item.value)}
+            />
+        </View>
+        <View style={{ zIndex: 3 }} >
+            <Text style = {styles.questions}>Have you ever been exposed to any chemicals during your occupation?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setChemicalExposure(item.value)}
+            />
+        </View>
+        <View style={{ zIndex: 2 }} >
+            <Text style = {styles.questions}>Have you ever been exposed to any radiation during your occupation?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setRadiationExposure(item.value)}
+            />
+        </View>
         <Text></Text>
         <Text></Text>
         <Text style = {styles.title}>Thank you, now it's time to assess your skin. </Text>
-
-
-    {/*    <TouchableOpacity onPress = {() => {*/}
-    {/*        db.transaction(*/}
-    {/*            tx => {*/}
-    {/*                tx.execonsolcuteSql("select * from user;", [], (_, { rows }) =>*/}
-    {/*                    e.log(rows)*/}
-    {/*                );*/}
-    {/*            }*/}
-    {/*        );*/}
-    {/*    }}>*/}
-    {/*    /!*<Text>VIEW_USER</Text>*!/*/}
-    {/*</TouchableOpacity>*/}
 
         <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
             <Text style = {styles.doneText}>Done</Text>
@@ -204,7 +198,7 @@ const styles = StyleSheet.create({
     },
     questions:{
         fontSize: 15,
-        paddingTop: 10,
+        paddingTop: 12,
         paddingLeft: 7,
         paddingRight: 7,
     },
@@ -212,6 +206,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         paddingTop: 5,
         fontWeight: "bold",
+        zIndex: 1,
     },
     doneBox: {
         marginHorizontal: 10,
@@ -222,12 +217,14 @@ const styles = StyleSheet.create({
         // position: "absolute",
         width: "95%",
         bottom: 10,
+        zIndex: 1,
     },
     doneText: {
         fontSize: 30,
         fontWeight: "bold",
         color: "white",
         marginVertical: 10,
+        zIndex: 1,
     },
     dropDownContainer: {
         height: 35,
