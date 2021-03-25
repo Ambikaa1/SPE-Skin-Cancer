@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView} from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, Platform} from "react-native";
 import * as SQLite from "expo-sqlite";
 import DropDownPicker from "react-native-dropdown-picker";
 
@@ -48,13 +48,25 @@ const RiskFactorsScreen = ({ navigation }) => {
         );
         navigation.navigate("HomeScreen")
     };
+    // <View
+    //     style={{
+    //
+    //         // The solution: Apply zIndex to any device except Android
+    //         ...(Platform.OS !== 'android' && {
+    //             zIndex: 10
+    //         })
+    //
+    //     }}
+    // >
 
     return (
     <ScrollView style = {styles.container}>
         <Text style = {styles.title}>Have you got any risk factors for skin cancer? On the next few questions, please indicate ‘yes’ or ‘no’.</Text>
         <Text style = {styles.title}>This information will only be stored on your phone unless you opt to send it with your images to a clinician. </Text>
-        <View style={{ zIndex: 10 }} >
+
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 10})}}>
             <Text style = {styles.questions}>Have you ever had a skin cancer?</Text>
+            {/*<Text> {console.log(Platform.OS)}</Text>*/}
             <DropDownPicker
                 items = {[
                     {label: 'Yes', value: "yes"},
@@ -67,7 +79,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setHistory(item.value)}
             />
         </View>
-        <View style={{ zIndex: 9 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 9})}}>
             <Text style = {styles.questions}>Has anyone in your family had a skin cancer?</Text>
             <DropDownPicker
                 items = {[
@@ -81,7 +93,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setFamilyHistory(item.value)}
             />
         </View>
-        <View style={{ zIndex: 8 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 8})}}>
             <Text style = {styles.questions}>Have you ever had sunburn?</Text>
             <DropDownPicker
                 items = {[
@@ -96,7 +108,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setSunburn(item.value)}
             />
         </View>
-        <View style={{ zIndex: 7 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 7})}} >
             <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
             <DropDownPicker
                 items = {[
@@ -110,7 +122,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setSunbed(item.value)}
             />
         </View>
-        <View style={{ zIndex: 6 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 6})}}>
             <Text style = {styles.questions}>Have you ever had a job that involved working outside?</Text>
             <DropDownPicker
                 items = {[
@@ -124,7 +136,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setWorkOutside(item.value)}
             />
         </View>
-        <View style={{ zIndex: 5 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 5})}}>
             <Text style = {styles.questions}>Are you immunosuppressed?</Text>
             <DropDownPicker
                 items = {[
@@ -138,7 +150,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setImmunosuppressed(item.value)}
             />
         </View>
-        <View style={{ zIndex: 4 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 4})}}>
             <Text style = {styles.questions}>Have you got a large number of moles on your skin surface?</Text>
             <DropDownPicker
                 items = {[
@@ -152,7 +164,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setMoleNo(item.value)}
             />
         </View>
-        <View style={{ zIndex: 3 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 3})}}>
             <Text style = {styles.questions}>Have you ever been exposed to any chemicals during your occupation?</Text>
             <DropDownPicker
                 items = {[
@@ -166,7 +178,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setChemicalExposure(item.value)}
             />
         </View>
-        <View style={{ zIndex: 2 }} >
+        <View style = {{...(Platform.OS !== 'android' && {zIndex: 2})}} >
             <Text style = {styles.questions}>Have you ever been exposed to any radiation during your occupation?</Text>
             <DropDownPicker
                 items = {[
@@ -195,6 +207,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginLeft: 10,
+    },
+    testin: {
+        zIndex: 10,
     },
     questions:{
         fontSize: 15,
