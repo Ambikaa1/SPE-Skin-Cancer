@@ -51,7 +51,7 @@ const RiskFactorsScreen = ({ navigation }) => {
     };
 
     return (
-    <ScrollView style = {styles.container}>
+    <View style = {styles.container}>
         <Text style = {styles.title}>Have you got any risk factors for skin cancer? On the next few questions, please indicate ‘yes’ or ‘no’.</Text>
         <Text style = {styles.title}>This information will only be stored on your phone unless you opt to send it with your images to a clinician. </Text>
 
@@ -184,7 +184,7 @@ const RiskFactorsScreen = ({ navigation }) => {
         <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
             <Text style = {styles.doneText}>Done</Text>
         </TouchableOpacity>
-    </ScrollView>
+    </View>
     );
 };
 
