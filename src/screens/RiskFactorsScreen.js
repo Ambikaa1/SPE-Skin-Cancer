@@ -48,16 +48,6 @@ const RiskFactorsScreen = ({ navigation }) => {
         );
         navigation.navigate("HomeScreen")
     };
-    // <View
-    //     style={{
-    //
-    //         // The solution: Apply zIndex to any device except Android
-    //         ...(Platform.OS !== 'android' && {
-    //             zIndex: 10
-    //         })
-    //
-    //     }}
-    // >
 
     return (
     <ScrollView style = {styles.container}>
@@ -66,7 +56,6 @@ const RiskFactorsScreen = ({ navigation }) => {
 
         <View style = {{...(Platform.OS !== 'android' && {zIndex: 10})}}>
             <Text style = {styles.questions}>Have you ever had a skin cancer?</Text>
-            {/*<Text> {console.log(Platform.OS)}</Text>*/}
             <DropDownPicker
                 items = {[
                     {label: 'Yes', value: "yes"},
@@ -101,7 +90,6 @@ const RiskFactorsScreen = ({ navigation }) => {
                     {label: 'No', value: "no"},
                     {label: 'Unsure', value: "unsure"},
                     {label: 'Rather not say', value: "not say"},
-
                 ]}
                 containerStyle = {styles.dropDownContainer}
                 labelStyle = {styles.dropDownLabel}
@@ -208,9 +196,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginLeft: 10,
     },
-    testin: {
-        zIndex: 10,
-    },
     questions:{
         fontSize: 15,
         paddingTop: 12,
@@ -229,7 +214,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
-        // position: "absolute",
         width: "95%",
         bottom: 10,
         zIndex: 1,
