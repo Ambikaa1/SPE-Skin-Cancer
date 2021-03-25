@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
+import DropdownMenu from 'react-native-dropdown-menu';
 import * as SQLite from "expo-sqlite";
 import DropDownPicker from "react-native-dropdown-picker";
+// import {SafeAreaView} from "react-native-web";
 
 const db = SQLite.openDatabase("21.db");
 
@@ -54,56 +56,63 @@ const RiskFactorsScreen = ({ navigation }) => {
     <ScrollView style = {styles.container}>
         <Text style = {styles.title}>Have you got any risk factors for skin cancer? On the next few questions, please indicate ‘yes’ or ‘no’.</Text>
         <Text style = {styles.title}>This information will only be stored on your phone unless you opt to send it with your images to a clinician. </Text>
+        <SafeAreaView>
+            <Text style = {styles.questions}>Have you ever had a skin cancer?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setHistory(item.value)}
+            />
+        </SafeAreaView>
+        <SafeAreaView>
+            <Text style = {styles.questions}>Has anyone in your family had a skin cancer?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setFamilyHistory(item.value)}
+            />
+        </SafeAreaView>
+        <View>
+            <Text style = {styles.questions}>Have you ever had sunburn?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
 
-        <Text style = {styles.questions}>Have you ever had a skin cancer?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setHistory(item.value)}
-        />
-        <Text style = {styles.questions}>Has anyone in your family had a skin cancer?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setFamilyHistory(item.value)}
-        />
-        <Text style = {styles.questions}>Have you ever had sunburn?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setSunburn(item.value)}
-        />
-        <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
-        <DropDownPicker
-            items = {[
-                {label: 'Yes', value: "yes"},
-                {label: 'No', value: "no"},
-                {label: 'Unsure', value: "unsure"},
-                {label: 'Rather not say', value: "not say"},
-            ]}
-            containerStyle = {styles.dropDownContainer}
-            labelStyle = {styles.dropDownLabel}
-            onChangeItem = {item => setSunbed(item.value)}
-        />
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setSunburn(item.value)}
+            />
+        </View>
+        <View>
+            <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
+            <DropDownPicker
+                items = {[
+                    {label: 'Yes', value: "yes"},
+                    {label: 'No', value: "no"},
+                    {label: 'Unsure', value: "unsure"},
+                    {label: 'Rather not say', value: "not say"},
+                ]}
+                containerStyle = {styles.dropDownContainer}
+                labelStyle = {styles.dropDownLabel}
+                onChangeItem = {item => setSunbed(item.value)}
+            />
+        </View>
         <Text style = {styles.questions}>Have you ever had a job that involved working outside?</Text>
         <DropDownPicker
             items = {[
