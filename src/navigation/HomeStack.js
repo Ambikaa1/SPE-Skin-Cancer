@@ -40,7 +40,7 @@ const HomeStack = () => {
         name = "UserScreen"
         component = {UserScreen}
         options = {{ 
-          title: "Basic Information",
+          title: "User Info",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
         }}
@@ -49,7 +49,7 @@ const HomeStack = () => {
         name = "RiskFactorsScreen"
         component = {RiskFactorsScreen}
         options = {{
-            title: "Basic Information",
+            title: "User Info",
             headerTitle: props => <HeaderText {...props} />,
             headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
         }}
