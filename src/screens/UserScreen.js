@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("20.db");
+const db = SQLite.openDatabase("22.db");
 
-const UserScreen = ({ navigation }) => {
+const UserScreen = ({navigation}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -33,11 +33,13 @@ const UserScreen = ({ navigation }) => {
         );
       }
     );
-    navigation.goBack();
+    navigation.navigate("RiskFactorsScreen")
   };
 
   return (
     <View style = {styles.container}>
+      <Text style = {styles.info}>You now need to put in some basic information to help the App identify you and your moles.</Text>
+      <Text style = {styles.info}>This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.</Text>
       <TextInput
         value = {firstName}
         onChangeText = {value => setFirstName(value)}
@@ -47,7 +49,7 @@ const UserScreen = ({ navigation }) => {
       <TextInput
         value = {lastName}
         onChangeText = {value => setLastName(value)}
-        placeholder = "Last name"
+        placeholder = "Family name"
         style = {styles.input}
       />
       <TextInput
@@ -56,27 +58,20 @@ const UserScreen = ({ navigation }) => {
         placeholder = "DD/MM/YYYY"
         style = {styles.input}
       />
-      {/*<TextInput*/}
-      {/*    value = {dateOfBirth}*/}
-      {/*    onChangeText = {value => setDateOfBirth(value)}*/}
-      {/*    placeholder = "Date of birth"*/}
-      {/*    style = {styles.input}*/}
-      {/*/>*/}
-
-      <TouchableOpacity onPress = {() => {
-        db.transaction(
-          tx => {
-            tx.executeSql("select * from user;", [], (_, { rows }) =>
-              console.log(rows)
-            );
-          }
-        );
-      }}>
-        <Text>VIEW_USER</Text>
-      </TouchableOpacity>
+      {/*<TouchableOpacity onPress = {() => {*/}
+      {/*  db.transaction(*/}
+      {/*    tx => {*/}
+      {/*      tx.executeSql("select * from user;", [], (_, { rows }) =>*/}
+      {/*        console.log(rows)*/}
+      {/*      );*/}
+      {/*    }*/}
+      {/*  );*/}
+      {/*}}>*/}
+      {/*  <Text>VIEW_USER</Text>*/}
+      {/*</TouchableOpacity>*/}
 
       <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
-        <Text style = {styles.doneText}>Done</Text>
+          <Text style = {styles.doneText}>Next</Text>
       </TouchableOpacity>
     </View>
   );
@@ -84,7 +79,17 @@ const UserScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+  },
+  info: {
+      fontSize: 15,
+      paddingTop: 5,
+      fontWeight: "bold",
+      marginLeft: 10,
+  },
+  title:{
+      fontSize: 20,
+      paddingTop: 5,
   },
   input: {
     backgroundColor: "#E2E2E2",
@@ -103,14 +108,14 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     position: "absolute",
     width: "95%",
-    bottom: 10
+    bottom: 10,
   },
   doneText: {
     fontSize: 30,
     fontWeight: "bold",
     color: "white",
     marginVertical: 10,
-  }
+  },
 });
 
 export default UserScreen;

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from '@expo/vector-icons';
@@ -10,7 +10,7 @@ import PhotoStack from "./src/navigation/PhotoStack"
 import DiaryStack from "./src/navigation/DiaryStack";
 import SendStack from "./src/navigation/SendStack";
 
-const db = SQLite.openDatabase("20.db");
+const db = SQLite.openDatabase("22.db");
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
   console.log('Foreign keys turned on')
 );
@@ -68,7 +68,7 @@ const MyTabs = () => {
 const App = () => {
   db.transaction(tx => {
     tx.executeSql(
-      "CREATE TABLE IF NOT EXISTS user (user_id INTEGER PRIMARY KEY NOT NULL UNIQUE, first_name TEXT, last_name TEXT, date_of_birth TEXT);",
+      "CREATE TABLE IF NOT EXISTS user (user_id INTEGER PRIMARY KEY NOT NULL UNIQUE, first_name TEXT, last_name TEXT, date_of_birth TEXT, history TEXT, family_history TEXT, sunburn TEXT, sunbed TEXT, work_outside TEXT, immunosuppressed TEXT, number_of_moles TEXT, chemical_exposure TEXT, radiation_exposure TEXT);",
       [],
       null,
       (t, error) => {console.log(error);}

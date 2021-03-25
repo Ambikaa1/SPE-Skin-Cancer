@@ -6,6 +6,7 @@ import UserScreen from "../screens/UserScreen"
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import SettingsButton from "../components/SettingsButton"
+import RiskFactorsScreen from "../screens/RiskFactorsScreen";
 
 const Stack = createStackNavigator()
 
@@ -39,9 +40,18 @@ const HomeStack = () => {
         name = "UserScreen"
         component = {UserScreen}
         options = {{ 
-          title: "User",
+          title: "User Info",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
+        }}
+      />
+      <Stack.Screen
+        name = "RiskFactorsScreen"
+        component = {RiskFactorsScreen}
+        options = {{
+            title: "User Info",
+            headerTitle: props => <HeaderText {...props} />,
+            headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
         }}
       />
     </Stack.Navigator>
