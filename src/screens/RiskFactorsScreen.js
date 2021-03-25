@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
+import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView} from "react-native";
 import * as SQLite from "expo-sqlite";
 import DropDownPicker from "react-native-dropdown-picker";
 
