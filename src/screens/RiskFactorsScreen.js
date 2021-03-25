@@ -56,7 +56,7 @@ const RiskFactorsScreen = ({ navigation }) => {
     <ScrollView style = {styles.container}>
         <Text style = {styles.title}>Have you got any risk factors for skin cancer? On the next few questions, please indicate ‘yes’ or ‘no’.</Text>
         <Text style = {styles.title}>This information will only be stored on your phone unless you opt to send it with your images to a clinician. </Text>
-        <SafeAreaView>
+        <View style={{ zIndex: 4 }} >
             <Text style = {styles.questions}>Have you ever had a skin cancer?</Text>
             <DropDownPicker
                 items = {[
@@ -69,8 +69,8 @@ const RiskFactorsScreen = ({ navigation }) => {
                 labelStyle = {styles.dropDownLabel}
                 onChangeItem = {item => setHistory(item.value)}
             />
-        </SafeAreaView>
-        <SafeAreaView>
+        </View>
+        <View style={{ zIndex: 3 }} >
             <Text style = {styles.questions}>Has anyone in your family had a skin cancer?</Text>
             <DropDownPicker
                 items = {[
@@ -83,8 +83,8 @@ const RiskFactorsScreen = ({ navigation }) => {
                 labelStyle = {styles.dropDownLabel}
                 onChangeItem = {item => setFamilyHistory(item.value)}
             />
-        </SafeAreaView>
-        <View>
+        </View>
+        <View style={{ zIndex: 2 }} >
             <Text style = {styles.questions}>Have you ever had sunburn?</Text>
             <DropDownPicker
                 items = {[
@@ -99,7 +99,7 @@ const RiskFactorsScreen = ({ navigation }) => {
                 onChangeItem = {item => setSunburn(item.value)}
             />
         </View>
-        <View>
+        <View style={{ zIndex: 1 }} >
             <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
             <DropDownPicker
                 items = {[
