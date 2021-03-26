@@ -216,7 +216,7 @@ const PhotoStack = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#71A1D1",
-  }
+  },
 });
 
 export default PhotoStack;
