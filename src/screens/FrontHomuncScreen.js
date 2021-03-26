@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-native";
+import {View, StyleSheet, ScrollView, TouchableOpacity, Image, Text} from "react-native";
 
 const FrontHomuncScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
@@ -7,14 +7,16 @@ const FrontHomuncScreen = ({navigation}) => {
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
+            <Text style = {styles.title}>Please click on the body part where your mole is located. </Text>
+            <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
+                <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
+                <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />
                 </TouchableOpacity>
             </View>
@@ -143,6 +145,10 @@ const styles = StyleSheet.create({
         width: 120,
         height: 120,
         resizeMode: 'contain',
+    },
+    title:{
+        fontSize: 15,
+        fontWeight: "bold",
     },
 });
 

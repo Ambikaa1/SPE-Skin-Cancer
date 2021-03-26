@@ -9,7 +9,7 @@ const WelcomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style = {styles.container}>
             <Text style = {styles.titleText}>WELCOME!</Text>
-
+            <Text></Text>
             <Text style = {styles.mainText} >
                 This App is designed to allow you to monitor your skin moles and similar lesions.
                 Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour.

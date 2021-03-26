@@ -51,7 +51,8 @@ const RiskFactorsScreen = ({ navigation }) => {
 
     return (
     <ScrollView style = {styles.container}>
-        <Text style = {styles.title}>Have you got any risk factors for skin cancer? On the next few questions, please indicate ‘yes’ or ‘no’.</Text>
+        <Text style = {styles.title}>Have you got any risk factors for skin cancer? </Text>
+        <Text style = {styles.title}>Scroll through the page, indicating ‘yes’, ‘no’, 'unsure' or 'rather not say'.</Text>
         <Text style = {styles.title}>This information will only be stored on your phone unless you opt to send it with your images to a clinician. </Text>
 
         <View style = {{...(Platform.OS !== 'android' && {zIndex: 10})}}>

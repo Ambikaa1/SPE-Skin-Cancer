@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, ScrollView, TouchableOpacity, Image} from "react-native";
+import {View, StyleSheet, ScrollView, TouchableOpacity, Image, Text} from "react-native";
 
 const LeftHomuncScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
@@ -7,6 +7,8 @@ const LeftHomuncScreen = ({navigation}) => {
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
+            <Text style = {styles.title}>Please click on the body part where your mole is located. </Text>
+            <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />
@@ -66,6 +68,10 @@ const styles = StyleSheet.create({
         width: 120,
         height: 120,
         resizeMode: 'contain',
+    },
+    title:{
+        fontSize: 15,
+        fontWeight: "bold",
     },
 });
 
