@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SendScreen from "../screens/SendScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
+import SelectMole from "../screens/SelectMole";
+import SelectNearShots from "../screens/SelectNearShots"
 
 const Stack = createStackNavigator()
 
@@ -18,12 +20,31 @@ const SendStack = () => {
       <Stack.Screen
         name = "Send"
         component = {SendScreen}
-        options = {{ 
+        options = {{
           title: "Send",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
+        />
+
+      <Stack.Screen
+          name = "SelectMole"
+          component = {SelectMole}
+          options = {{
+              title: "SelectMole",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} />,
+          }}
       />
+        <Stack.Screen
+            name = "SelectNearShots"
+            component = {SelectNearShots}
+            options = {{
+                title: "SelectNearShots",
+                headerTitle: props => <HeaderText {...props} />,
+                headerRight: props => <HeaderButton {...props} />,
+            }}
+        />
     </Stack.Navigator>
   );
 };
