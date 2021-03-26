@@ -18,7 +18,7 @@ exports[`<RightHomuncScreen /> renders correctly 1`] = `
         }
       }
     >
-      Please click on the body part where your mole is located. 
+      Please scroll down to click on the body part where your mole is located. 
     </Text>
     <Text
       style={
