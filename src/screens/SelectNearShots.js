@@ -4,7 +4,7 @@ import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("22.db");
 
-const MoleInfoScreen = ({ route }) => {
+const SelectNearShots = ({ route }) => {
     const [entries, setEntries] = useState([]);
 
     //Get a list of all the near shot images for a particular mole entry
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default MoleInfoScreen;
+export default SelectNearShots;

@@ -14,7 +14,7 @@ const SelectMoleScreen = ({ navigation }) => {
 
     const displayFarShots = ({ item }) => {
         return(
-            <TouchableOpacity style = {styles.nearFarShot} onPress = {() => navigation.navigate("MoleInfo", { id: item.mole_id })}>
+            <TouchableOpacity style = {styles.nearFarShot} onPress = {() => navigation.navigate("SelectNearShots", { id: item.mole_id })}>
                 <Image
                     style = {styles.image}
                     source = {{ uri: item.far_shot }}

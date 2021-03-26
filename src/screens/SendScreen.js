@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
 
-const SendScreen = () => {
+const SendScreen = ({ navigation }) => {
     const [value1, onChangeText1] = React.useState('Placeholder');
     const [value2, onChangeText2] = React.useState('Placeholder');
 
@@ -30,6 +30,7 @@ const SendScreen = () => {
                 <View style={styles.topButtonView}>
                     <TouchableOpacity
                         style={styles.topButtonStyle}
+                        onPress = {() => navigation.navigate("SelectMole")}
                     >
                         <Text style={styles.ButtonText}>Select images</Text>
                     </TouchableOpacity>
