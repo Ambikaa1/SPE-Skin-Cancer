@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import {Alert, StyleSheet} from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import HomunculusScreen from "../screens/HomunculusScreen";
 import BodyPartScreen from "../screens/BodyPartScreen"
@@ -24,6 +24,39 @@ import BackBodyPartScreen from "../screens/BackBodyPartScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
+
+    //Help functions
+    const HomuncHelp = () => {
+        Alert.alert("Help", "Here, you should select the area of your body that the mole you want to take a picture of"+
+        " is located.\n\nUse the buttons at the top to switch views of the body diagram.");
+    };
+
+    const BodyPartHelp = () => {
+        Alert.alert("Help", "Check that this is the correct area your mole is located.\n\nIf you are happy, press "+
+        "confirm at the bottom to proceed.\n\nIf you would like to choose a different area instead, press the back "+
+            "button on the top left.");
+    };
+
+    const MoleTypeHelp = () => {
+        Alert.alert("Help", "If you are documenting a mole for the first time:\n\u2022Select 'Yes' from the drop down menu."+
+        "\n\u2022Add a relevant mole name, such as 'Left Upper Arm 1'.\n\u2022Add any additonal comments (this is optional)."+
+        "\n\nIf you are adding a near-shot for an existing entry:\n\u2022Select 'No' from the drop down menu.\n\u2022"+
+        "Select the entry you wish to add a new picture to.\n\nPress 'Confirm' to continue.");
+    };
+
+    const CameraHelp = () => {
+        Alert.alert("Help", "If you need reminding of the guidance to take the picture, press the 'Help' back"+
+        " button on the top left.");
+    };
+
+    const ReviewHelp = () => {
+        Alert.alert("Help", "If you are happy with the photograph:\n\u2022Press 'Accept' below the image."+
+        "\n\u2022Drag the red circle around with your finger to circle the mole. You can use the slider of the right"+
+        " to increase and decrease the size of the circle. Use this to make it clear what mole you are documenting."+
+        "\n\u2022Press 'Done' to proceed.\n\nIf you are not happy and would like to take a different photograph:"+
+        "\n\u2022Press 'Try again' and confirm your choice.");
+    };
+
   return(
     <Stack.Navigator
       screenOptions = {{
@@ -37,7 +70,7 @@ const PhotoStack = () => {
           options = {{
               title: "Front View",
               headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
               headerLeft: null,
               gestureEnabled: false
           }}
@@ -48,7 +81,7 @@ const PhotoStack = () => {
           options = {{
               title: "Back View",
               headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
               headerLeft: null,
               gestureEnabled: false
           }}
@@ -59,7 +92,7 @@ const PhotoStack = () => {
           options = {{
               title: "Left Side View",
               headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
               headerLeft: null,
               gestureEnabled: false
           }}
@@ -70,7 +103,7 @@ const PhotoStack = () => {
           options = {{
               title: "Right Side View",
               headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
               headerLeft: null,
               gestureEnabled: false
           }}
@@ -81,7 +114,7 @@ const PhotoStack = () => {
         options = {{
           title: "Location",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={BodyPartHelp}/>,
         }}
       />
       <Stack.Screen
@@ -90,7 +123,7 @@ const PhotoStack = () => {
           options = {{
               title: "Location",
               headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction={BodyPartHelp}/>,
           }}
       />
       <Stack.Screen
@@ -99,7 +132,7 @@ const PhotoStack = () => {
           options = {{
               title: "Location",
               headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction={BodyPartHelp}/>,
           }}
       />
       <Stack.Screen
@@ -108,7 +141,7 @@ const PhotoStack = () => {
         options = {{
           title: "Choose Mole",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={MoleTypeHelp}/>,
         }}
       />
       <Stack.Screen
@@ -122,7 +155,7 @@ const PhotoStack = () => {
         options = {{
           title: "Far Shot",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={CameraHelp}/>,
         }}
       />
       <Stack.Screen
@@ -131,7 +164,7 @@ const PhotoStack = () => {
         options = {{
           title: "Near Shot",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={CameraHelp}/>,
           headerLeft: null,
           gestureEnabled: false
         }}
@@ -142,7 +175,7 @@ const PhotoStack = () => {
         options = {{
           title: "Review",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={ReviewHelp}/>,
           headerLeft: null,
           gestureEnabled: false
         }}

@@ -12,11 +12,15 @@ const Stack = createStackNavigator()
 
 const HomeStack = () => {
   const HomeHelp = () => {
-      Alert.alert("Home", "Help for home");
+      Alert.alert("Help", "This is the homepage of the app.\n\nYou can personalise your information by "+
+      "clicking on the user icon below the help button.\n\n This page gives you access to the SCaRF charity website "+
+      "with the bottom left box, as well as their donation page, on the right.");
   };
 
   const UserHelp = () => {
-    Alert.alert("User", "Help for user");
+    Alert.alert("Help", "Here you can view your personal information stored in the app.\n\nPress any of the boxes to make"+
+        " changes and then press Done at the bottom to update these changes.\n\nAny information you add to"
+      +" this app will be stored locally on your phone so only you have access to it.");
   };
 
   return(
@@ -29,7 +33,7 @@ const HomeStack = () => {
       <Stack.Screen
         name = "HomeScreen"
         component = {HomeScreen}
-        options = {{ 
+        options = {{
           title: "Home",
           headerLeft: props => <SettingsButton {...props} />,
           headerTitle: props => <HeaderText {...props} />,
@@ -39,7 +43,7 @@ const HomeStack = () => {
       <Stack.Screen
         name = "UserScreen"
         component = {UserScreen}
-        options = {{ 
+        options = {{
           title: "User Info",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
