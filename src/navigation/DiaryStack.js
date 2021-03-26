@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import DiaryScreen from "../screens/DiaryScreen";
 import MoleInfoScreen from "../screens/MoleInfoScreen";
@@ -9,6 +9,11 @@ import HeaderButton from "../components/HeaderButton"
 const Stack = createStackNavigator()
 
 const DiaryStack = () => {
+
+    //Help function
+    const DiaryScreenHelp = () => {
+        Alert.alert("Help","Click");
+    };
   return(
     <Stack.Navigator
       screenOptions = {{
@@ -19,16 +24,16 @@ const DiaryStack = () => {
       <Stack.Screen
         name = "Diary"
         component = {DiaryScreen}
-        options = {{ 
+        options = {{
           title: "Diary",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={DiaryScreenHelp}/>,
         }}
       />
       <Stack.Screen
         name = "MoleInfo"
         component = {MoleInfoScreen}
-        options = {{ 
+        options = {{
           title: "Mole",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,

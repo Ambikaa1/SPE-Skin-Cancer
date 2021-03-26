@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import InfoListScreen from "../screens/InfoListScreen"
 import InfoScreen from "../screens/InfoScreen";
@@ -10,6 +10,20 @@ import HeaderButton from "../components/HeaderButton"
 const Stack = createStackNavigator()
 
 const InfoStack = () => {
+
+    const InfoListScreenHelp = () => {
+      Alert.alert("Help", "This is the information page part of the app.\n\nYou can traverse the information available "+
+      "by clicking the header you think is most relevant to your query.\n\nThis information has been collated "+
+      "and created by doctors and medical students involved with the SCaRF charity.\n\nIf you would like to go back, simply"+
+      " press the back button on the top left corner. Alternatively, you "+
+      "click on the Info icon on the bottom bar to return to the front page.");
+    };
+
+    const InfoScreenHelp = () => {
+        Alert.alert("Help", "Some information pages may also contain external links that direct you to more "+
+        "information.");
+    };
+
   return(
     <Stack.Navigator
       screenOptions = {{
@@ -20,25 +34,25 @@ const InfoStack = () => {
       <Stack.Screen
         name = "InfoList"
         component = {InfoListScreen}
-        options = {{ 
+        options = {{
           title: "Information",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction = {InfoListScreenHelp} />,
         }}
       />
       <Stack.Screen
         name = "InfoScreen"
         component = {InfoScreen}
-        options = {{ 
+        options = {{
           title: "Information",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction = {InfoScreenHelp} />,
         }}
       />
       <Stack.Screen
         name = "StorageScreen"
         component = {StorageScreen}
-        options = {{ 
+        options = {{
           title: "Storage",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
