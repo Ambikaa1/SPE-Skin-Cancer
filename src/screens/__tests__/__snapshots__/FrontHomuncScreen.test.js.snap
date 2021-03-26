@@ -10,6 +10,26 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
   }
 >
   <View>
+    <Text
+      style={
+        Object {
+          "fontSize": 15,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Please click on the body part where your mole is located. 
+    </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 15,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Swipe left or right, or click on the buttons to navigate to the different views. 
+    </Text>
     <View
       style={
         Object {
