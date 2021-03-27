@@ -20,9 +20,11 @@ const SelectMoleScreen = ({ navigation }) => {
                     source = {{ uri: item.far_shot }}
                 />
                 <View style = {styles.moleInfo}>
-                    <Text style = {styles.moleName}>{item.name}</Text>
-                    <Text style = {styles.moleDetails}>{item.comments}</Text>
-                    <Text style = {styles.moleDetails}>Last updated: {item.lastUpdated}</Text>
+                    <Text style = {styles.moleName}>Name: {item.name}</Text>
+                    <Text style = {styles.moleDetails}>
+                        Last updated: {item.lastUpdated}{"\n"}
+                        Comment: {item.comments}
+                    </Text>
                 </View>
             </TouchableOpacity>
         );

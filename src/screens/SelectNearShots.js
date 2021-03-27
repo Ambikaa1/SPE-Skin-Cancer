@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Pressable, Image } from "react-native";
 import * as SQLite from "expo-sqlite";
 
 
@@ -22,24 +22,31 @@ const SelectNearShots = ({ route }) => {
     }, []);
 
     const [selectedImages, setSelectedImages] = useState([])
+    const [selectedNum   , setSelectedNum]       = useState(0)
 
     const displayFarShots = ({ item }) => {
         let uri = item.near_shot
         let selected = selectedImages.includes(uri)
 
         return(
-            <View style = {styles.nearFarShot}>
-            <TouchableOpacity style = {[styles.nearFarShot, selected ? {borderWidth: 5, borderColor:  "#71A1D1"} : {borderWidth: 5, borderColor:  "transparent"}]} onPress = {() => HandleMultipleSelection(uri)}>
-                <Image
-                    style = {[styles.image, selected ?  {opacity : 0.5} : {opacity: 1}]}
-                    source = {{ uri: uri}}
-                />
-            </TouchableOpacity>
+            <View style = {styles.flatListRow}>
+                <Pressable
+                    style = {styles.image}
+                    onPress     = {() => HandleMultipleSelection(uri)}
+                    onLongPress = {() => console.log("Long Press")}
+                >
+                    <Image
+                        style = {[styles.image, {borderWidth: 5}, selected ?  {opacity : 0.5, borderColor:  "#71A1D1"} : {opacity: 1, borderColor:  "transparent"}]}
+                        source = {{ uri: uri}}
+                    />
+                </Pressable>
+
                 <View style = {styles.moleInfo}>
-                    <Text style = {styles.moleName}>{item.name}</Text>
-                    <Text style = {styles.moleDetails}>{item.comments}</Text>
-                    <Text style = {styles.moleDetails}>Last updated: {item.date}</Text>
+                    <Text style = {styles.dateText}>
+                        Date Taken: {"\n"}{item.date}
+                    </Text>
                 </View>
+
             </View>
         );
     };
@@ -52,20 +59,16 @@ const SelectNearShots = ({ route }) => {
         }else {
             nextSelectedImages.push(uri)
         }
+        setSelectedNum(nextSelectedImages.length)
         setSelectedImages([...nextSelectedImages])
+
     }
 
     return (
 
         <View style={styles.container}>
-            <Text style = {styles.title}>Select the images you would like to send:</Text>
-            <Text style={styles.subTitle}>Currently selected: {selectedImages.length}</Text>
-            <TouchableOpacity
-                style={styles.topButtonStyle}
-                onPress = {() => console.log(selectedImages)}
-            >
-                <Text style={styles.ButtonText}>Select images</Text>
-            </TouchableOpacity>
+            <Text style = {styles.title}>Tap the images to select them</Text>
+            <Text style={styles.selectCountText}>Currently selected: {selectedNum}</Text>
 
             <FlatList
                 data = {entries}
@@ -73,6 +76,15 @@ const SelectNearShots = ({ route }) => {
                 renderItem = {displayFarShots}
                 keyExtractor = {() => `${Math.floor(Math.random() * 10000)}`}
             />
+
+            <TouchableOpacity
+
+                style={[styles.continueButtonStyle, selectedNum === 0 ?{backgroundColor: "#D3D3D3"} : null]}
+                onPress = {selectedNum === 0 ? null : () => console.log(selectedImages)}
+            >
+                <Text style={styles.continueButtonText}>{selectedNum ===0 ? "Select an image to continue" : "Continue"}</Text>
+            </TouchableOpacity>
+
         </View>
     );
 };
@@ -82,40 +94,56 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     image: {
+        flex: 1,
         height: 300,
-        width: 150,
+       //width: 175,
     },
-    nearFarShot: {
+    dateText : {
+        flex: 1,
+        fontSize: 16,
+        marginHorizontal: 10,
+        fontWeight: "bold",
+    },
+    flatListRow: {
         flexDirection: "row",
         marginHorizontal: 10,
         paddingVertical: 5,
         marginVertical: 5,
-        borderStyle: 'solid',
-
+        borderTopColor: "#71A1D1",
+        borderTopWidth: 5,
     },
     title: {
         marginTop: 10,
         marginBottom: 5,
         marginLeft: 10,
-        fontSize: 18,
+        fontSize: 22,
         fontWeight: "bold",
     },
-    subTitle: {
-        marginTop: 10,
+    selectCountText: {
         marginBottom: 5,
         marginLeft: 10,
         fontSize: 16,
         fontWeight: "bold",
         color: "#71A1D1",
     },
-    topButtonStyle:{
-        backgroundColor: '#D3D3D3',
+    descriptionText: {
+        marginBottom: 5,
+        marginLeft: 10,
+        fontSize: 14,
+        fontWeight: "bold",
+        color: "black",
+    },
+    continueButtonStyle:{
+        backgroundColor: "#71A1D1",
         borderRadius: 5,
         alignItems: 'center',
+
     },
-    moleDetails: {
-        fontSize: 18,
-        paddingLeft: 10,
+    continueButtonText:{
+        marginTop: 10,
+        marginBottom: 10,
+        color: 'white',
+        fontSize: 20,
     },
 });
 
