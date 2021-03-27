@@ -21,16 +21,29 @@ const SelectNearShots = ({ route }) => {
         );
     }, []);
 
-    let selectedImages = [];
+    const [selectedImages, setSelectedImages] = useState([])
+    const [change, setChange] = useState(0)
+
 
     const displayFarShots = ({ item }) => {
+        let uri = item.near_shot
+
         return(
             <View style = {styles.nearFarShot}>
-            <TouchableOpacity style = {styles.nearFarShot} onPress = {() => HandleMultipleSelection(item.near_shot)}>
+            <TouchableOpacity style = {styles.nearFarShot} onPress = {() => HandleMultipleSelection(uri)}>
+                {selectedImages.includes(uri)
+                    ?
                 <Image
-                    style = {styles.image}
-                    source = {{ uri: item.near_shot }}
+                    style = {[styles.image, {opacity : 0.5}]}
+                    source = {{ uri: uri}}
+                   // onLayout = {console.log("selected")}
                 />
+                :
+                <Image
+                    style = {[styles.image, {opacity : 1}]}
+                    source = {{ uri: uri}}
+                  //  onLayout = {console.log("not selected")}
+                />}
             </TouchableOpacity>
                 <View style = {styles.moleInfo}>
                     <Text style = {styles.moleName}>{item.name}</Text>
@@ -42,19 +55,28 @@ const SelectNearShots = ({ route }) => {
     };
 
     const HandleMultipleSelection = (uri) => {
-        if (selectedImages.includes(uri))
-            selectedImages =  selectedImages.filter(_uri => _uri !== uri)
-        else
-            selectedImages.push(uri)
-        console.log(selectedImages)
+        let nextSelectedImages = selectedImages
+
+        if (nextSelectedImages.includes(uri)) {
+            nextSelectedImages = nextSelectedImages.filter(_uri => _uri !== uri)
+        }else {
+            nextSelectedImages.push(uri)
+        }
+
+        setSelectedImages(nextSelectedImages)
+        setChange(change + 1)
     }
 
     return (
         <View style={styles.container}>
             <Text style = {styles.title}>Near shot images:</Text>
+           {/* <TouchableOpacity style = {styles.image}  onPress = {console.log("selectedImages")}>
+                <Text style={[styles.title]}>DONE</Text>
+            </TouchableOpacity>*/}
+
             <FlatList
                 data = {entries}
-                extraData = {selectedImages}
+                extraData = {change}
                 renderItem = {displayFarShots}
                 keyExtractor = {() => `${Math.floor(Math.random() * 10000)}`}
             />
