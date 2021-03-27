@@ -25,23 +25,15 @@ const SelectNearShots = ({ route }) => {
 
     const displayFarShots = ({ item }) => {
         let uri = item.near_shot
+        let selected = selectedImages.includes(uri)
 
         return(
             <View style = {styles.nearFarShot}>
-            <TouchableOpacity style = {styles.nearFarShot} onPress = {() => HandleMultipleSelection(uri)}>
-                {selectedImages.includes(uri)
-                    ?
+            <TouchableOpacity style = {[styles.nearFarShot, selected ? {borderWidth: 5, borderColor:  "#71A1D1"} : {borderWidth: 5, borderColor:  "transparent"}]} onPress = {() => HandleMultipleSelection(uri)}>
                 <Image
-                    style = {[styles.image, {opacity : 0.5}]}
+                    style = {[styles.image, selected ?  {opacity : 0.5} : {opacity: 1}]}
                     source = {{ uri: uri}}
-                   // onLayout = {console.log("selected")}
                 />
-                :
-                <Image
-                    style = {[styles.image, {opacity : 1}]}
-                    source = {{ uri: uri}}
-                  //  onLayout = {console.log("not selected")}
-                />}
             </TouchableOpacity>
                 <View style = {styles.moleInfo}>
                     <Text style = {styles.moleName}>{item.name}</Text>
@@ -99,6 +91,7 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         marginVertical: 5,
         borderStyle: 'solid',
+
     },
     title: {
         marginTop: 10,
