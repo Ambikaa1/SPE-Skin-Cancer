@@ -22,8 +22,6 @@ const SelectNearShots = ({ route }) => {
     }, []);
 
     const [selectedImages, setSelectedImages] = useState([])
-    const [change, setChange] = useState(0)
-
 
     const displayFarShots = ({ item }) => {
         let uri = item.near_shot
@@ -62,21 +60,24 @@ const SelectNearShots = ({ route }) => {
         }else {
             nextSelectedImages.push(uri)
         }
-
-        setSelectedImages(nextSelectedImages)
-        setChange(change + 1)
+        setSelectedImages([...nextSelectedImages])
     }
 
     return (
+
         <View style={styles.container}>
-            <Text style = {styles.title}>Near shot images:</Text>
-           {/* <TouchableOpacity style = {styles.image}  onPress = {console.log("selectedImages")}>
-                <Text style={[styles.title]}>DONE</Text>
-            </TouchableOpacity>*/}
+            <Text style = {styles.title}>Select the images you would like to send:</Text>
+            <Text style={styles.subTitle}>Currently selected: {selectedImages.length}</Text>
+            <TouchableOpacity
+                style={styles.topButtonStyle}
+                onPress = {() => console.log(selectedImages)}
+            >
+                <Text style={styles.ButtonText}>Select images</Text>
+            </TouchableOpacity>
 
             <FlatList
                 data = {entries}
-                extraData = {change}
+                extraData = {selectedImages}
                 renderItem = {displayFarShots}
                 keyExtractor = {() => `${Math.floor(Math.random() * 10000)}`}
             />
@@ -103,7 +104,21 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 5,
         marginLeft: 10,
-        fontSize: 20,
+        fontSize: 18,
+        fontWeight: "bold",
+    },
+    subTitle: {
+        marginTop: 10,
+        marginBottom: 5,
+        marginLeft: 10,
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "#71A1D1",
+    },
+    topButtonStyle:{
+        backgroundColor: '#D3D3D3',
+        borderRadius: 5,
+        alignItems: 'center',
     },
     moleDetails: {
         fontSize: 18,
