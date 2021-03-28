@@ -49,10 +49,6 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: "bold"
     },
-    image: {
-        height: 200,
-        width: 100
-    },
     nearFarShot: {
         flexDirection: "row",
         marginHorizontal: 10,
@@ -65,16 +61,7 @@ const styles = StyleSheet.create({
     },
     moleInfo: {
         marginLeft: 10,
-    },
-    moleName: {
-        fontSize: 20,
-        fontWeight: "bold",
-        paddingTop: 10,
-        paddingBottom: 10,
-    },
-    moleDetails: {
-        paddingBottom: 10,
-    },
+    }
 });
 
 export default DiaryScreen;
