@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, FlatList, Image } from "react-native";
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("22.db");
 
-const MoleInfoScreen = ({ route }) => {
+const MoleInfoScreen = ({ navigation, route }) => {
   const [entries, setEntries] = useState([]);
 
   //Get a list of all the near shot images for a particular mole entry
@@ -23,10 +23,12 @@ const MoleInfoScreen = ({ route }) => {
   const displayImages = ({ item }) => {
     return (
         <View style={styles.nearFarShot}>
-          <Image
-            style = {styles.image}
-            source = {{ uri: item.near_shot }}
-          />
+          <TouchableOpacity onPress = {() => navigation.navigate("Image", { uri: item.near_shot })}>
+            <Image
+              style = {styles.image}
+              source = {{ uri: item.near_shot }}
+            />
+          </TouchableOpacity>
           <Text style={styles.moleDetails}>Date taken: {item.date}</Text>
         </View>
     );
