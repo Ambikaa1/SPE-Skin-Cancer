@@ -3,6 +3,7 @@ import { StyleSheet, Alert } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import DiaryScreen from "../screens/DiaryScreen";
 import MoleInfoScreen from "../screens/MoleInfoScreen";
+import ImageScreen from "../screens/ImageScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 
@@ -35,6 +36,15 @@ const DiaryStack = () => {
         component = {MoleInfoScreen}
         options = {{
           title: "Mole",
+          headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} />,
+        }}
+      />
+      <Stack.Screen
+        name = "Image"
+        component = {ImageScreen}
+        options = {{
+          title: "Image",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} />,
         }}
