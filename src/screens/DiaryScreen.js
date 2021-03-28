@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Alert, Image, TouchableOpacity, FlatList } from "react-native";
+import { Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
+
+import DisplayImages from "../components/MoleList"
+
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("22.db");
@@ -8,22 +11,6 @@ const db = SQLite.openDatabase("22.db");
 const DiaryScreen = ({ navigation }) => {
     const [moles, setMoles] = useState([]);
     const isFocused = useIsFocused();
-
-    const displayImages = ({ item }) => {
-        return(
-            <TouchableOpacity style = {styles.nearFarShot} onPress = {() => navigation.navigate("MoleInfo", { id: item.mole_id })}>
-                <Image
-                    style = {styles.image}
-                    source = {{ uri: item.far_shot }}
-                />
-                <View style = {styles.moleInfo}>
-                    <Text style = {styles.moleName}>{item.name}</Text>
-                    <Text style = {styles.moleDetails}>{item.comments}</Text>
-                    <Text style = {styles.moleDetails}>Last updated: {item.lastUpdated}</Text>
-                </View>
-            </TouchableOpacity>
-        );
-    };
 
     useEffect(() => {
         db.transaction(
@@ -36,14 +23,18 @@ const DiaryScreen = ({ navigation }) => {
     }, [isFocused]);
 
     return (
-        <View style = {styles.container}>
-            <Text style = {styles.title}>Select a mole to view near shots:</Text>
+        <>
+            <Text style = {styles.title}>Select a mole to view near shots</Text>
             <FlatList
                 data = {moles}
-                renderItem = {displayImages}
+                renderItem = {({item}) => (
+                    <TouchableOpacity style = {styles.nearFarShot} onPress = {() => navigation.navigate("MoleInfo", { id: item.mole_id })}>
+                        <DisplayImages uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
+                    </TouchableOpacity>
+                )}
                 keyExtractor = {item => `${item.mole_id}`}
             />
-        </View>
+        </>
     );
 };
 
@@ -54,8 +45,9 @@ const styles = StyleSheet.create({
     title: {
         marginTop: 10,
         marginBottom: 5,
-        marginLeft: 10,
-        fontSize: 20,
+        marginHorizontal: 10,
+        fontSize: 17,
+        fontWeight: "bold"
     },
     image: {
         height: 200,
