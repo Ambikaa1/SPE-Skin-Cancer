@@ -49,11 +49,14 @@ const MoleTypeScreen = ({navigation}) => {
                         placeholder = "Mole comments"
                         style = {styles.input}
                     />
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => navigation.navigate("HelpFarShot", { name: name, comments: comments })}>
+                        <Text style = {styles.doneText}>Confirm</Text>
+                    </TouchableOpacity>
                 </>
             }
             {(moleChoice == 0) && 
                 <>
-                <Text style = {styles.question}>Select a mole below to photograph:</Text>
+                    <Text style = {styles.question}>Select a mole below to photograph:</Text>
                     <FlatList 
                         data = {moles}
                         renderItem = {({item}) => (
@@ -62,21 +65,9 @@ const MoleTypeScreen = ({navigation}) => {
                             </TouchableOpacity>
                         )}
                         keyExtractor = {item => `${item.mole_id}`}
-                        style = {styles.moleList}
                     />
                 </>
             }
-            {(moleChoice != null) &&
-                <TouchableOpacity style = {styles.doneBox} onPress={() =>
-                    {moleChoice
-                        ? navigation.navigate("HelpFarShot", { name: name, comments: comments })
-                        : navigation.navigate("HelpNearShot", { name: name, comments: comments })
-                    }}
-                >
-                    <Text style = {styles.doneText}>Confirm</Text>
-                </TouchableOpacity>
-            }
-                
         </View>
     );
 };
@@ -90,7 +81,6 @@ const styles = StyleSheet.create({
     dropDownContainer: {
         height: 40,
         marginTop: 5,
-        marginRight: 10,
     },
     dropDownLabel: {
         fontSize: 20,
@@ -106,14 +96,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#E2E2E2",
         height: 50,
         borderRadius: 10,
-        marginRight: 10,
         marginTop: 10,
         marginBottom: 7.5,
         paddingLeft: 10,
         fontSize: 20,
-    },
-    moleList: {
-        marginBottom: 80,
     },
     moleListItem: {
         fontSize: 20,
@@ -124,7 +110,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
         position: "absolute",
-        width: "97.5%",
+        width: "100%",
         bottom: 10
     },
     doneText: {
