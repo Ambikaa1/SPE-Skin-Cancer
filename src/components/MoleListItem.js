@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
-const DisplayImages = ({ uri, name, comments, lastUpdated }) => {
+const MoleListItem = ({ uri, name, comments, lastUpdated }) => {
     return(
-        <>
+        <View style = {styles.nearFarShot}>
             <Image
                 style = {styles.image}
                 source = {{ uri: uri }}
@@ -13,11 +13,20 @@ const DisplayImages = ({ uri, name, comments, lastUpdated }) => {
                 <Text style = {styles.moleDetails}>{comments}</Text>
                 <Text style = {styles.moleDetails}>Last updated: {lastUpdated}</Text>
             </View>
-        </>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
+    nearFarShot: {
+        flexDirection: "row",
+        paddingVertical: 5,
+        marginVertical: 5,
+        borderTopColor: "#71A1D1",
+        borderBottomColor: "#71A1D1",
+        borderTopWidth: 5,
+        borderBottomWidth: 5,
+    },
     image: {
         height: 200,
         width: 100
@@ -36,4 +45,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default DisplayImages;
+export default MoleListItem;

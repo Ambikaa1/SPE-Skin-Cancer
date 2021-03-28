@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList } from 'r
 import DropDownPicker from 'react-native-dropdown-picker';
 import * as SQLite from "expo-sqlite";
 
+import MoleListItem from "../components/MoleListItem"
+
 const db = SQLite.openDatabase("22.db");
 
 const MoleTypeScreen = ({navigation}) => {
@@ -11,18 +13,10 @@ const MoleTypeScreen = ({navigation}) => {
     const [comments, setComments] = useState(null);
     const [moles, setMoles] = useState([]);
 
-    const displayMoles = ({ item }) => {
-        return(
-            <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
-                <Text style = {styles.moleListItem}>{item.name}</Text>
-            </TouchableOpacity>
-        );
-    };
-
     useEffect(() => {
         db.transaction(
             tx => {
-                tx.executeSql("SELECT mole_id, name FROM mole;", [], (_, { rows }) => setMoles(rows._array));
+                tx.executeSql("SELECT mole_id, name, lastUpdated, far_shot, comments FROM mole;", [], (_, { rows }) => setMoles(rows._array));
             }
         );
     }, []);
@@ -62,7 +56,11 @@ const MoleTypeScreen = ({navigation}) => {
                 <Text style = {styles.question}>Select a mole below to photograph:</Text>
                     <FlatList 
                         data = {moles}
-                        renderItem = {displayMoles}
+                        renderItem = {({item}) => (
+                            <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
+                                <MoleListItem uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
+                            </TouchableOpacity>
+                        )}
                         keyExtractor = {item => `${item.mole_id}`}
                         style = {styles.moleList}
                     />
@@ -86,7 +84,7 @@ const MoleTypeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginLeft: 10,
+        marginHorizontal: 10,
         marginTop: 10
     },
     dropDownContainer: {
