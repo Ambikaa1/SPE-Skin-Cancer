@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList } from 'r
 import DropDownPicker from 'react-native-dropdown-picker';
 import * as SQLite from "expo-sqlite";
 
+import MoleListItem from "../components/MoleListItem"
+
 const db = SQLite.openDatabase("22.db");
 
 const MoleTypeScreen = ({navigation}) => {
@@ -11,18 +13,10 @@ const MoleTypeScreen = ({navigation}) => {
     const [comments, setComments] = useState(null);
     const [moles, setMoles] = useState([]);
 
-    const displayMoles = ({ item }) => {
-        return(
-            <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
-                <Text style = {styles.moleListItem}>{item.name}</Text>
-            </TouchableOpacity>
-        );
-    };
-
     useEffect(() => {
         db.transaction(
             tx => {
-                tx.executeSql("SELECT mole_id, name FROM mole;", [], (_, { rows }) => setMoles(rows._array));
+                tx.executeSql("SELECT mole_id, name, lastUpdated, far_shot, comments FROM mole;", [], (_, { rows }) => setMoles(rows._array));
             }
         );
     }, []);
@@ -55,30 +49,25 @@ const MoleTypeScreen = ({navigation}) => {
                         placeholder = "Mole comments"
                         style = {styles.input}
                     />
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => navigation.navigate("HelpFarShot", { name: name, comments: comments })}>
+                        <Text style = {styles.doneText}>Confirm</Text>
+                    </TouchableOpacity>
                 </>
             }
             {(moleChoice == 0) && 
                 <>
-                <Text style = {styles.question}>Select a mole below to photograph:</Text>
+                    <Text style = {styles.question}>Select a mole below to photograph:</Text>
                     <FlatList 
                         data = {moles}
-                        renderItem = {displayMoles}
+                        renderItem = {({item}) => (
+                            <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
+                                <MoleListItem uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
+                            </TouchableOpacity>
+                        )}
                         keyExtractor = {item => `${item.mole_id}`}
-                        style = {styles.moleList}
                     />
                 </>
             }
-            {(moleChoice != null) &&
-                <TouchableOpacity style = {styles.doneBox} onPress={() =>
-                    {moleChoice
-                        ? navigation.navigate("HelpFarShot", { name: name, comments: comments })
-                        : navigation.navigate("HelpNearShot", { name: name, comments: comments })
-                    }}
-                >
-                    <Text style = {styles.doneText}>Confirm</Text>
-                </TouchableOpacity>
-            }
-                
         </View>
     );
 };
@@ -86,13 +75,12 @@ const MoleTypeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginLeft: 10,
+        marginHorizontal: 10,
         marginTop: 10
     },
     dropDownContainer: {
         height: 40,
         marginTop: 5,
-        marginRight: 10,
     },
     dropDownLabel: {
         fontSize: 20,
@@ -108,14 +96,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#E2E2E2",
         height: 50,
         borderRadius: 10,
-        marginRight: 10,
         marginTop: 10,
         marginBottom: 7.5,
         paddingLeft: 10,
         fontSize: 20,
-    },
-    moleList: {
-        marginBottom: 80,
     },
     moleListItem: {
         fontSize: 20,
@@ -126,7 +110,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 10,
         position: "absolute",
-        width: "97.5%",
+        width: "100%",
         bottom: 10
     },
     doneText: {
