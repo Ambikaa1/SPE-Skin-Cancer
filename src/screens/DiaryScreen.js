@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
-
 import DisplayImages from "../components/MoleList"
-
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("22.db");
