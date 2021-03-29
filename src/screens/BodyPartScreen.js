@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, StyleSheet, View, Text,TouchableOpacity, ScrollView} from 'react-native';
-import {SafeAreaView} from "react-native-web";
 
 const checkFrontSwitch = (bodyPart) => {
     switch(bodyPart) {
