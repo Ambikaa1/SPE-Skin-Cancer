@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet, View, Text,TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, View, Text, TouchableOpacity, ScrollView} from 'react-native';
 
 const checkBackSwitch = (bodyPart) => {
     switch(bodyPart) {
@@ -37,25 +37,40 @@ const checkBackSwitch = (bodyPart) => {
 const BackBodyPartScreen = ({route, navigation }) => {
     const bodyPart = route.params.bodyPart;
     return (
-        <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
-            <View style={{flex: 3, width: 250, justifyContent: 'center'}}>
-                <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
-            </View>
-            <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
+        <ScrollView persistentScrollbar={true} style={styles.scrollView}>
+            <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
+            <Text style={styles.subText}>This is the bit highlighted in blue. </Text>
+            <View style = {{alignItems: 'center'}}>
                 {checkBackSwitch(bodyPart)}
             </View>
-            <View style={{flex: 2.5, width: 300, justifyContent: 'center'}}>
-                <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
-                    <Text style = {styles.doneText}>Confirm</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+            <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
+                <Text style = {styles.doneText}>Confirm</Text>
+            </TouchableOpacity>
+        </ScrollView>
+
+        // <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
+        //     <View style={{flex: 3, width: 250, justifyContent: 'center'}}>
+        //         <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
+        //     </View>
+        //     <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
+        //         {checkBackSwitch(bodyPart)}
+        //     </View>
+        //     <View style={{flex: 2.5, width: 300, justifyContent: 'center'}}>
+        //         <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
+        //             <Text style = {styles.doneText}>Confirm</Text>
+        //         </TouchableOpacity>
+        //     </View>
+        // </View>
     )
 };
 
 const styles = StyleSheet.create({
     container: {
         paddingTop: 50,
+        alignItems: 'center',
+    },
+    scrollView: {
+        backgroundColor: 'white',
     },
     closeUp: {
         flex:10,
@@ -65,15 +80,23 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+        paddingBottom: 10,
+    },
+    subText: {
+        fontSize: 16,
+        textAlign: 'center',
+        paddingBottom: 30,
     },
     doneBox: {
         backgroundColor: "#71A1D1",
         alignItems: "center",
+        alignSelf: "center",
         borderRadius: 10,
-        position: "absolute",
-        width: "97.5%",
-        bottom: 10
+        // position: "absolute",
+        width: "95%",
+        bottom: 10,
+        marginTop: 60,
     },
     doneText: {
         fontSize: 30,
