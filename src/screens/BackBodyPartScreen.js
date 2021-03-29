@@ -38,7 +38,7 @@ const BackBodyPartScreen = ({route, navigation }) => {
     const bodyPart = route.params.bodyPart;
     return (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
-            <View style={{flex: 2, width: 250, justifyContent: 'center'}}>
+            <View style={{flex: 3, width: 250, justifyContent: 'center'}}>
                 <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
             </View>
             <View style={{flex: 6, justifyContent: 'center', backgroundColor: 'white'}}>
