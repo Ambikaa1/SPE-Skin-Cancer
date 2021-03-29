@@ -31,7 +31,7 @@ const SendStack = () => {
           name = "SelectMole"
           component = {SelectMole}
           options = {{
-              title: "SelectMole",
+              title: "Select mole",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} />,
           }}
@@ -40,7 +40,7 @@ const SendStack = () => {
             name = "SelectNearShots"
             component = {SelectNearShots}
             options = {{
-                title: "SelectNearShots",
+                title: "Select near shots",
                 headerTitle: props => <HeaderText {...props} />,
                 headerRight: props => <HeaderButton {...props} />,
             }}
