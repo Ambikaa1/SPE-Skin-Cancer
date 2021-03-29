@@ -71,6 +71,7 @@ const BodyPartScreen = ({route, navigation }) => {
 const styles = StyleSheet.create({
     container: {
         paddingTop: 50,
+        backgroundColor: "white",
     },
     closeUp: {
         flex:10,
