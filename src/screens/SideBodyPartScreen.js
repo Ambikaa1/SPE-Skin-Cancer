@@ -23,7 +23,7 @@ const SideBodyPartScreen = ({route, navigation }) => {
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
-            <Text style={styles.subText}>This is the bit highlighted in blue. </Text>
+            <Text style={styles.subText}>This is the area highlighted in blue. </Text>
             <View style = {{alignItems: 'center'}}>
                 {checkSideSwitch(bodyPart)}
             </View>
