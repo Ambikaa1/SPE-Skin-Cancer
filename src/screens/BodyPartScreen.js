@@ -4,29 +4,29 @@ import {Image, StyleSheet, View, Text,TouchableOpacity, ScrollView} from 'react-
 const checkFrontSwitch = (bodyPart) => {
     switch(bodyPart) {
         case 'Head or Neck':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseHead.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseHead2.png')}/>)
         case 'Torso':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseTorso2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseTorso.png')}/>)
         case 'Left Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftUA2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLUA.png')}/>)
         case 'Right Upper Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightUA2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRUA.png')}/>)
         case 'Left Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLA2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLLA.png')}/>)
         case 'Right Lower Arm':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLA2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRLA.png')}/>)
         case 'Volar Left Hand':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/LeftHand.png')}/>)
         case 'Volar Right Hand':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/RightHand.png')}/>)
         case 'Left Upper Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/LeftUL2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLUL.png')}/>)
         case 'Right Upper Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/RightUL2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRUL.png')}/>)
         case 'Left Lower Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftLL2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLLL.png')}/>)
         case 'Right Lower Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightLL2.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRLL.png')}/>)
         case 'Dorsum Left Foot':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftFoot.png')}/>)
         case 'Dorsum Right Foot':
