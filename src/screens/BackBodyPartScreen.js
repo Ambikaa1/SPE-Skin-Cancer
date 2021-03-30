@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
     },
     closeUp: {
         resizeMode: 'contain',
-        width: 200,
-        height: 200,
+        width: 250,
+        height: 250,
     },
     titleText: {
         fontSize: 20,
