@@ -38,15 +38,21 @@ const BodyPartScreen = ({route, navigation }) => {
     const bodyPart = route.params.bodyPart;
     const bool = route.params.highlight;
     return (
-        <ScrollView persistentScrollbar={true} style={styles.scrollView}>
-            <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
-            <Text style={styles.subText}>{bool}</Text>
-            <View style = {{alignItems: 'center'}}>
-                {checkFrontSwitch(bodyPart)}
+        <ScrollView persistentScrollbar={true}
+                    contentContainerStyle={{flexGrow: 1, justifyContent: 'space-between', flexDirection: 'column'}}
+                    style={styles.scrollView}>
+            <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+                <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
+                <Text style={styles.subText}>{bool}</Text>
+                <View style = {{alignItems: 'center'}}>
+                    {checkFrontSwitch(bodyPart)}
+                </View>
             </View>
-            <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
-                <Text style = {styles.doneText}>Confirm</Text>
-            </TouchableOpacity>
+            <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+                <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
+                    <Text style = {styles.doneText}>Confirm</Text>
+                </TouchableOpacity>
+            </View>
         </ScrollView>
 
         // <View style={{flex: 1, flexDirection:e 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
@@ -74,7 +80,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     closeUp: {
-        flex:10,
         resizeMode: 'contain',
         width: 200,
         height: 200,
@@ -89,7 +94,7 @@ const styles = StyleSheet.create({
     subText: {
         fontSize: 18,
         textAlign: 'center',
-        paddingBottom: 30,
+        paddingBottom: 20,
     },
     doneBox: {
         backgroundColor: "#71A1D1",
@@ -99,7 +104,6 @@ const styles = StyleSheet.create({
         //position: "absolute",
         width: "95%",
         bottom: 10,
-        marginTop: 60,
     },
     doneText: {
         fontSize: 30,
