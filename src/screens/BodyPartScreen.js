@@ -36,10 +36,11 @@ const checkFrontSwitch = (bodyPart) => {
 
 const BodyPartScreen = ({route, navigation }) => {
     const bodyPart = route.params.bodyPart;
+    const bool = route.params.highlight;
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
-            <Text style={styles.subText}>This is the area highlighted in blue. </Text>
+            <Text style={styles.subText}>{bool}</Text>
             <View style = {{alignItems: 'center'}}>
                 {checkFrontSwitch(bodyPart)}
             </View>
@@ -48,7 +49,7 @@ const BodyPartScreen = ({route, navigation }) => {
             </TouchableOpacity>
         </ScrollView>
 
-        // <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
+        // <View style={{flex: 1, flexDirection:e 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
         //     <View style={{flex: 3, width: 250, justifyContent: 'center'}}>
         //         <Text style={styles.titleText} >Your mole is located on the: {bodyPart} </Text>
         //     </View>
@@ -82,9 +83,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         paddingBottom: 10,
+        paddingRight: 7,
+        paddingLeft: 7,
     },
     subText: {
-        fontSize: 16,
+        fontSize: 18,
         textAlign: 'center',
         paddingBottom: 30,
     },
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         alignSelf: "center",
         borderRadius: 10,
-        // position: "absolute",
+        //position: "absolute",
         width: "95%",
         bottom: 10,
         marginTop: 60,
