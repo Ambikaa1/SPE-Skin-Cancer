@@ -2,8 +2,8 @@ import React from "react";
 import {View, StyleSheet, ScrollView, TouchableOpacity, Image, Text} from "react-native";
 
 const BackHomuncScreen = ({navigation}) => {
-    const clickHandler = (bodyPart) => {
-        navigation.navigate("BackBodyPart", {bodyPart: bodyPart})
+    const clickHandler = (bodyPart, highlight) => {
+        navigation.navigate("BackBodyPart", {bodyPart: bodyPart, highlight: highlight})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
@@ -26,24 +26,24 @@ const BackHomuncScreen = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Left Upper Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Upper Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.arm} source={require('../../assets/Back/LeftUA.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Torso")}>
                     <Image style={styles.chest} source={require('../../assets/Back/BackTorso.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Right Upper Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Upper Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.arm} source={require('../../assets/Back/RightUA.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Left Lower Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Lower Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.lowerArm} source={require('../../assets/Back/LeftLA.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Torso")}>
                     <Image style={styles.body} source={require('../../assets/Back/LowerTorso.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Right Lower Arm")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Lower Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.lowerArm} source={require('../../assets/Back/RightLA.png')} />
                 </TouchableOpacity>
             </View>
@@ -51,10 +51,10 @@ const BackHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Dorsum Left Hand")}>
                     <Image style={styles.hand} source={require('../../assets/Back/LH3.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Left Upper Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Upper Leg", "This is the area highlighted in blue")}>
                     <Image style={styles.leg} source={require('../../assets/Back/LeftUL.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Right Upper Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Upper Leg", "This is the area highlighted in blue")}>
                     <Image style={styles.leg} source={require('../../assets/Back/RightUL.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Dorsum Right Hand")}>
@@ -62,10 +62,10 @@ const BackHomuncScreen = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Left Lower Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Lower Leg", "This is the area highlighted in blue")}>
                     <Image style={styles.lowerLeg} source={require('../../assets/Back/LeftLL.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Right Lower Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Lower Leg", "This is the area highlighted in blue")}>
                     <Image style={styles.lowerLeg} source={require('../../assets/Back/RightLL.png')} />
                 </TouchableOpacity>
             </View>
