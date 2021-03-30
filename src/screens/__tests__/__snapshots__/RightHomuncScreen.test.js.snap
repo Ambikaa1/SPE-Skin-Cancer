@@ -148,9 +148,9 @@ exports[`<RightHomuncScreen /> renders correctly 1`] = `
           source={1}
           style={
             Object {
-              "height": 88,
+              "height": 99,
               "resizeMode": "contain",
-              "width": 155,
+              "width": 350,
             }
           }
         />
@@ -184,45 +184,45 @@ exports[`<RightHomuncScreen /> renders correctly 1`] = `
           source={1}
           style={
             Object {
-              "height": 156,
+              "height": 220,
+              "resizeMode": "contain",
+              "width": 300,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 245,
               "resizeMode": "contain",
               "width": 360,
-            }
-          }
-        />
-      </View>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "center",
-        }
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Image
-          source={1}
-          style={
-            Object {
-              "height": 185,
-              "resizeMode": "contain",
-              "width": 365,
             }
           }
         />
