@@ -22,17 +22,17 @@ const LeftHomuncScreen = ({navigation}) => {
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Head or Neck")}>
-                    <Image style={styles.head} source={require('../../assets/Side/LeftHead.png')} />
+                    <Image style={styles.head} source={require('../../assets/Side/LHead.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Torso")}>
-                    <Image style={styles.torso} source={require('../../assets/Side/LeftTorso.png')} />
+                    <Image style={styles.torso} source={require('../../assets/Side/LTorso.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Legs")}>
-                    <Image style={styles.legs} source={require('../../assets/Side/LeftLegs.png')} />
+                    <Image style={styles.legs} source={require('../../assets/Side/LLegs.png')} />
                 </TouchableOpacity>
             </View>
         </ScrollView>
@@ -50,18 +50,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     head: {
-        width: 155,
-        height: 88,
+        width: 350,
+        height: 99,
         resizeMode: 'contain',
     },
     torso: {
-        width: 360,
-        height: 156,
+        width: 300,
+        height: 220,
         resizeMode: 'contain',
     },
     legs: {
-        width: 365,
-        height: 185,
+        width: 360,
+        height: 245,
         resizeMode: 'contain',
     },
     rotate: {
