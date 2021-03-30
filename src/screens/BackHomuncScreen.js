@@ -30,7 +30,7 @@ const BackHomuncScreen = ({navigation}) => {
                     <Image style={styles.arm} source={require('../../assets/Back/LeftUA.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Torso")}>
-                    <Image style={styles.chest} source={require('../../assets/Back/BackTorso.png')} />
+                    <Image style={styles.chest} source={require('../../assets/Back/BackTorso2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Right Upper Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.arm} source={require('../../assets/Back/RightUA.png')} />
@@ -41,7 +41,7 @@ const BackHomuncScreen = ({navigation}) => {
                     <Image style={styles.lowerArm} source={require('../../assets/Back/LeftLA.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Torso")}>
-                    <Image style={styles.body} source={require('../../assets/Back/LowerTorso.png')} />
+                    <Image style={styles.body} source={require('../../assets/Back/LowerTorso2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Right Lower Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.lowerArm} source={require('../../assets/Back/RightLA.png')} />
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     },
     body: {
         width: 103,
-        height: 48,
+        height: 49,
         resizeMode: 'contain',
     },
     hand: {
