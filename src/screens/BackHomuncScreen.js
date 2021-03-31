@@ -29,7 +29,7 @@ const BackHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Left Upper Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.arm} source={require('../../assets/Back/LeftUA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Torso")}>
+                <TouchableOpacity onPress={() => clickHandler("Back")}>
                     <Image style={styles.chest} source={require('../../assets/Back/BackTorso2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Right Upper Arm", "This is the area highlighted in blue")}>
@@ -40,7 +40,7 @@ const BackHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Left Lower Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.lowerArm} source={require('../../assets/Back/LeftLA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Torso")}>
+                <TouchableOpacity onPress={() => clickHandler("Back")}>
                     <Image style={styles.body} source={require('../../assets/Back/LowerTorso2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Right Lower Arm", "This is the area highlighted in blue")}>

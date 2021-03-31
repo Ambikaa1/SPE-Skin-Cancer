@@ -5,8 +5,8 @@ const checkBackSwitch = (bodyPart) => {
     switch(bodyPart) {
         case 'Head or Neck':
             return (<Image style={styles.closeUp} source={require('../../assets/Back/CloseHead.png')}/>)
-        case 'Torso':
-            return (<Image style={styles.closeUp} source={require('../../assets/Back/CloseTorso.png')}/>)
+        case 'Back':
+            return (<Image style={styles.closeUp} source={require('../../assets/Back/CloseTorso2.png')}/>)
         case 'Left Upper Arm':
             return (<Image style={styles.closeUp} source={require('../../assets/Back/CloseLUA.png')}/>)
         case 'Right Upper Arm':
