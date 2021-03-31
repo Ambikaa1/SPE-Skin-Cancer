@@ -25,7 +25,7 @@ const FrontHomuncScreen = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
+                <TouchableOpacity onPress={() => navigation.navigate("CloseHeadScreen")}>
                     <Image style={styles.head} source={require('../../assets/Front/Head.png')} />
                 </TouchableOpacity>
             </View>
