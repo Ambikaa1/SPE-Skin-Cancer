@@ -21,6 +21,7 @@ import LeftHomuncScreen from "../screens/LeftHomuncScreen";
 import RightHomuncScreen from "../screens/RightHomuncScreen";
 import SideBodyPartScreen from "../screens/SideBodyPartScreen";
 import BackBodyPartScreen from "../screens/BackBodyPartScreen";
+import SwipingTestScreen from "../screens/SwipingTestScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -72,6 +73,17 @@ const PhotoStack = () => {
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
               headerLeft: null,
+              gestureEnabled: false
+          }}
+      />
+      <Stack.Screen
+          name = "Swiping"
+          component = {SwipingTestScreen}
+          options = {{
+              title: "Swiping",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
+              // headerLeft: null,
               gestureEnabled: false
           }}
       />
