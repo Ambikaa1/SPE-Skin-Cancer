@@ -9,6 +9,10 @@ const BackHomuncScreen = ({navigation}) => {
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
             <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
+            <Text></Text>
+            <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("Swiping")}>
+                <Text style = {styles.doneText}>Click here to swipe between views</Text>
+            </TouchableOpacity>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />
@@ -29,7 +33,7 @@ const BackHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Left Upper Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.arm} source={require('../../assets/Back/LeftUA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Torso")}>
+                <TouchableOpacity onPress={() => clickHandler("Back")}>
                     <Image style={styles.chest} source={require('../../assets/Back/BackTorso2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Right Upper Arm", "This is the area highlighted in blue")}>
@@ -40,7 +44,7 @@ const BackHomuncScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Left Lower Arm", "This is the area highlighted in blue")}>
                     <Image style={styles.lowerArm} source={require('../../assets/Back/LeftLA.png')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => clickHandler("Torso")}>
+                <TouchableOpacity onPress={() => clickHandler("Back")}>
                     <Image style={styles.body} source={require('../../assets/Back/LowerTorso2.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => clickHandler("Right Lower Arm", "This is the area highlighted in blue")}>
@@ -145,6 +149,21 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "bold",
     },
+    doneBox: {
+        backgroundColor: "#71A1D1",
+        alignItems: "center",
+        alignSelf: "center",
+        borderRadius: 10,
+        // position: "absolute",
+        width: "95%",
+        bottom: 10,
+    },
+    doneText: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "white",
+        marginVertical: 10,
+    }
 });
 
 export default BackHomuncScreen;

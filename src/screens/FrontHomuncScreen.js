@@ -9,6 +9,10 @@ const FrontHomuncScreen = ({navigation}) => {
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
             <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
+            <Text></Text>
+            <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("Swiping")}>
+                <Text style = {styles.doneText}>Click here to swipe between views</Text>
+            </TouchableOpacity>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
                     <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />
@@ -21,7 +25,7 @@ const FrontHomuncScreen = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
+                <TouchableOpacity onPress={() => navigation.navigate("CloseHeadScreen")}>
                     <Image style={styles.head} source={require('../../assets/Front/Head.png')} />
                 </TouchableOpacity>
             </View>
@@ -150,6 +154,21 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "bold",
     },
+    doneBox: {
+        backgroundColor: "#71A1D1",
+        alignItems: "center",
+        alignSelf: "center",
+        borderRadius: 10,
+        // position: "absolute",
+        width: "95%",
+        bottom: 10,
+    },
+    doneText: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "white",
+        marginVertical: 10,
+    }
 });
 
 export default FrontHomuncScreen;

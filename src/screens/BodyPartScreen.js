@@ -3,6 +3,12 @@ import {Image, StyleSheet, View, Text,TouchableOpacity, ScrollView} from 'react-
 
 const checkFrontSwitch = (bodyPart) => {
     switch(bodyPart) {
+        case 'Top of the head':
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/HeadTop.png')}/>)
+        case 'Face':
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/ZoomFace.png')}/>)
+        case 'Neck':
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/FrontNeck.png')}/>)
         case 'Head or Neck':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseHead2.png')}/>)
         case 'Torso':

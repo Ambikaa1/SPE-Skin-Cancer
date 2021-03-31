@@ -21,6 +21,8 @@ import LeftHomuncScreen from "../screens/LeftHomuncScreen";
 import RightHomuncScreen from "../screens/RightHomuncScreen";
 import SideBodyPartScreen from "../screens/SideBodyPartScreen";
 import BackBodyPartScreen from "../screens/BackBodyPartScreen";
+import SwipingTestScreen from "../screens/SwipingTestScreen";
+import CloseHeadScreen from "../screens/CloseHeadScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -109,6 +111,17 @@ const PhotoStack = () => {
           }}
       />
       <Stack.Screen
+          name = "Swiping"
+          component = {SwipingTestScreen}
+          options = {{
+              title: "Swiping",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
+              // headerLeft: null,
+              gestureEnabled: false
+          }}
+      />
+      <Stack.Screen
         name = "BodyPart"
         component = {BodyPartScreen}
         options = {{
@@ -131,6 +144,15 @@ const PhotoStack = () => {
           component = {BackBodyPartScreen}
           options = {{
               title: "Location",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction={BodyPartHelp}/>,
+          }}
+      />
+      <Stack.Screen
+          name = "CloseHeadScreen"
+          component = {CloseHeadScreen}
+          options = {{
+              title: "Close Head",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} onPressFunction={BodyPartHelp}/>,
           }}
