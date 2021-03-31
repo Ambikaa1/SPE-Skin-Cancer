@@ -8,11 +8,6 @@ const SwipingTestScreen = ({navigation}) => {
     }
     return (
         <Swiper style={styles.wrapper} showsButtons loop={false}>
-            <View style={styles.slide1}>
-                <TouchableOpacity onPress={() => navigation.navigate("FrontHomunc")}>
-                    <Image source={require('../../assets/Back/Front3.png')} />
-                </TouchableOpacity>
-            </View>
             <ScrollView persistentScrollbar={true} style={styles.scrollView}>
                 <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
                 <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
@@ -73,6 +68,11 @@ const SwipingTestScreen = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
+            <View style={styles.slide1}>
+                <TouchableOpacity onPress={() => navigation.navigate("FrontHomunc")}>
+                    <Image source={require('../../assets/Back/Front3.png')} />
+                </TouchableOpacity>
+            </View>
         </Swiper>
     )
 };
