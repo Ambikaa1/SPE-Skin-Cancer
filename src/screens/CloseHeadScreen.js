@@ -7,7 +7,16 @@ const CloseHeadScreen = ({navigation}) => {
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
-            <Text style = {styles.title}>Please click on the part of the diagram where your mole is located. </Text>
+            <Text style = {styles.title}>Please click on the part of the diagram where your mole is located. You can choose:</Text>
+            <TouchableOpacity onPress={() => clickHandler("Top of the head")}>
+                <Text style = {styles.title}>{'\u2022'} Top of the head </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => clickHandler("Face")}>
+                <Text style = {styles.title}>{'\u2022'} Face </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => clickHandler("Neck")}>
+                <Text style = {styles.title}>{'\u2022'} Neck </Text>
+            </TouchableOpacity>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Top of the head")}>
                     <Image style={styles.top} source={require('../../assets/Front/ZoomTopHead.png')} />
@@ -55,6 +64,8 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 15,
         fontWeight: "bold",
+        paddingTop: 10,
+        paddingLeft: 7,
     },
     doneBox: {
         backgroundColor: "#71A1D1",
