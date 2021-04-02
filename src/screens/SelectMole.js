@@ -8,24 +8,27 @@ const db = SQLite.openDatabase("22.db");
 const SelectMoleScreen = ({ navigation }) => {
     const [molesDictionary, setMolesDictionary] = useState({})
     const [moles, setMoles] = useState([]);
-    const [refresh, setRefresh] = useState(0)
     const isFocused = useIsFocused();
 
     const updateSelection = (moleID, newSelection) => {
         setMolesDictionary({...molesDictionary, [moleID] : newSelection})
+        console.log("-------------------------------------")
+        console.log(molesDictionary)
+        console.log("-------------------------------------")
     }
 
 
     const displayFarShots = ({ item }) => {
         let moleID  = item.mole_id
         let moleURI = item.far_shot
+        let numberSelected = molesDictionary[moleID] === undefined ? 0 : molesDictionary[moleID].length
         return(
             <TouchableOpacity style = {styles.nearFarShot} onPress = {() =>
                 navigation.navigate("SelectNearShots",
                     { id: moleID, currentSelection: molesDictionary[moleID],updateSelection : {updateSelection}}
                     )}>
                 <Image
-                    style = {styles.image}
+                    style = {[styles.image, {borderWidth: 5}, numberSelected === 0 ?  {opacity: 1, borderColor:  "transparent"} : {opacity : 0.5, borderColor:  "#c708ff"}]}
                     source = {{ uri: moleURI}}
                 />
                 <View style = {styles.moleInfo}>
@@ -33,7 +36,7 @@ const SelectMoleScreen = ({ navigation }) => {
                     <Text style = {styles.moleDetails}>
                         Last updated: {item.lastUpdated}{"\n"}
                         Comment: {item.comments}{"\n"}
-                        Currently Selected: {molesDictionary[moleID] === undefined ? 0 : molesDictionary[moleID].length}
+                        Currently Selected: {numberSelected}
                     </Text>
 
                 </View>
@@ -50,7 +53,8 @@ const SelectMoleScreen = ({ navigation }) => {
                     (_, { rows }) => setMoles(rows._array));
             }
         );
-        if (molesDictionary === {}){
+        //ON INITIALISATION, POPULATE THE DICTIONARY WITH EACH MOLES ID ALONG WITH AN EMPTY ARRAY
+        if (Object.keys(molesDictionary).length === 0){
             for (const mole of moles){
                 molesDictionary[mole.mole_id] = []
             }

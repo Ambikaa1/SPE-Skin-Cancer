@@ -7,6 +7,8 @@ import * as SQLite from "expo-sqlite";
 const db = SQLite.openDatabase("22.db");
 
 const SelectNearShots = ({route, navigation }) => {
+  /*  console.log("hello")
+    console.log(route.params.currentSelection)*/
     const [entries, setEntries] = useState([]);
     //Get a list of all the near shot images for a particular mole entry
     useEffect(() => {
@@ -21,7 +23,7 @@ const SelectNearShots = ({route, navigation }) => {
         );
     }, []);
 
-    const [selectedImages , setSelectedImages] = useState(route.params.currentSelection)
+    const [selectedImages , setSelectedImages] = useState(route.params.currentSelection === undefined ? [] : route.params.currentSelection)
     const [selectedNum    , setSelectedNum]    = useState(selectedImages.length)
     const [enlargedImage  , setEnlargedImage ] = useState(null)
 
