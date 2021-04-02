@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, Pressable, Image } 
 import * as SQLite from "expo-sqlite";
 
 
+
 const db = SQLite.openDatabase("22.db");
 
-const SelectNearShots = ({ route }) => {
+const SelectNearShots = ({route, navigation }) => {
     const [entries, setEntries] = useState([]);
-
     //Get a list of all the near shot images for a particular mole entry
     useEffect(() => {
         db.transaction(
@@ -21,8 +21,10 @@ const SelectNearShots = ({ route }) => {
         );
     }, []);
 
-    const [selectedImages, setSelectedImages] = useState([])
-    const [selectedNum   , setSelectedNum]       = useState(0)
+    const [selectedImages , setSelectedImages] = useState(route.params.currentSelection)
+    const [selectedNum    , setSelectedNum]    = useState(selectedImages.length)
+    const [enlargedImage  , setEnlargedImage ] = useState(null)
+
 
     const displayFarShots = ({ item }) => {
         let uri = item.near_shot
@@ -33,10 +35,10 @@ const SelectNearShots = ({ route }) => {
                 <Pressable
                     style = {styles.image}
                     onPress     = {() => HandleMultipleSelection(uri)}
-                    onLongPress = {() => console.log("Long Press")}
+                    onLongPress = {() => setEnlargedImage(uri)}
                 >
                     <Image
-                        style = {[styles.image, {borderWidth: 5}, selected ?  {opacity : 0.5, borderColor:  "#71A1D1"} : {opacity: 1, borderColor:  "transparent"}]}
+                        style = {[styles.image, {borderWidth: 5}, selected ?  {opacity : 0.5, borderColor:  "#c708ff"} : {opacity: 1, borderColor:  "transparent"}]}
                         source = {{ uri: uri}}
                     />
                 </Pressable>
@@ -79,12 +81,16 @@ const SelectNearShots = ({ route }) => {
 
             <TouchableOpacity
 
-                style={[styles.continueButtonStyle, selectedNum === 0 ?{backgroundColor: "#D3D3D3"} : null]}
-                onPress = {selectedNum === 0 ? null : () => console.log(selectedImages)}
+                style={[styles.continueButtonStyle, selectedNum === 0 ?{backgroundColor: "#d3d3d3"} : null]}
+                onPress = {() =>
+                {route.params.updateSelection.updateSelection(route.params.id, selectedImages);
+                    navigation.goBack()}
+                }
             >
                 <Text style={styles.continueButtonText}>{selectedNum ===0 ? "Select an image to continue" : "Continue"}</Text>
             </TouchableOpacity>
 
+            {!(enlargedImage === null) && console.log("Image enlarged")}
         </View>
     );
 };
@@ -145,6 +151,11 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
     },
+    enlargeImage :{
+        flex:1,
+        resizeMode : 'cover',
+        position : 'absolute'
+    }
 });
 
 export default SelectNearShots;

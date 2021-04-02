@@ -6,26 +6,38 @@ import * as SQLite from "expo-sqlite";
 const db = SQLite.openDatabase("22.db");
 
 const SelectMoleScreen = ({ navigation }) => {
+    const [molesDictionary, setMolesDictionary] = useState({})
     const [moles, setMoles] = useState([]);
+    const [refresh, setRefresh] = useState(0)
     const isFocused = useIsFocused();
 
-
+    const updateSelection = (moleID, newSelection) => {
+        setMolesDictionary({...molesDictionary, [moleID] : newSelection})
+    }
 
 
     const displayFarShots = ({ item }) => {
+        let moleID  = item.mole_id
+        let moleURI = item.far_shot
         return(
-            <TouchableOpacity style = {styles.nearFarShot} onPress = {() => navigation.navigate("SelectNearShots", { id: item.mole_id })}>
+            <TouchableOpacity style = {styles.nearFarShot} onPress = {() =>
+                navigation.navigate("SelectNearShots",
+                    { id: moleID, currentSelection: molesDictionary[moleID],updateSelection : {updateSelection}}
+                    )}>
                 <Image
                     style = {styles.image}
-                    source = {{ uri: item.far_shot }}
+                    source = {{ uri: moleURI}}
                 />
                 <View style = {styles.moleInfo}>
                     <Text style = {styles.moleName}>Name: {item.name}</Text>
                     <Text style = {styles.moleDetails}>
                         Last updated: {item.lastUpdated}{"\n"}
-                        Comment: {item.comments}
+                        Comment: {item.comments}{"\n"}
+                        Currently Selected: {molesDictionary[moleID] === undefined ? 0 : molesDictionary[moleID].length}
                     </Text>
+
                 </View>
+
             </TouchableOpacity>
         );
     };
@@ -38,13 +50,22 @@ const SelectMoleScreen = ({ navigation }) => {
                     (_, { rows }) => setMoles(rows._array));
             }
         );
+        if (molesDictionary === {}){
+            for (const mole of moles){
+                molesDictionary[mole.mole_id] = []
+            }
+        }
     }, [isFocused]);
+
+
+
 
     return (
         <View style = {styles.container}>
             <Text style = {styles.title}>Select a mole to view near shots:</Text>
             <FlatList
                 data = {moles}
+                extraData = {molesDictionary}
                 renderItem = {displayFarShots}
                 keyExtractor = {item => `${item.mole_id}`}
             />
