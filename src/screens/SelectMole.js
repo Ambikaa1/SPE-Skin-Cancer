@@ -8,19 +8,19 @@ const db = SQLite.openDatabase("22.db");
 const SelectMoleScreen = ({ navigation }) => {
     const [molesDictionary, setMolesDictionary] = useState({})
     const [moles, setMoles] = useState([]);
+    const [totalCount, setTotalCount] = useState(0)
     const isFocused = useIsFocused();
 
     const updateSelection = (moleID, newSelection) => {
-        setMolesDictionary({...molesDictionary, [moleID] : newSelection})
-        console.log("-------------------------------------")
-        console.log(molesDictionary)
-        console.log("-------------------------------------")
+        setMolesDictionary({...molesDictionary, [moleID]: newSelection})
     }
 
 
     const displayFarShots = ({ item }) => {
         let moleID  = item.mole_id
         let moleURI = item.far_shot
+        let moleName = item.name
+        console.log(moleName)
         let numberSelected = molesDictionary[moleID] === undefined ? 0 : molesDictionary[moleID].length
         return(
             <TouchableOpacity style = {styles.nearFarShot} onPress = {() =>
@@ -36,8 +36,8 @@ const SelectMoleScreen = ({ navigation }) => {
                     <Text style = {styles.moleDetails}>
                         Last updated: {item.lastUpdated}{"\n"}
                         Comment: {item.comments}{"\n"}
-                        Currently Selected: {numberSelected}
                     </Text>
+                    <Text style = {styles.currentlySelected}>Currently Selected: {numberSelected}</Text>
 
                 </View>
 
@@ -53,12 +53,13 @@ const SelectMoleScreen = ({ navigation }) => {
                     (_, { rows }) => setMoles(rows._array));
             }
         );
-        //ON INITIALISATION, POPULATE THE DICTIONARY WITH EACH MOLES ID ALONG WITH AN EMPTY ARRAY
-        if (Object.keys(molesDictionary).length === 0){
-            for (const mole of moles){
-                molesDictionary[mole.mole_id] = []
-            }
+        let newCount = 0
+        for (const [_, entry] of Object.entries(molesDictionary)){
+            newCount += entry.length
         }
+        setTotalCount(newCount)
+
+
     }, [isFocused]);
 
 
@@ -69,10 +70,19 @@ const SelectMoleScreen = ({ navigation }) => {
             <Text style = {styles.title}>Select a mole to view near shots:</Text>
             <FlatList
                 data = {moles}
-                extraData = {molesDictionary}
+                extraData = {totalCount}
                 renderItem = {displayFarShots}
                 keyExtractor = {item => `${item.mole_id}`}
             />
+            <TouchableOpacity
+
+                style={[styles.continueButtonStyle, totalCount === 0 ?{backgroundColor: "#d3d3d3"} : null]}
+                onPress = {totalCount === 0 ? null :() => navigation.goBack()}>
+                {/*<Text style={styles.continueButtonText}>{totalCount ===0 ? "Select an image to continue" : "Continue"}Total Selected: {totalCount}</Text>*/}
+                <Text style={styles.continueButtonText}>Total Selected: {totalCount}</Text>
+
+            </TouchableOpacity>
+
         </View>
     );
 };
@@ -108,10 +118,28 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: "bold",
         paddingTop: 10,
-        paddingBottom: 10,
+    },
+    currentlySelected: {
+        fontSize: 18,
+        fontWeight: "bold",
+        color : "#71A1D1",
     },
     moleDetails: {
+        color: "black",
+        paddingTop: 10,
         paddingBottom: 10,
+    },
+    continueButtonStyle:{
+        backgroundColor: "#71A1D1",
+        borderRadius: 5,
+        alignItems: 'center',
+
+    },
+    continueButtonText:{
+        marginTop: 10,
+        marginBottom: 10,
+        color: 'white',
+        fontSize: 20,
     },
 });
 

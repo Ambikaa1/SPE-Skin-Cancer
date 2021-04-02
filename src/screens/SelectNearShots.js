@@ -7,8 +7,6 @@ import * as SQLite from "expo-sqlite";
 const db = SQLite.openDatabase("22.db");
 
 const SelectNearShots = ({route, navigation }) => {
-  /*  console.log("hello")
-    console.log(route.params.currentSelection)*/
     const [entries, setEntries] = useState([]);
     //Get a list of all the near shot images for a particular mole entry
     useEffect(() => {
@@ -83,13 +81,13 @@ const SelectNearShots = ({route, navigation }) => {
 
             <TouchableOpacity
 
-                style={[styles.continueButtonStyle, selectedNum === 0 ?{backgroundColor: "#d3d3d3"} : null]}
+                style={styles.continueButtonStyle}
                 onPress = {() =>
                 {route.params.updateSelection.updateSelection(route.params.id, selectedImages);
                     navigation.goBack()}
                 }
             >
-                <Text style={styles.continueButtonText}>{selectedNum ===0 ? "Select an image to continue" : "Continue"}</Text>
+                <Text style={styles.continueButtonText}>{"Return"}</Text>
             </TouchableOpacity>
 
             {!(enlargedImage === null) && console.log("Image enlarged")}
