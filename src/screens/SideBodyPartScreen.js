@@ -26,6 +26,8 @@ const SideBodyPartScreen = ({route, navigation }) => {
                     style={styles.scrollView}>
             <View style={{ flex: 1, justifyContent: 'flex-start' }}>
                 <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
+            </View>
+            <View  style={{ flex: 1, justifyContent: 'center' }}>
                 <View style = {{alignItems: 'center'}}>
                     {checkSideSwitch(bodyPart)}
                 </View>
@@ -72,6 +74,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         paddingRight: 7,
         paddingLeft: 7,
+        paddingTop: 15,
     },
     doneBox: {
         backgroundColor: "#71A1D1",

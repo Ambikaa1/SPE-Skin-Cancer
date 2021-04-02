@@ -44,6 +44,8 @@ const BackBodyPartScreen = ({route, navigation }) => {
             <View style={{ flex: 1, justifyContent: 'flex-start' }}>
                 <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
                 <Text style={styles.subText}>{bool}</Text>
+            </View>
+            <View style={{ flex: 1, justifyContent: 'center' }}>
                 <View style = {{alignItems: 'center'}}>
                     {checkBackSwitch(bodyPart)}
                 </View>
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         paddingRight: 7,
         paddingLeft: 7,
+        paddingTop: 15,
     },
     subText: {
         fontSize: 16,
