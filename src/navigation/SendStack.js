@@ -23,7 +23,6 @@ const SendStack = () => {
         options = {{
           title: "Send",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
         }}
         />
 
