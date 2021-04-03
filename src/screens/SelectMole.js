@@ -15,6 +15,11 @@ const SelectMoleScreen = ({route, navigation }) => {
         setMolesDictionary({...molesDictionary, [moleID]: newSelection})
     }
 
+    const clearSelection = () => {
+        setMolesDictionary({})
+        setTotalCount(0) //Required to refresh the list
+    }
+
 
     const displayFarShots = ({ item }) => {
         let moleID  = item.mole_id
@@ -68,6 +73,7 @@ const SelectMoleScreen = ({route, navigation }) => {
     return (
         <View style = {styles.container}>
             <Text style = {styles.title}>Select a mole to view near shots:</Text>
+
             <FlatList
                 data = {moles}
                 extraData = {totalCount}
@@ -81,7 +87,14 @@ const SelectMoleScreen = ({route, navigation }) => {
                     route.params.setSelection.setSelection(molesDictionary)
                     navigation.goBack()}
                 }>
-                <Text style={styles.continueButtonText}>Total Selected: {totalCount}</Text>
+                <Text style={styles.continueButtonText}>Continue</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                style={[styles.continueButtonStyle, totalCount === 0 ?{backgroundColor: "#d3d3d3"} : {backgroundColor: "red"}]}
+                onPress ={totalCount === 0 ? null :() =>  clearSelection()}
+            >
+                <Text style={styles.continueButtonText}>Clear Selection</Text>
 
             </TouchableOpacity>
 
