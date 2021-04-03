@@ -5,7 +5,7 @@ import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("22.db");
 
-const SelectMoleScreen = ({ navigation }) => {
+const SelectMoleScreen = ({route, navigation }) => {
     const [molesDictionary, setMolesDictionary] = useState({})
     const [moles, setMoles] = useState([]);
     const [totalCount, setTotalCount] = useState(0)
@@ -77,8 +77,10 @@ const SelectMoleScreen = ({ navigation }) => {
             <TouchableOpacity
 
                 style={[styles.continueButtonStyle, totalCount === 0 ?{backgroundColor: "#d3d3d3"} : null]}
-                onPress = {totalCount === 0 ? null :() => navigation.goBack()}>
-                {/*<Text style={styles.continueButtonText}>{totalCount ===0 ? "Select an image to continue" : "Continue"}Total Selected: {totalCount}</Text>*/}
+                onPress ={totalCount === 0 ? null :() =>  {
+                    route.params.setSelection.setSelection(molesDictionary)
+                    navigation.goBack()}
+                }>
                 <Text style={styles.continueButtonText}>Total Selected: {totalCount}</Text>
 
             </TouchableOpacity>

@@ -6,11 +6,15 @@ import {useScrollToTop} from "@react-navigation/native";
 const SendScreen = ({ navigation, route }) => {
     // const [value1, onChangeText1] = useState('Placeholder');
     // const [value2, onChangeText2] = useState('Additonal comments');
-    const [selectedImages, changeSelectedImages] = useState(false);
+    const [selectedImages, setSelectedImages] = useState({});
+
+    const setSelection = (selection) => {
+        setSelectedImages(selection)
+    }
+
 
     const selected = () => {
-        navigation.navigate("SelectMole");
-        changeSelectedImages(true);
+        navigation.navigate("SelectMole", {setSelection: {setSelection}});
     }
 
 
@@ -33,7 +37,7 @@ const SendScreen = ({ navigation, route }) => {
         );
 
     // onPress: () => Linking.openURL("mailto:yourgp'semal@blahblahblah.com?subject=Mole Images&body=Produced by SCaRF."),
-
+    console.log(selectedImages)
     return (
             <ScrollView>
                 <Text style={styles.mainBodyText}>Press the button below to select the images you want to attach to
