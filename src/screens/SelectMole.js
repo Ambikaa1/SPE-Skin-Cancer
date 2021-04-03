@@ -13,6 +13,7 @@ const SelectMoleScreen = ({route, navigation }) => {
 
     const updateSelection = (moleID, newSelection) => {
         setMolesDictionary({...molesDictionary, [moleID]: newSelection})
+
     }
 
     const clearSelection = () => {
@@ -24,8 +25,8 @@ const SelectMoleScreen = ({route, navigation }) => {
     const displayFarShots = ({ item }) => {
         let moleID  = item.mole_id
         let moleURI = item.far_shot
-        let moleName = item.name
-        console.log(moleName)
+
+
         let numberSelected = molesDictionary[moleID] === undefined ? 0 : molesDictionary[moleID].length
         return(
             <TouchableOpacity style = {styles.nearFarShot} onPress = {() =>
