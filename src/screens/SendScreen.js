@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
+import {useScrollToTop} from "@react-navigation/native";
 
-const SendScreen = ({ navigation }) => {
-    const [value1, onChangeText1] = React.useState('Placeholder');
-    const [value2, onChangeText2] = React.useState('Placeholder');
+const SendScreen = ({ navigation, route }) => {
+    // const [value1, onChangeText1] = useState('Placeholder');
+    // const [value2, onChangeText2] = useState('Additonal comments');
+    const [selectedImages, changeSelectedImages] = useState(false);
+
+    const selected = () => {
+        navigation.navigate("SelectMole");
+        changeSelectedImages(true);
+    }
+
 
     const Notice = () =>
         Alert.alert(
@@ -17,95 +25,54 @@ const SendScreen = ({ navigation }) => {
 
                 },
                 {   text: "OK",
-                    onPress: () => Linking.openURL("mailto:yourgp'semal@blahblahblah.com?subject=Update on mole blah&body=Here's some new moles buddy!!!!!!"),
+                    onPress: () => Linking.openURL("mailto:?subject=Mole Images&body=\n\nProduced by SCaRF."),
                     style: "cancel",
                 }
             ],
             { cancelable: false }
         );
 
+    // onPress: () => Linking.openURL("mailto:yourgp'semal@blahblahblah.com?subject=Mole Images&body=Produced by SCaRF."),
+
     return (
-        <View style={styles.container}>
             <ScrollView>
-                <View style={styles.topButtonView}>
-                    <TouchableOpacity
-                        style={styles.topButtonStyle}
-                        onPress = {() => navigation.navigate("SelectMole")}
-                    >
-                        <Text style={styles.ButtonText}>Select images</Text>
-                    </TouchableOpacity>
-                </View>
+                <Text style={styles.mainBodyText}>Press the button below to select the images you want to attach to
+                    an email.</Text>
+                <TouchableOpacity
+                    style={styles.doneBox}
+                    onPress = {() => selected()}
+                >
+                    <Text style={styles.doneText}>Select images</Text>
+                </TouchableOpacity>
 
-                <Text style={styles.normalText}>Mole location</Text>
+                <Text style={styles.mainBodyText}>The name of the mole(s), date the images were taken and the location
+                of the mole on your body will also be attached.</Text>
 
-                <View style={styles.pickerViewStyle1}>
-                    <DropDownPicker
-                        items={[
-                            {label: 'mole1', value: 'mole1'},
-                            {label: 'mole2', value: 'mole2'},
-                            {label: 'mole3', value: 'mole3'},
-                        ]}
-                        defaultValue={''}
-                        containerStyle={{height: 40}}
-                        style={{backgroundColor: '#fafafa'}}
-                        itemStyle={{
-                            justifyContent: 'flex-start'
-                        }}
-                        dropDownStyle={{backgroundColor: '#fafafa'}}
-                        onChangeItem={item => {}}
-                    />
-                </View>
+                <Text style={styles.mainBodyText}>If you would like to add any additional comments please do so in the
+                box below or in the email itself.</Text>
 
-                <Text style={styles.normalText}>Date of photo</Text>
-
-                <View style={styles.pickerViewStyle2}>
-                    <DropDownPicker
-                        items={[
-                            {label: 'Today', value: 'today'},
-                            {label: 'Yesterday', value: 'yesterday'},
-                            {label: 'Some other day', value: 'day3'},
-                        ]}
-                        defaultValue={''}
-                        containerStyle={{height: 40}}
-                        style={{backgroundColor: '#fafafa'}}
-                        itemStyle={{
-                            justifyContent: 'flex-start'
-                        }}
-                        dropDownStyle={{backgroundColor: '#fafafa'}}
-                        onChangeItem={item => {}}
-                    />
-                </View>
-
-                <Text style={styles.normalText}>Mole name</Text>
-
-                <View style={styles.textInputViewStyle}>
+                <View style={styles.commentBox}>
                     <TextInput
                         style={styles.textInputStyle}
-                        onChangeText={text => onChangeText1(text)}
-                        value={value1}
                     />
                 </View>
 
-                <Text style={styles.normalText}>Comments about photo</Text>
+                <Text style={styles.mainBodyText}>Moles selected:</Text>
+                <Text style={styles.bulletPoints}>{'\u2022'}*Mole name 1*</Text>
+                <Text style={styles.bulletPoints}>{'\u2022'}*Mole name 2*</Text>
 
-                <View style={styles.textInputViewStyle}>
-                    <TextInput
-                        style={styles.textInputStyle}
-                        onChangeText={text => onChangeText2(text)}
-                        value={value2}
-                    />
-                </View>
 
-                <View style={styles.bottomButtonView}>
-                    <TouchableOpacity
-                        style={styles.bottomButtonStyle}
-                        onPress={() => Notice()}
-                    >
-                        <Text style={styles.ButtonText}>SEND</Text>
-                    </TouchableOpacity>
-                </View>
+                <Text style={styles.mainBodyText}>Press the button below to open up your default email application.
+                All the information you have selected will be attached. Make sure that you check the email address you are
+                    sending the images to is correct.</Text>
+
+                <TouchableOpacity
+                    style={styles.doneBox}
+                    onPress={() => Notice()}
+                >
+                    <Text style={styles.doneText}>SEND</Text>
+                </TouchableOpacity>
             </ScrollView>
-        </View>
     );
 };
 
@@ -120,43 +87,30 @@ const styles = StyleSheet.create({
         marginRight: 55,
         marginBottom:10,
     },
-    ButtonText:{
-        marginTop: 10,
-        marginBottom: 10,
-        color: '#000000',
+    doneText: {
         fontSize: 30,
+        fontWeight: "bold",
+        color: "white",
+        marginVertical: 10,
+        alignSelf: 'center',
     },
     topButtonStyle:{
         backgroundColor: '#D3D3D3',
         borderRadius: 5,
         alignItems: 'center',
     },
-    normalText:{
-        marginTop:40,
-        marginLeft: 30,
-        marginBottom:10,
-        fontSize: 20,
-    },
-    bottomButtonStyle: {
-
-        backgroundColor: '#70A9FF',
-        borderRadius: 5,
-        alignItems: 'center',
+    doneBox: {
+        backgroundColor: "#71A1D1",
+        alignSelf: "center",
+        borderRadius: 10,
+        width: "97.5%",
+        marginTop: 25,
+        bottom: 10
     },
     bottomButtonView:{
         marginTop: 35,
         marginLeft: 50,
         marginRight: 50,
-    },
-    pickerViewStyle1:{
-        zIndex:3,
-        marginLeft:30,
-        marginRight:30,
-    },
-    pickerViewStyle2:{
-        zIndex: 2,
-        marginLeft: 30,
-        marginRight: 30,
     },
     textInputStyle:{
         height: 50,
@@ -164,12 +118,28 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         backgroundColor: 'white',
+        paddingHorizontal: 10,
     },
-    textInputViewStyle:{
+    commentBox:{
         zIndex: 1,
         marginLeft: 30,
         marginRight: 30,
-    }
+
+    },
+    mainBodyText: {
+        fontSize: 17,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
+    },
+    bulletPoints: {
+        fontSize: 17,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 15,
+        paddingRight: 10,
+    },
 });
 
 export default SendScreen;
