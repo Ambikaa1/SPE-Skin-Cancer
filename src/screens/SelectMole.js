@@ -6,7 +6,7 @@ import * as SQLite from "expo-sqlite";
 const db = SQLite.openDatabase("22.db");
 
 const SelectMoleScreen = ({route, navigation }) => {
-    const [molesDictionary, setMolesDictionary] = useState({})
+    const [molesDictionary, setMolesDictionary] = useState(route.params.currentSelection)
     const [moles, setMoles] = useState([]);
     const [totalCount, setTotalCount] = useState(0)
     const isFocused = useIsFocused();

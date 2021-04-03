@@ -14,7 +14,7 @@ const SendScreen = ({ navigation, route }) => {
 
 
     const selected = () => {
-        navigation.navigate("SelectMole", {setSelection: {setSelection}});
+        navigation.navigate("SelectMole", {setSelection: {setSelection}, currentSelection: selectedImages});
     }
 
 
