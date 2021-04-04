@@ -39,7 +39,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
     // Conditional rendering based on permissions
     if (hasPermission === null) {
         return <View />;
-    } 
+    }
     if (hasPermission === false) {
         return <Text>No access to camera</Text>;
     }
@@ -50,6 +50,8 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
                 style = { styles.camera }
                 type = { type }
                 ref = { ref => {setCameraRef(ref)} }
+                autoFocus={Camera.Constants.AutoFocus.on}
+                whiteBalance={Camera.Constants.WhiteBalance.auto}
             />
 
             {ghostImage
@@ -84,14 +86,14 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
                         console.log('show ghost image =', ghostImage)
                     }
                 }>
-                    {ghostImage 
+                    {ghostImage
                         ? <MaterialCommunityIcons name = "ghost" size = {40} style = {styles.ghostOption} color = {(ghostImageFile == null) ? "black" : "white"} />
                         : <MaterialCommunityIcons name = "ghost-off" size = {40} style = {styles.ghostOption} color = {(ghostImageFile == null) ? "black" : "white"} />
                     }
                 </TouchableOpacity>
             </View>
         </View>
-        
+
     );
 };
 
