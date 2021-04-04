@@ -22,7 +22,8 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to take photos."
-      }
+      },
+      "requireFullScreen": true
     },
     "android": {
       "package": "com.yourcompany.yourappname",
