@@ -5,7 +5,7 @@ const PhotoSuccess = ({navigation}) => {
     return (
         <View>
             <Text style={styles.text}> Your mole photos are saved! </Text>
-            <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("FrontHomunc")}>
+            <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("Swiping")}>
                 <Text style = {styles.doneText}>Finish</Text>
             </TouchableOpacity>
             <TouchableOpacity style = {styles.doneBox} onPress={() => navigation.navigate("Survay")}>
