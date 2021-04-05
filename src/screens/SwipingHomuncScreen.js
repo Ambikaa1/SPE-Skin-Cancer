@@ -265,6 +265,7 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 50,
         alignItems: 'center',
+        backgroundColor: "white"
     },
     // wrapper: {
     //
