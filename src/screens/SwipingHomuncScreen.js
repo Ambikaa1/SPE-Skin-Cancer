@@ -9,18 +9,18 @@ const RightBody = ({navigation}) => {
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
-            <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
-            <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("FrontHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Front3.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />
-                </TouchableOpacity>
-            </View>
+            <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
+            {/*<View style={styles.flexbox}>*/}
+            {/*    <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>*/}
+            {/*        <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />*/}
+            {/*    </TouchableOpacity>*/}
+            {/*    <TouchableOpacity onPress={() => navigation.navigate("FrontHomunc")}>*/}
+            {/*        <Image style={styles.rotate} source={require('../../assets/Back/Front3.png')} />*/}
+            {/*    </TouchableOpacity>*/}
+            {/*    <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>*/}
+            {/*        <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />*/}
+            {/*    </TouchableOpacity>*/}
+            {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Head or Neck")}>
                     <Image style={styles.head} source={require('../../assets/Side/RHead.png')} />
@@ -47,18 +47,18 @@ const LeftBody = ({navigation}) => {
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
-            <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
-            <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("FrontHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Front3.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />
-                </TouchableOpacity>
-            </View>
+            <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
+            {/*<View style={styles.flexbox}>*/}
+            {/*    <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>*/}
+            {/*        <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />*/}
+            {/*    </TouchableOpacity>*/}
+            {/*    <TouchableOpacity onPress={() => navigation.navigate("FrontHomunc")}>*/}
+            {/*        <Image style={styles.rotate} source={require('../../assets/Back/Front3.png')} />*/}
+            {/*    </TouchableOpacity>*/}
+            {/*    <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>*/}
+            {/*        <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />*/}
+            {/*    </TouchableOpacity>*/}
+            {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Head or Neck")}>
                     <Image style={styles.head} source={require('../../assets/Side/LHead.png')} />
@@ -85,19 +85,19 @@ const FrontBody = ({navigation}) => {
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
             <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
-            <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>
+            <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
             <Text></Text>
-            <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>
-                    <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />
-                </TouchableOpacity>
-            </View>
+            {/*<View style={styles.flexbox}>*/}
+                {/*<TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>*/}
+                {/*    <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />*/}
+                {/*</TouchableOpacity>*/}
+                {/*<TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>*/}
+                {/*    <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />*/}
+                {/*</TouchableOpacity>*/}
+                {/*<TouchableOpacity onPress={() => navigation.navigate("RightHomunc")}>*/}
+                {/*    <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />*/}
+                {/*</TouchableOpacity>*/}
+            {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => navigation.navigate("CloseHeadScreen")}>
                     <Image style={styles.fronthead} source={require('../../assets/Front/Head.png')} />
@@ -173,11 +173,11 @@ const BackBody = ({navigation}) => {
             <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
             <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
             <Text></Text>
-            <View style={styles.flexbox}>
-                <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />
-                <Image style={styles.rotate} source={require('../../assets/Back/Front3.png')} />
-                <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />
-            </View>
+            {/*<View style={styles.flexbox}>*/}
+            {/*    <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />*/}
+            {/*    <Image style={styles.rotate} source={require('../../assets/Back/Front3.png')} />*/}
+            {/*    <Image style={styles.rotate} source={require('../../assets/Back/Right3.png')} />*/}
+            {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Head or Neck")}>
                     <Image style={styles.backhead} source={require('../../assets/Back/Head.png')} />
@@ -305,6 +305,7 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 15,
         fontWeight: "bold",
+        paddingLeft: 5,
     },
     fronthead: {
         width: 115,
