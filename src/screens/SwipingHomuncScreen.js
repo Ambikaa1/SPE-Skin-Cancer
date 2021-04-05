@@ -267,9 +267,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: "white"
     },
-    // wrapper: {
-    //
-    // },
+    wrapper: {
+        backgroundColor: "white",
+    },
     // slide1: {
     //     flex: 1,
     //     justifyContent: 'center',
