@@ -5,9 +5,9 @@ import {captureRef} from "react-native-view-shot";
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
-const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
+const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) => {
     const [drawing, setDrawing] = useState(false);
 
     const viewShotRef = useRef()
@@ -127,8 +127,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id}) => {
             db.transaction(
                 tx => {
                     tx.executeSql(
-                        "INSERT INTO mole (name, comments, far_shot, sub_body_part, lastUpdated) values (?, ?, ?, 'toes_left_foot', ?);",
-                        [name, comments, newLocation, todayFormatted],
+                        "INSERT INTO mole (name, comments, far_shot, sub_body_part, lastUpdated) values (?, ?, ?, ?, ?);",
+                        [name, comments, newLocation, bodyPart, todayFormatted],
                         (t, result) => navigation.navigate(nextScreen, {id: result.insertId}),
                         (t, error) => {console.log(error);}
                     );

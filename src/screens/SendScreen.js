@@ -3,7 +3,7 @@ import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking
 import * as SQLite from "expo-sqlite";
 import {useIsFocused} from "@react-navigation/core";
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
 const SendScreen = ({ navigation, route }) => {
     // const [value1, onChangeText1] = useState('Placeholder');

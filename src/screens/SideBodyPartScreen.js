@@ -33,7 +33,9 @@ const SideBodyPartScreen = ({route, navigation }) => {
                 </View>
             </View>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-                <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType")}>
+                <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType", {
+                    bodyPart,
+                })}>
                     <Text style = {styles.doneText}>Confirm</Text>
                 </TouchableOpacity>
             </View>
