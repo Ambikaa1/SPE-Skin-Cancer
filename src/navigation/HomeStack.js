@@ -8,7 +8,7 @@ import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import SettingsButton from "../components/SettingsButton"
 import RiskFactorsScreen from "../screens/RiskFactorsScreen";
-import SurveyScreen from "../screens/SurvayScrren";
+import SurveyScreen from "../screens/SCQOLIT survay/SurvayScrren";
 import WhySCQOLIT from "../screens/SCQOLIT survay/WhySCQOLIT";
 import LastSCQOLITScreen from "../screens/SCQOLIT survay/LastSCQOLITScreen";
 

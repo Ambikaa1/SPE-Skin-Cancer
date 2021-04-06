@@ -1,26 +1,28 @@
-import React, { useState,  } from 'react';
+import React from 'react';
 
-import {View, Text, StyleSheet, TouchableOpacity , ScrollView} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity , Alert, ScrollView} from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
 const SurveyScreen = ({navigation}) => {
 
     const finishFunction = () => {
-        let total = a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
+        let total =0
+        let question = 0
+        for (let i  in answers){
+            question = question +1
+            console.log("answer ",question,"is ", answers[i])
+            if (answers[i] == null){
+                Alert.alert("Alert", "Please answer question " + question)
+                question = question -1
+                return
+            }
+            total = total +answers[i]
+        }
         console.log("total= ", total )
         navigation.navigate("LastSCQOLITScreen", total)
     }
 
-    const [a1, seta1] = useState(null)
-    const [a2, seta2] = useState(null)
-    const [a3, seta3] = useState(null)
-    const [a4, seta4] = useState(null)
-    const [a5, seta5] = useState(null)
-    const [a6, seta6] = useState(null)
-    const [a7, seta7] = useState(null)
-    const [a8, seta8] = useState(null)
-    const [a9, seta9] = useState(null)
-    const [a10, seta10] = useState(null)
+    let answers = [null, null, null, null, null,null, null, null, null, null]
 
     return(
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
@@ -41,7 +43,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta1(item.value)}
+                        onChangeItem = {item => answers[0] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:9}}>
@@ -57,7 +59,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta2(item.value)}
+                        onChangeItem = {item => answers[1] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:8}}>
@@ -72,7 +74,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta3(item.value)}
+                        onChangeItem = {item => answers[2] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:7}}>
@@ -88,7 +90,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta4(item.value)}
+                        onChangeItem = {item => answers[3] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:6}}>
@@ -103,7 +105,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta5(item.value)}
+                        onChangeItem = {item => answers[4] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:5}}>
@@ -118,7 +120,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta6(item.value)}
+                        onChangeItem = {item => answers[5] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:4}}>
@@ -133,7 +135,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta7(item.value)}
+                        onChangeItem = {item => answers[6] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:3}}>
@@ -149,7 +151,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta8(item.value)}
+                        onChangeItem = {item => answers[7] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:2}}>
@@ -164,7 +166,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta9(item.value)}
+                        onChangeItem = {item => answers[8] = item.value}
                     />
                 </View>
                 <View style = {{marginTop:15,zIndex:1}}>
@@ -180,7 +182,7 @@ const SurveyScreen = ({navigation}) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
-                        onChangeItem = {item => seta10(item.value)}
+                        onChangeItem = {item => answers[9] = item.value}
                     />
                 </View>
                 {/*<Text style = {styles.startText}>Thanks for doing the SCQOLIT survay. Tap the finished button below to get your results</Text>*/}
