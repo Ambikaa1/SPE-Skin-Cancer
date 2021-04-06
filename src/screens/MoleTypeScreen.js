@@ -5,9 +5,9 @@ import * as SQLite from "expo-sqlite";
 
 import MoleListItem from "../components/MoleListItem"
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
-const MoleTypeScreen = ({navigation}) => {
+const MoleTypeScreen = ({navigation, route}) => {
     const [moleChoice, setChoice] = useState(null);
     const [name, setName] = useState(null);
     const [comments, setComments] = useState(null);
@@ -16,7 +16,7 @@ const MoleTypeScreen = ({navigation}) => {
     useEffect(() => {
         db.transaction(
             tx => {
-                tx.executeSql("SELECT mole_id, name, lastUpdated, far_shot, comments FROM mole;", [], (_, { rows }) => setMoles(rows._array));
+                tx.executeSql("SELECT mole_id, name, lastUpdated, far_shot, comments FROM mole WHERE sub_body_part = ?;", [route.params.bodyPart], (_, { rows }) => setMoles(rows._array));
             }
         );
     }, []);
@@ -49,7 +49,7 @@ const MoleTypeScreen = ({navigation}) => {
                         placeholder = "Mole comments"
                         style = {styles.input}
                     />
-                    <TouchableOpacity style = {styles.doneBox} onPress = {() => navigation.navigate("HelpFarShot", { name: name, comments: comments })}>
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => navigation.navigate("HelpFarShot", { name: name, comments: comments, bodyPart: route.params.bodyPart })}>
                         <Text style = {styles.doneText}>Confirm</Text>
                     </TouchableOpacity>
                 </>

@@ -51,7 +51,7 @@ const HelpFarShotScreen = ({navigation, route}) => {
 
                 <TouchableOpacity style={styles.doneBox}
                     onPress={() => {
-                        navigation.navigate("CameraFar", { name: route.params.name, comments: route.params.comments })
+                        navigation.navigate("CameraFar", { name: route.params.name, comments: route.params.comments, bodyPart: route.params.bodyPart })
                     }}>
                     <Text style={styles.doneText}>Continue</Text>
                 </TouchableOpacity>
