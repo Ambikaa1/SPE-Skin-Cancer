@@ -5,8 +5,8 @@ import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("23.db");
 
-const SelectMoleScreen = ({route, navigation }) => {
-    const [molesDictionary, setMolesDictionary] = useState(route.params.currentSelection)
+const SelectMoleScreen = ({navigation }) => {
+    const [molesDictionary, setMolesDictionary] = useState({})
     const [moles, setMoles] = useState([]);
     const [totalCount, setTotalCount] = useState(0)
     const isFocused = useIsFocused();
@@ -68,6 +68,10 @@ const SelectMoleScreen = ({route, navigation }) => {
 
     }, [isFocused]);
 
+    const continueToSend = () => {
+        navigation.navigate("SendEmail", {selectedImages: molesDictionary})
+    }
+
 
 
 
@@ -85,9 +89,8 @@ const SelectMoleScreen = ({route, navigation }) => {
 
                 style={[styles.continueButtonStyle, totalCount === 0 ?{backgroundColor: "#d3d3d3"} : null]}
                 onPress ={totalCount === 0 ? null :() =>  {
-                    route.params.setSelection.setSelection(molesDictionary)
-                    navigation.goBack()}
-                }>
+                   continueToSend()
+                }}>
                 <Text style={styles.continueButtonText}>Continue</Text>
             </TouchableOpacity>
 
@@ -149,6 +152,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#71A1D1",
         borderRadius: 5,
         alignItems: 'center',
+        alignSelf: "center",
+        marginBottom: 5,
+        width: "97.5%",
 
     },
     continueButtonText:{
@@ -156,6 +162,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         color: 'white',
         fontSize: 20,
+
     },
 });
 

@@ -1,145 +1,23 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
-import * as SQLite from "expo-sqlite";
-import {useIsFocused} from "@react-navigation/core";
 
-const db = SQLite.openDatabase("23.db");
-
-const SendScreen = ({ navigation, route }) => {
-    // const [value1, onChangeText1] = useState('Placeholder');
-    // const [value2, onChangeText2] = useState('Additonal comments');
-    const [selectedImages, setSelectedImages] = useState({});
-
-    //THIS IS USE TO LINK THE FAR SHOT ID'S RETRIEVED FROM THE SELECTION TO THE FAR SHOT OBJECT
-    const [selectedMoles , setSelectedMoles]  = useState({});
-    const [displayString,  setDisplayString]   = useState("None Selected")
-    const isFocused = useIsFocused()
-
-    /*useEffect(
-        () => {
-            //Finds the new selected moles
-            let newSelectedMoles = {}
-            for (const [farShotID, nearShotURIs] of Object.entries(selectedImages)){
-                if (!(nearShotURIs.length === undefined || nearShotURIs.length === 0)){
-                    db.transaction(
-                        tx => {
-                            tx.executeSql(
-                                "SELECT mole_id, name, comments, far_shot, lastUpdated FROM mole WHERE mole_id = ?;",
-                                [farShotID],
-                                (_, { rows }) => newSelectedMoles[farShotID] = rows._array
-                            );
-                        }
-                    );
-                }
-            }
-            setSelectedMoles({...newSelectedMoles})
-
-            let displayString = ""
-            for (const[farShotID, _] of Object.entries(selectedMoles)){
-                displayString = displayString + '\n' + selectedMoles[farShotID][0].name + ': ' + selectedImages[farShotID].length
-            }
-            console.log(displayString)
-            //console.log("----------------------------------------------------------------")
-            //console.log("SELECTED MOLES:", selectedMoles)
-            //console.log("----------------------------------------------------------------")
-
-        },[isFocused]
-    )*/
-
-
-    const setSelection = (selection) => {
-        setSelectedImages(selection)
-        //Finds the new selected moles
-        let newSelectedMoles = {}
-        for (const [farShotID, nearShotURIs] of Object.entries(selectedImages)){
-            if (!(nearShotURIs.length === undefined || nearShotURIs.length === 0)){
-                db.transaction(
-                    tx => {
-                        tx.executeSql(
-                            "SELECT mole_id, name, comments, far_shot, lastUpdated FROM mole WHERE mole_id = ?;",
-                            [farShotID],
-                            (_, { rows }) => newSelectedMoles[farShotID] = rows._array
-                        );
-                    }
-                );
-            }
-        }
-        setSelectedMoles(newSelectedMoles)
-
-        let displayString = ""
-        for (const[farShotID, _] of Object.entries(selectedMoles)){
-            displayString = displayString + '\n' + selectedMoles[farShotID][0].name + ': ' + selectedImages[farShotID].length
-        }
-        setDisplayString(displayString)
-        console.log(displayString)
-        //console.log("----------------------------------------------------------------")
-        //console.log("SELECTED MOLES:", selectedMoles)
-        //console.log("----------------------------------------------------------------")
-    }
-
+const SendScreen = ({ navigation}) => {
 
     const selected = () => {
-        navigation.navigate("SelectMole", {setSelection: {setSelection}, currentSelection: selectedImages});
+        navigation.navigate("SelectMole");
     }
-
-
-    const Notice = () =>
-        Alert.alert(
-            "Notice",
-            "The email to your GP will not be protected by any extra encryption and your email app is responsible for anything bad happening, not the amazing people that kindly developed this app",
-            [
-                {
-                    text: "Cancel",
-                    onPress: () => console.log("Cancel Pressed"),
-
-                },
-                {   text: "OK",
-                    onPress: () => Linking.openURL("mailto:?subject=Mole Images&body=\n\nProduced by SCaRF."),
-                    style: "cancel",
-                }
-            ],
-            { cancelable: false }
-        );
-
-    // onPress: () => Linking.openURL("mailto:yourgp'semal@blahblahblah.com?subject=Mole Images&body=Produced by SCaRF."),
 
 
     return (
             <ScrollView>
-                <Text style={styles.mainBodyText}>Press the button below to select the images you want to attach to
-                    an email.</Text>
+                <Text style={styles.mainBodyText}>
+                    Here you can select the images you want to send to your GP. Once selected, you will be transported to our email page where you can send your moles.
+                </Text>
                 <TouchableOpacity
                     style={styles.doneBox}
                     onPress = {() => selected()}
                 >
                     <Text style={styles.doneText}>Select images</Text>
-                </TouchableOpacity>
-
-                <Text style={styles.mainBodyText}>The name of the mole(s), date the images were taken and the location
-                of the mole on your body will also be attached.</Text>
-
-                <Text style={styles.mainBodyText}>If you would like to add any additional comments please do so in the
-                box below or in the email itself.</Text>
-
-                <View style={styles.commentBox}>
-                    <TextInput
-                        style={styles.textInputStyle}
-                    />
-                </View>
-
-                <Text style={styles.mainBodyText}>Moles selected:</Text>
-                <Text style={styles.bulletPoints}>{displayString}</Text>
-
-
-                <Text style={styles.mainBodyText}>Press the button below to open up your default email application.
-                All the information you have selected will be attached. Make sure that you check the email address you are
-                    sending the images to is correct.</Text>
-
-                <TouchableOpacity
-                    style={styles.doneBox}
-                    onPress={() => Notice()}
-                >
-                    <Text style={styles.doneText}>SEND</Text>
                 </TouchableOpacity>
             </ScrollView>
     );

@@ -8,7 +8,6 @@ const db = SQLite.openDatabase("23.db");
 
 const SelectNearShots = ({route, navigation }) => {
     const [entries, setEntries] = useState([]);
-
     //Get a list of all the near shot images for a particular mole entry
     useEffect(() => {
         db.transaction(

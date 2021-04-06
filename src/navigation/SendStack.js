@@ -6,6 +6,7 @@ import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import SelectMole from "../screens/SelectMole";
 import SelectNearShots from "../screens/SelectNearShots"
+import SendEmail from "../screens/SendEmail";
 
 const Stack = createStackNavigator()
 
@@ -40,6 +41,15 @@ const SendStack = () => {
             component = {SelectNearShots}
             options = {{
                 title: "Select near shots",
+                headerTitle: props => <HeaderText {...props} />,
+                headerRight: props => <HeaderButton {...props} />,
+            }}
+        />
+        <Stack.Screen
+            name = "SendEmail"
+            component = {SendEmail}
+            options = {{
+                title: "Send Email",
                 headerTitle: props => <HeaderText {...props} />,
                 headerRight: props => <HeaderButton {...props} />,
             }}
