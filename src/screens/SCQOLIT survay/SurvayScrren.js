@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Text, StyleSheet, TouchableOpacity , Alert, ScrollView} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, Platform} from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
 const SurveyScreen = ({navigation}) => {
@@ -29,9 +29,9 @@ const SurveyScreen = ({navigation}) => {
             <View style = {{marginHorizontal: '2.5%'}}>
                 <Text style = {styles.startText}>
                     The purpose of this questionnaire is to measure how much having skin cancer has affected your quality of life
-                    over the last week. Please answer scroll through the questionnaire and select an answer for all  ten questions.
+                    over the last week. Please scroll through the questionnaire and select an answer for all ten questions.
                 </Text>
-                <View style = {{marginTop:15,zIndex:10}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 10}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 1</Text>
                     <Text style = {styles.questionText}>Over the last week, how much have you been concerned that your skin cancer might come back?</Text>
                     <DropDownPicker
@@ -46,7 +46,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[0] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:9}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 9}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 2</Text>
                     <Text style = {styles.questionText}>Over the last week, how much have you felt that you needed more information on how to recognize skin cancer
                         or prevent it?</Text>
@@ -62,7 +62,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[1] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:8}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 8}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 3</Text>
                     <Text style = {styles.questionText}>Over the last week how much have you worried about covering up your skin and keeping out of the sun?</Text>
                     <DropDownPicker
@@ -77,7 +77,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[2] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:7}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 7}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 4</Text>
                     <Text style = {styles.questionText}>Over the last week, how much have you felt a need for reassurance from your doctor or nurse, in respect to your
                         skin cancer or its treatment?</Text>
@@ -93,7 +93,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[3] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:6}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 6}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 5</Text>
                     <Text style = {styles.questionText}>Over the last week, how much have you felt emotional, anxious, depressed, guilty or stressed, in respect to your skin cancer or its treatment?</Text>
                     <DropDownPicker
@@ -108,7 +108,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[4] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:5}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 5}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 6</Text>
                     <Text style = {styles.questionText}>Over the last week, how much have you been bothered about any disfigurement or scarring, in respect to your skin cancer or its treatment?</Text>
                     <DropDownPicker
@@ -123,7 +123,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[5] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:4}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 4}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 7</Text>
                     <Text style = {styles.questionText}>Over the last week, how much have you felt shock or disbelief about having been diagnosed with skin cancer?</Text>
                     <DropDownPicker
@@ -138,7 +138,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[6] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:3}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 3}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 8</Text>
                     <Text style = {styles.questionText}>Over the last week, how much skin discomfort or inconvenience have you experienced, in respect to your skin
                         cancer or its treatment?</Text>
@@ -154,7 +154,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[7] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:2}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 2}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 9</Text>
                     <Text style = {styles.questionText}>Over the last week, how much have you had concerns about dying from your skin cancer?</Text>
                     <DropDownPicker
@@ -169,7 +169,7 @@ const SurveyScreen = ({navigation}) => {
                         onChangeItem = {item => answers[8] = item.value}
                     />
                 </View>
-                <View style = {{marginTop:15,zIndex:1}}>
+                <View style = {{...(Platform.OS !== 'android' && {zIndex: 1}), marginTop:15}}>
                     <Text style = {styles.questionTitle}>Question 10</Text>
                     <Text style = {styles.questionText}>Over the last week, to what extent have you felt the need for emotional support from your family or friends, in
                         respect to your skin cancer or its treatment?</Text>

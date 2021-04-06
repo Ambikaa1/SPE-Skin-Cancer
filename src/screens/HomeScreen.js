@@ -78,7 +78,7 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{marginHorizontal: '2.5%', alignItems:'center', backgroundColor: "#71A1D1", borderRadius: 10}} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>
-                    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to Take SCQOLIT survey</Text>
+                    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to complete SCQOLIT survey</Text>
                 </TouchableOpacity>
 
                 <View style = {styles.logosContainer}>
@@ -91,19 +91,19 @@ const HomeScreen = ({ navigation }) => {
                         <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                     </TouchableOpacity>
                 </View>
-                <View>
-                        <TouchableOpacity onPress = {() => {
-                            db.transaction(
-                                tx => {
-                                    tx.executeSql("select * from user;", [], (_, { rows }) =>
-                                        console.log(rows)
-                                    );
-                                }
-                            );
-                        }}>
-                        <Text>VIEW_USER</Text>
-                    </TouchableOpacity>
-                </View>
+                {/*<View>*/}
+                {/*        <TouchableOpacity onPress = {() => {*/}
+                {/*            db.transaction(*/}
+                {/*                tx => {*/}
+                {/*                    tx.executeSql("select * from user;", [], (_, { rows }) =>*/}
+                {/*                        console.log(rows)*/}
+                {/*                    );*/}
+                {/*                }*/}
+                {/*            );*/}
+                {/*        }}>*/}
+                {/*        <Text>VIEW_USER</Text>*/}
+                {/*    </TouchableOpacity>*/}
+                {/*</View>*/}
             {/* </ScrollView> */}
         </SafeAreaView>
     );

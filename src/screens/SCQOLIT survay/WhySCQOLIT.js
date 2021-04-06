@@ -31,7 +31,6 @@ const WhySCQOLIT = ({navigation}) =>{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
     },
     title:{
         fontWeight: "bold",
@@ -40,6 +39,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign:'center',
         },
+
     text:{
         marginBottom: '15%',
         textAlign: 'center',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     nextButton:{
-        backgroundColor: "#567781",
+        backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
         marginHorizontal:'2.5%',
