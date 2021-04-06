@@ -67,7 +67,7 @@ const HomeScreen = ({ navigation }) => {
                 keyExtractor = {item => `${item.mole_id}`}
                 style = {styles.countdowns}
             />
-                
+
             {/* <ScrollView> */}
                 {/* <View style = {styles.circleContainer}>
                     <View style = {styles.circle} />
@@ -77,7 +77,10 @@ const HomeScreen = ({ navigation }) => {
                 <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
                     <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
                 </TouchableOpacity>
-                
+                <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>
+                    <Text style={{fontSize: 20, paddingVertical: 5}}>Press to Take SCQOLIT survey</Text>
+                </TouchableOpacity>
+
                 <View style = {styles.logosContainer}>
                     <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
                         {/* <Text style = {styles.textAboveLogo}>About SCaRF</Text> */}

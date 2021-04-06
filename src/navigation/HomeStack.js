@@ -8,6 +8,9 @@ import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import SettingsButton from "../components/SettingsButton"
 import RiskFactorsScreen from "../screens/RiskFactorsScreen";
+import SurveyScreen from "../screens/SurvayScrren";
+import WhySCQOLIT from "../screens/SCQOLIT survay/WhySCQOLIT";
+import LastSCQOLITScreen from "../screens/SCQOLIT survay/LastSCQOLITScreen";
 
 const Stack = createStackNavigator()
 
@@ -66,6 +69,33 @@ const HomeStack = () => {
             headerTitle: props => <HeaderText {...props} />,
             headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
         }}
+      />
+      <Stack.Screen
+          name= "SurveyScreen"
+          component = {SurveyScreen}
+          options = {{
+              title: "SCQOLIT Survey",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
+          }}
+      />
+      <Stack.Screen
+          name="WhySCQOLITScreen"
+          component = {WhySCQOLIT}
+          options = {{
+              title: "Why SCQOLIT?",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
+          }}
+      />
+      <Stack.Screen
+          name="LastSCQOLITScreen"
+          component = {LastSCQOLITScreen}
+          options = {{
+              title: "Done",
+              headerTitle: props => <HeaderText {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction={UserHelp} />,
+          }}
       />
     </Stack.Navigator>
   );

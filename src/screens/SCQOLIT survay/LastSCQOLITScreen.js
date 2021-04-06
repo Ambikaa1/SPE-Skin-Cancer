@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
 
 const LastSCQOLITScreen = ({navigation, route}) => {
     return(
@@ -17,7 +17,7 @@ const LastSCQOLITScreen = ({navigation, route}) => {
 
 
             </View>
-            <TouchableOpacity style = {styles.nextButton}>
+            <TouchableOpacity style = {styles.nextButton} onPress = {() => navigation.navigate("HomeScreen")}>
                 <Text style = {styles.nextButtonText}>
                     Next
                 </Text>

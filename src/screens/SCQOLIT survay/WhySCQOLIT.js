@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 
 
 const WhySCQOLIT = ({navigation}) =>{
@@ -19,14 +19,9 @@ const WhySCQOLIT = ({navigation}) =>{
                     It assesses how you are coping with your diagnosis.  You have the option of sharing it with your clinical team.  It can help them identify whether you would benefit from extra support.
                 </Text>
             </View>
-            <View style ={styles.questionView}>
-                <Text style = {styles.question}>
-                    Would you like to complete the SCQOLIT questions today?
-                </Text>
-            </View>
-            <TouchableOpacity style = {styles.yesButton} onPress ={() => navigation.navigate("InfoSCQOLIT")}>
-                <Text style = {styles.yesText}>
-                    Yes
+            <TouchableOpacity style = {styles.nextButton} onPress ={() => navigation.navigate("SurveyScreen")}>
+                <Text style = {styles.nextText}>
+                    Next
                 </Text>
             </TouchableOpacity>
         </ScrollView>
@@ -40,26 +35,25 @@ const styles = StyleSheet.create({
     },
     title:{
         fontWeight: "bold",
-        marginTop: 10,
-        marginBottom: 60,
+        marginTop: '5%',
+        marginBottom: '30%',
         fontSize: 30,
         textAlign:'center',
         },
     text:{
-        marginBottom: 50,
+        marginBottom: '15%',
         textAlign: 'center',
         fontSize:20,
         alignItems: 'center',
     },
-    yesButton:{
-        backgroundColor: "#24b324",
+    nextButton:{
+        backgroundColor: "#567781",
         alignItems: "center",
         borderRadius: 10,
-        marginLeft:10,
-        marginTop: 40,
-        width: "95%",
+        marginHorizontal:'2.5%',
+        marginTop: '28%',
     },
-    yesText:{
+    nextText:{
         fontSize: 30,
         fontWeight: "bold",
         color: "white",
