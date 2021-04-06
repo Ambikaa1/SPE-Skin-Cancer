@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Alert, Image, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList } from "react-native";
 import { useIsFocused } from "@react-navigation/native"
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
 const SelectMoleScreen = ({route, navigation }) => {
     const [molesDictionary, setMolesDictionary] = useState(route.params.currentSelection)
@@ -60,7 +60,7 @@ const SelectMoleScreen = ({route, navigation }) => {
             }
         );
         let newCount = 0
-        for (const [_, entry] of Object.entries(molesDictionary)){
+        for (const [, entry] of Object.entries(molesDictionary)){
             newCount += entry.length
         }
         setTotalCount(newCount)

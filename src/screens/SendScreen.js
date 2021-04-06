@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
 import * as SQLite from "expo-sqlite";
+import {useIsFocused} from "@react-navigation/core";
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
 const SendScreen = ({ navigation, route }) => {
     // const [value1, onChangeText1] = useState('Placeholder');
@@ -11,13 +12,46 @@ const SendScreen = ({ navigation, route }) => {
 
     //THIS IS USE TO LINK THE FAR SHOT ID'S RETRIEVED FROM THE SELECTION TO THE FAR SHOT OBJECT
     const [selectedMoles , setSelectedMoles]  = useState({});
+    const [displayString,  setDisplayString]   = useState("None Selected")
+    const isFocused = useIsFocused()
+
+    /*useEffect(
+        () => {
+            //Finds the new selected moles
+            let newSelectedMoles = {}
+            for (const [farShotID, nearShotURIs] of Object.entries(selectedImages)){
+                if (!(nearShotURIs.length === undefined || nearShotURIs.length === 0)){
+                    db.transaction(
+                        tx => {
+                            tx.executeSql(
+                                "SELECT mole_id, name, comments, far_shot, lastUpdated FROM mole WHERE mole_id = ?;",
+                                [farShotID],
+                                (_, { rows }) => newSelectedMoles[farShotID] = rows._array
+                            );
+                        }
+                    );
+                }
+            }
+            setSelectedMoles({...newSelectedMoles})
+
+            let displayString = ""
+            for (const[farShotID, _] of Object.entries(selectedMoles)){
+                displayString = displayString + '\n' + selectedMoles[farShotID][0].name + ': ' + selectedImages[farShotID].length
+            }
+            console.log(displayString)
+            //console.log("----------------------------------------------------------------")
+            //console.log("SELECTED MOLES:", selectedMoles)
+            //console.log("----------------------------------------------------------------")
+
+        },[isFocused]
+    )*/
+
 
     const setSelection = (selection) => {
         setSelectedImages(selection)
-
         //Finds the new selected moles
         let newSelectedMoles = {}
-        for (const [farShotID, nearShotURIs] of Object.entries(selection)){
+        for (const [farShotID, nearShotURIs] of Object.entries(selectedImages)){
             if (!(nearShotURIs.length === undefined || nearShotURIs.length === 0)){
                 db.transaction(
                     tx => {
@@ -31,10 +65,16 @@ const SendScreen = ({ navigation, route }) => {
             }
         }
         setSelectedMoles(newSelectedMoles)
-        console.log("----------------------------------------------------------------")
-        console.log("SELECTED MOLES:", selectedMoles)
-        console.log("----------------------------------------------------------------")
 
+        let displayString = ""
+        for (const[farShotID, _] of Object.entries(selectedMoles)){
+            displayString = displayString + '\n' + selectedMoles[farShotID][0].name + ': ' + selectedImages[farShotID].length
+        }
+        setDisplayString(displayString)
+        console.log(displayString)
+        //console.log("----------------------------------------------------------------")
+        //console.log("SELECTED MOLES:", selectedMoles)
+        //console.log("----------------------------------------------------------------")
     }
 
 
@@ -62,6 +102,8 @@ const SendScreen = ({ navigation, route }) => {
         );
 
     // onPress: () => Linking.openURL("mailto:yourgp'semal@blahblahblah.com?subject=Mole Images&body=Produced by SCaRF."),
+
+
     return (
             <ScrollView>
                 <Text style={styles.mainBodyText}>Press the button below to select the images you want to attach to
@@ -86,8 +128,7 @@ const SendScreen = ({ navigation, route }) => {
                 </View>
 
                 <Text style={styles.mainBodyText}>Moles selected:</Text>
-                <Text style={styles.bulletPoints}>{'\u2022'}*Mole name 1*</Text>
-                <Text style={styles.bulletPoints}>{'\u2022'}*Mole name 2*</Text>
+                <Text style={styles.bulletPoints}>{displayString}</Text>
 
 
                 <Text style={styles.mainBodyText}>Press the button below to open up your default email application.

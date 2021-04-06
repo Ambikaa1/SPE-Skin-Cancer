@@ -4,9 +4,9 @@ import { Camera } from "expo-camera";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
-const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
+const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [ghostImage, setGhostImage] = useState(true);
     const [ghostImageFile, setGhostImageFile] = useState(null)
@@ -74,7 +74,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id }) => {
                     onPress = {async() => {
                         if (cameraRef) {
                                 let photo = await cameraRef.takePictureAsync();
-                                navigation.navigate(nextScreen, { photo: photo.uri, name: name, comments: comments, id: id })
+                                navigation.navigate(nextScreen, { photo: photo.uri, name: name, comments: comments, id: id, bodyPart, })
                                 // console.log('photo taken', photo);
                         }
                     }}>

@@ -16,7 +16,7 @@ Notifications.setNotificationHandler({
     }),
 });
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
 const HomeScreen = ({ navigation }) => {
     const [expoPushToken, setExpoPushToken] = useState('');
