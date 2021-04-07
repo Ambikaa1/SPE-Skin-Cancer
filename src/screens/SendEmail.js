@@ -41,28 +41,23 @@ const SendEmail = ({ navigation, route }) => {
 
     return (
         <ScrollView>
-            <Text style={styles.mainBodyText}>Press the button below to select the images you want to attach to
-                an email.</Text>
-            <TouchableOpacity
-                style={styles.doneBox}
-                onPress = {() => selected()}
-            >
-                <Text style={styles.doneText}>Select images</Text>
-            </TouchableOpacity>
+            <Text style={styles.mainBodyText}>Each Mole along with your near-shots will be added to its OWN email, this is to ensure your
+                GP knows which near-shots belong to which Mole.</Text>
 
-            <Text style={styles.mainBodyText}>The name of the mole(s), date the images were taken and the location
+            <Text style={styles.mainBodyText}>The name of the mole, date the images were taken and the location
                 of the mole on your body will also be attached.</Text>
 
-            <Text style={styles.mainBodyText}>If you would like to add any additional comments please do so in the
-                box below or in the email itself.</Text>
+            <Text style={styles.mainBodyText}>There is a box below each set of images for any additional comments you would like to make,
+                or you can do this in the email itself.
+            </Text>
 
-            <View style={styles.commentBox}>
+           {/* <View style={styles.commentBox}>
                 <TextInput
                     style={styles.textInputStyle}
                 />
-            </View>
+            </View>*/}
 
-            <Text style={styles.mainBodyText}>Moles selected:</Text>
+            <Text style={styles.mainBodyText}>You have selected the following moles:</Text>
             <Text style={styles.bulletPoints}>{displayString}</Text>
 
 
@@ -143,6 +138,7 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         paddingLeft: 15,
         paddingRight: 10,
+        fontWeight: "bold"
     },
 });
 

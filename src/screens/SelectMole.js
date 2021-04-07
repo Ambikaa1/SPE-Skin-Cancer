@@ -29,10 +29,11 @@ const SelectMoleScreen = ({navigation }) => {
 
         let numberSelected = molesDictionary[moleID] === undefined ? 0 : molesDictionary[moleID].length
         return(
-            <TouchableOpacity style = {styles.nearFarShot} onPress = {() =>
-                navigation.navigate("SelectNearShots",
-                    { id: moleID, currentSelection: molesDictionary[moleID],updateSelection : {updateSelection}}
-                    )}>
+            <TouchableOpacity style = {styles.nearFarShot}
+                              onPress     = {() => navigation.navigate("SelectNearShots", { id: moleID, currentSelection: molesDictionary[moleID],updateSelection : {updateSelection}})}
+                              onLongPress = {() => navigation.navigate("Image", { uri: item.far_shot })}
+            >
+
                 <Image
                     style = {[styles.image, {borderWidth: 5}, numberSelected === 0 ?  {opacity: 1, borderColor:  "transparent"} : {opacity : 0.5, borderColor:  "#c708ff"}]}
                     source = {{ uri: moleURI}}
@@ -97,7 +98,8 @@ const SelectMoleScreen = ({navigation }) => {
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.title}>Select a mole to view near shots:</Text>
+            <Text style = {styles.title}>Select a mole to view near shots</Text>
+            <Text style = {styles.subtitle}>Hold your finger on an image to enlarge it</Text>
 
             <FlatList
                 data = {moles}
@@ -132,9 +134,16 @@ const styles = StyleSheet.create({
     },
     title: {
         marginTop: 10,
-        marginBottom: 5,
         marginLeft: 10,
         fontSize: 20,
+        fontWeight: "bold",
+    },
+    subtitle:{
+        marginTop: 5,
+        marginBottom: 5,
+        marginLeft: 10,
+        fontSize: 16,
+
     },
     image: {
         height: 200,

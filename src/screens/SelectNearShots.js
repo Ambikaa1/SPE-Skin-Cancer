@@ -23,7 +23,6 @@ const SelectNearShots = ({route, navigation }) => {
 
     const [selectedImages , setSelectedImages] = useState(route.params.currentSelection === undefined ? [] : route.params.currentSelection)
     const [selectedNum    , setSelectedNum]    = useState(selectedImages.length)
-    const [enlargedImage  , setEnlargedImage ] = useState(null)
 
 
     const displayFarShots = ({ item }) => {
@@ -35,7 +34,7 @@ const SelectNearShots = ({route, navigation }) => {
                 <Pressable
                     style = {styles.image}
                     onPress     = {() => HandleMultipleSelection(uri)}
-                    onLongPress = {() => setEnlargedImage(uri)}
+                    onLongPress = {() => navigation.navigate("Image", { uri: item.near_shot })}
                 >
                     <Image
                         style = {[styles.image, {borderWidth: 5}, selected ?  {opacity : 0.5, borderColor:  "#c708ff"} : {opacity: 1, borderColor:  "transparent"}]}
@@ -70,6 +69,7 @@ const SelectNearShots = ({route, navigation }) => {
 
         <View style={styles.container}>
             <Text style = {styles.title}>Tap the images to select them</Text>
+            <Text style = {styles.subtitle}>Hold your finger on an image to enlarge it</Text>
             <Text style={styles.selectCountText}>Currently selected: {selectedNum}</Text>
 
             <FlatList
@@ -89,8 +89,6 @@ const SelectNearShots = ({route, navigation }) => {
             >
                 <Text style={styles.continueButtonText}>{"Return"}</Text>
             </TouchableOpacity>
-
-            {!(enlargedImage === null) && console.log("Image enlarged")}
         </View>
     );
 };
@@ -120,10 +118,15 @@ const styles = StyleSheet.create({
     },
     title: {
         marginTop: 10,
+        marginLeft: 10,
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    subtitle:{
+        marginTop: 5,
         marginBottom: 5,
         marginLeft: 10,
-        fontSize: 22,
-        fontWeight: "bold",
+        fontSize: 16,
     },
     selectCountText: {
         marginBottom: 5,
