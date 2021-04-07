@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
-import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert, FlatList} from "react-native";
 import * as SQLite from "expo-sqlite";
 import {useIsFocused} from "@react-navigation/native";
+import * as MailComposer from 'expo-mail-composer';
 
 const db = SQLite.openDatabase("23.db");
 
 const SendEmail = ({ navigation, route }) => {
-    console.log("ON SEND SCREEN")
     // const [value1, onChangeText1] = useState('Placeholder');
     // const [value2, onChangeText2] = useState('Additonal comments');
     const isFocused = useIsFocused()
@@ -16,6 +16,22 @@ const SendEmail = ({ navigation, route }) => {
     let displayString = ""
     for (const farShotID of Object.keys(selectedMoles)){
         displayString = displayString + '\n' +  selectedMoles[farShotID].name + ': ' + selectedImages[farShotID].length
+    }
+
+    async function sendEmail(moldID) {
+        let email = await MailComposer.composeAsync({
+            recipients: ['robot.seth@gmail.com'],
+            subject   : 'Mole Photos',
+            body      : 'Test Body',
+            attachments:selectedImages[moldID]
+        })
+        alert(email.status)
+    }
+
+    async function sendEmails(){
+        for(let [moldID, moldObject] of Object.entries(selectedMoles)){
+            await sendEmail(moldID)
+        }
     }
 
     const Notice = () =>
@@ -28,10 +44,15 @@ const SendEmail = ({ navigation, route }) => {
                     onPress: () => console.log("Cancel Pressed"),
 
                 },
-                {   text: "OK",
-                    onPress: () => Linking.openURL("mailto:?subject=Mole Images&body=\n\nProduced by SCaRF."),
+               /* {   text: "OK",
+                    onPress: () => Linking.openURL("mailto:?subject=Mole Images&body=${selectedImages}'Produced by SCaRF."),
                     style: "cancel",
-                }
+                }*/
+                 {   text: "OK",
+                   onPress: sendEmails(),
+                   style: "cancel",
+               }
+
             ],
             { cancelable: false }
         );
@@ -51,11 +72,12 @@ const SendEmail = ({ navigation, route }) => {
                 or you can do this in the email itself.
             </Text>
 
-           {/* <View style={styles.commentBox}>
-                <TextInput
-                    style={styles.textInputStyle}
-                />
-            </View>*/}
+{/*
+            <FlatList
+                data = {selectedMoles}
+                renderItem = {showEmailBody}
+                keyExtractor = {item => item.key}
+            />*/}
 
             <Text style={styles.mainBodyText}>You have selected the following moles:</Text>
             <Text style={styles.bulletPoints}>{displayString}</Text>

@@ -78,18 +78,12 @@ const SelectMoleScreen = ({navigation }) => {
                 delete molesDictionary[key]
             }else{
                 for (const mole of moles){
-                     console.log(typeof mole.mole_id)
                     if (mole.mole_id.toString() === key){
-                        console.log("got here")
                         selectedMoles[key] = mole
                     }
                 }
             }
         }
-        console.log("Selected Moles =", selectedMoles)
-
-
-
         navigation.navigate("SendEmail", {selectedImages: molesDictionary, selectedMoles: selectedMoles})
     }
 
