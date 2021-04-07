@@ -20,7 +20,7 @@ const SendEmail = ({ navigation, route }) => {
 
     async function sendEmail(moldID) {
         let email = await MailComposer.composeAsync({
-            recipients: ['robot.seth@gmail.com'],
+            recipients: ['ye19836@bristol.ac.uk'],
             subject   : 'Mole Photos',
             body      : 'Test Body',
             attachments:selectedImages[moldID]
