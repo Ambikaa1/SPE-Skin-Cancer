@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
+import {Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 
 const SendScreen = ({ navigation}) => {
 

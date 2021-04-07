@@ -1,43 +1,22 @@
 import React, {useState, useEffect} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking, Alert} from "react-native";
 import * as SQLite from "expo-sqlite";
-import {useIsFocused} from "@react-navigation/core";
+import {useIsFocused} from "@react-navigation/native";
 
-const db = SQLite.openDatabase("22.db");
+const db = SQLite.openDatabase("23.db");
 
 const SendEmail = ({ navigation, route }) => {
+    console.log("ON SEND SCREEN")
     // const [value1, onChangeText1] = useState('Placeholder');
     // const [value2, onChangeText2] = useState('Additonal comments');
     const isFocused = useIsFocused()
+
     const selectedImages  = route.params.selectedImages
-    const [displayString, setDisplayString]  = useState("")
-    const [selectedMoles , setSelectedMoles] = useState({})
-
-
-   /* useEffect(() => {
-        for (const [farShotID, nearShotURIs] of Object.entries(selectedImages)){
-            if (!(nearShotURIs.length === undefined || nearShotURIs.length === 0)){
-                console.log(nearShotURIs.length)
-                console.log("hello2")
-                db.transaction(
-                    tx => {
-                        tx.executeSql(
-                            "SELECT mole_id, name, comments, far_shot, lastUpdated FROM mole WHERE mole_id = ?;",
-                            [parseInt(farShotID)],
-                            (_, { rows }) => {
-                                setSelectedMoles({...selectedMoles, [farShotID]: rows._array[0]})
-                                setDisplayString(displayString + '\n' +  selectedMoles[farShotID].name + ': ' + selectedImages[farShotID].length)//console.log(selectedMoles)
-                                console.log(displayString)
-                            }
-
-                        );
-                    }
-                );
-            }
-        }
-    }, [])*/
-
-
+    const selectedMoles   = route.params.selectedMoles
+    let displayString = ""
+    for (const farShotID of Object.keys(selectedMoles)){
+        displayString = displayString + '\n' +  selectedMoles[farShotID].name + ': ' + selectedImages[farShotID].length
+    }
 
     const Notice = () =>
         Alert.alert(

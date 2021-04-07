@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList } from "react-native";
-import { useIsFocused } from "@react-navigation/native"
+import React, {useEffect, useState} from "react";
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {useIsFocused} from "@react-navigation/native"
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("23.db");
 
 const SelectMoleScreen = ({navigation }) => {
     const [molesDictionary, setMolesDictionary] = useState({})
+    const [moleIDToObject, setMoleIDToObject]   = useState({})
     const [moles, setMoles] = useState([]);
     const [totalCount, setTotalCount] = useState(0)
     const isFocused = useIsFocused();
 
     const updateSelection = (moleID, newSelection) => {
         setMolesDictionary({...molesDictionary, [moleID]: newSelection})
-
     }
 
     const clearSelection = () => {
@@ -56,7 +56,9 @@ const SelectMoleScreen = ({navigation }) => {
             tx => {
                 tx.executeSql("SELECT mole_id, name, comments, far_shot, lastUpdated FROM mole;",
                     [],
-                    (_, { rows }) => setMoles(rows._array));
+                    (_, { rows }) => {
+                    setMoles(rows._array)
+                });
             }
         );
         let newCount = 0
@@ -69,7 +71,25 @@ const SelectMoleScreen = ({navigation }) => {
     }, [isFocused]);
 
     const continueToSend = () => {
-        navigation.navigate("SendEmail", {selectedImages: molesDictionary})
+        const selectedMoles = {}
+        for (const [key, entry] of Object.entries(molesDictionary)){
+            if (entry.length === 0){
+                delete molesDictionary[key]
+            }else{
+                for (const mole of moles){
+                     console.log(typeof mole.mole_id)
+                    if (mole.mole_id.toString() === key){
+                        console.log("got here")
+                        selectedMoles[key] = mole
+                    }
+                }
+            }
+        }
+        console.log("Selected Moles =", selectedMoles)
+
+
+
+        navigation.navigate("SendEmail", {selectedImages: molesDictionary, selectedMoles: selectedMoles})
     }
 
 
