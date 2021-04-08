@@ -48,9 +48,8 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
         "Right Upper Leg Front": require("../../assets/ghost/front/upper_right_leg.png"),
         "Left Lower Leg Front": require("../../assets/ghost/front/left_lower_leg.png"),
         "Right Lower Leg Front": require("../../assets/ghost/front/right_lower_leg.png"),
-
-        
-
+        "Dorsum Left Foot Front": require("../../assets/ghost/front/left_foot.png"),
+        "Dorsum Right Foot Front": require("../../assets/ghost/front/right_foot.png")
     };
 
     useEffect(() => {
