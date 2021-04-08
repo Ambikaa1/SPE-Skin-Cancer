@@ -46,6 +46,8 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
         "Volar Left Hand Front": require("../../assets/ghost/front/left_hand.png"),
         "Left Upper Leg Front": require("../../assets/ghost/front/upper_left_leg.png"),
         "Right Upper Leg Front": require("../../assets/ghost/front/upper_right_leg.png"),
+        "Left Lower Leg Front": require("../../assets/ghost/front/left_lower_leg.png"),
+        "Right Lower Leg Front": require("../../assets/ghost/front/right_lower_leg.png"),
 
         
 
