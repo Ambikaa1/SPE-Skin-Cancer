@@ -52,6 +52,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
                 ref = { ref => {setCameraRef(ref)} }
                 autoFocus={Camera.Constants.AutoFocus.on}
                 whiteBalance={Camera.Constants.WhiteBalance.auto}
+                flashMode={Camera.Constants.FlashMode.torch}
             />
 
             {ghostImage
