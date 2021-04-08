@@ -3,7 +3,7 @@ import {View, StyleSheet, ScrollView, TouchableOpacity, Image, Text} from "react
 
 const CloseHeadScreen = ({navigation}) => {
     const clickHandler = (bodyPart) => {
-        navigation.navigate("BodyPart", {bodyPart: bodyPart})
+        navigation.navigate("BodyPart", {bodyPart: bodyPart, side: "Front"})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>

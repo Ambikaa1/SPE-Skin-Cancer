@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView, Platfo
 import * as SQLite from "expo-sqlite";
 import DropDownPicker from "react-native-dropdown-picker";
 
-const db = SQLite.openDatabase("23.db");
+const db = SQLite.openDatabase("24.db");
 
 const RiskFactorsScreen = ({ navigation }) => {
     const [history, setHistory] = useState(null);

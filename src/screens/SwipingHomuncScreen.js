@@ -4,7 +4,7 @@ import Swiper from 'react-native-swiper'
 
 const RightBody = ({navigation}) => {
     const clickHandler = (bodyPart) => {
-        navigation.navigate("SideBodyPart", {bodyPart: bodyPart})
+        navigation.navigate("SideBodyPart", {bodyPart: bodyPart, side: "Right"})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
@@ -42,7 +42,7 @@ const RightBody = ({navigation}) => {
 
 const LeftBody = ({navigation}) => {
     const clickHandler = (bodyPart) => {
-        navigation.navigate("SideBodyPart", {bodyPart: bodyPart})
+        navigation.navigate("SideBodyPart", {bodyPart: bodyPart, side: "Left"})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
@@ -80,7 +80,7 @@ const LeftBody = ({navigation}) => {
 
 const FrontBody = ({navigation}) => {
     const clickHandler = (bodyPart, highlight) => {
-        navigation.navigate("BodyPart", {bodyPart: bodyPart, highlight: highlight})
+        navigation.navigate("BodyPart", {bodyPart: bodyPart, highlight: highlight, side: "Front"})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
@@ -166,7 +166,7 @@ const FrontBody = ({navigation}) => {
 
 const BackBody = ({navigation}) => {
     const clickHandler = (bodyPart, highlight) => {
-        navigation.navigate("BackBodyPart", {bodyPart: bodyPart, highlight: highlight})
+        navigation.navigate("BackBodyPart", {bodyPart: bodyPart, highlight: highlight, side: "Back"})
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>

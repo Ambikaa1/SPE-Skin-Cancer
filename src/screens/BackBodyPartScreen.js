@@ -52,7 +52,7 @@ const BackBodyPartScreen = ({route, navigation }) => {
             </View>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                 <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType", {
-                    bodyPart,
+                    bodyPart: `${bodyPart} ${route.params.side}`,
                 })}>
                     <Text style = {styles.doneText}>Confirm</Text>
                 </TouchableOpacity>

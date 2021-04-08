@@ -5,7 +5,7 @@ import * as SQLite from "expo-sqlite";
 
 import MoleListItem from "../components/MoleListItem"
 
-const db = SQLite.openDatabase("23.db");
+const db = SQLite.openDatabase("24.db");
 
 const MoleTypeScreen = ({navigation, route}) => {
     const [moleChoice, setChoice] = useState(null);
