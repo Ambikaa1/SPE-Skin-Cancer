@@ -3,7 +3,7 @@ import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView} from 'reac
 
 
 const HelpFarShotScreen = ({navigation, route}) => {
-
+    console.log(route.params.bodyPart);
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView persistentScrollbar={true}>

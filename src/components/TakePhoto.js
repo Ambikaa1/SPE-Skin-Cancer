@@ -13,6 +13,10 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
     const [type, setType] = useState(Camera.Constants.Type.back);
     const [cameraRef, setCameraRef] = useState(null);
 
+    const bodyPartGhost = {
+        "Back": require("../../assets/ghost/back/torso.png"),
+    };
+
     useEffect(() => {
         (async () => {
                 const { status } = await Camera.requestPermissionsAsync();
@@ -27,12 +31,17 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
                         [id],
                         (_, { rows }) => {
                             if (rows.length > 0) {
-                                setGhostImageFile(rows._array[0].near_shot)
+                                setGhostImageFile({ uri: rows._array[0].near_shot })
                             }
                         }
                     );
                 }
             );
+        } else if (nextScreen == "ReviewFar") {
+            switch (bodyPart) {
+                case "Back":
+                    setGhostImageFile(bodyPartGhost[bodyPart])
+            }
         }
     }, []);
 
@@ -56,7 +65,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
             />
 
             {ghostImage
-                ? <Image style = { styles.image } source = {{ uri: ghostImageFile }}/>
+                ? <Image style = { styles.image } source = {ghostImageFile}/>
                 : null
             }
 
