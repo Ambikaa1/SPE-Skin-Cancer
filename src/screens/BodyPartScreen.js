@@ -34,7 +34,7 @@ const checkFrontSwitch = (bodyPart) => {
         case 'Right Lower Leg':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRLL.png')}/>)
         case 'Dorsum Left Foot':
-            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftFoot.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseLeftFoot2.png')}/>)
         case 'Dorsum Right Foot':
             return (<Image style={styles.closeUp} source={require('../../assets/Front/CloseRightFoot.png')}/>)
     }
