@@ -14,31 +14,37 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
     const [cameraRef, setCameraRef] = useState(null);
 
     const bodyPartGhost = {
-        "Back": require("../../assets/ghost/back/torso.png"),
-        "Left Upper Arm": require("../../assets/ghost/back/upper_arm_left.png"),
-        "Left Lower Arm": require("../../assets/ghost/back/lower_arm_left.png"),
-        "Right Upper Arm": require("../../assets/ghost/back/upper_arm_right.png"),
-        "Right Lower Arm": require("../../assets/ghost/back/lower_arm_right.png"),
-        "Head or Neck": require("../../assets/ghost/back/head.png"),
-        "Dorsum Left Hand": require("../../assets/ghost/back/dorsum_left_hand.png"),
-        "Dorsum Right Hand": require("../../assets/ghost/back/dorsum_right_hand.png"),
-        "Left Upper Leg": require("../../assets/ghost/back/left_leg_upper.png"),
-        "Left Lower Leg": require("../../assets/ghost/back/left_leg_lower.png"),
-        "Right Upper Leg": require("../../assets/ghost/back/right_leg_upper.png"),
-        "Right Lower Leg": require("../../assets/ghost/back/right_leg_lower.png"),
-        "Plantar Surface Left Foot": require("../../assets/ghost/back/left_foot.png"),
-        "Plantar Surface Right Foot": require("../../assets/ghost/back/right_foot.png"),
-        "Left Head or Neck": require("../../assets/ghost/left/head.png"),
-        "Left Torso": require("../../assets/ghost/left/torso.png"),
-        "Left Legs": require("../../assets/ghost/left/legs.png"),
-        "Right Head or Neck": require("../../assets/ghost/right/head.png"),
-        "Right Torso": require("../../assets/ghost/right/torso.png"),
-        "Right Legs": require("../../assets/ghost/right/legs.png"),
+        "Back Back": require("../../assets/ghost/back/torso.png"),
+        "Left Upper Arm Back": require("../../assets/ghost/back/upper_arm_left.png"),
+        "Left Lower Arm Back": require("../../assets/ghost/back/lower_arm_left.png"),
+        "Right Upper Arm Back": require("../../assets/ghost/back/upper_arm_right.png"),
+        "Right Lower Arm Back": require("../../assets/ghost/back/lower_arm_right.png"),
+        "Head or Neck Back": require("../../assets/ghost/back/head.png"),
+        "Dorsum Left Hand Back": require("../../assets/ghost/back/dorsum_left_hand.png"),
+        "Dorsum Right Hand Back": require("../../assets/ghost/back/dorsum_right_hand.png"),
+        "Left Upper Leg Back": require("../../assets/ghost/back/left_leg_upper.png"),
+        "Left Lower Leg Back": require("../../assets/ghost/back/left_leg_lower.png"),
+        "Right Upper Leg Back": require("../../assets/ghost/back/right_leg_upper.png"),
+        "Right Lower Leg Back": require("../../assets/ghost/back/right_leg_lower.png"),
+        "Plantar Surface Left Foot Back": require("../../assets/ghost/back/left_foot.png"),
+        "Plantar Surface Right Foot Back": require("../../assets/ghost/back/right_foot.png"),
+        "Left Head or Neck Left": require("../../assets/ghost/left/head.png"),
+        "Left Torso Left": require("../../assets/ghost/left/torso.png"),
+        "Left Legs Left": require("../../assets/ghost/left/legs.png"),
+        "Right Head or Neck Right": require("../../assets/ghost/right/head.png"),
+        "Right Torso Right": require("../../assets/ghost/right/torso.png"),
+        "Right Legs Right": require("../../assets/ghost/right/legs.png"),
+        "Top of the head Front": require("../../assets/ghost/front/head_top.png"),
+        "Face Front": require("../../assets/ghost/front/face.png"),
+        "Neck Front": require("../../assets/ghost/front/neck.png"),
+        "Torso Front": require("../../assets/ghost/front/torso.png"),
+        "Left Upper Arm Front": require("../../assets/ghost/front/upper_left_arm.png"),
+        "Right Upper Arm Front": require("../../assets/ghost/front/upper_right_arm.png"),
+        "Left Lower Arm Front": require("../../assets/ghost/front/lower_left_arm.png"),
+        "Right Lower Arm Front": require("../../assets/ghost/front/lower_right_arm.png"),
         
 
     };
-
-    console.log(bodyPartGhost[bodyPart])
 
     useEffect(() => {
         (async () => {
