@@ -42,6 +42,11 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
         "Right Upper Arm Front": require("../../assets/ghost/front/upper_right_arm.png"),
         "Left Lower Arm Front": require("../../assets/ghost/front/lower_left_arm.png"),
         "Right Lower Arm Front": require("../../assets/ghost/front/lower_right_arm.png"),
+        "Volar Right Hand Front": require("../../assets/ghost/front/right_hand.png"),
+        "Volar Left Hand Front": require("../../assets/ghost/front/left_hand.png"),
+        "Left Upper Leg Front": require("../../assets/ghost/front/upper_left_leg.png"),
+        "Right Upper Leg Front": require("../../assets/ghost/front/upper_right_leg.png"),
+
         
 
     };
