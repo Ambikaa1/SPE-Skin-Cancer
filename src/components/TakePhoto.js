@@ -26,6 +26,8 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
         "Left Lower Leg": require("../../assets/ghost/back/left_leg_lower.png"),
         "Right Upper Leg": require("../../assets/ghost/back/right_leg_upper.png"),
         "Right Lower Leg": require("../../assets/ghost/back/right_leg_lower.png"),
+        "Plantar Surface Left Foot": require("../../assets/ghost/back/left_foot.png"),
+        "Plantar Surface Right Foot": require("../../assets/ghost/back/right_foot.png"),
         
 
     };
