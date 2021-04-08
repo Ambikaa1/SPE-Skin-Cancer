@@ -15,7 +15,22 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
 
     const bodyPartGhost = {
         "Back": require("../../assets/ghost/back/torso.png"),
+        "Left Upper Arm": require("../../assets/ghost/back/upper_arm_left.png"),
+        "Left Lower Arm": require("../../assets/ghost/back/lower_arm_left.png"),
+        "Right Upper Arm": require("../../assets/ghost/back/upper_arm_right.png"),
+        "Right Lower Arm": require("../../assets/ghost/back/lower_arm_right.png"),
+        "Head or Neck": require("../../assets/ghost/back/head.png"),
+        "Dorsum Left Hand": require("../../assets/ghost/back/dorsum_left_hand.png"),
+        "Dorsum Right Hand": require("../../assets/ghost/back/dorsum_right_hand.png"),
+        "Left Upper Leg": require("../../assets/ghost/back/left_leg_upper.png"),
+        "Left Lower Leg": require("../../assets/ghost/back/left_leg_lower.png"),
+        "Right Upper Leg": require("../../assets/ghost/back/right_leg_upper.png"),
+        "Right Lower Leg": require("../../assets/ghost/back/right_leg_lower.png"),
+        
+
     };
+
+    console.log(bodyPartGhost[bodyPart])
 
     useEffect(() => {
         (async () => {
@@ -38,10 +53,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
                 }
             );
         } else if (nextScreen == "ReviewFar") {
-            switch (bodyPart) {
-                case "Back":
-                    setGhostImageFile(bodyPartGhost[bodyPart])
-            }
+            setGhostImageFile(bodyPartGhost[bodyPart])
         }
     }, []);
 
