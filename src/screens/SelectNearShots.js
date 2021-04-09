@@ -4,7 +4,7 @@ import * as SQLite from "expo-sqlite";
 
 
 
-const db = SQLite.openDatabase("24.db");
+const db = SQLite.openDatabase("28.db");
 
 const SelectNearShots = ({route, navigation }) => {
     const [entries, setEntries] = useState([]);

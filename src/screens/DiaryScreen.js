@@ -4,7 +4,7 @@ import { useIsFocused } from "@react-navigation/native";
 import MoleListItem from "../components/MoleListItem"
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("24.db");
+const db = SQLite.openDatabase("28.db");
 
 const DiaryScreen = ({ navigation }) => {
     const [moles, setMoles] = useState([]);

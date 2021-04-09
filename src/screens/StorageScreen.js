@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("24.db");
+const db = SQLite.openDatabase("28.db");
 console.log(db);
 
 const StorageScreen = ({ route }) => {

@@ -45,14 +45,6 @@ const HomeStack = () => {
         headerTintColor: "white",
       }}
     >
-        <Stack.Screen
-            name = "WelcomeScreen"
-            component = {WelcomeScreen}
-            options = {{
-                title: "Welcome"
-            }}
-        />
-
       <Stack.Screen
         name = "HomeScreen"
         component = {HomeScreen}
