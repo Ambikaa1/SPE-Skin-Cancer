@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
         color: "black",
         fontSize: 25,
         paddingHorizontal:5,
-        // paddingVertical: 10,
         alignSelf: 'center',
     },
     bodyText:{
