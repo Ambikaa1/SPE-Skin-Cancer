@@ -23,11 +23,11 @@ const MoleTypeScreen = ({navigation, route}) => {
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.questionTop}>Is this a new mole?</Text>
+            <Text style = {styles.questionTop}>Have you logged this mole on the app before?</Text>
             <DropDownPicker
                 items = {[
-                    {label: 'Yes', value: 1},
-                    {label: 'No', value: 0},
+                    {label: 'Yes', value: 0},
+                    {label: 'No', value: 1},
                 ]}
                 containerStyle = {styles.dropDownContainer}
                 labelStyle = {styles.dropDownLabel}
