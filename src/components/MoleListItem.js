@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     },
     moleInfo: {
         marginLeft: 10,
+        flex: 1,
     },
     moleName: {
         fontSize: 20,

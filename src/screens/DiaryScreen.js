@@ -38,11 +38,12 @@ const DiaryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginHorizontal: 10
+        flex: 1,
     },
     title: {
         marginTop: 10,
         marginBottom: 5,
+        marginHorizontal: 10,
         fontSize: 17,
         fontWeight: "bold"
     }
