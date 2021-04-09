@@ -1,85 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PhotoSuccess /> renders correctly 1`] = `
-<View>
-  <Text
-    style={
-      Object {
-        "alignSelf": "center",
-        "color": "black",
-        "marginTop": 10,
-      }
-    }
-  >
-     Your mole photos are saved! 
-  </Text>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#71A1D1",
-        "borderRadius": 10,
-        "marginTop": 20,
-        "opacity": 1,
-        "width": "97.5%",
-      }
-    }
-  >
+<RCTScrollView>
+  <View>
     <Text
       style={
         Object {
-          "color": "white",
-          "fontSize": 30,
-          "fontWeight": "bold",
-          "marginVertical": 10,
+          "alignSelf": "center",
+          "color": "black",
+          "fontSize": 25,
+          "paddingHorizontal": 5,
+          "paddingVertical": 10,
         }
       }
     >
-      Finish
+       Your mole photos are saved! 
     </Text>
-  </View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#71A1D1",
-        "borderRadius": 10,
-        "marginTop": 20,
-        "opacity": 1,
-        "width": "97.5%",
-      }
-    }
-  >
     <Text
       style={
         Object {
-          "color": "white",
-          "fontSize": 30,
-          "fontWeight": "bold",
-          "marginVertical": 10,
+          "color": "black",
+          "fontSize": 20,
+          "paddingHorizontal": 5,
+          "paddingVertical": 5,
         }
       }
     >
-      take questionaire
+       Press finish below to go back to the body diagram. 
     </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "#71A1D1",
+          "borderRadius": 10,
+          "marginTop": 20,
+          "opacity": 1,
+          "width": "97.5%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "marginVertical": 10,
+          }
+        }
+      >
+        Finish
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "fontSize": 20,
+          "paddingHorizontal": 5,
+          "paddingVertical": 5,
+        }
+      }
+    >
+      
+
+      Alternatively, you can now complete an optional questionnaire by pressing take questionnaire below.
+      
+
+
+      Your answers will be attached to any email you send through the app. It is made for people who have, or have had, a diagnosis of skin cancer.
+      
+
+
+      This questionnaire is strictly optional and you can change your answers by answering it again.
+    </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "#71A1D1",
+          "borderRadius": 10,
+          "marginTop": 20,
+          "opacity": 1,
+          "width": "97.5%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "marginVertical": 10,
+          }
+        }
+      >
+        Take questionnaire
+      </Text>
+    </View>
   </View>
-</View>
+</RCTScrollView>
 `;
