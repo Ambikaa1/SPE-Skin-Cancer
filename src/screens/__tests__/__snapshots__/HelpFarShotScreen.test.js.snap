@@ -64,6 +64,19 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           }
         }
       >
+        Once you have taken a photo you will be able to drag a red circle with your finger to circle the mole. You can use the slider on the right to increase and decrease the size of the circle. If you need more help at that stage, click the question mark in the top right.
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 10,
+          }
+        }
+      >
         Tips:
       </Text>
       <Text
@@ -174,24 +187,47 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
            If you are not happy with the image, retake it.
         </Text>
       </Text>
-      <Text
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "fontSize": 17,
-            "paddingBottom": 5,
-            "paddingLeft": 15,
-            "paddingRight": 10,
-            "paddingTop": 5,
+            "opacity": 1,
           }
         }
       >
-        <Text>
-          •
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+              "paddingBottom": 5,
+              "paddingLeft": 15,
+              "paddingRight": 10,
+              "paddingTop": 5,
+            }
+          }
+        >
+          <Text>
+            •
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#3366ff",
+              }
+            }
+          >
+             For more advice see this YouTube video.
+          </Text>
         </Text>
-        <Text>
-           For more advice see this youtube video.
-        </Text>
-      </Text>
+      </View>
       <View
         accessible={true}
         focusable={true}
