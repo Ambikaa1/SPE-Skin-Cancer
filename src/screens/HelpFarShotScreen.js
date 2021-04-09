@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, Linking, View} from 'react-native'
+import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, Linking, View, Alert} from 'react-native'
 
 
 const HelpFarShotScreen = ({navigation, route}) => {
@@ -15,6 +15,10 @@ const HelpFarShotScreen = ({navigation, route}) => {
                 to help you line up the camera. This will be accessible
                 by pressing the ghost shaped button, to the right of the picture
                     button on the next page.</Text>
+
+                <Text style={styles.mainBodyText}>Once you have taken a photo you will be able to drag a red circle with
+                your finger to circle the mole. You can use the slider on the right to increase and decrease the size of the
+                circle. If you need more help at that stage, click the question mark in the top right.</Text>
 
                 <Text style={styles.mainBodyText}>Tips:</Text>
                 <Text style={styles.bulletPoints}>
@@ -46,8 +50,7 @@ const HelpFarShotScreen = ({navigation, route}) => {
                 <TouchableOpacity onPress = {() => Linking.openURL("https://www.youtube.com/")}>
                     <Text style={styles.bulletPoints}>
                         <Text>{'\u2022'}</Text>
-                        <Text> For more advice see this </Text>
-                        <Text style = {styles.link}>YouTube video.</Text>
+                        <Text style = {styles.link}> For more advice see this YouTube video.</Text>
                     </Text>
                 </TouchableOpacity>
 

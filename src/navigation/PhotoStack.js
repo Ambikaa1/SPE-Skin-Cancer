@@ -53,7 +53,7 @@ const PhotoStack = () => {
 
     const ReviewHelp = () => {
         Alert.alert("Help", "If you are happy with the photograph:\n\u2022Press 'Accept' below the image."+
-        "\n\u2022Drag the red circle around with your finger to circle the mole. You can use the slider of the right"+
+        "\n\u2022Drag the red circle around with your finger to circle the mole. You can use the slider on the right"+
         " to increase and decrease the size of the circle. Use this to make it clear what mole you are documenting."+
         "\n\u2022Press 'Done' to proceed.\n\nIf you are not happy and would like to take a different photograph:"+
         "\n\u2022Press 'Try again' and confirm your choice.");
