@@ -27,17 +27,6 @@ const HomeStack = () => {
       +" this app will be stored locally on your phone so only you have access to it.");
   };
 
-  const WhySurveyHelp = () => {
-      Alert.alert("Help", "\nThis page gives a description of the survey. Press 'Next' to continue")
-  };
-  const SurveyHelp = () => {
-      Alert.alert("Help","\nThis is the SCQOLIT survey.\n\nScroll through and select answers for each question from the drop down menus. \n\n"+
-          " When your done, press the 'Finished' button at the bottom of the page to save your answers and get your score.")
-  }
-  const FinalSurveyPageHelp = () => {
-      Alert.alert("Help","\nThis is your score for the SCQOLIT survey.\n\nPress 'Next' to return to the homepage")
-  }
-
   return(
     <Stack.Navigator
       screenOptions = {{
@@ -73,33 +62,33 @@ const HomeStack = () => {
             headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
         }}
       />
-      <Stack.Screen
-          name= "SurveyScreen"
-          component = {SurveyScreen}
-          options = {{
-              title: "SCQOLIT Survey",
-              headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} onPressFunction = {SurveyHelp} />,
-          }}
-      />
-      <Stack.Screen
-          name="WhySCQOLITScreen"
-          component = {WhySCQOLIT}
-          options = {{
-              title: "Why SCQOLIT?",
-              headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} onPressFunction = {WhySurveyHelp} />,
-          }}
-      />
-      <Stack.Screen
-          name="LastSCQOLITScreen"
-          component = {LastSCQOLITScreen}
-          options = {{
-              title: "Done",
-              headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} onPressFunction={FinalSurveyPageHelp} />,
-          }}
-      />
+      {/*<Stack.Screen*/}
+      {/*    name= "SurveyScreen"*/}
+      {/*    component = {SurveyScreen}*/}
+      {/*    options = {{*/}
+      {/*        title: "SCQOLIT Survey",*/}
+      {/*        headerTitle: props => <HeaderText {...props} />,*/}
+      {/*        headerRight: props => <HeaderButton {...props} onPressFunction = {SurveyHelp} />,*/}
+      {/*    }}*/}
+      {/*/>*/}
+      {/*<Stack.Screen*/}
+      {/*    name="WhySCQOLITScreen"*/}
+      {/*    component = {WhySCQOLIT}*/}
+      {/*    options = {{*/}
+      {/*        title: "Why SCQOLIT?",*/}
+      {/*        headerTitle: props => <HeaderText {...props} />,*/}
+      {/*        headerRight: props => <HeaderButton {...props} onPressFunction = {WhySurveyHelp} />,*/}
+      {/*    }}*/}
+      {/*/>*/}
+      {/*<Stack.Screen*/}
+      {/*    name="LastSCQOLITScreen"*/}
+      {/*    component = {LastSCQOLITScreen}*/}
+      {/*    options = {{*/}
+      {/*        title: "Done",*/}
+      {/*        headerTitle: props => <HeaderText {...props} />,*/}
+      {/*        headerRight: props => <HeaderButton {...props} onPressFunction={FinalSurveyPageHelp} />,*/}
+      {/*    }}*/}
+      {/*/>*/}
     </Stack.Navigator>
   );
 };

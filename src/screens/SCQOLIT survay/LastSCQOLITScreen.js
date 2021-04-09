@@ -6,7 +6,7 @@ const LastSCQOLITScreen = ({navigation, route}) => {
         <>
             <View style = {styles.container}>
                 <Text style = {styles.title}>
-                    Thank you for taking the survay! {"\n"}
+                    Thank you for taking the survey! {"\n"}
                     {"\n"}{"\n"}
 
                     Your score is:{"\n"}
@@ -17,7 +17,7 @@ const LastSCQOLITScreen = ({navigation, route}) => {
 
 
             </View>
-            <TouchableOpacity style = {styles.nextButton} onPress = {() => navigation.navigate("HomeScreen")}>
+            <TouchableOpacity style = {styles.nextButton} onPress = {() => navigation.navigate("InfoList")}>
                 <Text style = {styles.nextButtonText}>
                     Next
                 </Text>

@@ -62,9 +62,9 @@ const Home = ({ navigation }) => {
                 <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
                     <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{marginHorizontal: '2.5%', alignItems:'center', backgroundColor: "#71A1D1", borderRadius: 10}} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>
-                    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to complete SCQOLIT survey</Text>
-                </TouchableOpacity>
+                {/*<TouchableOpacity style={{marginHorizontal: '2.5%', alignItems:'center', backgroundColor: "#71A1D1", borderRadius: 10}} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>*/}
+                {/*    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to complete SCQOLIT survey</Text>*/}
+                {/*</TouchableOpacity>*/}
 
                 <View style = {styles.logosContainer}>
                     <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
