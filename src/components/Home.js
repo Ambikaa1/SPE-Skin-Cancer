@@ -51,7 +51,7 @@ const Home = ({ navigation }) => {
 
     return (
         <SafeAreaView style = {styles.container}>
-            <Text style = {styles.countdownText}>Upcoming mole photographs</Text>
+            <Text style = {styles.countdownText}>Number of days until you need to take another picture of your mole: </Text>
             <FlatList
                 data = {moles}
                 renderItem = {MoleCountdown}
@@ -131,7 +131,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 10,
         fontSize: 17,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        marginRight: 10,
     },
     countdowns: {
         marginTop: 10,
