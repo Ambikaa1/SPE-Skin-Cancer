@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView} from 'react-native'
+import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, Linking, View, Alert} from 'react-native'
 
 
 const HelpFarShotScreen = ({navigation, route}) => {
@@ -15,6 +15,10 @@ const HelpFarShotScreen = ({navigation, route}) => {
                 to help you line up the camera. This will be accessible
                 by pressing the ghost shaped button, to the right of the picture
                     button on the next page.</Text>
+
+                <Text style={styles.mainBodyText}>Once you have taken a photo you will be able to drag a red circle with
+                your finger to circle the mole. You can use the slider on the right to increase and decrease the size of the
+                circle. If you need more help at that stage, click the question mark in the top right.</Text>
 
                 <Text style={styles.mainBodyText}>Tips:</Text>
                 <Text style={styles.bulletPoints}>
@@ -43,10 +47,12 @@ const HelpFarShotScreen = ({navigation, route}) => {
                     <Text>{'\u2022'}</Text>
                     <Text> If you are not happy with the image, retake it.</Text>
                 </Text>
-                <Text style={styles.bulletPoints}>
-                    <Text>{'\u2022'}</Text>
-                    <Text> For more advice see this youtube video.</Text>
-                </Text>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.youtube.com/")}>
+                    <Text style={styles.bulletPoints}>
+                        <Text>{'\u2022'}</Text>
+                        <Text style = {styles.link}> For more advice see this YouTube video.</Text>
+                    </Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity style={styles.doneBox}
                     onPress={() => {
@@ -86,6 +92,9 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         paddingLeft: 15,
         paddingRight: 10,
+    },
+    link: {
+        color: "#3366ff",
     },
     doneBox: {
         backgroundColor: "#71A1D1",

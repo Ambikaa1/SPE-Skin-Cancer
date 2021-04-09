@@ -126,7 +126,7 @@ const RiskFactorsScreen = ({ navigation }) => {
             />
         </View>
         <View style = {{...(Platform.OS !== 'android' && {zIndex: 5})}}>
-            <Text style = {styles.questions}>Are you immunosuppressed?</Text>
+            <Text style = {styles.questions}>Are you immunosuppressed? (Suppression of the immune response, as by drugs or radiation)</Text>
             <DropDownPicker
                 items = {[
                     {label: 'Yes', value: "yes"},

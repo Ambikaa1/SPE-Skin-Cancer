@@ -10,23 +10,37 @@ exports[`<PhotoSuccess /> renders correctly 1`] = `
           "color": "black",
           "fontSize": 25,
           "paddingHorizontal": 5,
-          "paddingVertical": 10,
         }
       }
     >
-       Your mole photos are saved! 
+      Your mole photos are saved! 
+    </Text>
+    <Text />
+    <Text
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "black",
+          "fontSize": 25,
+          "paddingHorizontal": 5,
+        }
+      }
+    >
+      Would you now like to complete the SCQOLIT survey? 
     </Text>
     <Text
       style={
         Object {
           "color": "black",
-          "fontSize": 20,
+          "fontSize": 18,
           "paddingHorizontal": 5,
           "paddingVertical": 5,
         }
       }
     >
-       Press finish below to go back to the body diagram. 
+      
+
+       The SCQOLIT is an optional questionnaire for people who have been diagnosed with skin cancer. 
     </Text>
     <View
       accessible={true}
@@ -54,37 +68,15 @@ exports[`<PhotoSuccess /> renders correctly 1`] = `
           Object {
             "alignSelf": "center",
             "color": "white",
-            "fontSize": 30,
+            "fontSize": 25,
             "fontWeight": "bold",
             "marginVertical": 10,
           }
         }
       >
-        Finish
+        Yes, take me to the questionnaire
       </Text>
     </View>
-    <Text
-      style={
-        Object {
-          "color": "black",
-          "fontSize": 20,
-          "paddingHorizontal": 5,
-          "paddingVertical": 5,
-        }
-      }
-    >
-      
-
-      Alternatively, you can now complete an optional questionnaire by pressing take questionnaire below.
-      
-
-
-      Your answers will be attached to any email you send through the app. It is made for people who have, or have had, a diagnosis of skin cancer.
-      
-
-
-      This questionnaire is strictly optional and you can change your answers by answering it again.
-    </Text>
     <View
       accessible={true}
       focusable={true}
@@ -111,13 +103,13 @@ exports[`<PhotoSuccess /> renders correctly 1`] = `
           Object {
             "alignSelf": "center",
             "color": "white",
-            "fontSize": 30,
+            "fontSize": 25,
             "fontWeight": "bold",
             "marginVertical": 10,
           }
         }
       >
-        Take questionnaire
+        No, take me to the body outline
       </Text>
     </View>
   </View>

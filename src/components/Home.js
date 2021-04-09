@@ -51,7 +51,7 @@ const Home = ({ navigation }) => {
 
     return (
         <SafeAreaView style = {styles.container}>
-            <Text style = {styles.countdownText}>Upcoming mole photographs</Text>
+            <Text style = {styles.countdownText}>Number of days until you need to take another picture of your mole: </Text>
             <FlatList
                 data = {moles}
                 renderItem = {MoleCountdown}
@@ -59,23 +59,30 @@ const Home = ({ navigation }) => {
                 style = {styles.countdowns}
             />
 
-                <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
-                    <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{marginHorizontal: '2.5%', alignItems:'center', backgroundColor: "#71A1D1", borderRadius: 10}} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>
-                    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to complete SCQOLIT survey</Text>
-                </TouchableOpacity>
+            <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
+                <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
+            </TouchableOpacity>
+            {/*<TouchableOpacity style={{marginHorizontal: '2.5%', alignItems:'center', backgroundColor: "#71A1D1", borderRadius: 10}} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>*/}
+            {/*    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to complete SCQOLIT survey</Text>*/}
+            {/*</TouchableOpacity>*/}
 
-                <View style = {styles.logosContainer}>
-                    <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
-                        {/* <Text style = {styles.textAboveLogo}>About SCaRF</Text> */}
-                        <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
-                        {/* <Text style = {styles.textAboveLogo}>Donate</Text> */}
-                        <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
-                    </TouchableOpacity>
-                </View>
+            <View style = {styles.textContainer}>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
+                    <Text style = {styles.textAboveLogo}>About SCaRF</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
+                    <Text style = {styles.textAboveLogo}>Donate to SCaRF</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style = {styles.logosContainer}>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
+                    <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
+                    <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     );
 };
@@ -131,7 +138,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 10,
         fontSize: 17,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        marginRight: 10,
     },
     countdowns: {
         marginTop: 10,
@@ -140,14 +148,28 @@ const styles = StyleSheet.create({
     logosContainer: {
         flexDirection: "row",
         marginHorizontal: 5,
-        paddingVertical: 10,
+        paddingVertical: 5,
     },
     scarfLogo: {
-        marginTop: 2,
         width: Dimensions.get("window").width / 2 - 15,
         height: Dimensions.get("window").width / 2 - 15,
         marginHorizontal: 5,
-        borderRadius: 10
+        borderRadius: 10,
+    },
+    textContainer: {
+        marginTop: 2,
+        width: Dimensions.get("window").width,
+        marginHorizontal: 5,
+        borderRadius: 10,
+        flexDirection: "row",
+    },
+    textAboveLogo: {
+        fontSize: 20,
+        marginHorizontal: 5,
+        flexWrap: 'wrap',
+        color: "#3366ff",
+        paddingRight: 45,
+        textDecorationLine: 'underline'
     }
 });
 
