@@ -11,7 +11,6 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
     const [drawing, setDrawing] = useState(false);
 
     const viewShotRef = useRef()
-    const [hideOnScreenShot, setHideOnScreenShot] = useState(false)
     const pan = useRef(new Animated.ValueXY()).current;
     const [maxX, setMaxX] = useState(0);
     const [maxY, setMaxY] = useState(0);
@@ -175,6 +174,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
     return (
         <View style={styles.container}>
             <View style={styles.camera} onLayout={getDimensions}>
+                {/*Encapsulate the picture view and the circle for the snapshot to take a shot of*/}
                 <View ref = {viewShotRef} style={styles.camera} onLayout={getDimensions}>
                     <Image
                         style={styles.camera}
@@ -200,7 +200,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                 {drawing
                     ?
                     <>
-                        {!hideOnScreenShot && <Slider
+                        <Slider
                             //Width changes the width of a horizontal slider. Due to 90deg rotation it will appear to change the height in the application
                             style = {{
                                 transform :  [{ rotate: "-90deg" }],
@@ -217,14 +217,11 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                             trackStyle={{ height: sliderTrackHeight, backgroundColor: 'red' }}
                             thumbStyle={{ height: sliderCircleDim, width: sliderCircleDim, backgroundColor: 'transparent' }}
                         >
-                        </Slider>}
+                        </Slider>
 
-                        {/*Little Circle
-
-                        Just to help align with the slider, I rotate these 90deg as well so all positioning acts in same way
-
-                        */}
-                        {!hideOnScreenShot && <View
+                        {/*Little Circle*/}
+                        {/*Just to help align with the slider, I rotate these 90deg as well so all positioning acts in same way*/}
+                        <View
                             style={[styles.circle,
                                 {
                                     transform : [
@@ -238,11 +235,10 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                                 ]
                             }
                         />
-                        }
 
 
                         {/*Big Circle*/}
-                        {!hideOnScreenShot && <View
+                        <View
                             style={[styles.circle,
                                 {
                                     transform : [
@@ -255,11 +251,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                                 }
                             ]
                             }
-                        />}
-
-
-
-
+                        />
                     </>
                     : null
                 }
@@ -269,7 +261,6 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                 {drawing
                     ?
                     <>
-                        {/*Accept Button*/}
                         <TouchableOpacity style={styles.doneButton} onPress = {async() => await takeScreenShot()}>
                             <Ionicons name="ios-checkmark-done-circle" size={50} color="white"/>
                             <Text style={styles.text}>Done</Text>
