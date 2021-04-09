@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
 import {View, Text, Image, TouchableOpacity, StyleSheet, Alert, Animated, PanResponder, Slider} from "react-native";
-import {Ionicons, MaterialCommunityIcons, FontAwesome, Feather} from "@expo/vector-icons";
+import {Ionicons, MaterialCommunityIcons, FontAwesome, Feather, Entypo} from "@expo/vector-icons";
 import {captureRef} from "react-native-view-shot";
 import * as SQLite from "expo-sqlite";
 import * as FileSystem from 'expo-file-system';
@@ -50,8 +50,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
     const getDimensions = ({nativeEvent}) => {
         setMaxX(nativeEvent.layout.width);
         setMaxY(nativeEvent.layout.height);
-        console.log("MaxX = ", maxX);
-        console.log("MaxY = ", maxY);
+        // console.log("MaxX = ", maxX);
+        // console.log("MaxY = ", maxY);
 
     }
 
@@ -87,7 +87,6 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
     };
 
     const takeScreenShot = async  () => {
-        setHideOnScreenShot(true)
         photo = await captureRef(viewShotRef, {
             result: "base64",
             quality: 1,
@@ -109,8 +108,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
         // Mole should next be updated in one month
         let nextUpdate = Date.now() + (30 * 24 * 60 * 60 * 1000);
 
-        console.log("date: ", todayFormatted);
-        console.log(nextScreen);
+        // console.log("date: ", todayFormatted);
+        // console.log(nextScreen);
         //Changed from CameraNear to HelpNearShot to add the buffer, guidance screen.
         if (nextScreen === "HelpNearShot") {
             let folder = await FileSystem.getInfoAsync(FileSystem.documentDirectory + "far");
@@ -170,20 +169,19 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
         }
     };
 
-    console.log("MaxX = ", maxX);
-    console.log("MaxY = ", maxY);
+    // console.log("MaxX = ", maxX);
+    // console.log("MaxY = ", maxY);
 
     return (
         <View style={styles.container}>
-            <View ref = {viewShotRef} style={styles.camera} onLayout={getDimensions}>
-                <Image
-                    style={styles.camera}
-                    source={{uri: photo}}
-                />
+            <View style={styles.camera} onLayout={getDimensions}>
+                <View ref = {viewShotRef} style={styles.camera} onLayout={getDimensions}>
+                    <Image
+                        style={styles.camera}
+                        source={{uri: photo}}
+                    />
 
-                {drawing
-                    ?
-                    <>
+                    {drawing &&
                         <Animated.View
                             style={{
                                 position: 'absolute',
@@ -196,9 +194,12 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                             {...panResponder.panHandlers}
                         >
                             <View style={styles.circle}/>
-                        </Animated.View>
+                        </Animated.View>}
+                </View>
 
-
+                {drawing
+                    ?
+                    <>
                         {!hideOnScreenShot && <Slider
                             //Width changes the width of a horizontal slider. Due to 90deg rotation it will appear to change the height in the application
                             style = {{
@@ -220,7 +221,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
 
                         {/*Little Circle
 
-                        Just to help align with the slider, I rotate these 90deg aswell so all positioning acts in same way
+                        Just to help align with the slider, I rotate these 90deg as well so all positioning acts in same way
 
                         */}
                         {!hideOnScreenShot && <View
@@ -236,7 +237,8 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                                 }
                                 ]
                             }
-                        />}
+                        />
+                        }
 
 
                         {/*Big Circle*/}
@@ -254,6 +256,10 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                             ]
                             }
                         />}
+
+
+
+
                     </>
                     : null
                 }
@@ -268,6 +274,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                             <Ionicons name="ios-checkmark-done-circle" size={50} color="white"/>
                             <Text style={styles.text}>Done</Text>
                         </TouchableOpacity>
+
                     </>
                     :
                     <>
