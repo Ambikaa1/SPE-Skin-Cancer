@@ -23,7 +23,7 @@ const HomeScreen = ({ navigation }) => {
     return (
         <View style = {styles.container}>
             {welcomeSeen
-                ? <Home />
+                ? <Home navigation = {navigation} />
                 : <Welcome setWelcomeSeen = {setWelcomeSeen} />
             }
         </View>
