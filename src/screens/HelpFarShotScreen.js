@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView} from 'react-native'
+import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, Linking, View} from 'react-native'
 
 
 const HelpFarShotScreen = ({navigation, route}) => {
@@ -43,10 +43,13 @@ const HelpFarShotScreen = ({navigation, route}) => {
                     <Text>{'\u2022'}</Text>
                     <Text> If you are not happy with the image, retake it.</Text>
                 </Text>
-                <Text style={styles.bulletPoints}>
-                    <Text>{'\u2022'}</Text>
-                    <Text> For more advice see this youtube video.</Text>
-                </Text>
+                <TouchableOpacity onPress = {() => Linking.openURL("https://www.youtube.com/")}>
+                    <Text style={styles.bulletPoints}>
+                        <Text>{'\u2022'}</Text>
+                        <Text> For more advice see this </Text>
+                        <Text style = {styles.link}>YouTube video.</Text>
+                    </Text>
+                </TouchableOpacity>
 
                 <TouchableOpacity style={styles.doneBox}
                     onPress={() => {
@@ -86,6 +89,9 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         paddingLeft: 15,
         paddingRight: 10,
+    },
+    link: {
+        color: "#3366ff",
     },
     doneBox: {
         backgroundColor: "#71A1D1",

@@ -41,7 +41,7 @@ const PhotoStack = () => {
 
     const MoleTypeHelp = () => {
         Alert.alert("Help", "If you are documenting a mole for the first time:\n\u2022Select 'Yes' from the drop down menu."+
-        "\n\u2022Add a relevant mole name, such as 'Left Upper Arm 1'.\n\u2022Add any additonal comments (this is optional)."+
+        "\n\u2022Add a relevant mole name, such as 'Left Upper Arm 1'.\n\u2022Add any additional comments (this is optional)."+
         "\n\nIf you are adding a near-shot for an existing entry:\n\u2022Select 'No' from the drop down menu.\n\u2022"+
         "Select the entry you wish to add a new picture to.\n\nPress 'Confirm' to continue.");
     };
