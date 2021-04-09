@@ -15,8 +15,8 @@ const HelpNearShotScreen = ({navigation, route}) => {
                 <Text style={styles.mainBodyText}>Tips:</Text>
                 <Text style={styles.bulletPoints}>
                     <Text>{'\u2022'}</Text>
-                    <Text> Use the ghost image to ensure that it is a similar distance from the camera as your
-                        previous pictures. You can toggle the ghost image on and off using the ghost button to right
+                    <Text> Use the outline image to ensure that your photo is a similar distance from the camera as your
+                        previous pictures. You can toggle this on and off using the ghost button to right
                         of the picture button.</Text>
                 </Text>
                 <Text style={styles.bulletPoints}>
