@@ -114,7 +114,7 @@ const PhotoStack = () => {
           name = "Swiping"
           component = {SwipingHomuncScreen}
           options = {{
-              title: "Homunculus",
+              title: "Body Outline",
               headerTitle: props => <HeaderText {...props} />,
               headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,
               // headerLeft: null,
