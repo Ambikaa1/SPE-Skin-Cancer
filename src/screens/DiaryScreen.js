@@ -4,7 +4,7 @@ import { useIsFocused } from "@react-navigation/native";
 import MoleListItem from "../components/MoleListItem"
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("24.db");
+const db = SQLite.openDatabase("28.db");
 
 const DiaryScreen = ({ navigation }) => {
     const [moles, setMoles] = useState([]);
@@ -38,11 +38,12 @@ const DiaryScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginHorizontal: 10
+        flex: 1,
     },
     title: {
         marginTop: 10,
         marginBottom: 5,
+        marginHorizontal: 10,
         fontSize: 17,
         fontWeight: "bold"
     }

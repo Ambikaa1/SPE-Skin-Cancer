@@ -4,7 +4,7 @@ import { Camera } from "expo-camera";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons"
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("24.db");
+const db = SQLite.openDatabase("28.db");
 
 const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => {
     const [hasPermission, setHasPermission] = useState(null);

@@ -29,7 +29,7 @@ const MoleCountdown = ({ item, index }) => {
     return (
         <View style = {(index === 0) ? styles.containerTop : styles.container}>
             <View style = {styles.info}>
-                <Text style = {styles.name}>{item.name}</Text>
+                <Text style = {styles.name} numberOfLines = {1}>{item.name}</Text>
                 <Text style = {styles.numDays}>{numOfDays()}</Text>
             </View>
             <View style = {styles.barContainer}>
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 17,
+        flex: 1
     },
     numDays: {
         fontSize: 17

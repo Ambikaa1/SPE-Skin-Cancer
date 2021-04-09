@@ -5,7 +5,7 @@ import * as SQLite from "expo-sqlite";
 
 import MoleListItem from "../components/MoleListItem"
 
-const db = SQLite.openDatabase("24.db");
+const db = SQLite.openDatabase("28.db");
 
 const MoleTypeScreen = ({navigation, route}) => {
     const [moleChoice, setChoice] = useState(null);
@@ -56,7 +56,7 @@ const MoleTypeScreen = ({navigation, route}) => {
             }
             {(moleChoice == 0) && 
                 <>
-                    <Text style = {styles.question}>Select a mole below to photograph:</Text>
+                    <Text style = {styles.question}>Select a mole below to photograph</Text>
                     <FlatList 
                         data = {moles}
                         renderItem = {({item}) => (
@@ -75,22 +75,24 @@ const MoleTypeScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginHorizontal: 10,
         marginTop: 10
     },
     dropDownContainer: {
         height: 40,
         marginTop: 5,
+        marginHorizontal: 10,
     },
     dropDownLabel: {
-        fontSize: 20,
+        fontSize: 17,
     },
     questionTop: {
-        fontSize: 20
+        fontSize: 17,
+        marginHorizontal: 10
     },
     question: {
         marginTop: 20,
-        fontSize: 20
+        fontSize: 17,
+        marginHorizontal: 10
     },
     input: {
         backgroundColor: "#E2E2E2",
@@ -99,19 +101,17 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 7.5,
         paddingLeft: 10,
-        fontSize: 20,
-    },
-    moleListItem: {
-        fontSize: 20,
-        marginTop: 5
+        fontSize: 17,
+        marginHorizontal: 10
     },
     doneBox: {
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
         position: "absolute",
-        width: "100%",
-        bottom: 10
+        width: "95%",
+        bottom: 10,
+        marginHorizontal: 10,
     },
     doneText: {
         fontSize: 30,

@@ -4,7 +4,7 @@ import * as SQLite from "expo-sqlite";
 import {useIsFocused} from "@react-navigation/native";
 import * as MailComposer from 'expo-mail-composer';
 
-const db = SQLite.openDatabase("24.db");
+const db = SQLite.openDatabase("28.db");
 
 const SendEmail = ({ navigation, route }) => {
     // const [value1, onChangeText1] = useState('Placeholder');

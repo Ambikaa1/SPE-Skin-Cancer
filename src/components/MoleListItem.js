@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from "react-native";
 
 const MoleListItem = ({ uri, name, comments, lastUpdated }) => {
     return(
-        <View style = {styles.nearFarShot}>
+        <View style = {styles.container}>
             <Image
                 style = {styles.image}
                 source = {{ uri: uri }}
@@ -18,7 +18,7 @@ const MoleListItem = ({ uri, name, comments, lastUpdated }) => {
 };
 
 const styles = StyleSheet.create({
-    nearFarShot: {
+    container: {
         flexDirection: "row",
         paddingVertical: 5,
         marginVertical: 5,
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         borderBottomColor: "#71A1D1",
         borderTopWidth: 5,
         borderBottomWidth: 5,
+        marginHorizontal: 10
     },
     image: {
         height: 200,
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
     },
     moleInfo: {
         marginLeft: 10,
+        flex: 1,
     },
     moleName: {
         fontSize: 20,
