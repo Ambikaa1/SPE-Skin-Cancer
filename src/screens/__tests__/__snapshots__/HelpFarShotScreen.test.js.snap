@@ -51,7 +51,7 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           }
         }
       >
-        There will be an outline available of the body part to help you line up the camera. This will be accessible by pressing the ghost shaped button, to the right of the picture button on the next page.
+        There will be an outline available of the body part to help you line up the camera. This will be accessible by pressing the ghost shaped button, to the right of the picture button on the next page. 
       </Text>
       <Text
         style={
