@@ -15,6 +15,8 @@ const DiaryStack = () => {
     const DiaryScreenHelp = () => {
         Alert.alert("Help","Click");
     };
+
+
   return(
     <Stack.Navigator
       screenOptions = {{

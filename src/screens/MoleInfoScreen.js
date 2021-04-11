@@ -36,6 +36,7 @@ const MoleInfoScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Text style = {styles.title}>Near shot images:</Text>
+      <Text style = {styles.text}>Tap on a picture to enlarge it</Text>
       <FlatList
         data = {entries}
         renderItem = {displayImages}
@@ -64,6 +65,11 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginLeft: 10,
     fontSize: 20,
+  },
+  text: {
+    marginBottom: 5,
+    marginLeft: 10,
+    fontSize: 15,
   },
   moleDetails: {
     fontSize: 18,
