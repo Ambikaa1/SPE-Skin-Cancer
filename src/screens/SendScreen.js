@@ -11,7 +11,7 @@ const SendScreen = ({ navigation}) => {
     return (
             <ScrollView>
                 <Text style={styles.mainBodyText}>
-                    Here you can select the images you want to send to your GP. Once selected, you will be transported to our email page where you can send your moles.
+                    Here you can select the images you want to send to your GP. Once selected, you will be taken to our email page where you can send your moles.
                 </Text>
                 <TouchableOpacity
                     style={styles.doneBox}

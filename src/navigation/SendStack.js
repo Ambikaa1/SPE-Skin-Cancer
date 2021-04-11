@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import {Alert, StyleSheet} from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import SendScreen from "../screens/SendScreen";
 import HeaderText from "../components/HeaderText";
@@ -12,6 +12,24 @@ import ImageScreen from "../screens/ImageScreen";
 const Stack = createStackNavigator()
 
 const SendStack = () => {
+
+    const FirstHelp = () => {
+        Alert.alert("Help", "This part of the app allows you to send pictures you've taken to your clinician via email." +
+        "\n\nClick the 'select images' button below to get started.");
+    };
+
+    const FarShotHelp = () => {
+        Alert.alert("Help", "Far shot help - Needs coding");
+    };
+
+    const NearShotHelp = () => {
+        Alert.alert("Help", "Near shot help - Needs coding");
+    };
+
+    const SendShotHelp = () => {
+        Alert.alert("Help", "Send shot help - Needs coding");
+    };
+
   return(
     <Stack.Navigator
       screenOptions = {{
@@ -25,6 +43,7 @@ const SendStack = () => {
         options = {{
           title: "Send",
           headerTitle: props => <HeaderText {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={FirstHelp}/>,
         }}
         />
 
@@ -34,7 +53,7 @@ const SendStack = () => {
           options = {{
               title: "Select mole",
               headerTitle: props => <HeaderText {...props} />,
-              headerRight: props => <HeaderButton {...props} />,
+              headerRight: props => <HeaderButton {...props} onPressFunction={FarShotHelp}/>,
           }}
       />
         <Stack.Screen
@@ -43,16 +62,18 @@ const SendStack = () => {
             options = {{
                 title: "Select near shots",
                 headerTitle: props => <HeaderText {...props} />,
-                headerRight: props => <HeaderButton {...props} />,
+                headerRight: props => <HeaderButton {...props} onPressFunction={NearShotHelp}/>,
+                headerLeft: null,
+                gestureEnabled: false,
             }}
         />
         <Stack.Screen
             name = "SendEmail"
             component = {SendEmail}
             options = {{
-                title: "Send Email",
+                title: "Send email",
                 headerTitle: props => <HeaderText {...props} />,
-                headerRight: props => <HeaderButton {...props} />,
+                headerRight: props => <HeaderButton {...props} onPressFunction={SendShotHelp}/>,
             }}
         />
         <Stack.Screen
@@ -60,8 +81,7 @@ const SendStack = () => {
             component = {ImageScreen}
             options = {{
                 title: "Image",
-                headerTitle: props => <HeaderText {...props} />,
-                headerRight: props => <HeaderButton {...props} />,
+                headerTitle: props => <HeaderText {...props}/>,
             }}
         />
     </Stack.Navigator>
