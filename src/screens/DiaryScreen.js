@@ -22,7 +22,7 @@ const DiaryScreen = ({ navigation }) => {
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.title}>Select a mole to view near shots</Text>
+            <Text style = {styles.title}>Tap on a mole to view the near shots</Text>
             <FlatList
                 data = {moles}
                 renderItem = {({item}) => (
