@@ -12,10 +12,15 @@ const Stack = createStackNavigator()
 const DiaryStack = () => {
 
     //Help function
-    const DiaryScreenHelp = () => {
-        Alert.alert("Help","Click");
+    const FarShotScreenHelp = () => {
+        Alert.alert("Help","Here you can see the far shots for each mole you have logged on the app." +
+        " \n\nTap on an image to see the near shots associated with each mole.");
     };
 
+    const NearShotScreenHelp = () => {
+        Alert.alert("Help","Here you can see the near shots for the mole you selected, including when the picture was taken." +
+        "\n\nYou can tap on an image to view it in full screen.");
+    };
 
   return(
     <Stack.Navigator
@@ -30,7 +35,7 @@ const DiaryStack = () => {
         options = {{
           title: "Diary",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} onPressFunction={DiaryScreenHelp}/>,
+          headerRight: props => <HeaderButton {...props} onPressFunction={FarShotScreenHelp}/>,
         }}
       />
       <Stack.Screen
@@ -39,7 +44,7 @@ const DiaryStack = () => {
         options = {{
           title: "Mole",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          headerRight: props => <HeaderButton {...props} onPressFunction={NearShotScreenHelp}/>,
         }}
       />
       <Stack.Screen
@@ -48,7 +53,7 @@ const DiaryStack = () => {
         options = {{
           title: "Image",
           headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
+          // headerRight: props => <HeaderButton {...props} />,
         }}
       />
     </Stack.Navigator>
