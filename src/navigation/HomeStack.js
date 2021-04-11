@@ -14,7 +14,7 @@ const Stack = createStackNavigator()
 const HomeStack = () => {
   const HomeHelp = () => {
       Alert.alert("Help", "\nThis is the homepage of the app.\n\nYou can personalise your information by "+
-      "clicking on the user icon opposite the help button.\n\n This page gives you access to the SCaRF charity website "+
+      "clicking on the user icon opposite the help button.\n\nThis page gives you access to the SCaRF charity website "+
       "with the bottom left box, as well as their donation page, on the right.");
   };
 
