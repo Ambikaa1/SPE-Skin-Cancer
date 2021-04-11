@@ -92,7 +92,7 @@ const SelectMoleScreen = ({navigation }) => {
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.title}>Select a mole to view near shots</Text>
+            <Text style = {styles.title}>Tap on a mole to view the near shots</Text>
             <Text style = {styles.subtitle}>Hold your finger on an image to enlarge it</Text>
 
             <FlatList

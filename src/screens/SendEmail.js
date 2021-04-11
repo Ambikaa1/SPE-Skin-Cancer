@@ -62,8 +62,8 @@ const SendEmail = ({ navigation, route }) => {
 
     return (
         <ScrollView>
-            <Text style={styles.mainBodyText}>Each Mole along with your near-shots will be added to its OWN email, this is to ensure your
-                GP knows which near-shots belong to which Mole.</Text>
+            <Text style={styles.mainBodyText}>Each mole along with your near shots will be added to its OWN email, this is to ensure your
+                clinician knows which near-shots belong to which mole.</Text>
 
             <Text style={styles.mainBodyText}>The name of the mole, date the images were taken and the location
                 of the mole on your body will also be attached.</Text>

@@ -29,7 +29,7 @@ const PhotoStack = () => {
 
     //Help functions
     const HomuncHelp = () => {
-        Alert.alert("Help", "Here, you should select the area of your body that the mole you want to take a picture of"+
+        Alert.alert("Help", "Here you should select the area of your body that the mole you want to take a picture of"+
         " is located.\n\nUse the buttons at the top to switch views of the body diagram.");
     };
 
@@ -187,8 +187,6 @@ const PhotoStack = () => {
           title: "Near Shot",
           headerTitle: props => <HeaderText {...props} />,
           headerRight: props => <HeaderButton {...props} onPressFunction={CameraHelp}/>,
-          headerLeft: null,
-          gestureEnabled: false
         }}
       />
       <Stack.Screen
@@ -206,6 +204,8 @@ const PhotoStack = () => {
           name = "HelpNearShot"
           component = {HelpNearShotScreen}
           options = {{
+              headerLeft: null,
+              gestureEnabled: false,
               title: "Help"
           }}
       />

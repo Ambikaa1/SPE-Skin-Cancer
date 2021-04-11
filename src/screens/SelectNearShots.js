@@ -68,7 +68,7 @@ const SelectNearShots = ({route, navigation }) => {
     return (
 
         <View style={styles.container}>
-            <Text style = {styles.title}>Tap the images to select them</Text>
+            <Text style = {styles.title}>Tap on a near shot to select it</Text>
             <Text style = {styles.subtitle}>Hold your finger on an image to enlarge it</Text>
             <Text style={styles.selectCountText}>Currently selected: {selectedNum}</Text>
 

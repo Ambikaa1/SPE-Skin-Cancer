@@ -10,11 +10,17 @@ const WelcomeScreen = ({ navigation }) => {
         <SafeAreaView style = {styles.container}>
             <Text style = {styles.titleText}>WELCOME!</Text>
             <Text></Text>
-            <Text style = {styles.mainText} >
+            <Text style = {styles.mainText}>
                 This App is designed to allow you to monitor your skin moles and similar lesions.
                 Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour.
                 It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF)
                 and The Computer Science Department of the University of Bristol.
+            </Text>
+
+            <Text></Text>
+
+            <Text style = {styles.mainText}>
+                Get started by tapping the user icon in the top left of the home screen and entering your details.
             </Text>
 
             <TouchableOpacity style = {styles.doneBox} onPress = {() => navigation.navigate("HomeScreen")}>

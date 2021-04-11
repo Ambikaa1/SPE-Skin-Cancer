@@ -14,7 +14,7 @@ const HelpFarShotScreen = ({navigation, route}) => {
                 <Text style={styles.mainBodyText}>There will be an outline available of the body part
                 to help you line up the camera. This will be accessible
                 by pressing the ghost shaped button, to the right of the picture
-                    button on the next page.</Text>
+                    button on the next page. </Text>
 
                 <Text style={styles.mainBodyText}>Once you have taken a photo you will be able to drag a red circle with
                 your finger to circle the mole. You can use the slider on the right to increase and decrease the size of the

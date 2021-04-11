@@ -17,7 +17,8 @@ const HelpNearShotScreen = ({navigation, route}) => {
                     <Text>{'\u2022'}</Text>
                     <Text> Use the outline image to ensure that your photo is a similar distance from the camera as your
                         previous pictures. You can toggle this on and off using the ghost button to right
-                        of the picture button.</Text>
+                        of the picture button. Note, this won't be present if this is the first time you are
+                        logging the mole.</Text>
                 </Text>
                 <Text style={styles.bulletPoints}>
                     <Text>{'\u2022'}</Text>
