@@ -39,14 +39,14 @@ const MoleTypeScreen = ({navigation, route}) => {
                     <TextInput
                         value = {name}
                         onChangeText = {value => setName(value)}
-                        placeholder = "Mole name"
+                        placeholder = "e.g. Left cheek 1"
                         style = {styles.input}
                     />
                     <Text style = {styles.question}>Mole comments:</Text>
                     <TextInput
                         value = {comments}
                         onChangeText = {value => setComments(value)}
-                        placeholder = "Mole comments"
+                        placeholder = "e.g. located 7cm away from nose"
                         style = {styles.input}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => navigation.navigate("HelpFarShot", { name: name, comments: comments, bodyPart: route.params.bodyPart })}>
