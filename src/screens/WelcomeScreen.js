@@ -16,7 +16,9 @@ const WelcomeScreen = ({ navigation }) => {
                 It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF)
                 and The Computer Science Department of the University of Bristol.
             </Text>
+
             <Text></Text>
+
             <Text style = {styles.mainText}>
                 Get started by tapping the user icon in the top left of the home screen and entering your details.
             </Text>
