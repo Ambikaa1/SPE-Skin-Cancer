@@ -33,21 +33,22 @@ const InfoListScreen = ({ navigation, route }) => {
             <FlatList
                 data = {toDisplay}
                 keyExtractor = {(item) => item.title}
-                renderItem = {({ item }) => {
+                style = {styles.list}
+                renderItem = {({ item, index }) => {
                     return (
                         <TouchableOpacity onPress = {() => calculateNavigationFunction(item)}>
-                            <InfoItem name = {item.title}/>
+                            <InfoItem name = {item.title} index = {index} />
                         </TouchableOpacity>
                     );
                 }}
             />
-            <TouchableOpacity onPress = {() => navigation.navigate("WhySCQOLITScreen")}>
-                    <InfoItem name = {"Complete the SCQOLIT survey"}/>
+            <TouchableOpacity style = {styles.surveyButton} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>
+                    <InfoItem name = {"Complete the SCQOLIT survey"} index = {0} />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress = {() => navigation.navigate("StorageScreen")}>
-                <InfoItem name = {"STORAGE"}/>
-            </TouchableOpacity>
+            {/* <TouchableOpacity onPress = {() => navigation.navigate("StorageScreen")}>
+                <InfoItem name = {"STORAGE"} index = {0}/>
+            </TouchableOpacity> */}
         </View>
     );
 };
@@ -55,6 +56,12 @@ const InfoListScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    list: {
+        marginVertical: 10,
+    },
+    surveyButton: {
+        marginVertical: 10,
     }
 });
 
