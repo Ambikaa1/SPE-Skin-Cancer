@@ -304,8 +304,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     title:{
-        fontSize: 15,
-        fontWeight: "bold",
+        fontSize: 17,
+        // fontWeight: "bold",
         marginHorizontal: 10,
         marginTop: 10,
     },
