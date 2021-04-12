@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         marginHorizontal: 10,
         fontSize: 17,
-        fontWeight: "bold"
+        // fontWeight: "bold"
     }
 });
 
