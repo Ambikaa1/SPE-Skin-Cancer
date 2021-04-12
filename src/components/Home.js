@@ -51,13 +51,23 @@ const Home = ({ navigation }) => {
 
     return (
         <SafeAreaView style = {styles.container}>
-            <Text style = {styles.countdownText}>Number of days until you need to take another picture of your mole: </Text>
-            <FlatList
-                data = {moles}
-                renderItem = {MoleCountdown}
-                keyExtractor = {item => `${item.mole_id}`}
-                style = {styles.countdowns}
-            />
+            {(moles.length != 0)
+            ?
+                <>
+                    <Text style = {styles.countdownText}>Number of days until you need to take another picture of your mole</Text>
+                    <FlatList
+                        data = {moles}
+                        renderItem = {MoleCountdown}
+                        keyExtractor = {item => `${item.mole_id}`}
+                        style = {styles.countdowns}
+                    />
+                </>
+            :
+                <Text style = {styles.noMoles}>
+                    You haven't photographed any moles yet.
+                    Click the camera icon at the bottom of the screen to begin photographing your moles.
+                </Text>
+            }
 
             <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
                 <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
@@ -145,10 +155,16 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginHorizontal: 10,
     },
+    noMoles: {
+        marginHorizontal: 10,
+        marginTop: 10,
+        fontSize: 17,
+        flex: 1,
+    },
     logosContainer: {
         flexDirection: "row",
         marginHorizontal: 5,
-        paddingVertical: 5,
+        paddingVertical: 10,
     },
     scarfLogo: {
         width: Dimensions.get("window").width / 2 - 15,
