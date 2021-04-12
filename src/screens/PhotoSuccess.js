@@ -1,36 +1,49 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
 const PhotoSuccess = ({navigation}) => {
     return (
-        <ScrollView>
-            <Text style={styles.headingText}>Your mole photos are saved! </Text>
-            <Text></Text>
-            <Text style={styles.headingText}>Would you now like to complete the SCQOLIT survey? </Text>
-            <Text style={styles.bodyText}>{'\n'} The SCQOLIT is an optional questionnaire for people who have been
+        <View style = {styles.container}>
+            <Text style = {styles.success}>Your mole photos have been saved!</Text>
+            <Text style={styles.questionBold}>Would you now like to complete the SCQOLIT survey? </Text>
+            <Text style={styles.question}>The SCQOLIT is an optional questionnaire for people who have been
                 diagnosed with skin cancer. </Text>
                 {/*{'\n\n'}This questionnaire is*/}
                 {/*strictly optional and you can change your answers by answering it again.*/}
                 {/*{'\n\n'}Your latest answers will be attached to any email you send through the app.*/}
             {/*</Text>*/}
-            <TouchableOpacity style = {styles.doneBox} onPress={() => navigation.navigate("Survay")}>
+            <TouchableOpacity style = {styles.doneBoxYes} onPress={() => navigation.navigate("Survay")}>
                 <Text style = {styles.doneText}>
-                    Yes, take me to the questionnaire
+                    Yes, take me to the SCQOLIT survey
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("Swiping")}>
-                <Text style = {styles.doneText}>No, take me to the body outline</Text>
+            <TouchableOpacity style={styles.doneBoxNo} onPress={() => navigation.navigate("Swiping")}>
+                <Text style = {styles.doneText}>No, take me back to the body outline</Text>
             </TouchableOpacity>
-        </ScrollView>
+        </View>
     )
 };
 
 const styles = StyleSheet.create({
-    headingText: {
-        color: "black",
-        fontSize: 25,
-        paddingHorizontal:5,
-        alignSelf: 'center',
+    container: {
+        flex: 1
+    },
+    success: {
+        fontSize: 30,
+        fontWeight: "bold",
+        marginTop: 10,
+        marginHorizontal: 10,
+    },
+    questionBold: {
+        marginHorizontal: 10,
+        marginTop: 10,
+        fontSize: 17,
+        fontWeight: "bold"
+    },
+    question: {
+        marginHorizontal: 10,
+        marginTop: 10,
+        fontSize: 17,
     },
     bodyText:{
         color: "black",
@@ -38,18 +51,31 @@ const styles = StyleSheet.create({
         paddingHorizontal:5,
         paddingVertical:5,
     },
-    doneBox: {
+    doneBoxYes: {
         backgroundColor: "#71A1D1",
         alignSelf: "center",
         borderRadius: 10,
-        marginTop: 20,
-        width: "97.5%",
+        marginTop: 10,
+        marginHorizontal: 10,
+        width: "95%",
+        position: "absolute",
+        bottom: 70,
+    },
+    doneBoxNo: {
+        backgroundColor: "#71A1D1",
+        alignSelf: "center",
+        borderRadius: 10,
+        marginTop: 10,
+        marginHorizontal: 10,
+        width: "95%",
+        position: "absolute",
+        bottom: 10,
     },
     doneText: {
-        fontSize: 25,
+        fontSize: 17,
         fontWeight: "bold",
         color: "white",
-        marginVertical: 10,
+        marginVertical: 15,
         alignSelf:'center',
     }
 });
