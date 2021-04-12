@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MoleCountdown /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomWidth": 0.5,
+      "borderColor": "#AAAAAA",
+      "paddingVertical": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        Object {
+          "flex": 1,
+          "fontSize": 17,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 17,
+        }
+      }
+    >
+      Today
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "marginTop": 5,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "borderRadius": 5,
+          "flexDirection": "row",
+          "height": 10,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#71A1D1",
+            "height": "100%",
+            "width": "-62431.75854301697%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "#71A1D120",
+            "flex": 1,
+            "height": "100%",
+            "opacity": 10,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

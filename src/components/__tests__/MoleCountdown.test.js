@@ -4,8 +4,9 @@ import renderer from 'react-test-renderer';
 import MoleCountdown from "../MoleCountdown";
 
 describe('<MoleCountdown />', () => {
-  it('renders correctly', () => {
-    const tree = renderer.create(<MoleCountdown />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+    mockItem = {nextUpdate: 0}
+    it('renders correctly', () => {
+        const tree = renderer.create(<MoleCountdown item = {mockItem} />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });
