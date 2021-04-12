@@ -198,24 +198,20 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     questions:{
-        fontSize: 15,
-        paddingTop: 12,
-        paddingLeft: 7,
-        paddingRight: 7,
+        fontSize: 17,
+        marginTop: 10,
     },
     title:{
-        fontSize: 15,
-        paddingTop: 5,
-        fontWeight: "bold",
+        fontSize: 17,
+        marginTop: 10,
         zIndex: 1,
     },
     doneBox: {
-        marginHorizontal: 10,
         marginTop: 20,
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
-        width: "95%",
+        width: "97.5%",
         bottom: 10,
         zIndex: 1,
     },
@@ -232,7 +228,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     dropDownLabel: {
-        fontSize: 15,
+        fontSize: 17,
     },
 });
 
