@@ -181,10 +181,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         marginBottom: 5,
         fontWeight: "bold",
-        // textAlign: "center"
-        // flexWrap: 'wrap',
-        // color: "#3366ff",
-        // paddingRight: 45,
+        color: "#3366ff",
         // textDecorationLine: 'underline'
     }
 });

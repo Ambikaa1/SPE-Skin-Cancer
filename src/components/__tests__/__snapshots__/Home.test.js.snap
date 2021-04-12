@@ -78,6 +78,7 @@ exports[`<Home /> renders correctly 1`] = `
       <Text
         style={
           Object {
+            "color": "#3366ff",
             "fontSize": 17,
             "fontWeight": "bold",
             "marginBottom": 5,
@@ -118,6 +119,7 @@ exports[`<Home /> renders correctly 1`] = `
       <Text
         style={
           Object {
+            "color": "#3366ff",
             "fontSize": 17,
             "fontWeight": "bold",
             "marginBottom": 5,
