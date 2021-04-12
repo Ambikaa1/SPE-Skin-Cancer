@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image, Dimensions, Platform, FlatList } from "react-native";
 import { useIsFocused } from "@react-navigation/native"
+import * as WebBrowser from "expo-web-browser";
 import * as SQLite from "expo-sqlite";
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
@@ -77,11 +78,11 @@ const Home = ({ navigation }) => {
             {/*</TouchableOpacity>*/}
 
             <View style = {styles.logosContainer}>
-                <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
+                <TouchableOpacity onPress = {async () => await WebBrowser.openBrowserAsync("https://www.skincancerresearch.org/what-we-do")}>
                     <Text style = {styles.textAboveLogo}>About SCaRF</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
+                <TouchableOpacity onPress = {async () => await WebBrowser.openBrowserAsync("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
                     <Text style = {styles.textAboveLogo}>Donate to SCaRF</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                 </TouchableOpacity>
