@@ -43,20 +43,17 @@ const checkFrontSwitch = (bodyPart) => {
 const BodyPartScreen = ({route, navigation }) => {
     const bodyPart = route.params.bodyPart;
     const bool = route.params.highlight;
+
     return (
-        <ScrollView persistentScrollbar={true}
-                    contentContainerStyle={{flexGrow: 1, justifyContent: 'space-between', flexDirection: 'column'}}
-                    style={styles.scrollView}>
-            <View style={{ flex: 1, justifyContent: 'flex-start' }}>
-                <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
+        <ScrollView persistentScrollbar = {true}
+                    contentContainerStyle = {styles.container}
+                    style = {styles.scrollView}>
+            <View style = {styles.textContainer}>
+                <Text style={styles.titleText}>Your mole is located on the: {bodyPart.toLowerCase()} </Text>
                 <Text style={styles.subText}>{bool}</Text>
             </View>
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-                <View style = {{alignItems: 'center'}}>
                     {checkFrontSwitch(bodyPart)}
-                </View>
-            </View>
-            <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+            <View>
                 <TouchableOpacity style={styles.doneBox} onPress={() => navigation.navigate("MoleType", {
                     bodyPart: `${bodyPart} ${route.params.side}`,
                 })}>
@@ -82,37 +79,39 @@ const BodyPartScreen = ({route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        paddingTop: 50,
-        alignItems: 'center',
-    },
     scrollView: {
         backgroundColor: 'white',
+    },
+    container: {
+        flexGrow: 1,
+    },
+    textContainer: {
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 10,
+    },
+    titleText: {
+        fontSize: 20,
+        textAlign: "center"
+    },
+    subText: {
+        marginTop: 10,
+        fontSize: 17,
+        textAlign: "center"
     },
     closeUp: {
         resizeMode: 'contain',
         width: 250,
         height: 250,
-    },
-    titleText: {
-        fontSize: 20,
-        textAlign: 'center',
-        paddingBottom: 10,
-        paddingRight: 7,
-        paddingLeft: 7,
-        paddingTop: 15,
-    },
-    subText: {
-        fontSize: 18,
-        textAlign: 'center',
-        paddingBottom: 20,
+        alignSelf: "center",
+        flex: 1,
     },
     doneBox: {
         backgroundColor: "#71A1D1",
         alignItems: "center",
         alignSelf: "center",
         borderRadius: 10,
-        //position: "absolute",
+        // position: "absolute",
         width: "95%",
         bottom: 10,
     },
