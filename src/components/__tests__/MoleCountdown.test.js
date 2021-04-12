@@ -1,13 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Home from "../Home";
+import MoleCountdown from "../MoleCountdown";
 
-jest.mock('@react-navigation/native');
-
-describe('<Home />', () => {
+describe('<MoleCountdown />', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Home />).toJSON();
+    const tree = renderer.create(<MoleCountdown />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
