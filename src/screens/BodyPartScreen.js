@@ -49,7 +49,7 @@ const BodyPartScreen = ({route, navigation }) => {
                     contentContainerStyle = {styles.container}
                     style = {styles.scrollView}>
             <View style = {styles.textContainer}>
-                <Text style={styles.titleText}>Your mole is located on the: {bodyPart.toLowerCase()} </Text>
+                <Text style={styles.titleText}>Your mole is located on the: {bodyPart} </Text>
                 <Text style={styles.subText}>{bool}</Text>
             </View>
                     {checkFrontSwitch(bodyPart)}
