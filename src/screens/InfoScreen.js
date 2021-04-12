@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   description: {
-    fontSize: 20,
+    fontSize: 17,
     marginTop: 10,
     marginHorizontal: 10,
   },

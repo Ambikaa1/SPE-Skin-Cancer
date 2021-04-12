@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginLeft: 10,
     fontSize: 17,
-    fontWeight: "bold"
+    // fontWeight: "bold"
   },
   text: {
     marginBottom: 5,

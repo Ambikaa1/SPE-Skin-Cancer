@@ -8,13 +8,14 @@ const db = SQLite.openDatabase("28.db");
 const Welcome = ({ setWelcomeSeen }) => {
     return (
         <SafeAreaView style = {styles.container}>
-            <Text style = {styles.titleText}>WELCOME!</Text>
-            <Text></Text>
-            <Text style = {styles.mainText} >
+            <Text style = {styles.titleText}>Welcome.</Text>
+            <Text style = {styles.mainText}>
                 This App is designed to allow you to monitor your skin moles and similar lesions.
                 Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour.
+            </Text>
+            <Text style = {styles.mainText}>
                 It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF)
-                and The Computer Science Department of the University of Bristol.
+                and the Department of Computer Science at the University of Bristol.
             </Text>
 
             <TouchableOpacity style = {styles.doneBox} onPress = {() => {db.transaction(
@@ -40,14 +41,14 @@ const styles = StyleSheet.create({
         flex: 1
     },
     titleText: {
-        marginTop: 10,
-        marginLeft: 10,
-        fontSize: 25,
-        fontWeight: "bold"
+        marginVertical: 10,
+        marginHorizontal: 10,
+        fontSize: 30,
+        fontWeight: "bold",
     },
     mainText: {
-        marginTop: 10,
-        marginLeft: 10,
+        marginHorizontal: 10,
+        marginBottom: 10,
         fontSize: 17,
     },
     doneBox: {

@@ -12,48 +12,15 @@ exports[`<Home /> renders correctly 1`] = `
   <Text
     style={
       Object {
+        "flex": 1,
         "fontSize": 17,
-        "fontWeight": "bold",
-        "marginLeft": 10,
-        "marginRight": 10,
-        "marginTop": 10,
-      }
-    }
-  >
-    Number of days until you need to take another picture of your mole: 
-  </Text>
-  <RCTScrollView
-    data={Array []}
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    style={
-      Object {
         "marginHorizontal": 10,
         "marginTop": 10,
       }
     }
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
   >
-    <View />
-  </RCTScrollView>
+    You haven't photographed any moles yet. Click the camera icon at the bottom of the screen to begin photographing your moles.
+  </Text>
   <View
     accessible={true}
     focusable={true}
@@ -86,11 +53,9 @@ exports[`<Home /> renders correctly 1`] = `
   <View
     style={
       Object {
-        "borderRadius": 10,
         "flexDirection": "row",
         "marginHorizontal": 5,
-        "marginTop": 2,
-        "width": 750,
+        "paddingVertical": 10,
       }
     }
   >
@@ -113,75 +78,15 @@ exports[`<Home /> renders correctly 1`] = `
       <Text
         style={
           Object {
-            "color": "#3366ff",
-            "flexWrap": "wrap",
-            "fontSize": 20,
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "marginBottom": 5,
             "marginHorizontal": 5,
-            "paddingRight": 45,
-            "textDecorationLine": "underline",
           }
         }
       >
         About SCaRF
       </Text>
-    </View>
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "color": "#3366ff",
-            "flexWrap": "wrap",
-            "fontSize": 20,
-            "marginHorizontal": 5,
-            "paddingRight": 45,
-            "textDecorationLine": "underline",
-          }
-        }
-      >
-        Donate to SCaRF
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-        "marginHorizontal": 5,
-        "paddingVertical": 5,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-    >
       <Image
         source={1}
         style={
@@ -210,6 +115,18 @@ exports[`<Home /> renders correctly 1`] = `
         }
       }
     >
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "marginBottom": 5,
+            "marginHorizontal": 5,
+          }
+        }
+      >
+        Donate to SCaRF
+      </Text>
       <Image
         source={1}
         style={

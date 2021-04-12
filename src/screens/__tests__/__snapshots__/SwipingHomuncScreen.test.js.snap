@@ -81,24 +81,24 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Please scroll down to click on the body part where your mole is located. 
+                Please scroll down to click on the body part where your mole is located.
               </Text>
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Swipe left or right to navigate to the different views. 
+                Swipe left or right to navigate to the different sides of the body.
               </Text>
               <Text />
               <View
@@ -590,24 +590,24 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Please scroll down to click on the body part where your mole is located. 
+                Please scroll down to click on the body part where your mole is located.
               </Text>
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Swipe left or right to navigate to the different views. 
+                Swipe left or right to navigate to the different sides of the body.
               </Text>
               <Text />
               <View
@@ -1135,181 +1135,24 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Please scroll down to click on the body part where your mole is located. 
+                Please scroll down to click on the body part where your mole is located.
               </Text>
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Swipe left or right to navigate to the different views. 
-              </Text>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  }
-                }
-              >
-                <View
-                  accessible={true}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <Image
-                    source={1}
-                    style={
-                      Object {
-                        "height": 99,
-                        "resizeMode": "contain",
-                        "width": 350,
-                      }
-                    }
-                  />
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  }
-                }
-              >
-                <View
-                  accessible={true}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <Image
-                    source={1}
-                    style={
-                      Object {
-                        "height": 220,
-                        "resizeMode": "contain",
-                        "width": 300,
-                      }
-                    }
-                  />
-                </View>
-              </View>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  }
-                }
-              >
-                <View
-                  accessible={true}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "opacity": 1,
-                    }
-                  }
-                >
-                  <Image
-                    source={1}
-                    style={
-                      Object {
-                        "height": 245,
-                        "resizeMode": "contain",
-                        "width": 360,
-                      }
-                    }
-                  />
-                </View>
-              </View>
-            </View>
-          </RCTScrollView>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "height": 1334,
-              "width": 750,
-            },
-            Object {
-              "backgroundColor": "transparent",
-            },
-          ]
-        }
-      >
-        <View>
-          <RCTScrollView
-            persistentScrollbar={true}
-            style={
-              Object {
-                "backgroundColor": "white",
-              }
-            }
-          >
-            <View>
-              <Text
-                style={
-                  Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
-                  }
-                }
-              >
-                Please scroll down to click on the body part where your mole is located. 
-              </Text>
-              <Text
-                style={
-                  Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
-                  }
-                }
-              >
-                Swipe left or right to navigate to the different views. 
+                Swipe left or right to navigate to the different sides of the body.
               </Text>
               <View
                 style={
@@ -1449,24 +1292,181 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Please scroll down to click on the body part where your mole is located. 
+                Please scroll down to click on the body part where your mole is located.
               </Text>
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Swipe left or right to navigate to the different views. 
+                Swipe left or right to navigate to the different sides of the body.
+              </Text>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "height": 99,
+                        "resizeMode": "contain",
+                        "width": 350,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "height": 220,
+                        "resizeMode": "contain",
+                        "width": 300,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Image
+                    source={1}
+                    style={
+                      Object {
+                        "height": 245,
+                        "resizeMode": "contain",
+                        "width": 360,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </RCTScrollView>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "height": 1334,
+              "width": 750,
+            },
+            Object {
+              "backgroundColor": "transparent",
+            },
+          ]
+        }
+      >
+        <View>
+          <RCTScrollView
+            persistentScrollbar={true}
+            style={
+              Object {
+                "backgroundColor": "white",
+              }
+            }
+          >
+            <View>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                Please scroll down to click on the body part where your mole is located.
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                Swipe left or right to navigate to the different sides of the body.
               </Text>
               <Text />
               <View
@@ -1958,24 +1958,24 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Please scroll down to click on the body part where your mole is located. 
+                Please scroll down to click on the body part where your mole is located.
               </Text>
               <Text
                 style={
                   Object {
-                    "fontSize": 15,
-                    "fontWeight": "bold",
-                    "paddingLeft": 5,
+                    "fontSize": 17,
+                    "marginHorizontal": 10,
+                    "marginTop": 10,
                   }
                 }
               >
-                Swipe left or right to navigate to the different views. 
+                Swipe left or right to navigate to the different sides of the body.
               </Text>
               <Text />
               <View

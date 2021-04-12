@@ -12,7 +12,7 @@ const HelpNearShotScreen = ({navigation, route}) => {
                 <Text style={styles.mainBodyText}>The camera should be as close as it can be to the mole, without ruining the
                     quality of the image.</Text>
 
-                <Text style={styles.mainBodyText}>Tips:</Text>
+                <Text style={styles.tips}>Tips</Text>
                 <Text style={styles.bulletPoints}>
                     <Text>{'\u2022'}</Text>
                     <Text> Use the outline image to ensure that your photo is a similar distance from the camera as your
@@ -41,36 +41,38 @@ const HelpNearShotScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginLeft: 10,
-        marginTop: 10
     },
     title: {
-        fontSize: 40,
-        alignSelf: 'center',
-        paddingTop: 10,
-        textDecorationLine: 'underline'
+        fontSize: 30,
+        marginHorizontal: 10,
+        marginTop: 10,
+        fontWeight: "bold"
+        // textDecorationLine: 'underline'
     },
     mainBodyText: {
         fontSize: 17,
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        paddingRight: 10,
+        marginTop: 10,
+        marginHorizontal: 10,
+    },
+    tips: {
+        fontSize: 17,
+        marginTop: 20,
+        marginHorizontal: 10,
+        fontWeight: "bold"
     },
     bulletPoints: {
         fontSize: 17,
-        paddingTop: 5,
-        paddingBottom: 5,
-        paddingLeft: 15,
-        paddingRight: 10,
+        marginTop: 10,
+        // paddingLeft: 5,
+        marginHorizontal: 10,
     },
     doneBox: {
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
-        width: "97.5%",
+        marginHorizontal: 10,
         marginTop: 25,
-        bottom: 10
+        bottom: 10,
     },
     doneText: {
         fontSize: 30,

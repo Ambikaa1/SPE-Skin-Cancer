@@ -1,117 +1,123 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PhotoSuccess /> renders correctly 1`] = `
-<RCTScrollView>
-  <View>
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 30,
+        "fontWeight": "bold",
+        "marginHorizontal": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    Your mole photos have been saved!
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 17,
+        "fontWeight": "bold",
+        "marginHorizontal": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    Would you now like to complete the SCQOLIT survey? 
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 17,
+        "marginHorizontal": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    The SCQOLIT is an optional questionnaire for people who have been diagnosed with skin cancer. 
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#71A1D1",
+        "borderRadius": 10,
+        "bottom": 70,
+        "marginHorizontal": 10,
+        "marginTop": 10,
+        "opacity": 1,
+        "position": "absolute",
+        "width": "95%",
+      }
+    }
+  >
     <Text
       style={
         Object {
           "alignSelf": "center",
-          "color": "black",
-          "fontSize": 25,
-          "paddingHorizontal": 5,
+          "color": "white",
+          "fontSize": 17,
+          "fontWeight": "bold",
+          "marginVertical": 15,
         }
       }
     >
-      Your mole photos are saved! 
+      Yes, take me to the SCQOLIT survey
     </Text>
-    <Text />
-    <Text
-      style={
-        Object {
-          "alignSelf": "center",
-          "color": "black",
-          "fontSize": 25,
-          "paddingHorizontal": 5,
-        }
-      }
-    >
-      Would you now like to complete the SCQOLIT survey? 
-    </Text>
-    <Text
-      style={
-        Object {
-          "color": "black",
-          "fontSize": 18,
-          "paddingHorizontal": 5,
-          "paddingVertical": 5,
-        }
-      }
-    >
-      
-
-       The SCQOLIT is an optional questionnaire for people who have been diagnosed with skin cancer. 
-    </Text>
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignSelf": "center",
-          "backgroundColor": "#71A1D1",
-          "borderRadius": 10,
-          "marginTop": 20,
-          "opacity": 1,
-          "width": "97.5%",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "alignSelf": "center",
-            "color": "white",
-            "fontSize": 25,
-            "fontWeight": "bold",
-            "marginVertical": 10,
-          }
-        }
-      >
-        Yes, take me to the questionnaire
-      </Text>
-    </View>
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignSelf": "center",
-          "backgroundColor": "#71A1D1",
-          "borderRadius": 10,
-          "marginTop": 20,
-          "opacity": 1,
-          "width": "97.5%",
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "alignSelf": "center",
-            "color": "white",
-            "fontSize": 25,
-            "fontWeight": "bold",
-            "marginVertical": 10,
-          }
-        }
-      >
-        No, take me to the body outline
-      </Text>
-    </View>
   </View>
-</RCTScrollView>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#71A1D1",
+        "borderRadius": 10,
+        "bottom": 10,
+        "marginHorizontal": 10,
+        "marginTop": 10,
+        "opacity": 1,
+        "position": "absolute",
+        "width": "95%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "alignSelf": "center",
+          "color": "white",
+          "fontSize": 17,
+          "fontWeight": "bold",
+          "marginVertical": 15,
+        }
+      }
+    >
+      No, take me back to the body outline
+    </Text>
+  </View>
+</View>
 `;

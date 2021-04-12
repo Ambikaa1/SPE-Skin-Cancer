@@ -8,8 +8,8 @@ const RightBody = ({navigation}) => {
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
-            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
-            <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
+            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located.</Text>
+            <Text style = {styles.title}>Swipe left or right to navigate to the different sides of the body.</Text>
             {/*<View style={styles.flexbox}>*/}
             {/*    <TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>*/}
             {/*        <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />*/}
@@ -46,8 +46,8 @@ const LeftBody = ({navigation}) => {
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
-            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
-            <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
+            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located.</Text>
+            <Text style = {styles.title}>Swipe left or right to navigate to the different sides of the body.</Text>
             {/*<View style={styles.flexbox}>*/}
             {/*    <TouchableOpacity onPress={() => navigation.navigate("BackHomunc")}>*/}
             {/*        <Image style={styles.rotate} source={require('../../assets/Back/Back3.png')} />*/}
@@ -84,8 +84,8 @@ const FrontBody = ({navigation}) => {
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
-            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
-            <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
+            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located.</Text>
+            <Text style = {styles.title}>Swipe left or right to navigate to the different sides of the body.</Text>
             <Text></Text>
             {/*<View style={styles.flexbox}>*/}
                 {/*<TouchableOpacity onPress={() => navigation.navigate("LeftHomunc")}>*/}
@@ -170,8 +170,8 @@ const BackBody = ({navigation}) => {
     }
     return (
         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
-            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
-            <Text style = {styles.title}>Swipe left or right to navigate to the different views. </Text>
+            <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located.</Text>
+            <Text style = {styles.title}>Swipe left or right to navigate to the different sides of the body.</Text>
             <Text></Text>
             {/*<View style={styles.flexbox}>*/}
             {/*    <Image style={styles.rotate} source={require('../../assets/Back/Left3.png')} />*/}
@@ -304,9 +304,10 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     title:{
-        fontSize: 15,
-        fontWeight: "bold",
-        paddingLeft: 5,
+        fontSize: 17,
+        // fontWeight: "bold",
+        marginHorizontal: 10,
+        marginTop: 10,
     },
     fronthead: {
         width: 115,

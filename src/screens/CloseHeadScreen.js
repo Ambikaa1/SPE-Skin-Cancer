@@ -62,10 +62,10 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     title:{
-        fontSize: 15,
-        fontWeight: "bold",
-        paddingTop: 10,
-        paddingLeft: 7,
+        fontSize: 17,
+        // fontWeight: "bold",
+        marginTop: 10,
+        marginHorizontal: 10,
     },
     doneBox: {
         backgroundColor: "#71A1D1",

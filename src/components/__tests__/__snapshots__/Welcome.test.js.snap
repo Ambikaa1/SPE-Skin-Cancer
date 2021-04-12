@@ -12,26 +12,36 @@ exports[`<Welcome /> renders correctly 1`] = `
   <Text
     style={
       Object {
-        "fontSize": 25,
+        "fontSize": 30,
         "fontWeight": "bold",
-        "marginLeft": 10,
-        "marginTop": 10,
+        "marginHorizontal": 10,
+        "marginVertical": 10,
       }
     }
   >
-    WELCOME!
+    Welcome.
   </Text>
-  <Text />
   <Text
     style={
       Object {
         "fontSize": 17,
-        "marginLeft": 10,
-        "marginTop": 10,
+        "marginBottom": 10,
+        "marginHorizontal": 10,
       }
     }
   >
-    This App is designed to allow you to monitor your skin moles and similar lesions. Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour. It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF) and The Computer Science Department of the University of Bristol.
+    This App is designed to allow you to monitor your skin moles and similar lesions. Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour.
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 17,
+        "marginBottom": 10,
+        "marginHorizontal": 10,
+      }
+    }
+  >
+    It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF) and the Department of Computer Science at the University of Bristol.
   </Text>
   <View
     accessible={true}
