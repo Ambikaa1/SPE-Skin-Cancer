@@ -76,20 +76,13 @@ const Home = ({ navigation }) => {
             {/*    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to complete SCQOLIT survey</Text>*/}
             {/*</TouchableOpacity>*/}
 
-            <View style = {styles.textContainer}>
-                <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
-                    <Text style = {styles.textAboveLogo}>About SCaRF</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
-                    <Text style = {styles.textAboveLogo}>Donate to SCaRF</Text>
-                </TouchableOpacity>
-            </View>
-
             <View style = {styles.logosContainer}>
                 <TouchableOpacity onPress = {() => Linking.openURL("https://www.skincancerresearch.org/what-we-do")}>
+                    <Text style = {styles.textAboveLogo}>About SCaRF</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress = {() => Linking.openURL("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
+                    <Text style = {styles.textAboveLogo}>Donate to SCaRF</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                 </TouchableOpacity>
             </View>
@@ -172,20 +165,16 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         borderRadius: 10,
     },
-    textContainer: {
-        marginTop: 2,
-        width: Dimensions.get("window").width,
-        marginHorizontal: 5,
-        borderRadius: 10,
-        flexDirection: "row",
-    },
     textAboveLogo: {
-        fontSize: 20,
+        fontSize: 17,
         marginHorizontal: 5,
-        flexWrap: 'wrap',
-        color: "#3366ff",
-        paddingRight: 45,
-        textDecorationLine: 'underline'
+        marginBottom: 5,
+        fontWeight: "bold",
+        // textAlign: "center"
+        // flexWrap: 'wrap',
+        // color: "#3366ff",
+        // paddingRight: 45,
+        // textDecorationLine: 'underline'
     }
 });
 
