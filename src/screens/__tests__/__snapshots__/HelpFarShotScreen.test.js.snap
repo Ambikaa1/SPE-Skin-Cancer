@@ -6,8 +6,6 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
   style={
     Object {
       "flex": 1,
-      "marginLeft": 10,
-      "marginTop": 10,
     }
   }
 >
@@ -18,10 +16,10 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
       <Text
         style={
           Object {
-            "alignSelf": "center",
-            "fontSize": 40,
-            "paddingTop": 10,
-            "textDecorationLine": "underline",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -31,10 +29,8 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 10,
-            "paddingLeft": 10,
-            "paddingRight": 10,
-            "paddingTop": 10,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -44,10 +40,8 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 10,
-            "paddingLeft": 10,
-            "paddingRight": 10,
-            "paddingTop": 10,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -57,10 +51,8 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 10,
-            "paddingLeft": 10,
-            "paddingRight": 10,
-            "paddingTop": 10,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -70,23 +62,20 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 10,
-            "paddingLeft": 10,
-            "paddingRight": 10,
-            "paddingTop": 10,
+            "fontWeight": "bold",
+            "marginHorizontal": 10,
+            "marginTop": 20,
           }
         }
       >
-        Tips:
+        Tips
       </Text>
       <Text
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 5,
-            "paddingLeft": 15,
-            "paddingRight": 10,
-            "paddingTop": 5,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -94,17 +83,15 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           •
         </Text>
         <Text>
-           It is best if someone takes the photograph whilst you stay still.
+           It is best if someone else takes the photograph whilst you stand still
         </Text>
       </Text>
       <Text
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 5,
-            "paddingLeft": 15,
-            "paddingRight": 10,
-            "paddingTop": 5,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -112,17 +99,15 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           •
         </Text>
         <Text>
-           Use good lighting - ideally, natural daylight at mid-day.
+           Use good lighting—ideally, natural daylight at mid-day
         </Text>
       </Text>
       <Text
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 5,
-            "paddingLeft": 15,
-            "paddingRight": 10,
-            "paddingTop": 5,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -130,17 +115,15 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           •
         </Text>
         <Text>
-           Take the photograph approximately 10-15cm away from the skin (the width of 1-2 hands).
+           Take the photograph approximately 10–15cm away from the skin (the width of 1–2 hands)
         </Text>
       </Text>
       <Text
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 5,
-            "paddingLeft": 15,
-            "paddingRight": 10,
-            "paddingTop": 5,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -148,17 +131,15 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           •
         </Text>
         <Text>
-           Try to get a good contrast (green or blue is good).
+           Try to get a good contrast (green or blue is good)
         </Text>
       </Text>
       <Text
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 5,
-            "paddingLeft": 15,
-            "paddingRight": 10,
-            "paddingTop": 5,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -166,17 +147,15 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           •
         </Text>
         <Text>
-           Touch the screen to focus the image.
+           Touch the screen to focus the image
         </Text>
       </Text>
       <Text
         style={
           Object {
             "fontSize": 17,
-            "paddingBottom": 5,
-            "paddingLeft": 15,
-            "paddingRight": 10,
-            "paddingTop": 5,
+            "marginHorizontal": 10,
+            "marginTop": 10,
           }
         }
       >
@@ -184,7 +163,7 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           •
         </Text>
         <Text>
-           If you are not happy with the image, retake it.
+           If you are not happy with the image, retake it
         </Text>
       </Text>
       <View
@@ -207,10 +186,8 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           style={
             Object {
               "fontSize": 17,
-              "paddingBottom": 5,
-              "paddingLeft": 15,
-              "paddingRight": 10,
-              "paddingTop": 5,
+              "marginHorizontal": 10,
+              "marginTop": 10,
             }
           }
         >
@@ -224,7 +201,7 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
               }
             }
           >
-             For more advice see this YouTube video.
+             For more help, click here to watch a YouTube video
           </Text>
         </Text>
       </View>
@@ -244,9 +221,9 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
             "backgroundColor": "#71A1D1",
             "borderRadius": 10,
             "bottom": 10,
+            "marginHorizontal": 10,
             "marginTop": 25,
             "opacity": 1,
-            "width": "97.5%",
           }
         }
       >
