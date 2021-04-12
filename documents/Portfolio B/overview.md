@@ -2,7 +2,7 @@
 
 ## Client
 
-Our client is SCaRF (Skin Cancer Research Fund), a charity founded in 1979, with the objective of raising money for research into the causes, prevention, and treatment of skin cancer, especially melanoma, and to raise awareness of the condition.
+Our client is SCaRF (The Skin Cancer Research Fund), a charity founded in 1979, with the objective of raising money for research into the causes, prevention, and treatment of skin cancer, especially melanoma, and to raise awareness of the condition.
 
 Jon Pleat, a consultant plastic surgeon and chairman of SCaRF, is our main contact for the project. He believes that there are currently not any apps that enable patients to effectively monitor their moles for signs of skin cancer; the apps presently available on the market are expensive, difficult to use and unintuitive.
 
