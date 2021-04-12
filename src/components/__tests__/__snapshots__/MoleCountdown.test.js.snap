@@ -59,7 +59,7 @@ exports[`<MoleCountdown /> renders correctly 1`] = `
           Object {
             "backgroundColor": "#71A1D1",
             "height": "100%",
-            "width": "-62431.75854301697%",
+            "width": "-5.401234567901234e-7%",
           }
         }
       />

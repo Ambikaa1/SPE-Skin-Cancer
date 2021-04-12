@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MoleListItem /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomColor": "#71A1D1",
+      "borderBottomWidth": 5,
+      "borderTopColor": "#71A1D1",
+      "borderTopWidth": 5,
+      "flexDirection": "row",
+      "marginHorizontal": 10,
+      "marginVertical": 5,
+      "paddingVertical": 5,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": undefined,
+      }
+    }
+    style={
+      Object {
+        "height": 200,
+        "width": 100,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "marginLeft": 10,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "paddingBottom": 10,
+          "paddingTop": 10,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "paddingBottom": 10,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "paddingBottom": 10,
+        }
+      }
+    >
+      Last updated: 
+    </Text>
+  </View>
+</View>
+`;
