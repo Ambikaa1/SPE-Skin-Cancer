@@ -78,11 +78,21 @@ const Home = ({ navigation }) => {
             {/*</TouchableOpacity>*/}
 
             <View style = {styles.logosContainer}>
-                <TouchableOpacity onPress = {async () => await WebBrowser.openBrowserAsync("https://www.skincancerresearch.org/what-we-do")}>
+                <TouchableOpacity onPress = {async () => await WebBrowser.openBrowserAsync(
+                    "https://www.skincancerresearch.org/what-we-do",
+                    {
+                        dismissButtonStyle: "close"
+                    }
+                )}>
                     <Text style = {styles.textAboveLogo}>About SCaRF</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/scarf_logo.jpg')} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress = {async () => await WebBrowser.openBrowserAsync("https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056")}>
+                <TouchableOpacity onPress = {async () => await WebBrowser.openBrowserAsync(
+                    "https://www.justgiving.com/scrf/donate/?utm_campaign=donate_purple&utm_content=scrf&utm_medium=buttons&utm_source=website_cid52056",
+                    {
+                        dismissButtonStyle: "close"
+                    }
+                )}>
                     <Text style = {styles.textAboveLogo}>Donate to SCaRF</Text>
                     <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                 </TouchableOpacity>
