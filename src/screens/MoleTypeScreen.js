@@ -35,14 +35,14 @@ const MoleTypeScreen = ({navigation, route}) => {
             />
             {(moleChoice == 1) && 
                 <>
-                    <Text style = {styles.question}>Mole name:</Text>
+                    <Text style = {styles.question}>Name this mole:</Text>
                     <TextInput
                         value = {name}
                         onChangeText = {value => setName(value)}
                         placeholder = "e.g. Left cheek 1"
                         style = {styles.input}
                     />
-                    <Text style = {styles.question}>Mole comments:</Text>
+                    <Text style = {styles.question}>Any other comments:</Text>
                     <TextInput
                         value = {comments}
                         onChangeText = {value => setComments(value)}
