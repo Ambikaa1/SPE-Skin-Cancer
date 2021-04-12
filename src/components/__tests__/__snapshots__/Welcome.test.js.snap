@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Welcome /> renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 25,
+        "fontWeight": "bold",
+        "marginLeft": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    WELCOME!
+  </Text>
+  <Text />
+  <Text
+    style={
+      Object {
+        "fontSize": 17,
+        "marginLeft": 10,
+        "marginTop": 10,
+      }
+    }
+  >
+    This App is designed to allow you to monitor your skin moles and similar lesions. Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour. It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF) and The Computer Science Department of the University of Bristol.
+  </Text>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#71A1D1",
+        "borderRadius": 10,
+        "bottom": 10,
+        "marginHorizontal": 10,
+        "marginTop": 20,
+        "opacity": 1,
+        "position": "absolute",
+        "width": "95%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 30,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+        }
+      }
+    >
+      Done
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;

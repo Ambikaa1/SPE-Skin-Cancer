@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Review /> Far renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "alignItems": "stretch",
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "ABCD-EFGH-IJKL",
+          }
+        }
+        style={
+          Object {
+            "alignItems": "stretch",
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "black",
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginVertical": 5,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        Accept
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginVertical": 5,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        Try again
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`<Review /> Near renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "alignItems": "stretch",
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "uri": "ABCD-EFGH-IJKL",
+          }
+        }
+        style={
+          Object {
+            "alignItems": "stretch",
+            "flex": 1,
+            "flexDirection": "column",
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "black",
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginVertical": 5,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        Accept
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginVertical": 5,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text />
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        Try again
+      </Text>
+    </View>
+  </View>
+</View>
+`;
