@@ -3,42 +3,15 @@ import { View, SafeAreaView, Text, StyleSheet, Linking, TouchableOpacity, Image,
 import { useIsFocused } from "@react-navigation/native"
 import * as WebBrowser from "expo-web-browser";
 import * as SQLite from "expo-sqlite";
-import Constants from 'expo-constants';
-import * as Notifications from 'expo-notifications';
 
 import MoleCountdown from "../components/MoleCountdown";
 
-Notifications.setNotificationHandler({
-    handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: false,
-        shouldSetBadge: false,
-    }),
-});
 
 const db = SQLite.openDatabase("28.db");
 
 const Home = ({ navigation }) => {
-    const [expoPushToken, setExpoPushToken] = useState('');
-    const [notification, setNotification] = useState(false);
     const [moles, setMoles] = useState([])
-    const notificationListener = useRef();
-    const responseListener = useRef();
     const isFocused = useIsFocused();
-
-    useEffect(() => {
-        registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
-        notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-            setNotification(notification);
-        });
-        responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-            console.log(response);
-        });
-        return () => {
-            Notifications.removeNotificationSubscription(notificationListener);
-            Notifications.removeNotificationSubscription(responseListener);
-        };
-    }, []);
 
     useEffect(() => {
         db.transaction(
@@ -53,7 +26,7 @@ const Home = ({ navigation }) => {
     return (
         <SafeAreaView style = {styles.container}>
             {(moles.length != 0)
-            ?
+                ?
                 <>
                     <Text style = {styles.countdownText}>Number of days until you need to take another picture of your mole</Text>
                     <FlatList
@@ -63,16 +36,13 @@ const Home = ({ navigation }) => {
                         style = {styles.countdowns}
                     />
                 </>
-            :
+                :
                 <Text style = {styles.noMoles}>
                     You haven't photographed any moles yet.
                     Click the camera icon at the bottom of the screen to begin photographing your moles.
                 </Text>
             }
 
-            <TouchableOpacity style={{fontSize: 200, marginLeft: 10}} onPress={async () => {await schedulePushNotification();}}>
-                <Text style={{fontSize: 20, paddingVertical: 5}}>Press to schedule a notification</Text>
-            </TouchableOpacity>
             {/*<TouchableOpacity style={{marginHorizontal: '2.5%', alignItems:'center', backgroundColor: "#71A1D1", borderRadius: 10}} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>*/}
             {/*    <Text style={{fontSize: 20, paddingVertical: 5, color:'white'}}>Press to complete SCQOLIT survey</Text>*/}
             {/*</TouchableOpacity>*/}
@@ -101,48 +71,6 @@ const Home = ({ navigation }) => {
     );
 };
 
-//Push notification functions - straight from the expo documentation.
-async function schedulePushNotification() {
-    await Notifications.scheduleNotificationAsync({
-        content: {
-            title: "You've got mail! 📬",
-            body: 'Take another picture of your mole!',
-            data: { data: 'goes here' },
-        },
-        trigger: { seconds: 2 },
-    });
-}
-
-async function registerForPushNotificationsAsync() {
-    let token;
-    if (Constants.isDevice) {
-        const { status: existingStatus } = await Notifications.getPermissionsAsync();
-        let finalStatus = existingStatus;
-        if (existingStatus !== 'granted') {
-            const { status } = await Notifications.requestPermissionsAsync();
-            finalStatus = status;
-        }
-        if (finalStatus !== 'granted') {
-            alert('Failed to get push token for push notification!');
-            return;
-        }
-        token = (await Notifications.getExpoPushTokenAsync()).data;
-        console.log(token);
-    } else {
-        alert('Must use physical device for Push Notifications');
-    }
-
-    if (Platform.OS === 'android') {
-        await Notifications.setNotificationChannelAsync('default', {
-            name: 'default',
-            importance: Notifications.AndroidImportance.MAX,
-            vibrationPattern: [0, 250, 250, 250],
-            lightColor: '#FF231F7C',
-        });
-    }
-
-    return token;
-}
 
 const styles = StyleSheet.create({
     container: {
@@ -181,7 +109,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         marginBottom: 5,
         fontWeight: "bold",
-        color: "#3366ff",
+        // textAlign: "center"
+        // flexWrap: 'wrap',
+        // color: "#3366ff",
+        // paddingRight: 45,
         // textDecorationLine: 'underline'
     }
 });
