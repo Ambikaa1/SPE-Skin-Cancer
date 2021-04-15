@@ -6,7 +6,7 @@ import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("28.db");
 
-const UserProfile = ({}) => {
+const UserProfile = ({ navigation }) => {
     const [history, setHistory] = useState(null);
     const [familyHistory, setFamilyHistory] = useState(null);
     const [sunburn, setSunburn] = useState(null);
@@ -50,10 +50,15 @@ const UserProfile = ({}) => {
         navigation.navigate("HomeScreen")
     };
 
-
     const [questionOne, setQuestionOne] = useState(true)
     const [questionTwo, setQuestionTwo] = useState(false)
     const [questionThree, setQuestionThree] = useState(false)
+    const [questionFour, setQuestionFour] = useState(false)
+    const [questionFive, setQuestionFive] = useState(false)
+    const [questionSix, setQuestionSix] = useState(false)
+    const [questionSeven, setQuestionSeven] = useState(false)
+    const [questionEight, setQuestionEight] = useState(false)
+    const [questionNine, setQuestionNine] = useState(false)
 
     return (
         <View>
@@ -120,13 +125,146 @@ const UserProfile = ({}) => {
                         labelStyle = {styles.dropDownLabel}
                         onChangeItem = {item => setSunburn(item.value)}
                     />
-                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionOne(true); setQuestionThree(false)}}>
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionFour(true); setQuestionThree(false)}}>
                         <Text style = {styles.doneText}>Next question</Text>
                     </TouchableOpacity>
                 </>
                 : null
             }
-
+            {questionFour
+                ?
+                <>
+                    <Text style = {styles.progress}>Question 4 out of 9</Text>
+                    <Text style = {styles.questions}>Have you ever used a sun bed?</Text>
+                    <DropDownPicker
+                        items = {[
+                            {label: 'Yes', value: "yes"},
+                            {label: 'No', value: "no"},
+                            {label: 'Unsure', value: "unsure"},
+                            {label: 'Rather not say', value: "not say"},
+                        ]}
+                        containerStyle = {styles.dropDownContainer}
+                        labelStyle = {styles.dropDownLabel}
+                        onChangeItem = {item => setSunbed(item.value)}
+                    />
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionFive(true); setQuestionFour(false)}}>
+                        <Text style = {styles.doneText}>Next question</Text>
+                    </TouchableOpacity>
+                </>
+                : null
+            }
+            {questionFive
+                ?
+                <>
+                    <Text style = {styles.progress}>Question 5 out of 9</Text>
+                    <Text style = {styles.questions}>Have you ever had a job that involved working outside?</Text>
+                    <DropDownPicker
+                        items = {[
+                            {label: 'Yes', value: "yes"},
+                            {label: 'No', value: "no"},
+                            {label: 'Unsure', value: "unsure"},
+                            {label: 'Rather not say', value: "not say"},
+                        ]}
+                        containerStyle = {styles.dropDownContainer}
+                        labelStyle = {styles.dropDownLabel}
+                        onChangeItem = {item => setWorkOutside(item.value)}
+                    />
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionSix(true), setQuestionFive(false)}}>
+                        <Text style = {styles.doneText}>Next question</Text>
+                    </TouchableOpacity>
+                </>
+                : null
+            }
+            {questionSix
+                ?
+                <>
+                    <Text style = {styles.progress}>Question 6 out of 9</Text>
+                    <Text style = {styles.questions}>Are you immunosuppressed? (Suppression of the immune response, as by drugs or radiation)</Text>
+                    <DropDownPicker
+                        items = {[
+                            {label: 'Yes', value: "yes"},
+                            {label: 'No', value: "no"},
+                            {label: 'Unsure', value: "unsure"},
+                            {label: 'Rather not say', value: "not say"},
+                        ]}
+                        containerStyle = {styles.dropDownContainer}
+                        labelStyle = {styles.dropDownLabel}
+                        onChangeItem = {item => setImmunosuppressed(item.value)}
+                    />
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionSeven(true); setQuestionSix(false)}}>
+                        <Text style = {styles.doneText}>Next question</Text>
+                    </TouchableOpacity>
+                </>
+                : null
+            }
+            {questionSeven
+                ?
+                <>
+                    <Text style = {styles.progress}>Question 7 out of 9</Text>
+                    <Text style = {styles.questions}>Have you got a large number of moles on your skin surface?</Text>
+                    <DropDownPicker
+                        items = {[
+                            {label: 'Yes', value: "yes"},
+                            {label: 'No', value: "no"},
+                            {label: 'Unsure', value: "unsure"},
+                            {label: 'Rather not say', value: "not say"},
+                        ]}
+                        containerStyle = {styles.dropDownContainer}
+                        labelStyle = {styles.dropDownLabel}
+                        onChangeItem = {item => setMoleNo(item.value)}
+                    />
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionEight(true); setQuestionSeven(false)}}>
+                        <Text style = {styles.doneText}>Next question</Text>
+                    </TouchableOpacity>
+                </>
+                : null
+            }
+            {questionEight
+                ?
+                <>
+                    <Text style = {styles.progress}>Question 8 out of 9</Text>
+                    <Text style = {styles.questions}>Have you ever been exposed to any chemicals during your occupation?</Text>
+                    <DropDownPicker
+                        items = {[
+                            {label: 'Yes', value: "yes"},
+                            {label: 'No', value: "no"},
+                            {label: 'Unsure', value: "unsure"},
+                            {label: 'Rather not say', value: "not say"},
+                        ]}
+                        containerStyle = {styles.dropDownContainer}
+                        labelStyle = {styles.dropDownLabel}
+                        onChangeItem = {item => setChemicalExposure(item.value)}
+                    />
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionNine(true), setQuestionEight(false)}}>
+                        <Text style = {styles.doneText}>Next question</Text>
+                    </TouchableOpacity>
+                </>
+                : null
+            }
+            {questionNine
+                ?
+                <>
+                    <Text style = {styles.progress}>Question 9 out of 9</Text>
+                    <Text style = {styles.questions}>Have you ever been exposed to any radiation during your occupation?</Text>
+                    <DropDownPicker
+                        items = {[
+                            {label: 'Yes', value: "yes"},
+                            {label: 'No', value: "no"},
+                            {label: 'Unsure', value: "unsure"},
+                            {label: 'Rather not say', value: "not say"},
+                        ]}
+                        containerStyle = {styles.dropDownContainer}
+                        labelStyle = {styles.dropDownLabel}
+                        onChangeItem = {item => setRadiationExposure(item.value)}
+                    />
+                    <Text></Text>
+                    <Text style = {styles.title}>Thank you, now it's time to assess your skin. </Text>
+                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {navigation.navigate("HomeScreen"); setQuestionNine(false), addToDatabase}}>
+                        <Text style = {styles.doneText}>Finish</Text>
+                    </TouchableOpacity>
+                </>
+                : null
+            }
         </View>
     );
 }
