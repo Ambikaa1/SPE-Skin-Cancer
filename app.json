@@ -1,7 +1,6 @@
 {
   "expo": {
     "name": "app",
-    "android":{"softwareKeyboardLayoutMode": "pan"},
     "slug": "app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -33,6 +32,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
+      "softwareKeyboardLayoutMode":"pan",
       "useNextNotificationsApi": true
     },
     "web": {
