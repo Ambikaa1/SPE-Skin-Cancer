@@ -3,7 +3,7 @@ import { StyleSheet, Alert } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from "../screens/HomeScreen";
 import UserScreen from "../screens/UserScreen";
-import WelcomeScreen from "../screens/WelcomeScreen";
+import UserProfile from "../screens/UserProfile";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import SettingsButton from "../components/SettingsButton"
@@ -52,7 +52,7 @@ const HomeStack = () => {
       />
       <Stack.Screen
         name = "RiskFactorsScreen"
-        component = {RiskFactorsScreen}
+        component = {UserProfile}
         options = {{
             title: "User Info",
             headerTitle: props => <HeaderText {...props} />,
