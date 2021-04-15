@@ -2,7 +2,7 @@ import React from "react";
 import {Text, StyleSheet, View} from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
-const UserQuestion = ({}) => {
+const UserQuestion = (props) => {
     return(
         <DropDownPicker
             items = {[
@@ -13,7 +13,7 @@ const UserQuestion = ({}) => {
             ]}
             containerStyle = {styles.dropDownContainer}
             labelStyle = {styles.dropDownLabel}
-            onChangeItem = {console.log("item changed")}
+            onChangeItem = {console.log(props.children)}
         />
     );
 };
