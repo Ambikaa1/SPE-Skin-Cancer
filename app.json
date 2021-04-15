@@ -26,6 +26,7 @@
       "requireFullScreen": true
     },
     "android": {
+      "softwareKeyboardLayoutMode": "pan",
       "package": "com.yourcompany.yourappname",
       "versionCode": 1,
       "adaptiveIcon": {
