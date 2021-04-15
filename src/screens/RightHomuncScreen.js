@@ -5,7 +5,7 @@
 //     const clickHandler = (bodyPart) => {
 //         navigation.navigate("SideBodyPart", {bodyPart: bodyPart})
 //     }
-//     return ( 
+//     return (
 //         <ScrollView persistentScrollbar={true} style={styles.scrollView}>
 //             <Text style = {styles.title}>Please scroll down to click on the body part where your mole is located. </Text>
 //             <Text style = {styles.title}>Swipe left or right, or click on the buttons to navigate to the different views. </Text>

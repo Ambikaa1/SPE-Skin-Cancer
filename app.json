@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "app",
+    "android":{"softwareKeyboardLayoutMode": "pan"},
     "slug": "app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -26,7 +27,6 @@
       "requireFullScreen": true
     },
     "android": {
-      "softwareKeyboardLayoutMode": "pan",
       "package": "com.yourcompany.yourappname",
       "versionCode": 1,
       "adaptiveIcon": {
