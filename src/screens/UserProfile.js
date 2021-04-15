@@ -63,7 +63,7 @@ const UserProfile = ({ navigation }) => {
     return (
         <View>
             <Text style = {styles.title}>Have you got any risk factors for skin cancer? </Text>
-            <Text style = {styles.title}>Scroll through the page, indicating ‘yes’, ‘no’, 'unsure' or 'rather not say'.</Text>
+            <Text style = {styles.title}>Go through the questions indicating ‘yes’, ‘no’, 'unsure' or 'rather not say'.</Text>
             <Text style = {styles.title}>This information will only be stored on your phone unless you opt to send it with your images to a clinician. </Text>
             {questionOne
                 ?
@@ -293,6 +293,7 @@ const styles = StyleSheet.create({
         height: 40,
         marginTop: 5,
         marginRight: 10,
+        marginHorizontal: 10,
     },
     dropDownLabel: {
         fontSize: 17,
@@ -300,16 +301,18 @@ const styles = StyleSheet.create({
     questions:{
         fontSize: 17,
         marginTop: 10,
+        marginHorizontal: 10,
     },
     title:{
         fontSize: 17,
         marginTop: 10,
-        zIndex: 1,
+        marginHorizontal: 10,
     },
     progress:{
         fontSize: 17,
         marginTop: 30,
         fontWeight: "bold",
+        marginHorizontal: 10,
     },
 });
 

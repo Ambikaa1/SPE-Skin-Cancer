@@ -68,17 +68,17 @@ const Home = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
 
-            <TouchableOpacity onPress = {() => {
-                db.transaction(
-                    tx => {
-                        tx.executeSql("select * from user;", [], (_, { rows }) =>
-                            console.log(rows)
-                        );
-                    }
-                );
-            }}>
-                <Text>VIEW_USER</Text>
-            </TouchableOpacity>
+            {/*<TouchableOpacity onPress = {() => {*/}
+            {/*    db.transaction(*/}
+            {/*        tx => {*/}
+            {/*            tx.executeSql("select * from user;", [], (_, { rows }) =>*/}
+            {/*                console.log(rows)*/}
+            {/*            );*/}
+            {/*        }*/}
+            {/*    );*/}
+            {/*}}>*/}
+            {/*    <Text>VIEW_USER</Text>*/}
+            {/*</TouchableOpacity>*/}
         </SafeAreaView>
     );
 };
