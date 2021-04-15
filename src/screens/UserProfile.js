@@ -259,7 +259,7 @@ const UserProfile = ({ navigation }) => {
                     />
                     <Text></Text>
                     <Text style = {styles.title}>Thank you, now it's time to assess your skin. </Text>
-                    <TouchableOpacity style = {styles.doneBox} onPress = {() => {navigation.navigate("HomeScreen"); setQuestionNine(false), addToDatabase}}>
+                    <TouchableOpacity style = {styles.doneBox} onPress = {addToDatabase}>
                         <Text style = {styles.doneText}>Finish</Text>
                     </TouchableOpacity>
                 </>
