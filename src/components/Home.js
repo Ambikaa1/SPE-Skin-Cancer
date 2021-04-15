@@ -67,6 +67,18 @@ const Home = ({ navigation }) => {
                     <Image style = {styles.scarfLogo} source = {require('../../assets/justgiving_logo.png')} />
                 </TouchableOpacity>
             </View>
+
+            {/*<TouchableOpacity onPress = {() => {*/}
+            {/*    db.transaction(*/}
+            {/*        tx => {*/}
+            {/*            tx.executeSql("select * from user;", [], (_, { rows }) =>*/}
+            {/*                console.log(rows)*/}
+            {/*            );*/}
+            {/*        }*/}
+            {/*    );*/}
+            {/*}}>*/}
+            {/*    <Text>VIEW_USER</Text>*/}
+            {/*</TouchableOpacity>*/}
         </SafeAreaView>
     );
 };
