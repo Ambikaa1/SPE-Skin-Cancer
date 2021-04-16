@@ -85,7 +85,15 @@ const App = () => {
             null,
             (t, error) => {console.log(error);}
         );
+        tx.executeSql(
+            "CREATE TABLE IF NOT EXISTS survey_score (score_id INTEGER PRIMARY KEY NOT NULL UNIQUE, score INTEGER, answers INTEGER ARRAY);",
+            [],
+            null,
+            (t, error) => {console.log(error);}
+        );
         tx.executeSql("INSERT INTO user (first_name, last_name, date_of_birth, welcome_seen) VALUES (null, null, null, 0);", []);
+        // tx.executeSql("INSERT INTO survey_score (score, answers[] ) VALUES (0, [0,0,0,0,0,0,0,0,0,0]);", []);
+
     });
     console.log("Database test");
 
