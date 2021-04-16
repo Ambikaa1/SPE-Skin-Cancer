@@ -125,7 +125,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
                 <TouchableOpacity
                     onPress = {() => {
                         setGhostImage(prevCheck => !prevCheck);
-                        console.log('show ghost image =', ghostImage)
+                        // console.log('show ghost image =', ghostImage)
                     }
                 }>
                     {ghostImage

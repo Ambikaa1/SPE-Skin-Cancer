@@ -7,7 +7,7 @@ const MoleCountdown = ({ item, index }) => {
     const percentage = difference / 2592000000;
 
     const barStyle = () => {
-        console.log(percentage);
+        // console.log(percentage);
         return ({
             height: "100%",
             width: `${percentage * 100}%`,
