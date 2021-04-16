@@ -23,17 +23,17 @@ const RightBody = ({navigation}) => {
             {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Head or Neck")}>
-                    <Image style={styles.head} source={require('../../assets/Side/RHead.png')} />
+                    <Image style={styles.head} source={require('../../assets/Side/RHead2.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Torso")}>
-                    <Image style={styles.torso} source={require('../../assets/Side/RTorso.png')} />
+                    <Image style={styles.torso} source={require('../../assets/Side/RTorso2.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Right Legs")}>
-                    <Image style={styles.legs} source={require('../../assets/Side/RLegs.png')} />
+                <TouchableOpacity onPress={() => clickHandler("Right Leg")}>
+                    <Image style={styles.legs} source={require('../../assets/Side/RLeg2.png')} />
                 </TouchableOpacity>
             </View>
         </ScrollView>
@@ -70,7 +70,7 @@ const LeftBody = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Left Legs")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Leg")}>
                     <Image style={styles.legs} source={require('../../assets/Side/LLegs.png')} />
                 </TouchableOpacity>
             </View>
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     },
     head: {
         width: 350,
-        height: 99,
+        height: 120,
         resizeMode: 'contain',
     },
     torso: {
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
     },
     legs: {
         width: 360,
-        height: 245,
+        height: 270,
         resizeMode: 'contain',
     },
     rotate: {
