@@ -1,73 +1,178 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, FlatList } from 'react-native';
+import {StyleSheet, View, Alert, Text, TouchableOpacity, TextInput, FlatList, ScrollView} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import * as SQLite from "expo-sqlite";
 
 import MoleListItem from "../../components/MoleListItem"
 
-const db = SQLite.openDatabase("28.db");
 
-const SurveyScreen1 = ({navigation, route}) => {
-    const [moleChoice, setChoice] = useState(null);
-    const [name, setName] = useState(null);
-    const [comments, setComments] = useState(null);
-    const [moles, setMoles] = useState([]);
+const SurveyScreen2 = ({navigation}) => {
+    const [Question, setQuestion] = useState(1)
+    const [Answers] = useState([null, null, null ,null, null, null, null, null ,null, null])
 
-    useEffect(() => {
-        db.transaction(
-            tx => {
-                tx.executeSql("SELECT mole_id, name, lastUpdated, far_shot, comments FROM mole WHERE sub_body_part = ?;", [route.params.bodyPart], (_, { rows }) => setMoles(rows._array));
+
+    const clickHandler = (values) => {
+        Answers[(Question-1)] = values
+
+    }
+    const nextClick = () => {
+        if (Answers[(Question-1)] == null){
+            Alert.alert("Alert", "please select an answer")
+        }
+        else {
+            setQuestion(Question + 1)
+        }
+    }
+    const prevClick = () => {
+        setQuestion(Question - 1)
+    }
+    const finishedClick = () => {
+        if (Answers[(Question-1)] == null){
+            Alert.alert("Alert", "please select an answer")
+        }
+        else {
+            let total = 0
+            for (let i in Answers) {
+                total = total + Answers[i]
             }
-        );
-    }, []);
+            let data = {
+                total,
+                Answers
+            }
+            navigation.navigate("LastSCQOLITScreen", data)
+        }
+    }
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.questionTop}>Have you logged this mole on the app before?</Text>
-            <DropDownPicker
-                items = {[
-                    {label: 'Yes', value: 0},
-                    {label: 'No', value: 1},
-                ]}
-                containerStyle = {styles.dropDownContainer}
-                labelStyle = {styles.dropDownLabel}
-                onChangeItem = {item => setChoice(item.value)}
-            />
-            {(moleChoice == 1) &&
-            <>
-                <Text style = {styles.question}>Mole name:</Text>
-                <TextInput
-                    value = {name}
-                    onChangeText = {value => setName(value)}
-                    placeholder = "e.g. Left cheek 1"
-                    style = {styles.input}
-                />
-                <Text style = {styles.question}>Mole comments:</Text>
-                <TextInput
-                    value = {comments}
-                    onChangeText = {value => setComments(value)}
-                    placeholder = "e.g. located 7cm away from nose"
-                    style = {styles.input}
-                />
-                <TouchableOpacity style = {styles.doneBox} onPress = {() => navigation.navigate("HelpFarShot", { name: name, comments: comments})}>
-                    <Text style = {styles.doneText}>Confirm</Text>
+            <Text style = {styles.questionTop}>Please select an answer then click 'next' to go to the next question, or press 'previous' to go to the previous question</Text>
+            <View style = {{height:'40%'}}>
+                <View style = {{marginTop:'15%'}}>
+                    {(Question == 1) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much have you been concerned that your skin cancer might come back?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 2) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much have you felt that you needed more information on how to recognize skin cancer
+                            or prevent it?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 3) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week how much have you worried about covering up your skin and keeping out of the sun?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 4) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much have you felt a need for reassurance from your doctor or nurse, in respect to your
+                            skin cancer or its treatment?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 5) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much have you felt emotional, anxious, depressed, guilty or stressed, in respect to your skin cancer or its treatment?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 6) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much have you been bothered about any disfigurement or scarring, in respect to your skin cancer or its treatment?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 7) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much have you felt shock or disbelief about having been diagnosed with skin cancer?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 8) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much skin discomfort or inconvenience have you experienced, in respect to your skin
+                            cancer or its treatment?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 9) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, how much have you had concerns about dying from your skin cancer?
+                        </Text>
+                    </>
+                    }
+                    {(Question == 10) &&
+                    <>
+                        <Text style={styles.text}>
+                            Over the last week, to what extent have you felt the need for emotional support from your family or friends, in
+                            respect to your skin cancer or its treatment?
+                        </Text>
+                    </>
+                    }
+                </View>
+            </View>
+            <View>
+                <TouchableOpacity style = {[styles.optionButton, {backgroundColor: "#71A1D1"}]} onPress = {() => clickHandler(3)}>
+                    <Text style = {styles.optionsText}>
+                        Very much so
+                    </Text>
                 </TouchableOpacity>
-            </>
-            }
-            {(moleChoice == 0) &&
-            <>
-                <Text style = {styles.question}>Select a mole below to photograph</Text>
-                <FlatList
-                    data = {moles}
-                    renderItem = {({item}) => (
-                        <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
-                            <MoleListItem uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
-                        </TouchableOpacity>
-                    )}
-                    keyExtractor = {item => `${item.mole_id}`}
-                />
-            </>
-            }
+            </View>
+            <View>
+                <TouchableOpacity style = {[styles.optionButton,{backgroundColor: "#71A1D1"}]} onPress = {() => clickHandler(2)}>
+                    <Text style = {styles.optionsText}>
+                        Moderately so
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <TouchableOpacity style = {[styles.optionButton, {backgroundColor: "#71A1D1"}]} onPress = {() => clickHandler(1)}>
+                    <Text style = {styles.optionsText}>
+                        Somewhat
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <TouchableOpacity style = {[styles.optionButton,  {backgroundColor: "#71A1D1"}]} onPress = {() => clickHandler(0)}>
+                    <Text style = {styles.optionsText}>
+                        Not at all
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View style = {{flexDirection:'row', justifyContent:'space-around'}}>
+                <View style = {{width:'50%'}}>
+                    {(Question > 1) &&
+                    <TouchableOpacity style={styles.prevButton} onPress={() => prevClick()}>
+                        <Text style={styles.bottomButtonsText}>Previous</Text>
+                    </TouchableOpacity>
+                    }
+                </View>
+                <View style = {{width: '50%'}}>
+                    {(Question < 10) &&
+                    <TouchableOpacity style={styles.nextButton} onPress={() => nextClick()}>
+                        <Text style={styles.bottomButtonsText}>Next</Text>
+                    </TouchableOpacity>
+                    }
+                    {(Question == 10) &&
+                    <TouchableOpacity style={styles.nextButton} onPress={() => finishedClick()}>
+                        <Text style={styles.bottomButtonsText}>Finished</Text>
+                    </TouchableOpacity>
+                    }
+                </View>
+            </View>
         </View>
     );
 };
@@ -75,50 +180,49 @@ const SurveyScreen1 = ({navigation, route}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 10
+        marginVertical: '2.5%',
+        marginHorizontal:'2.5%',
     },
-    dropDownContainer: {
-        height: 40,
-        marginTop: 5,
-        marginHorizontal: 10,
-    },
-    dropDownLabel: {
-        fontSize: 17,
-    },
-    questionTop: {
-        fontSize: 17,
-        marginHorizontal: 10
-    },
-    question: {
-        marginTop: 20,
-        fontSize: 17,
-        marginHorizontal: 10
-    },
-    input: {
-        backgroundColor: "#E2E2E2",
-        height: 50,
+    prevButton: {
+        marginTop: '15%',
+        backgroundColor: '#646464',
+        alignItems: 'center',
         borderRadius: 10,
-        marginTop: 10,
-        marginBottom: 7.5,
-        paddingLeft: 10,
-        fontSize: 17,
-        marginHorizontal: 10
+        width: '98%',
+        // marginRight: '1%'
     },
-    doneBox: {
-        backgroundColor: "#71A1D1",
+    nextButton: {
+        marginTop: '15%',
+        backgroundColor: '#38c413',
+        alignItems: 'center',
+        borderRadius: 10,
+        width: '98%',
+        marginLeft: '1%'
+    },
+    bottomButtonsText:{
+        fontSize:40,
+        marginVertical:10,
+        color: 'white',
+    },
+    text:{
+        textAlign: 'center',
+        fontSize:20,
+        alignItems: 'center',
+    },
+    optionButton:{
         alignItems: "center",
         borderRadius: 10,
-        position: "absolute",
-        width: "95%",
-        bottom: 10,
-        marginHorizontal: 10,
+        marginBottom:'2.5%',
     },
-    doneText: {
+    optionsText:{
         fontSize: 30,
         fontWeight: "bold",
         color: "white",
-        marginVertical: 10,
-    }
+
+    marginVertical: 10,
+    },
+
+
 });
 
-export default SurveyScreen1;
+export default SurveyScreen2;

@@ -6,7 +6,7 @@ import InfoScreen from "../screens/InfoScreen";
 import StorageScreen from "../screens/StorageScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
-import SurveyScreen from "../screens/SCQOLIT survay/SurvayScrren";
+import SurveyScreen2 from "../screens/SCQOLIT survay/SurveyScreen2";
 import WhySCQOLIT from "../screens/SCQOLIT survay/WhySCQOLIT";
 import LastSCQOLITScreen from "../screens/SCQOLIT survay/LastSCQOLITScreen";
 
@@ -31,11 +31,11 @@ const InfoStack = () => {
         Alert.alert("Help", "\nThis page gives a description of the survey. Press 'Next' to continue")
     };
     const SurveyHelp = () => {
-        Alert.alert("Help","\nThis is the SCQOLIT survey.\n\nScroll through and select answers for each question from the drop down menus. \n\n"+
-            " When you're done, press the 'Finished' button at the bottom of the page to save your answers and get your score.")
+        Alert.alert("Help","\nThis is the SCQOLIT survey.\n\n Press a button to answer the question and then click 'Next' to move on to the next question\n\n"+
+            " When you're done, press the 'Finished' button to view your score.")
     }
     const FinalSurveyPageHelp = () => {
-        Alert.alert("Help","\nThis is your score for the SCQOLIT survey.\n\nPress 'Next' to return to the homepage")
+        Alert.alert("Help","\nThis is your score for the SCQOLIT survey.\n\nPress 'Done' to save and return to the homepage")
     }
 
 
@@ -75,7 +75,7 @@ const InfoStack = () => {
       />
     <Stack.Screen
         name= "SurveyScreen"
-        component = {SurveyScreen}
+        component = {SurveyScreen2}
         options = {{
             title: "SCQOLIT Survey",
             headerTitle: props => <HeaderText {...props} />,
@@ -95,7 +95,7 @@ const InfoStack = () => {
         name="LastSCQOLITScreen"
         component = {LastSCQOLITScreen}
         options = {{
-            title: "Done",
+            title: "Done!",
             headerTitle: props => <HeaderText {...props} />,
             headerRight: props => <HeaderButton {...props} onPressFunction={FinalSurveyPageHelp} />,
         }}

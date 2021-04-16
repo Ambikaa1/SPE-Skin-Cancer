@@ -1,7 +1,46 @@
-import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import React, {useEffect, useState } from "react";
+import {View, Text, StyleSheet, Alert, TouchableOpacity} from "react-native";
+import * as SQLite from "expo-sqlite";
+
+const db = SQLite.openDatabase("28.db");
 
 const LastSCQOLITScreen = ({navigation, route}) => {
+    const [PrevScore, setPrevScore] = useState(null)
+    useEffect(() => {
+        db.transaction(
+            tx => {
+                tx.executeSql("select * from survey_score;", [], (_, { rows }) => {
+                        setPrevScore(rows._array[0].score);
+                    }
+                );
+            }
+        );
+    }, []);
+
+    const addToDatabase = () => {
+        db.transaction(
+            tx => {
+                tx.executeSql(
+                    `UPDATE survey_score SET score = ?, answers = ?`,
+                    [route.params.total, route.params.Answers],
+                    null,
+                    (t, error) => {
+                        console.log(error);
+                    }
+                );
+            }
+        );
+    }
+
+    const doneFunction = () => {
+        navigation.navigate("InfoList")
+        addToDatabase()
+        console.log(route.params)
+    }
+    const testFunction = () => {
+        Alert.alert("allert", (PrevScore))
+    }
+
     return(
         <>
             <View style = {styles.container}>
@@ -12,14 +51,19 @@ const LastSCQOLITScreen = ({navigation, route}) => {
                     Your score is:{"\n"}
                 </Text>
                 <Text style = {styles.scoreText}>
-                    {route.params}/30
+                    {route.params.total}/30
                 </Text>
 
 
             </View>
-            <TouchableOpacity style = {styles.nextButton} onPress = {() => navigation.navigate("InfoList")}>
+            <TouchableOpacity style = {styles.nextButton} onPress = {() => doneFunction()}>
                 <Text style = {styles.nextButtonText}>
-                    Next
+                    Done
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style = {styles.nextButton} onPress = {() => testFunction()}>
+                <Text style = {styles.nextButtonText}>
+                    Test
                 </Text>
             </TouchableOpacity>
 
