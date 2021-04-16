@@ -12,7 +12,7 @@ const checkSideSwitch = (bodyPart) => {
         case 'Left Head or Neck':
             return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseLeftHead.png')}/>)
         case 'Left Torso':
-            return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseLeftTorso.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Side/LTorso2.png')}/>)
         case 'Left Leg':
             return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseLeftLeg.png')}/>)
     }

@@ -61,17 +61,17 @@ const LeftBody = ({navigation}) => {
             {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Head or Neck")}>
-                    <Image style={styles.head} source={require('../../assets/Side/LHead.png')} />
+                    <Image style={styles.head} source={require('../../assets/Side/LHead2.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Torso")}>
-                    <Image style={styles.torso} source={require('../../assets/Side/LTorso.png')} />
+                    <Image style={styles.torso} source={require('../../assets/Side/LTorso2.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Leg")}>
-                    <Image style={styles.legs} source={require('../../assets/Side/LLegs.png')} />
+                    <Image style={styles.legs} source={require('../../assets/Side/LLeg2.png')} />
                 </TouchableOpacity>
             </View>
         </ScrollView>
