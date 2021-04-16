@@ -3,7 +3,6 @@ import { StyleSheet, Alert } from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
 import InfoListScreen from "../screens/InfoListScreen"
 import InfoScreen from "../screens/InfoScreen";
-import StorageScreen from "../screens/StorageScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import SurveyScreen2 from "../screens/SCQOLIT survay/SurveyScreen2";

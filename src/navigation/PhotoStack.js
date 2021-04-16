@@ -12,13 +12,8 @@ import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import HelpFarShotScreen from "../screens/HelpFarShotScreen";
 import HelpNearShotScreen from "../screens/HelpNearShotScreen";
-import DrawingHelpScreen from "../screens/DrawingHelpScreen";
 import PhotoSuccess from "../screens/PhotoSuccess";
-import FrontHomuncScreen from "../screens/FrontHomuncScreen";
 import SCQOLITStack from "./SQOLITStack";
-import BackHomuncScreen from "../screens/BackHomuncScreen";
-import LeftHomuncScreen from "../screens/LeftHomuncScreen";
-import RightHomuncScreen from "../screens/RightHomuncScreen";
 import SideBodyPartScreen from "../screens/SideBodyPartScreen";
 import BackBodyPartScreen from "../screens/BackBodyPartScreen";
 import SwipingHomuncScreen from "../screens/SwipingHomuncScreen";
