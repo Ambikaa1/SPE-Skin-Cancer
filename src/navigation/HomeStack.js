@@ -7,7 +7,6 @@ import UserProfile from "../screens/UserProfile";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
 import SettingsButton from "../components/SettingsButton"
-import RiskFactorsScreen from "../screens/RiskFactorsScreen";
 
 const Stack = createStackNavigator()
 

@@ -29,10 +29,10 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
         "Plantar Surface Left Foot Back": require("../../assets/ghost/back/left_foot.png"),
         "Plantar Surface Right Foot Back": require("../../assets/ghost/back/right_foot.png"),
         "Left Head or Neck Left": require("../../assets/ghost/left/head.png"),
-        "Left Torso Left": require("../../assets/ghost/left/torso.png"),
+        "Left Torso Left": require("../../assets/ghost/left/torso2.png"),
         "Left Legs Left": require("../../assets/ghost/left/legs.png"),
         "Right Head or Neck Right": require("../../assets/ghost/right/head.png"),
-        "Right Torso Right": require("../../assets/ghost/right/torso.png"),
+        "Right Torso Right": require("../../assets/ghost/right/torso2.png"),
         "Right Legs Right": require("../../assets/ghost/right/legs.png"),
         "Top of the head Front": require("../../assets/ghost/front/head_top.png"),
         "Face Front": require("../../assets/ghost/front/face.png"),
@@ -125,7 +125,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
                 <TouchableOpacity
                     onPress = {() => {
                         setGhostImage(prevCheck => !prevCheck);
-                        console.log('show ghost image =', ghostImage)
+                        // console.log('show ghost image =', ghostImage)
                     }
                 }>
                     {ghostImage
