@@ -17,6 +17,9 @@ const Welcome = ({ setWelcomeSeen }) => {
                 It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF)
                 and the Department of Computer Science at the University of Bristol.
             </Text>
+            <Text style = {styles.mainText}>
+                Get started by tapping the user icon in the top left of the home screen and entering your details.
+            </Text>
 
             <TouchableOpacity style = {styles.doneBox} onPress = {() => {db.transaction(
                 tx => {
