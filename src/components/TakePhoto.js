@@ -32,7 +32,7 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
         "Left Torso Left": require("../../assets/ghost/left/torso.png"),
         "Left Legs Left": require("../../assets/ghost/left/legs.png"),
         "Right Head or Neck Right": require("../../assets/ghost/right/head.png"),
-        "Right Torso Right": require("../../assets/ghost/right/torso.png"),
+        "Right Torso Right": require("../../assets/ghost/right/torso2.png"),
         "Right Legs Right": require("../../assets/ghost/right/legs.png"),
         "Top of the head Front": require("../../assets/ghost/front/head_top.png"),
         "Face Front": require("../../assets/ghost/front/face.png"),
