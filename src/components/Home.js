@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         // textAlign: "center"
         // flexWrap: 'wrap',
-        // color: "#3366ff",
+        color: "#3366ff",
         // paddingRight: 45,
         // textDecorationLine: 'underline'
     }
