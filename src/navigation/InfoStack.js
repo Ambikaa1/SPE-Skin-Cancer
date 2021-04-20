@@ -63,15 +63,6 @@ const InfoStack = () => {
           headerRight: props => <HeaderButton {...props} onPressFunction = {InfoScreenHelp} />,
         }}
       />
-      <Stack.Screen
-        name = "StorageScreen"
-        component = {StorageScreen}
-        options = {{
-          title: "Storage",
-          headerTitle: props => <HeaderText {...props} />,
-          headerRight: props => <HeaderButton {...props} />,
-        }}
-      />
     <Stack.Screen
         name= "SurveyScreen"
         component = {SurveyScreen2}

@@ -45,10 +45,6 @@ const InfoListScreen = ({ navigation, route }) => {
             <TouchableOpacity style = {styles.surveyButton} onPress = {() => navigation.navigate("WhySCQOLITScreen")}>
                     <InfoItem name = {"Complete the SCQOLIT survey"} index = {0} />
             </TouchableOpacity>
-
-            {/* <TouchableOpacity onPress = {() => navigation.navigate("StorageScreen")}>
-                <InfoItem name = {"STORAGE"} index = {0}/>
-            </TouchableOpacity> */}
         </View>
     );
 };
