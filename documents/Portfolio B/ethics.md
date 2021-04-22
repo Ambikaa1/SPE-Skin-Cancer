@@ -4,13 +4,15 @@
 
 ### Types of Personal Data
 
-Our application will be collecting two pieces of personal data about a user:
-- Their name
-- Photographs of their moles
+Our application will be collecting several pieces of personal data about a user:
+- User information: fist name, family name, date of birth
+- Skin cancer status: whether they've ever had skin cancer before, whether anyone in their family has had skin cancer, whether they've ever had sunburn, whether they've ever used a sunbed, whether they've ever had a job that involved working outdoors, whether they're immunosuppressed, whether they have a large number of moles on their skin surface, whether they've ever been exposed to chemicals during their occupation, whether they've ever been exposed to radiation during their occupation
+- Mole photographs: far shots and near shots
+- Mole information: name of the mole, comments about the mole, body part the mole is on
 
 ### Collecting User Consent
 
-When the user first opens our application, we will clearly inform them that the application needs to collect their name and images of their moles in order to function. This data will be stored locally on their device, and we will not have access to this data. If they choose to accept these terms, then they will be able to use the application.
+When the user first opens our application, we will clearly inform them that the application needs to collect information about them, images of their moles, and information about their moles in order to function to its full capability. This data will be stored locally on their device, and we will not have access to this data. If they choose to accept these terms, then they will be able to use the application.
 
 ### Managing Personal Data
 
