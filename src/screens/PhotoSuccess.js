@@ -69,11 +69,10 @@ const PhotoSuccess = ({navigation}) => {
 async function schedulePushNotification() {
     await Notifications.scheduleNotificationAsync({
         content: {
-            title: "You've got mail! 📬",
-            body: 'Here is the notification body',
-            data: { data: 'goes here' },
+            title: "Mole Update 🔄",
+            body: 'Go to the SCaRF app to take a new picture of your mole.',
         },
-        trigger: { seconds: 2 },
+        trigger: { days: 30 },
     });
 }
 
