@@ -45,7 +45,9 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           }
         }
       >
-        There will be an outline available of the body part to help you line up the camera. This will be accessible by pressing the ghost shaped button, to the right of the picture button on the next page. 
+        There will be an outline available of the body part to help you align the camera. This will be accessible by pressing the ghost shaped button (
+        <Text />
+        ), to the right of the picture button on the next page. 
       </Text>
       <Text
         style={
@@ -56,19 +58,7 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           }
         }
       >
-        Once you have taken a photo you will be able to drag a red circle with your finger to circle the mole. You can use the slider on the right to increase and decrease the size of the circle. If you need more help at that stage, click the question mark in the top right.
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 17,
-            "fontWeight": "bold",
-            "marginHorizontal": 10,
-            "marginTop": 20,
-          }
-        }
-      >
-        Tips
+        Once you have taken a photo you will be able to drag a red circle with your finger to circle the mole. You can use the slider on the right to increase and decrease the size of the circle. Adjust the size of the circle until the location of the mole is clear. If you need more help at that stage, click the question mark in the top right.
       </Text>
       <Text
         style={
@@ -79,132 +69,8 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           }
         }
       >
-        <Text>
-          •
-        </Text>
-        <Text>
-           It is best if someone else takes the photograph whilst you stand still
-        </Text>
+        Press continue below to see some tips for taking your photograph.
       </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 17,
-            "marginHorizontal": 10,
-            "marginTop": 10,
-          }
-        }
-      >
-        <Text>
-          •
-        </Text>
-        <Text>
-           Use good lighting—ideally, natural daylight at mid-day
-        </Text>
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 17,
-            "marginHorizontal": 10,
-            "marginTop": 10,
-          }
-        }
-      >
-        <Text>
-          •
-        </Text>
-        <Text>
-           Take the photograph approximately 10–15cm away from the skin (the width of 1–2 hands)
-        </Text>
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 17,
-            "marginHorizontal": 10,
-            "marginTop": 10,
-          }
-        }
-      >
-        <Text>
-          •
-        </Text>
-        <Text>
-           Try to get a good contrast (green or blue is good)
-        </Text>
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 17,
-            "marginHorizontal": 10,
-            "marginTop": 10,
-          }
-        }
-      >
-        <Text>
-          •
-        </Text>
-        <Text>
-           Touch the screen to focus the image
-        </Text>
-      </Text>
-      <Text
-        style={
-          Object {
-            "fontSize": 17,
-            "marginHorizontal": 10,
-            "marginTop": 10,
-          }
-        }
-      >
-        <Text>
-          •
-        </Text>
-        <Text>
-           If you are not happy with the image, retake it
-        </Text>
-      </Text>
-      <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "fontSize": 17,
-              "marginHorizontal": 10,
-              "marginTop": 10,
-            }
-          }
-        >
-          <Text>
-            •
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#3366ff",
-              }
-            }
-          >
-             For more help, click here to watch a YouTube video
-          </Text>
-        </Text>
-      </View>
       <View
         accessible={true}
         focusable={true}

@@ -18,6 +18,7 @@ import SideBodyPartScreen from "../screens/SideBodyPartScreen";
 import BackBodyPartScreen from "../screens/BackBodyPartScreen";
 import SwipingHomuncScreen from "../screens/SwipingHomuncScreen";
 import CloseHeadScreen from "../screens/CloseHeadScreen";
+import FarShotTipsScreen from "../screens/FarShotTipsScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -166,6 +167,11 @@ const PhotoStack = () => {
           component = {HelpFarShotScreen}
           options = {{title: 'Help'}}
       />
+        <Stack.Screen
+            name = "HelpFarShotTips"
+            component = {FarShotTipsScreen}
+            options = {{title: 'Help'}}
+        />
       <Stack.Screen
         name = "CameraFar"
         component = {CameraFarScreen}
@@ -219,7 +225,9 @@ const PhotoStack = () => {
           name = "PhotoSuccess"
           component = {PhotoSuccess}
           options = {{
-              title: "Success"
+              title: "Success",
+              headerLeft: null,
+              gestureEnabled: false
           }}
       />
       <Stack.Screen
