@@ -22,12 +22,15 @@ We will not be storing any personal data ourselves; all personal data will be st
 
 Our application will not be using any cookies.
 
-### Security
+## Security
+
+### Security Strategy
 
 The personal data collected in our application will be stored locally on a user's device. On iOS, each app runs within its own sandbox, so this data will not be visible to other applications on the device. On Android, data within a directory marked as "app-specific storage" is not accessible from other applications either. Therefore the personal data we will be storing will be secure, as it will not be accessible outside of the application itself.
 
 ## Ethics Management
 
-We are currently in the process of applying for ethics approval.
+### Ethical Concerns
 
-<!-- Ethics pre-approval was applied for on **INSERT DATE HERE**. -->
+Our application has minimal ethical concerns. Users consent to all data collected about them when they use the application. All data collected is stored on the user's device, and so is protected by the security of the operating system they are running it on (i.e. iOS or Android). The only data that can leave a users device is photographs and information about a particular mole, if and only if a user chooses to share this information with somebody via email.
+
