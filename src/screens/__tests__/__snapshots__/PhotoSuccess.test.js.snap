@@ -105,11 +105,9 @@ exports[`<PhotoSuccess /> renders correctly 1`] = `
         "alignSelf": "center",
         "backgroundColor": "#71A1D1",
         "borderRadius": 10,
-        "bottom": 70,
         "marginHorizontal": 10,
         "marginTop": 10,
         "opacity": 1,
-        "position": "absolute",
         "width": "95%",
       }
     }
@@ -143,11 +141,9 @@ exports[`<PhotoSuccess /> renders correctly 1`] = `
         "alignSelf": "center",
         "backgroundColor": "#71A1D1",
         "borderRadius": 10,
-        "bottom": 10,
         "marginHorizontal": 10,
         "marginTop": 10,
         "opacity": 1,
-        "position": "absolute",
         "width": "95%",
       }
     }

@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     tips: {
         fontSize: 17,
-        marginTop: 20,
+        marginTop: 10,
         marginHorizontal: 10,
         fontWeight: "bold"
     },

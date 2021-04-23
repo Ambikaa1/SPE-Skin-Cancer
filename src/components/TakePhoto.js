@@ -135,7 +135,6 @@ const TakePhoto = ({ navigation, nextScreen, name, comments, id, bodyPart }) => 
                 </TouchableOpacity>
             </View>
         </View>
-
     );
 };
 

@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Pressable, Image } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-
-
 const db = SQLite.openDatabase("28.db");
 
 const SelectNearShots = ({route, navigation }) => {
-
     const selectedFarShot                            = route.params.mole
     const [allNearShots      , setAllNearShots]      = useState([]);
     const [selectedNearShots , setSelectedNearShots] = useState([])
@@ -25,8 +22,6 @@ const SelectNearShots = ({route, navigation }) => {
             }
         );
     }, []);
-
-
 
     const displayNearShots = ({ item }) => {
         let uri = item.near_shot
@@ -69,7 +64,6 @@ const SelectNearShots = ({route, navigation }) => {
     }
 
     return (
-
         <View style={styles.container}>
             <Text style = {styles.title}>Select some images and continue!</Text>
             <Text style = {styles.subtitle}>Tap on a near shot to select it{'\n'}Hold your finger on an image to enlarge it</Text>
@@ -83,16 +77,14 @@ const SelectNearShots = ({route, navigation }) => {
             />
 
             <TouchableOpacity
-
                 style={[styles.continueButtonStyle, selectedNum === 0 ?{backgroundColor: "#d3d3d3"} : {backgroundColor: "#76fd00"}]}
                 onPress ={selectedNum === 0 ? null :() =>  {
                     navigation.navigate("SendEmail", {selectedNearShots: selectedNearShots, selectedFarShot: selectedFarShot})
                 }}>
-                <Text style={styles.continueButtonText}>Continue</Text>
+                <Text style = {styles.continueButtonText}>Continue</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-
                 style={[styles.continueButtonStyle, {backgroundColor: "#fc0202"}]}
                 onPress = {() => navigation.goBack()}
             >
@@ -155,8 +147,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#71A1D1",
         borderRadius: 5,
         alignItems: 'center',
-        marginBottom: 5,
-
+        marginBottom: 10,
+        marginHorizontal: 10,
     },
     continueButtonText:{
         marginTop: 10,
