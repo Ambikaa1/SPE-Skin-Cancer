@@ -39,7 +39,7 @@ const SelectMoleScreen = ({navigation }) => {
     useEffect(() => {
         db.transaction(
             tx => {
-                tx.executeSql("SELECT mole_id, name, comments, far_shot, lastUpdated FROM mole;",
+                tx.executeSql("SELECT mole_id, name, comments, far_shot, lastUpdated, sub_body_part FROM mole;",
                     [],
                     (_, { rows }) => {
                     setMoles(rows._array)

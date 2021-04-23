@@ -72,7 +72,7 @@ async function schedulePushNotification() {
             title: "Mole Update 🔄",
             body: 'Go to the SCaRF app to take a new picture of your mole.',
         },
-        trigger: { days: 30 },
+        trigger: { seconds : 2592000 },
     });
 }
 

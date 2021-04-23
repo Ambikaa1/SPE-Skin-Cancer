@@ -6,15 +6,17 @@ const SendEmail = ({ navigation, route }) => {
     const selectedFarShot    =  route.params.selectedFarShot
     const selectedNearShots  =  route.params.selectedNearShots
     const [comment, setComment] = useState("")
+    const [showReturn, setShowReturn] = useState(false)
 
    /* console.log("Selected Mole   =", selectedFarShot)
     console.log("Selected Images =", selectedNearShots)*/
 
     //displayString is the data on the selected moles to be displayed on this screen
     let displayString  = selectedFarShot.name + ': ' + selectedNearShots.length
+    console.log(selectedFarShot)
 
     //email body is the actual text to be inputted to the email
-    let emailBody      = "Mole name:\n" + selectedFarShot.name + '\n\n' + "Original Comment:\n" + selectedFarShot.comments
+    let emailBody      = "Mole name:\n" + selectedFarShot.name + '\n\n' + "Location:\n" + selectedFarShot.sub_body_part + '\n\n' + "Original Comment:\n" + selectedFarShot.comments
 
     let attachedImages  = [selectedFarShot.far_shot]
     for (const nearShot of selectedNearShots){
@@ -27,15 +29,14 @@ const SendEmail = ({ navigation, route }) => {
         }
 
         let email = await MailComposer.composeAsync({
-            recipients:  ['jon@scarteam.co.uk'],
-            subject   :  'Mole Photos',
+            recipients:  [],
+            subject   :  'CONFIDENTIAL; Mole Photos',
             body      :  emailBody,
             attachments: attachedImages,
         })
 
         if (email.status === 'sent'){
-            alert("Email has been sent")
-            navigation.navigate("Send")
+            setShowReturn(true)
         } else {
             alert("Error sending email")
         }
@@ -90,8 +91,7 @@ const SendEmail = ({ navigation, route }) => {
 
     return (
         <ScrollView>
-            <Text style={styles.mainBodyText}>The name of your mole, your initial comments, the location and the dates the images were taken and the location
-                will also be attached.</Text>
+            <Text style={styles.mainBodyText}>Here you can send your selected moles. The </Text>
 
             <Text style={styles.mainBodyText}>There is a box below the set of images for any additional comments you would like to make,
                 or you can do this in the email itself.
@@ -160,6 +160,16 @@ const SendEmail = ({ navigation, route }) => {
                 onPress={() => Notice()}
             >
                 <Text style={styles.doneText}>Send</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.mainBodyText}>Once you are done, press Finished to go back to </Text>
+
+
+            <TouchableOpacity
+                style={[styles.doneBox, showReturn ? {backgroundColor: "red"}:{backgroundColor: "gray"}]}
+                onPress={() => {showReturn && navigation.navigate("Send")}}
+            >
+                <Text style={styles.doneText}>Finished</Text>
             </TouchableOpacity>
         </ScrollView>
     );
@@ -254,7 +264,7 @@ const styles = StyleSheet.create({
     },
     input: {
         backgroundColor: "#E2E2E2",
-        height: 50,
+        height: 150,
         borderRadius: 10,
         marginTop: 10,
         marginBottom: 7.5,
