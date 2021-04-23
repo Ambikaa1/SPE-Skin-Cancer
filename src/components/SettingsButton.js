@@ -9,7 +9,7 @@ const SettingsButton = () => {
     return (
         <View style = {styles.top}>
             <TouchableOpacity onPress = {() => navigation.navigate("UserScreen")}>
-                <FontAwesome5 name="user-edit" size={27} style = {styles.button} />
+                <FontAwesome5 name = "user-edit" size = {27} style = {styles.button} />
             </TouchableOpacity>
         </View>
     );

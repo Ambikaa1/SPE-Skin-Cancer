@@ -53,12 +53,12 @@ const PhotoSuccess = ({navigation}) => {
             {/*strictly optional and you can change your answers by answering it again.*/}
             {/*{'\n\n'}Your latest answers will be attached to any email you send through the app.*/}
             {/*</Text>*/}
-            <TouchableOpacity style = {styles.doneBoxYes} onPress={() => navigation.navigate("Survay")}>
+            <TouchableOpacity style = {styles.YesNoBox} onPress={() => navigation.navigate("Survay")}>
                 <Text style = {styles.doneText}>
                     Yes, take me to the SCQOLIT survey
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.doneBoxNo} onPress={() => navigation.navigate("Swiping")}>
+            <TouchableOpacity style={styles.YesNoBox} onPress={() => navigation.navigate("Swiping")}>
                 <Text style = {styles.doneText}>No, take me back to the body outline</Text>
             </TouchableOpacity>
         </View>
@@ -135,25 +135,13 @@ const styles = StyleSheet.create({
         paddingHorizontal:5,
         paddingVertical:5,
     },
-    doneBoxYes: {
+    YesNoBox: {
         backgroundColor: "#71A1D1",
         alignSelf: "center",
         borderRadius: 10,
         marginTop: 10,
         marginHorizontal: 10,
         width: "95%",
-        position: "absolute",
-        bottom: 70,
-    },
-    doneBoxNo: {
-        backgroundColor: "#71A1D1",
-        alignSelf: "center",
-        borderRadius: 10,
-        marginTop: 10,
-        marginHorizontal: 10,
-        width: "95%",
-        position: "absolute",
-        bottom: 10,
     },
     doneText: {
         fontSize: 17,

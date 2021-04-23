@@ -1,24 +1,6 @@
-import React, {useState, useEffect} from "react";
-import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    TextInput,
-    ScrollView,
-    Linking,
-    Alert,
-    FlatList,
-    Image,
-    Pressable
-} from "react-native";
-import * as SQLite from "expo-sqlite";
-import {useIsFocused} from "@react-navigation/native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Alert, Image, Pressable } from "react-native";
 import * as MailComposer from 'expo-mail-composer';
-import {Email, Item, A, renderEmail, Span} from 'react-html-email';
-import validate from "react-native-web/dist/exports/StyleSheet/validate";
-import * as FileSystem from "expo-file-system";
-
 
 const SendEmail = ({ navigation, route }) => {
     const selectedFarShot    =  route.params.selectedFarShot
@@ -39,10 +21,7 @@ const SendEmail = ({ navigation, route }) => {
         attachedImages = [...attachedImages, nearShot.near_shot]
     }
 
-
-
-    async function sendEmail() {
-
+    const sendEmail = async () => {
         if (comment !== "") {
             emailBody = emailBody + '\n\nAdditional Comment:\n ' + comment
         }
@@ -57,7 +36,7 @@ const SendEmail = ({ navigation, route }) => {
         if (email.status === 'sent'){
             alert("Email has been sent")
             navigation.navigate("Send")
-        }else{
+        } else {
             alert("Error sending email")
         }
     }
@@ -89,8 +68,7 @@ const SendEmail = ({ navigation, route }) => {
 
     }*/
 
-
-    const Notice = () =>
+    const Notice = () =>{
         Alert.alert(
             "Notice",
             "The email to your GP will not be protected by any extra encryption and your email app is responsible for anything bad happening, not the amazing people that kindly developed this app",
@@ -108,6 +86,7 @@ const SendEmail = ({ navigation, route }) => {
             ],
             { cancelable: false }
         );
+    }
 
     return (
         <ScrollView>
@@ -118,7 +97,7 @@ const SendEmail = ({ navigation, route }) => {
                 or you can do this in the email itself.
             </Text>
 
-            <Text style = {styles.dateText}>Your Far Shot...</Text>
+            <Text style = {styles.title}>Far shot</Text>
             <View style = {styles.flatListRow}>
                 <Pressable
                     style = {styles.image}
@@ -140,7 +119,7 @@ const SendEmail = ({ navigation, route }) => {
                 </View>
             </View>
 
-            <Text style = {styles.dateText}>Your Near Shots...</Text>
+            <Text style = {styles.title}>Near Shots</Text>
             {selectedNearShots.map((nearShot, index) => {
                 return  <View style = {styles.flatListRow}>
                     <Pressable
@@ -180,7 +159,7 @@ const SendEmail = ({ navigation, route }) => {
                 style={styles.doneBox}
                 onPress={() => Notice()}
             >
-                <Text style={styles.doneText}>SEND</Text>
+                <Text style={styles.doneText}>Send</Text>
             </TouchableOpacity>
         </ScrollView>
     );
@@ -217,7 +196,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#71A1D1",
         alignSelf: "center",
         borderRadius: 10,
-        width: "97.5%",
+        width: "95%",
         marginTop: 25,
         bottom: 10
     },
@@ -238,14 +217,11 @@ const styles = StyleSheet.create({
         zIndex: 1,
         marginLeft: 30,
         marginRight: 30,
-
     },
     mainBodyText: {
         fontSize: 17,
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        paddingRight: 10,
+        marginTop: 10,
+        marginHorizontal: 10,
     },
     bulletPoints: {
         fontSize: 17,
@@ -265,8 +241,14 @@ const styles = StyleSheet.create({
         borderBottomColor: "#71A1D1",
         borderBottomWidth: 5,
     },
+    title: {
+        fontSize: 17,
+        marginHorizontal: 10,
+        fontWeight: "bold",
+        marginTop: 10,
+    },
     dateText : {
-        fontSize: 16,
+        fontSize: 17,
         marginHorizontal: 10,
         fontWeight: "bold",
     },
@@ -282,7 +264,6 @@ const styles = StyleSheet.create({
     },
     moleDetails : {
         flex : 1,
-
     }
 });
 
