@@ -79,6 +79,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setHistory(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionTwo(true); setQuestionOne(false)}}>
@@ -101,6 +102,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setFamilyHistory(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionThree(true), setQuestionTwo(false)}}>
@@ -123,6 +125,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setSunburn(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionFour(true); setQuestionThree(false)}}>
@@ -145,6 +148,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setSunbed(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionFive(true); setQuestionFour(false)}}>
@@ -167,6 +171,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setWorkOutside(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionSix(true), setQuestionFive(false)}}>
@@ -189,6 +194,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setImmunosuppressed(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionSeven(true); setQuestionSix(false)}}>
@@ -211,6 +217,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setMoleNo(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionEight(true); setQuestionSeven(false)}}>
@@ -233,6 +240,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setChemicalExposure(item.value)}
                     />
                     <TouchableOpacity style = {styles.doneBox} onPress = {() => {setQuestionNine(true), setQuestionEight(false)}}>
@@ -255,6 +263,7 @@ const UserProfile = ({ navigation }) => {
                         ]}
                         containerStyle = {styles.dropDownContainer}
                         labelStyle = {styles.dropDownLabel}
+                        placeholder = "Select an option"
                         onChangeItem = {item => setRadiationExposure(item.value)}
                     />
                     <Text></Text>
