@@ -32,6 +32,7 @@ const MoleTypeScreen = ({navigation, route}) => {
                     ]}
                     containerStyle = {styles.dropDownContainer}
                     labelStyle = {styles.dropDownLabel}
+                    placeholder = "Select 'Yes' or 'No'"
                     onChangeItem = {item => setChoice(item.value)}
                 />
                 {(moleChoice == 1) && 
