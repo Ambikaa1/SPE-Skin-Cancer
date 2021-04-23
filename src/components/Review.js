@@ -71,9 +71,9 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
         if (nextScreen === "HelpNearShot"){
             setDrawing(true);
         }
-        else{
+        else {
             setDrawing(false);
-            await doneDrawing()
+            await takeScreenShot()
         }
     };
 
@@ -91,14 +91,15 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
             quality: 1,
             format: "jpg"
         });
-
         await doneDrawing()
     }
+
 
     const photoSplit = photo.split("/");
     const photoId = photoSplit[photoSplit.length - 1];
 
     const doneDrawing = async () => {
+
 
         //Get date
         let today = new Date();
@@ -106,6 +107,7 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
         let todayFormatted = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
         // Mole should next be updated in one month
         let nextUpdate = Date.now() + (30 * 24 * 60 * 60 * 1000);
+
 
         // console.log("date: ", todayFormatted);
         // console.log(nextScreen);
@@ -138,9 +140,12 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                 await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + "near" + "/");
             }
             let newLocation = FileSystem.documentDirectory + "near/" + photoId
-            await FileSystem.moveAsync({
+            /*await FileSystem.moveAsync({
                 from: photo,
                 to: newLocation
+            });*/
+            await FileSystem.writeAsStringAsync(newLocation, photo, {
+                encoding: FileSystem.EncodingType.Base64,
             });
             db.transaction(
                 tx => {
@@ -180,6 +185,14 @@ const Review = ({navigation, nextScreen, photo, name, comments, id, bodyPart}) =
                         style={styles.camera}
                         source={{uri: photo}}
                     />
+                    {nextScreen === "HelpNearShot" ?
+                        null
+                        :
+                        <View style={styles.photoInfoBox}>
+                            <Text>Date: {new Date().getDate() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getFullYear()}</Text>
+                        </View>
+
+                    }
 
                     {drawing &&
                         <Animated.View
@@ -327,6 +340,11 @@ const styles = StyleSheet.create({
         borderColor: 'red',
         borderWidth: 5,
     },
+    photoInfoBox:
+        {
+            backgroundColor: "white",
+
+        },
 });
 
 export default Review;

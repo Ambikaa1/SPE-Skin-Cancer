@@ -6,36 +6,22 @@ import * as SQLite from "expo-sqlite";
 const db = SQLite.openDatabase("28.db");
 
 const SelectMoleScreen = ({navigation }) => {
-    const [molesDictionary, setMolesDictionary] = useState({})
-    const [moleIDToObject, setMoleIDToObject]   = useState({})
     const [moles, setMoles] = useState([]);
-    const [totalCount, setTotalCount] = useState(0)
     const isFocused = useIsFocused();
 
-    const updateSelection = (moleID, newSelection) => {
-        setMolesDictionary({...molesDictionary, [moleID]: newSelection})
-    }
-
-    const clearSelection = () => {
-        setMolesDictionary({})
-        setTotalCount(0) //Required to refresh the list
-    }
 
 
     const displayFarShots = ({ item }) => {
-        let moleID  = item.mole_id
         let moleURI = item.far_shot
 
-
-        let numberSelected = molesDictionary[moleID] === undefined ? 0 : molesDictionary[moleID].length
         return(
             <TouchableOpacity style = {styles.nearFarShot}
-                              onPress     = {() => navigation.navigate("SelectNearShots", { id: moleID, currentSelection: molesDictionary[moleID],updateSelection : {updateSelection}})}
+                              onPress     = {() => navigation.navigate("SelectNearShots", { mole: item})}
                               onLongPress = {() => navigation.navigate("Image", { uri: item.far_shot })}
             >
 
                 <Image
-                    style = {[styles.image, {borderWidth: 5}, numberSelected === 0 ?  {opacity: 1, borderColor:  "transparent"} : {opacity : 0.5, borderColor:  "#c708ff"}]}
+                    style = {[styles.image, {borderWidth: 5, opacity: 1, borderColor:  "transparent"}]}
                     source = {{ uri: moleURI}}
                 />
                 <View style = {styles.moleInfo}>
@@ -44,8 +30,6 @@ const SelectMoleScreen = ({navigation }) => {
                         Last updated: {item.lastUpdated}{"\n"}
                         Comment: {item.comments}{"\n"}
                     </Text>
-                    <Text style = {styles.currentlySelected}>Currently Selected: {numberSelected}</Text>
-
                 </View>
 
             </TouchableOpacity>
@@ -62,31 +46,7 @@ const SelectMoleScreen = ({navigation }) => {
                 });
             }
         );
-        let newCount = 0
-        for (const [, entry] of Object.entries(molesDictionary)){
-            newCount += entry.length
-        }
-        setTotalCount(newCount)
-
-
     }, [isFocused]);
-
-    const continueToSend = () => {
-        const selectedMoles = {}
-        for (const [key, entry] of Object.entries(molesDictionary)){
-            if (entry.length === 0){
-                delete molesDictionary[key]
-            }else{
-                for (const mole of moles){
-                    if (mole.mole_id.toString() === key){
-                        selectedMoles[key] = mole
-                    }
-                }
-            }
-        }
-        navigation.navigate("SendEmail", {selectedImages: molesDictionary, selectedMoles: selectedMoles})
-    }
-
 
 
 
@@ -97,27 +57,9 @@ const SelectMoleScreen = ({navigation }) => {
 
             <FlatList
                 data = {moles}
-                extraData = {totalCount}
                 renderItem = {displayFarShots}
                 keyExtractor = {item => `${item.mole_id}`}
             />
-            <TouchableOpacity
-
-                style={[styles.continueButtonStyle, totalCount === 0 ?{backgroundColor: "#d3d3d3"} : null]}
-                onPress ={totalCount === 0 ? null :() =>  {
-                   continueToSend()
-                }}>
-                <Text style={styles.continueButtonText}>Continue</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                style={[styles.continueButtonStyle, totalCount === 0 ?{backgroundColor: "#d3d3d3"} : {backgroundColor: "red"}]}
-                onPress ={totalCount === 0 ? null :() =>  clearSelection()}
-            >
-                <Text style={styles.continueButtonText}>Clear Selection</Text>
-
-            </TouchableOpacity>
-
         </View>
     );
 };

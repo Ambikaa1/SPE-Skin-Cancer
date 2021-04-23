@@ -7,33 +7,36 @@ import * as SQLite from "expo-sqlite";
 const db = SQLite.openDatabase("28.db");
 
 const SelectNearShots = ({route, navigation }) => {
-    const [entries, setEntries] = useState([]);
+
+    const selectedFarShot                            = route.params.mole
+    const [allNearShots      , setAllNearShots]      = useState([]);
+    const [selectedNearShots , setSelectedNearShots] = useState([])
+    const [selectedNum       , setSelectedNum]       = useState(0)
+
     //Get a list of all the near shot images for a particular mole entry
     useEffect(() => {
         db.transaction(
             tx => {
                 tx.executeSql(
                     "SELECT near_shot, date FROM mole_entry WHERE mole_id = ?;",
-                    [route.params.id],
-                    (_, { rows }) => setEntries(rows._array)
+                    [selectedFarShot.mole_id],
+                    (_, { rows }) => setAllNearShots(rows._array)
                 );
             }
         );
     }, []);
 
-    const [selectedImages , setSelectedImages] = useState(route.params.currentSelection === undefined ? [] : route.params.currentSelection)
-    const [selectedNum    , setSelectedNum]    = useState(selectedImages.length)
 
 
-    const displayFarShots = ({ item }) => {
+    const displayNearShots = ({ item }) => {
         let uri = item.near_shot
-        let selected = selectedImages.includes(uri)
+        let selected = selectedNearShots.includes(item)
 
         return(
             <View style = {styles.flatListRow}>
                 <Pressable
                     style = {styles.image}
-                    onPress     = {() => HandleMultipleSelection(uri)}
+                    onPress     = {() => HandleMultipleSelection(item)}
                     onLongPress = {() => navigation.navigate("Image", { uri: item.near_shot })}
                 >
                     <Image
@@ -52,42 +55,48 @@ const SelectNearShots = ({route, navigation }) => {
         );
     };
 
-    const HandleMultipleSelection = (uri) => {
-        let nextSelectedImages = selectedImages
+    const HandleMultipleSelection = (item) => {
+        let nextSelectedImages = selectedNearShots
 
-        if (nextSelectedImages.includes(uri)) {
-            nextSelectedImages = nextSelectedImages.filter(_uri => _uri !== uri)
+        if (nextSelectedImages.includes(item)) {
+            nextSelectedImages = nextSelectedImages.filter(_item => _item !== item)
         }else {
-            nextSelectedImages.push(uri)
+            nextSelectedImages.push(item)
         }
         setSelectedNum(nextSelectedImages.length)
-        setSelectedImages([...nextSelectedImages])
+        setSelectedNearShots([...nextSelectedImages])
 
     }
 
     return (
 
         <View style={styles.container}>
-            <Text style = {styles.title}>Tap on a near shot to select it</Text>
-            <Text style = {styles.subtitle}>Hold your finger on an image to enlarge it</Text>
+            <Text style = {styles.title}>Select some images and continue!</Text>
+            <Text style = {styles.subtitle}>Tap on a near shot to select it{'\n'}Hold your finger on an image to enlarge it</Text>
             <Text style={styles.selectCountText}>Currently selected: {selectedNum}</Text>
 
             <FlatList
-                data = {entries}
-                extraData = {selectedImages}
-                renderItem = {displayFarShots}
+                data = {allNearShots}
+                extraData = {selectedNearShots}
+                renderItem = {displayNearShots}
                 keyExtractor = {() => `${Math.floor(Math.random() * 10000)}`}
             />
 
             <TouchableOpacity
 
-                style={styles.continueButtonStyle}
-                onPress = {() =>
-                {route.params.updateSelection.updateSelection(route.params.id, selectedImages);
-                    navigation.goBack()}
-                }
+                style={[styles.continueButtonStyle, selectedNum === 0 ?{backgroundColor: "#d3d3d3"} : {backgroundColor: "#76fd00"}]}
+                onPress ={selectedNum === 0 ? null :() =>  {
+                    navigation.navigate("SendEmail", {selectedNearShots: selectedNearShots, selectedFarShot: selectedFarShot})
+                }}>
+                <Text style={styles.continueButtonText}>Continue</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+
+                style={[styles.continueButtonStyle, {backgroundColor: "#fc0202"}]}
+                onPress = {() => navigation.goBack()}
             >
-                <Text style={styles.continueButtonText}>{"Return"}</Text>
+                <Text style={styles.continueButtonText}>{"Go Back"}</Text>
             </TouchableOpacity>
         </View>
     );
@@ -146,6 +155,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#71A1D1",
         borderRadius: 5,
         alignItems: 'center',
+        marginBottom: 5,
 
     },
     continueButtonText:{
