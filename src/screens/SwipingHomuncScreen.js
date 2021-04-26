@@ -73,9 +73,6 @@ const LeftBody = ({navigation}) => {
                 <TouchableOpacity onPress={() => clickHandler("Left Leg or Inner Right Leg")}>
                     <Image style={styles.legs} source={require('../../assets/Side/LLeg3.png')} />
                 </TouchableOpacity>
-                {/*<TouchableOpacity onPress={() => clickHandler("Left Leg")}>*/}
-                {/*    <Image style={styles.legs} source={require('../../assets/Side/RBackLeg.png')} />*/}
-                {/*</TouchableOpacity>*/}
             </View>
         </ScrollView>
     )
@@ -302,7 +299,6 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize: 17,
-        // fontWeight: "bold",
         marginHorizontal: 10,
         marginTop: 10,
     },
