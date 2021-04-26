@@ -23,17 +23,17 @@ const RightBody = ({navigation}) => {
             {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Head or Neck")}>
-                    <Image style={styles.head} source={require('../../assets/Side/RHead2.png')} />
+                    <Image style={styles.head} source={require('../../assets/Side/RHead3.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Torso")}>
-                    <Image style={styles.torso} source={require('../../assets/Side/RTorso2.png')} />
+                    <Image style={styles.torso} source={require('../../assets/Side/RTorso3.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Right Leg or Inner Left Leg")}>
-                    <Image style={styles.legs} source={require('../../assets/Side/RLeg2.png')} />
+                    <Image style={styles.legs} source={require('../../assets/Side/RLeg3.png')} />
                 </TouchableOpacity>
             </View>
         </ScrollView>
@@ -61,17 +61,17 @@ const LeftBody = ({navigation}) => {
             {/*</View>*/}
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Head or Neck")}>
-                    <Image style={styles.head} source={require('../../assets/Side/LHead2.png')} />
+                    <Image style={styles.head} source={require('../../assets/Side/LHead3.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Torso")}>
-                    <Image style={styles.torso} source={require('../../assets/Side/LTorso2.png')} />
+                    <Image style={styles.torso} source={require('../../assets/Side/LTorso3.png')} />
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
                 <TouchableOpacity onPress={() => clickHandler("Left Leg or Inner Right Leg")}>
-                    <Image style={styles.legs} source={require('../../assets/Side/LLeg2.png')} />
+                    <Image style={styles.legs} source={require('../../assets/Side/LLeg3.png')} />
                 </TouchableOpacity>
                 {/*<TouchableOpacity onPress={() => clickHandler("Left Leg")}>*/}
                 {/*    <Image style={styles.legs} source={require('../../assets/Side/RBackLeg.png')} />*/}
@@ -286,13 +286,13 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     torso: {
-        width: 300,
-        height: 220,
+        width: 250,
+        height: 198,
         resizeMode: 'contain',
     },
     legs: {
-        width: 360,
-        height: 270,
+        width: 355,
+        height: 255,
         resizeMode: 'contain',
     },
     rotate: {
