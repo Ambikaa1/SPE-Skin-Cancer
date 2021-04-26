@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {View, StyleSheet, Text, TouchableOpacity} from "react-native";
-
 import DropDownPicker from "react-native-dropdown-picker";
 import * as SQLite from "expo-sqlite";
 
