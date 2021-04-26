@@ -32,7 +32,7 @@ const RightBody = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Right Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Right Leg or Inner Left Leg")}>
                     <Image style={styles.legs} source={require('../../assets/Side/RLeg2.png')} />
                 </TouchableOpacity>
             </View>
@@ -70,9 +70,12 @@ const LeftBody = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.flexbox}>
-                <TouchableOpacity onPress={() => clickHandler("Left Leg")}>
+                <TouchableOpacity onPress={() => clickHandler("Left Leg or Inner Right Leg")}>
                     <Image style={styles.legs} source={require('../../assets/Side/LLeg2.png')} />
                 </TouchableOpacity>
+                {/*<TouchableOpacity onPress={() => clickHandler("Left Leg")}>*/}
+                {/*    <Image style={styles.legs} source={require('../../assets/Side/RBackLeg.png')} />*/}
+                {/*</TouchableOpacity>*/}
             </View>
         </ScrollView>
     )

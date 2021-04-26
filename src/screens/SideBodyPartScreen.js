@@ -6,15 +6,15 @@ const checkSideSwitch = (bodyPart) => {
         case 'Right Head or Neck':
             return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseRightHead.png')}/>)
         case 'Right Torso':
-            return (<Image style={styles.closeUp} source={require('../../assets/Side/RTorso2.png')}/>)
-        case 'Right Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseRightLeg.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseRightTorso2.png')}/>)
+        case 'Right Leg or Inner Left Leg':
+            return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseRightLegView.png')}/>)
         case 'Left Head or Neck':
             return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseLeftHead.png')}/>)
         case 'Left Torso':
-            return (<Image style={styles.closeUp} source={require('../../assets/Side/LTorso2.png')}/>)
-        case 'Left Leg':
-            return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseLeftLeg.png')}/>)
+            return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseLeftTorso2.png')}/>)
+        case 'Left Leg or Inner Right Leg':
+            return (<Image style={styles.closeUp} source={require('../../assets/Side/CloseLeftLegView.png')}/>)
     }
 }
 
