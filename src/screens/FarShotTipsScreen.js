@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, Linking, View, Alert} from 'react-native';
 
-
 const FarShotTipsScreen = ({navigation, route}) => {
     return (
         <SafeAreaView style = {styles.container}>

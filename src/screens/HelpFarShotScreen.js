@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, Text, SafeAreaView, TouchableOpacity, ScrollView, Linking, View, Alert} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 const HelpFarShotScreen = ({navigation, route}) => {
     return (
         <SafeAreaView style = {styles.container}>

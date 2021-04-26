@@ -62,50 +62,6 @@ const PhotoStack = () => {
         headerTintColor: "white",
       }}
     >
-      {/*<Stack.Screen*/}
-      {/*    name = "FrontHomunc"*/}
-      {/*    component = {FrontHomuncScreen}*/}
-      {/*    options = {{*/}
-      {/*        title: "Front View",*/}
-      {/*        headerTitle: props => <HeaderText {...props} />,*/}
-      {/*        headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,*/}
-      {/*        headerLeft: null,*/}
-      {/*        gestureEnabled: false*/}
-      {/*    }}*/}
-      {/*/>*/}
-      {/*<Stack.Screen*/}
-      {/*    name = "BackHomunc"*/}
-      {/*    component = {BackHomuncScreen}*/}
-      {/*    options = {{*/}
-      {/*        title: "Back View",*/}
-      {/*        headerTitle: props => <HeaderText {...props} />,*/}
-      {/*        headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,*/}
-      {/*        headerLeft: null,*/}
-      {/*        gestureEnabled: false*/}
-      {/*    }}*/}
-      {/*/>*/}
-      {/*<Stack.Screen*/}
-      {/*    name = "LeftHomunc"*/}
-      {/*    component = {LeftHomuncScreen}*/}
-      {/*    options = {{*/}
-      {/*        title: "Left Side View",*/}
-      {/*        headerTitle: props => <HeaderText {...props} />,*/}
-      {/*        headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,*/}
-      {/*        headerLeft: null,*/}
-      {/*        gestureEnabled: false*/}
-      {/*    }}*/}
-      {/*/>*/}
-      {/*<Stack.Screen*/}
-      {/*    name = "RightHomunc"*/}
-      {/*    component = {RightHomuncScreen}*/}
-      {/*    options = {{*/}
-      {/*        title: "Right Side View",*/}
-      {/*        headerTitle: props => <HeaderText {...props} />,*/}
-      {/*        headerRight: props => <HeaderButton {...props} onPressFunction = {HomuncHelp}/>,*/}
-      {/*        headerLeft: null,*/}
-      {/*        gestureEnabled: false*/}
-      {/*    }}*/}
-      {/*/>*/}
       <Stack.Screen
           name = "Swiping"
           component = {SwipingHomuncScreen}
