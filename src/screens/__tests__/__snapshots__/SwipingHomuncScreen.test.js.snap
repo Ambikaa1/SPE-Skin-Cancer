@@ -1218,9 +1218,9 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
                     source={1}
                     style={
                       Object {
-                        "height": 220,
+                        "height": 198,
                         "resizeMode": "contain",
-                        "width": 300,
+                        "width": 250,
                       }
                     }
                   />
@@ -1254,9 +1254,9 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
                     source={1}
                     style={
                       Object {
-                        "height": 270,
+                        "height": 255,
                         "resizeMode": "contain",
-                        "width": 360,
+                        "width": 355,
                       }
                     }
                   />
@@ -1375,9 +1375,9 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
                     source={1}
                     style={
                       Object {
-                        "height": 220,
+                        "height": 198,
                         "resizeMode": "contain",
-                        "width": 300,
+                        "width": 250,
                       }
                     }
                   />
@@ -1411,9 +1411,9 @@ exports[`<SwipingHomuncScreen /> renders correctly 1`] = `
                     source={1}
                     style={
                       Object {
-                        "height": 270,
+                        "height": 255,
                         "resizeMode": "contain",
-                        "width": 360,
+                        "width": 355,
                       }
                     }
                   />
