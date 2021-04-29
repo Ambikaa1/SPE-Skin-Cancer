@@ -52,7 +52,18 @@ exports[`<Welcome /> renders correctly 1`] = `
       }
     }
   >
-    Get started by tapping the user icon in the top left of the home screen and entering your details.
+    All data collected by this application is stored locally on your device and we do not have access to it. This data includes your name and photographs of your moles, and is necessary in order for the app to function properly. To begin using the application, if you are okay with the collection of this data, please click 'Done' below.
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 17,
+        "marginBottom": 10,
+        "marginHorizontal": 10,
+      }
+    }
+  >
+    Once you have clicked the 'Done' button, get started by tapping the user icon in the top left of the home screen and entering your details.
   </Text>
   <View
     accessible={true}
