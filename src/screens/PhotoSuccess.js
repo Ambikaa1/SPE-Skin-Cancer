@@ -53,7 +53,7 @@ const PhotoSuccess = ({navigation}) => {
             {/*strictly optional and you can change your answers by answering it again.*/}
             {/*{'\n\n'}Your latest answers will be attached to any email you send through the app.*/}
             {/*</Text>*/}
-            <TouchableOpacity style = {styles.YesNoBox} onPress={() => navigation.navigate("Survay")}>
+            <TouchableOpacity style = {styles.YesNoBox} onPress={() => navigation.navigate("WhySCQOLITScreen")}>
                 <Text style = {styles.doneText}>
                     Yes, take me to the SCQOLIT survey
                 </Text>
