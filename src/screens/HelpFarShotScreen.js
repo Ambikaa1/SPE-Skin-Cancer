@@ -13,7 +13,7 @@ const HelpFarShotScreen = ({navigation, route}) => {
 
                 <Text style = {styles.mainBodyText}>There will be an outline available of the body part
                 to help you align the camera. This will be accessible
-                by pressing the ghost shaped button ({<MaterialCommunityIcons name="ghost" size={24} color="black" />}), to the right of the picture
+                by pressing the ghost shaped button ({<MaterialCommunityIcons name="ghost" size={17} color="black" />}), to the right of the picture
                     button on the next page. </Text>
 
                 <Text style = {styles.mainBodyText}>Once you have taken a photo you will be able to drag a red circle with
