@@ -13,12 +13,14 @@ import HeaderButton from "../components/HeaderButton"
 import HelpFarShotScreen from "../screens/HelpFarShotScreen";
 import HelpNearShotScreen from "../screens/HelpNearShotScreen";
 import PhotoSuccess from "../screens/PhotoSuccess";
-import SCQOLITStack from "./SQOLITStack";
 import SideBodyPartScreen from "../screens/SideBodyPartScreen";
 import BackBodyPartScreen from "../screens/BackBodyPartScreen";
 import SwipingHomuncScreen from "../screens/SwipingHomuncScreen";
 import CloseHeadScreen from "../screens/CloseHeadScreen";
 import FarShotTipsScreen from "../screens/FarShotTipsScreen";
+import SurveyScreen2 from "../screens/SCQOLIT survay/SurveyScreen2";
+import WhySCQOLIT from "../screens/SCQOLIT survay/WhySCQOLIT";
+import LastSCQOLITScreen from "../screens/SCQOLIT survay/LastSCQOLITScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {
@@ -54,6 +56,16 @@ const PhotoStack = () => {
         "\n\u2022Press 'Done' to proceed.\n\nIf you are not happy and would like to take a different photograph:"+
         "\n\u2022Press 'Try again' and confirm your choice.");
     };
+    const WhySurveyHelp = () => {
+        Alert.alert("Help", "\nThis page gives a description of the survey. Press 'Next' to continue")
+    };
+    const SurveyHelp = () => {
+        Alert.alert("Help","\nThis is the SCQOLIT survey.\n\n Press a button to answer the question and then click 'Next' to move on to the next question\n\n"+
+            " When you're done, press the 'Finished' button to view your score.")
+    }
+    const FinalSurveyPageHelp = () => {
+        Alert.alert("Help","\nThis is your score for the SCQOLIT survey.\n\nPress 'Done' to save and return to the homepage")
+    }
 
   return(
     <Stack.Navigator
@@ -186,10 +198,34 @@ const PhotoStack = () => {
               gestureEnabled: false
           }}
       />
-      <Stack.Screen
-          name= "Survay"
-          component= {SCQOLITStack}
-          />
+        <Stack.Screen
+            name= "SurveyScreen"
+            component = {SurveyScreen2}
+            options = {{
+                title: "SCQOLIT Survey",
+                headerTitle: props => <HeaderText {...props} />,
+                headerRight: props => <HeaderButton {...props} onPressFunction = {SurveyHelp} />,
+            }}
+        />
+        <Stack.Screen
+            name="WhySCQOLITScreen"
+            component = {WhySCQOLIT}
+            options = {{
+                title: "Why SCQOLIT?",
+                headerTitle: props => <HeaderText {...props} />,
+                headerRight: props => <HeaderButton {...props} onPressFunction = {WhySurveyHelp} />,
+            }}
+        />
+        <Stack.Screen
+            name="LastSCQOLITScreen"
+            component = {LastSCQOLITScreen}
+            options = {{
+                title: "Done!",
+                headerTitle: props => <HeaderText {...props} />,
+                headerRight: props => <HeaderButton {...props} onPressFunction={FinalSurveyPageHelp} />,
+            }}
+        />
+
     </Stack.Navigator>
   );
 };

@@ -37,15 +37,6 @@ const SurveyScreen2 = ({navigation}) => {
             ...defaultColors,
             [button]: '#38c413',
         })
-        //     (prevAnswers) => {
-        //     for (let i in prevAnswers){
-        //         if ((question) == prevAnswers[i].q){
-        //             prevAnswers[i].value = values
-        //         }
-        //     }
-        //     return prevAnswers
-        // })
-
     }
 
     const nextClick = () => {
@@ -62,7 +53,6 @@ const SurveyScreen2 = ({navigation}) => {
             } else {
                 setButtonsColor(defaultColors);
             }
-
             setQuestion(question => question + 1)
         }
     }
