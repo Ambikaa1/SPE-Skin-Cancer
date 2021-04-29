@@ -56,18 +56,27 @@ const MoleTypeScreen = ({navigation, route}) => {
                         </TouchableOpacity>
                     </>
                 }
-                {(moleChoice == 0) && 
+                {(moleChoice == 0) &&
                     <>
-                        <Text style = {styles.question}>Select a mole below to photograph</Text>
-                        <FlatList 
-                            data = {moles}
-                            renderItem = {({item}) => (
-                                <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
-                                    <MoleListItem uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
-                                </TouchableOpacity>
-                            )}
-                            keyExtractor = {item => `${item.mole_id}`}
-                        />
+                        {(moles.length == 0)
+                            ?
+                                <>
+                                    <Text style = {styles.question}>It appears you haven't logged any moles in this region of the body yet. Select 'No' above to log your first mole in this region.</Text>
+                                </>
+                            :
+                                <>
+                                    <Text style = {styles.question}>Select a mole below to photograph</Text>
+                                    <FlatList 
+                                        data = {moles}
+                                        renderItem = {({item}) => (
+                                            <TouchableOpacity onPress = {() => navigation.navigate("HelpNearShot", { id: item.mole_id })}>
+                                                <MoleListItem uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
+                                            </TouchableOpacity>
+                                        )}
+                                        keyExtractor = {item => `${item.mole_id}`}
+                                    />
+                                </>
+                        }
                     </>
                 }
             </View>

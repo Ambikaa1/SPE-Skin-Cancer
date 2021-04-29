@@ -22,16 +22,25 @@ const DiaryScreen = ({ navigation }) => {
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.title}>Tap on a far-shot image to view the near shots</Text>
-            <FlatList
-                data = {moles}
-                renderItem = {({item}) => (
-                    <TouchableOpacity onPress = {() => navigation.navigate("MoleInfo", { id: item.mole_id })}>
-                        <MoleListItem uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
-                    </TouchableOpacity>
-                )}
-                keyExtractor = {item => `${item.mole_id}`}
-            />
+            {moles.length == 0
+                ?
+                    <>
+                        <Text style = {styles.title}>You haven't photographed any moles yet. Click the camera icon at the bottom of the screen to begin photographing your moles.</Text>
+                    </>
+                :
+                    <>
+                        <Text style = {styles.title}>Tap on a far-shot image to view the near shots</Text>
+                        <FlatList
+                            data = {moles}
+                            renderItem = {({item}) => (
+                                <TouchableOpacity onPress = {() => navigation.navigate("MoleInfo", { id: item.mole_id })}>
+                                    <MoleListItem uri = {item.far_shot} name = {item.name} comments = {item.comments} lastUpdated = {item.lastUpdated} />
+                                </TouchableOpacity>
+                            )}
+                            keyExtractor = {item => `${item.mole_id}`}
+                        />
+                    </>
+            }
         </View>
     );
 };
