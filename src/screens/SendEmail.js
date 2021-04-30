@@ -162,8 +162,7 @@ const SendEmail = ({ navigation, route }) => {
                 <Text style={styles.doneText}>Send</Text>
             </TouchableOpacity>
 
-            <Text style={styles.mainBodyText}>Once you are done, press Finished to go back to </Text>
-
+            <Text style={styles.mainBodyText}>Once you are done, press 'Finished'. </Text>
 
             <TouchableOpacity
                 style={[styles.doneBox, showReturn ? {backgroundColor: "red"}:{backgroundColor: "gray"}]}
