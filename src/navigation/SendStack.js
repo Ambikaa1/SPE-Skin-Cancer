@@ -70,7 +70,7 @@ const SendStack = () => {
             name = "SelectNearShots"
             component = {SelectNearShots}
             options = {{
-                title: "Select near shots",
+                title: "Select images",
                 headerTitle: props => <HeaderText {...props} />,
                 headerRight: props => <HeaderButton {...props} onPressFunction={NearShotHelp}/>,
                 headerLeft: null,
