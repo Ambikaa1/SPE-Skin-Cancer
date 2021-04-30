@@ -17,7 +17,7 @@ const Welcome = ({ setWelcomeSeen }) => {
                 and the Department of Computer Science at the University of Bristol.
             </Text>
             <Text style = {styles.mainText}>
-                All data collected by this application is stored locally on your device and we do not have access to it.
+                All data collected by this application is stored locally on your device and only you have access to it.
                 This data includes your name and photographs of your moles, and is necessary in order for the app to function properly.
                 To begin using the application, if you are okay with the collection of this data, please click 'Done' below.
             </Text>
