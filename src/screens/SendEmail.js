@@ -110,7 +110,7 @@ const SendEmail = ({ navigation, route }) => {
 
     return (
         <ScrollView>
-            <Text style={styles.mainBodyText}>Here you can send your selected moles. The </Text>
+            <Text style={styles.mainBodyText}>Here you can send your selected moles. </Text>
 
             <Text style={styles.mainBodyText}>There is a box below the set of images for any additional comments you would like to make,
                 or you can do this in the email itself.

@@ -15,6 +15,8 @@ db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
     console.log('Foreign keys turned on')
 );
 
+console.disableYellowBox = true
+
 const Tab = createBottomTabNavigator();
 
 const MyTabs = () => {
