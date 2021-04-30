@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SurveyScreen2 /> renders correctly 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "flex": 1,
+      "marginHorizontal": 10,
+      "marginVertical": "2.5%",
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        Object {
+          "fontSize": 17,
+          "paddingBottom": 15,
+        }
+      }
+    >
+      Please select an answer then click 'next' to go to the next question, or press 'previous' to go to the previous question.
+    </Text>
+    <View>
+      <View>
+        <Text
+          style={
+            Object {
+              "fontSize": 17,
+              "fontWeight": "bold",
+              "paddingBottom": 15,
+            }
+          }
+        >
+          Question 1 out of 10: 
+          
+
+           
+          
+
+          Over the last week, how much have you been concerned that your skin cancer might come back?
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71A1D1",
+            "borderRadius": 10,
+            "marginBottom": "2.5%",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
+          }
+        >
+          Very much so
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71A1D1",
+            "borderRadius": 10,
+            "marginBottom": "2.5%",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
+          }
+        >
+          Moderately so
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71A1D1",
+            "borderRadius": 10,
+            "marginBottom": "2.5%",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
+          }
+        >
+          Somewhat
+        </Text>
+      </View>
+    </View>
+    <View>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71A1D1",
+            "borderRadius": 10,
+            "marginBottom": "2.5%",
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
+          }
+        >
+          Not at all
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "width": "50%",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#38c413",
+              "borderRadius": 10,
+              "marginLeft": "1%",
+              "marginTop": "15%",
+              "opacity": 1,
+              "width": "98%",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 40,
+                "marginVertical": 10,
+              }
+            }
+          >
+            Next
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

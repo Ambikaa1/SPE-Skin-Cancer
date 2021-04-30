@@ -37,8 +37,7 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
         fontSize: 20,
         textAlign:'center',
-        },
-
+    },
     text:{
         marginBottom: 30,
         textAlign: 'center',

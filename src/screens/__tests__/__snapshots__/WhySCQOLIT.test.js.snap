@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WhySCQOLIT /> renders correctly 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <View>
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginTop": 10,
+            "paddingBottom": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Why should I complete the SCQOLIT?
+      </Text>
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "alignItems": "center",
+            "fontSize": 17,
+            "marginBottom": 30,
+            "textAlign": "center",
+          }
+        }
+      >
+        This confidential survey was developed to assess how skin cancer affects your quality of life.
+      </Text>
+      <Text
+        style={
+          Object {
+            "alignItems": "center",
+            "fontSize": 17,
+            "marginBottom": 30,
+            "textAlign": "center",
+          }
+        }
+      >
+        It assesses how you are coping with your diagnosis.  You have the option of sharing it with your clinical team.  It can help them identify whether you would benefit from extra support.
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#71A1D1",
+          "borderRadius": 10,
+          "marginHorizontal": 10,
+          "marginTop": 50,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "marginVertical": 10,
+          }
+        }
+      >
+        Next
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
