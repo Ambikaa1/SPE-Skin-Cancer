@@ -92,7 +92,7 @@ const App = () => {
             (t, error) => {console.log(error);}
         );
         tx.executeSql("INSERT INTO user (first_name, last_name, date_of_birth, welcome_seen) VALUES (null, null, null, 0);", []);
-        tx.executeSql("INSERT INTO survey (score) VALUES (0);", []);
+        tx.executeSql("INSERT INTO survey (score) VALUES (-1);", []);
     });
     console.log("Database test");
 

@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Alert, Image, Pressable } from "react-native";
 import * as MailComposer from 'expo-mail-composer';
+import * as SQLite from "expo-sqlite";
+
+const db = SQLite.openDatabase("30.db");
 
 const SendEmail = ({ navigation, route }) => {
     const selectedFarShot    =  route.params.selectedFarShot
     const selectedNearShots  =  route.params.selectedNearShots
     const [comment, setComment] = useState("")
     const [showReturn, setShowReturn] = useState(false)
+    const [prevScore, setPrevScore] = useState(-1)
 
    /* console.log("Selected Mole   =", selectedFarShot)
     console.log("Selected Images =", selectedNearShots)*/
@@ -23,14 +27,29 @@ const SendEmail = ({ navigation, route }) => {
         attachedImages = [...attachedImages, nearShot.near_shot]
     }
 
+    useEffect(() => {
+        db.transaction(
+            tx => {
+                tx.executeSql("select * from survey;", [], (_, { rows }) => {
+                        setPrevScore(rows._array[0].score)
+                    }
+                );
+            }
+        );
+    }, []);
+
     const sendEmail = async () => {
         if (comment !== "") {
             emailBody = emailBody + '\n\nAdditional Comment:\n ' + comment
         }
 
+        if (prevScore !== -1) {
+            emailBody = emailBody + '\n\nSCQOLIT Score:\n ' + prevScore
+        }
+
         let email = await MailComposer.composeAsync({
             recipients:  [],
-            subject   :  'CONFIDENTIAL; Mole Photos',
+            subject   :  'CONFIDENTIAL: Mole Photos',
             body      :  emailBody,
             attachments: attachedImages,
         })

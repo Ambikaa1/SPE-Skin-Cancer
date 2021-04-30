@@ -1,26 +1,12 @@
-import React, {useEffect, useState } from "react";
-import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
+import React from "react";
+import {Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("30.db");
 
 const LastSCQOLITScreen = ({navigation, route}) => {
-    const [prevScore, setPrevScore] = useState(-1)
-    const [total,setTotal] = useState(-1)
-    const [answers, setAnswers] = useState(null)
-
-    useEffect(() => {
-        setAnswers(route.params.answers)
-        setTotal(route.params.total)
-            db.transaction(
-                tx => {
-                    tx.executeSql("select * from survey;", [], (_, { rows }) => {
-                            setPrevScore(rows._array[0].score)
-                        }
-                    );
-                }
-            );
-        }, []);
+    const total = route.params.total
+    const answers = route.params.answers
 
     const addToDatabase = () => {
         db.transaction(
@@ -33,7 +19,6 @@ const LastSCQOLITScreen = ({navigation, route}) => {
                 );
             }
         );
-        console.log("score updated from: ", prevScore, " to: ", total)
     };
 
     const doneFunction = () => {
