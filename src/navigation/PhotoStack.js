@@ -1,7 +1,6 @@
 import React from "react";
 import {Alert, StyleSheet} from "react-native";
 import { createStackNavigator } from '@react-navigation/stack';
-import HomunculusScreen from "../screens/HomunculusScreen";
 import BodyPartScreen from "../screens/BodyPartScreen"
 import CameraFarScreen from "../screens/CameraFarScreen"
 import CameraNearScreen from "../screens/CameraNearScreen"
