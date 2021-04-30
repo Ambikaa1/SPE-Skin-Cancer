@@ -9,98 +9,101 @@ exports[`<Welcome /> renders correctly 1`] = `
     }
   }
 >
-  <Text
-    style={
-      Object {
-        "fontSize": 30,
-        "fontWeight": "bold",
-        "marginHorizontal": 10,
-        "marginVertical": 10,
-      }
-    }
-  >
-    Welcome.
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 17,
-        "marginBottom": 10,
-        "marginHorizontal": 10,
-      }
-    }
-  >
-    This App is designed to allow you to monitor your skin moles and similar lesions. Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour.
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 17,
-        "marginBottom": 10,
-        "marginHorizontal": 10,
-      }
-    }
-  >
-    It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF) and the Department of Computer Science at the University of Bristol.
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 17,
-        "marginBottom": 10,
-        "marginHorizontal": 10,
-      }
-    }
-  >
-    All data collected by this application is stored locally on your device and only you have access to it. This data includes your name and photographs of your moles, and is necessary in order for the app to function properly. To begin using the application, if you are okay with the collection of this data, please click 'Done' below.
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 17,
-        "marginBottom": 10,
-        "marginHorizontal": 10,
-      }
-    }
-  >
-    Once you have clicked the 'Done' button, get started by tapping the user icon in the top left of the home screen and entering your details.
-  </Text>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#71A1D1",
-        "borderRadius": 10,
-        "bottom": 10,
-        "marginHorizontal": 10,
-        "marginTop": 20,
-        "opacity": 1,
-        "position": "absolute",
-        "width": "95%",
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "white",
-          "fontSize": 30,
-          "fontWeight": "bold",
-          "marginVertical": 10,
+  <RCTScrollView>
+    <View>
+      <Text
+        style={
+          Object {
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+          }
         }
-      }
-    >
-      Done
-    </Text>
-  </View>
+      >
+        Welcome
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "marginBottom": 10,
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        This App is designed to allow you to monitor your skin moles and similar lesions. Lesions are areas of abnormal change, for example a wound, an ulcer or a skin tumour.
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "marginBottom": 10,
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        It was developed through a collaboration between The Skin Cancer Research Fund (SCaRF) and the Department of Computer Science at the University of Bristol.
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "marginBottom": 10,
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        All data collected by this application is stored locally on your device and only you have access to it. This data includes your name and photographs of your moles, and is necessary in order for the app to function properly. To begin using the application, if you are okay with the collection of this data, please click 'Done' below.
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 17,
+            "marginBottom": 10,
+            "marginHorizontal": 10,
+          }
+        }
+      >
+        Once you have clicked the 'Done' button, get started by tapping the user icon in the top left of the home screen and entering your details.
+      </Text>
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#71A1D1",
+            "borderRadius": 10,
+            "bottom": 10,
+            "marginHorizontal": 10,
+            "marginTop": 20,
+            "opacity": 1,
+            "width": "95%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginVertical": 10,
+            }
+          }
+        >
+          Done
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
 </RCTSafeAreaView>
 `;
