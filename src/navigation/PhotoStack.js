@@ -18,9 +18,9 @@ import BackBodyPartScreen from "../screens/BackBodyPartScreen";
 import SwipingHomuncScreen from "../screens/SwipingHomuncScreen";
 import CloseHeadScreen from "../screens/CloseHeadScreen";
 import FarShotTipsScreen from "../screens/FarShotTipsScreen";
-import SurveyScreen2 from "../screens/SCQOLIT survay/SurveyScreen2";
-import WhySCQOLIT from "../screens/SCQOLIT survay/WhySCQOLIT";
-import LastSCQOLITScreen from "../screens/SCQOLIT survay/LastSCQOLITScreen";
+import SurveyScreen2 from "../screens/SurveyScreen2";
+import WhySCQOLIT from "../screens/WhySCQOLIT";
+import LastSCQOLITScreen from "../screens/LastSCQOLITScreen";
 const Stack = createStackNavigator();
 
 const PhotoStack = () => {

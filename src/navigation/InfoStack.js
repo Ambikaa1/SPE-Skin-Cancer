@@ -5,9 +5,9 @@ import InfoListScreen from "../screens/InfoListScreen"
 import InfoScreen from "../screens/InfoScreen";
 import HeaderText from "../components/HeaderText";
 import HeaderButton from "../components/HeaderButton"
-import SurveyScreen2 from "../screens/SCQOLIT survay/SurveyScreen2";
-import WhySCQOLIT from "../screens/SCQOLIT survay/WhySCQOLIT";
-import LastSCQOLITScreen from "../screens/SCQOLIT survay/LastSCQOLITScreen";
+import SurveyScreen2 from "../screens/SurveyScreen2";
+import WhySCQOLIT from "../screens/WhySCQOLIT";
+import LastSCQOLITScreen from "../screens/LastSCQOLITScreen";
 
 const Stack = createStackNavigator()
 
