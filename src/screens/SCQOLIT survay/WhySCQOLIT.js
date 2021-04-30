@@ -1,7 +1,6 @@
 import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 
-
 const WhySCQOLIT = ({navigation}) =>{
     return(
         <ScrollView style = {styles.container}>
@@ -34,24 +33,24 @@ const styles = StyleSheet.create({
     },
     title:{
         fontWeight: "bold",
-        marginTop: '5%',
-        marginBottom: '30%',
-        fontSize: 30,
+        marginTop: 10,
+        paddingBottom: 20,
+        fontSize: 20,
         textAlign:'center',
         },
 
     text:{
-        marginBottom: '15%',
+        marginBottom: 30,
         textAlign: 'center',
-        fontSize:20,
+        fontSize: 17,
         alignItems: 'center',
     },
     nextButton:{
         backgroundColor: "#71A1D1",
         alignItems: "center",
         borderRadius: 10,
-        marginHorizontal:'2.5%',
-        marginTop: '28%',
+        marginTop: 50,
+        marginHorizontal: 10,
     },
     nextText:{
         fontSize: 30,
@@ -70,7 +69,5 @@ const styles = StyleSheet.create({
         fontSize: 25,
         textAlign: 'center',
     }
-
-
 })
 export default WhySCQOLIT;
