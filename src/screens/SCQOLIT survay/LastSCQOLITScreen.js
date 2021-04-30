@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from "react";
-import {View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 import * as SQLite from "expo-sqlite";
 
 const db = SQLite.openDatabase("28.db");
@@ -42,49 +42,35 @@ const LastSCQOLITScreen = ({navigation, route}) => {
     }
 
     return(
-        <>
-            <View style = {styles.container}>
-                <Text style = {styles.title}>
-                    Thank you for taking the survey! {"\n"}
-                    {"\n"}{"\n"}
+        <ScrollView style = {styles.container}>
+            <Text style = {styles.title}>
+                Thank you for taking the survey!
+                {"\n"}{"\n"}
 
-                    Your score is:{"\n"}
-                </Text>
-                <Text style = {styles.scoreText}>
-                    {route.params.total}/30
-                </Text>
-                {(route.params.total >= 20) &&
-                <>
-                    <Text style = {styles.recommendText}>
-                        Your survey score is high. We recommend you may want to talk to your gp
-                    </Text>
-                </>
+                Your score is:
+            </Text>
+            <Text style = {styles.scoreText}>
+                {route.params.total}/30
+            </Text>
 
-                }
-            </View>
-            <TouchableOpacity style = {styles.nextButton} onPress = {() => doneFunction()}>
-                <Text style = {styles.nextButtonText}>
-                    Done
+            {(route.params.total >= 20) &&
+                <Text style = {styles.recommendText}>
+                    Your survey score is high. We recommend you may want to talk to your GP.
                 </Text>
+            }
+            <TouchableOpacity style={styles.doneBox} onPress = {() => doneFunction()}>
+                <Text style={styles.doneText}>Done</Text>
             </TouchableOpacity>
-
-
-
-        </>
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginVertical: "2.5%",
-        marginHorizontal: "2.5%",
-
-
-
     },
     title:{
-        marginTop:"35%",
+        paddingTop: 10,
         textAlign:'center',
         fontSize:30,
     },
@@ -93,23 +79,26 @@ const styles = StyleSheet.create({
         fontSize:50,
         color: 'red',
     },
-    nextButtonText:{
+    recommendText:{
+        textAlign: 'center',
+        paddingTop: 20,
+        fontSize: 17,
+        marginHorizontal: 10,
+    },
+    doneBox: {
+        backgroundColor: "#71A1D1",
+        alignItems: "center",
+        borderRadius: 10,
+        marginHorizontal: 10,
+        marginTop: 45,
+        bottom: 10,
+    },
+    doneText: {
         fontSize: 30,
         fontWeight: "bold",
         color: "white",
         marginVertical: 10,
-    },
-    nextButton:{
-        alignItems: 'center',
-        bottom: 50,
-        backgroundColor: "#71A1D1",
-        marginHorizontal:"2.5%",
-        borderRadius: 10,
-    },
-    recommendText:{
-        textAlign: 'center',
-        marginTop: 20,
-    },
+    }
 })
 
 export default LastSCQOLITScreen;
