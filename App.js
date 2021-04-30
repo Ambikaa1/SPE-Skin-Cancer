@@ -2,6 +2,7 @@ import React from "react"
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from '@expo/vector-icons';
+import { LogBox } from 'react-native';
 import * as SQLite from "expo-sqlite";
 
 import HomeStack from "./src/navigation/HomeStack";
@@ -9,7 +10,6 @@ import InfoStack from "./src/navigation/InfoStack";
 import PhotoStack from "./src/navigation/PhotoStack"
 import DiaryStack from "./src/navigation/DiaryStack";
 import SendStack from "./src/navigation/SendStack";
-import { LogBox } from 'react-native';
 
 const db = SQLite.openDatabase("31.db");
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
