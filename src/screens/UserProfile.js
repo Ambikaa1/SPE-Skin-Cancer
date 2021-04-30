@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, TouchableOpacity} from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("28.db");
+const db = SQLite.openDatabase("29.db");
 
 const UserProfile = ({ navigation }) => {
     const [history, setHistory] = useState(null);

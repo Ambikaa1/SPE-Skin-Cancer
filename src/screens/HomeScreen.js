@@ -5,7 +5,7 @@ import * as SQLite from "expo-sqlite";
 import Welcome from "../components/Welcome";
 import Home from "../components/Home";
 
-const db = SQLite.openDatabase("28.db");
+const db = SQLite.openDatabase("29.db");
 
 const HomeScreen = ({ navigation }) => {
     const [welcomeSeen, setWelcomeSeen] = useState(1)
