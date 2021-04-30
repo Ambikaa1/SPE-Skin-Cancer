@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {StyleSheet, View, Alert, Text, TouchableOpacity,} from 'react-native';
-
-
+import {StyleSheet, View, Alert, Text, TouchableOpacity, ScrollView} from 'react-native';
 
 const SurveyScreen2 = ({navigation}) => {
     const [question, setQuestion] = useState(1)
@@ -85,15 +83,15 @@ const SurveyScreen2 = ({navigation}) => {
         }
     }
 
-
     return (
-        <View style = {styles.container}>
-            <Text style = {styles.questionTop}>Please select an answer then click 'next' to go to the next question, or press 'previous' to go to the previous question</Text>
-            <View style = {{height:'40%'}}>
-                <View style = {{marginTop:'15%'}}>
+        <ScrollView style = {styles.container}>
+            <Text style = {styles.questionTop}>Please select an answer then click 'next' to go to the next question, or press 'previous' to go to the previous question.</Text>
+            <View>
+                <View>
                     {(question == 1) &&
                     <>
                         <Text style={styles.text}>
+                            Question 1 out of 10: {"\n"} {"\n"}
                             Over the last week, how much have you been concerned that your skin cancer might come back?
                         </Text>
                     </>
@@ -101,6 +99,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 2) &&
                     <>
                         <Text style={styles.text}>
+                            Question 2 out of 10: {"\n"} {"\n"}
                             Over the last week, how much have you felt that you needed more information on how to recognize skin cancer
                             or prevent it?
                         </Text>
@@ -109,6 +108,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 3) &&
                     <>
                         <Text style={styles.text}>
+                            Question 3 out of 10: {"\n"} {"\n"}
                             Over the last week how much have you worried about covering up your skin and keeping out of the sun?
                         </Text>
                     </>
@@ -116,6 +116,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 4) &&
                     <>
                         <Text style={styles.text}>
+                            Question 4 out of 10: {"\n"} {"\n"}
                             Over the last week, how much have you felt a need for reassurance from your doctor or nurse, in respect to your
                             skin cancer or its treatment?
                         </Text>
@@ -124,6 +125,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 5) &&
                     <>
                         <Text style={styles.text}>
+                            Question 5 out of 10: {"\n"} {"\n"}
                             Over the last week, how much have you felt emotional, anxious, depressed, guilty or stressed, in respect to your skin cancer or its treatment?
                         </Text>
                     </>
@@ -131,6 +133,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 6) &&
                     <>
                         <Text style={styles.text}>
+                            Question 6 out of 10: {"\n"} {"\n"}
                             Over the last week, how much have you been bothered about any disfigurement or scarring, in respect to your skin cancer or its treatment?
                         </Text>
                     </>
@@ -138,6 +141,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 7) &&
                     <>
                         <Text style={styles.text}>
+                            Question 7 out of 10: {"\n"} {"\n"}
                             Over the last week, how much have you felt shock or disbelief about having been diagnosed with skin cancer?
                         </Text>
                     </>
@@ -145,6 +149,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 8) &&
                     <>
                         <Text style={styles.text}>
+                            Question 8 out of 10: {"\n"} {"\n"}
                             Over the last week, how much skin discomfort or inconvenience have you experienced, in respect to your skin
                             cancer or its treatment?
                         </Text>
@@ -153,6 +158,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 9) &&
                     <>
                         <Text style={styles.text}>
+                            Question 9 out of 10: {"\n"} {"\n"}
                             Over the last week, how much have you had concerns about dying from your skin cancer?
                         </Text>
                     </>
@@ -160,6 +166,7 @@ const SurveyScreen2 = ({navigation}) => {
                     {(question == 10) &&
                     <>
                         <Text style={styles.text}>
+                            Question 10 out of 10: {"\n"} {"\n"}
                             Over the last week, to what extent have you felt the need for emotional support from your family or friends, in
                             respect to your skin cancer or its treatment?
                         </Text>
@@ -195,6 +202,7 @@ const SurveyScreen2 = ({navigation}) => {
                     </Text>
                 </TouchableOpacity>
             </View>
+
             <View style = {{flexDirection:'row', justifyContent:'space-around'}}>
                 <View style = {{width:'50%'}}>
                     {(question > 1) &&
@@ -216,7 +224,7 @@ const SurveyScreen2 = ({navigation}) => {
                     }
                 </View>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
@@ -224,7 +232,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginVertical: '2.5%',
-        marginHorizontal:'2.5%',
+        marginHorizontal: 10,
     },
     prevButton: {
         marginTop: '15%',
@@ -248,9 +256,9 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     text:{
-        textAlign: 'center',
-        fontSize:20,
-        alignItems: 'center',
+        fontSize: 17,
+        fontWeight: 'bold',
+        paddingBottom: 15,
     },
     optionButton:{
         alignItems: "center",
@@ -264,6 +272,10 @@ const styles = StyleSheet.create({
 
     marginVertical: 10,
     },
+    questionTop:{
+        fontSize: 17,
+        paddingBottom: 15,
+    }
 
 
 });
