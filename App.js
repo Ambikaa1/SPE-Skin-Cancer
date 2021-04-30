@@ -10,7 +10,7 @@ import PhotoStack from "./src/navigation/PhotoStack"
 import DiaryStack from "./src/navigation/DiaryStack";
 import SendStack from "./src/navigation/SendStack";
 
-const db = SQLite.openDatabase("29.db");
+const db = SQLite.openDatabase("30.db");
 db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
     console.log('Foreign keys turned on')
 );

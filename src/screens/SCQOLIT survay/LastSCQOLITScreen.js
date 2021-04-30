@@ -2,7 +2,7 @@ import React, {useEffect, useState } from "react";
 import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("29.db");
+const db = SQLite.openDatabase("30.db");
 
 const LastSCQOLITScreen = ({navigation, route}) => {
     const [prevScore, setPrevScore] = useState(-1)

@@ -3,7 +3,7 @@ import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-n
 import {useIsFocused} from "@react-navigation/native"
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("29.db");
+const db = SQLite.openDatabase("30.db");
 
 const SelectMoleScreen = ({navigation }) => {
     const [moles, setMoles] = useState([]);

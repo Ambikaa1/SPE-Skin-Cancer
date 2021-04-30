@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, Text, StyleSheet,TouchableOpacity } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("29.db");
+const db = SQLite.openDatabase("30.db");
 
 const Welcome = ({ setWelcomeSeen }) => {
     return (
