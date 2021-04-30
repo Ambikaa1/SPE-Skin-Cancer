@@ -2,7 +2,7 @@ import React from "react";
 import {Text, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("30.db");
+const db = SQLite.openDatabase("31.db");
 
 const LastSCQOLITScreen = ({navigation, route}) => {
     const total = route.params.total

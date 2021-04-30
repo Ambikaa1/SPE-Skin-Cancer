@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Alert,
 import * as MailComposer from 'expo-mail-composer';
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("30.db");
+const db = SQLite.openDatabase("31.db");
 
 const SendEmail = ({ navigation, route }) => {
     const selectedFarShot    =  route.params.selectedFarShot

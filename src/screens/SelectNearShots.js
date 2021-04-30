@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Pressable, Image } from "react-native";
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabase("30.db");
+const db = SQLite.openDatabase("31.db");
 
 const SelectNearShots = ({route, navigation }) => {
     const selectedFarShot                            = route.params.mole

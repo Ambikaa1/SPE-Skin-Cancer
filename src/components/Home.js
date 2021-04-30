@@ -6,7 +6,7 @@ import * as SQLite from "expo-sqlite";
 
 import MoleCountdown from "../components/MoleCountdown";
 
-const db = SQLite.openDatabase("30.db");
+const db = SQLite.openDatabase("31.db");
 
 const Home = ({ navigation }) => {
     const [moles, setMoles] = useState([])
