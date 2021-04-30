@@ -39,7 +39,7 @@ const SurveyScreen2 = ({navigation}) => {
 
     const nextClick = () => {
         if (answers[(question-1)].value == null){
-            Alert.alert("Alert", "please select an answer")
+            Alert.alert("Alert", "Please select an answer")
         }
         else {
             if (answers[question].value != null){
@@ -68,7 +68,7 @@ const SurveyScreen2 = ({navigation}) => {
 
     const finishedClick = () => {
         if (answers[(question-1)].value == null){
-            Alert.alert("Alert", "please select an answer")
+            Alert.alert("Alert", "Please select an answer")
         }
         else {
             let total = 0
