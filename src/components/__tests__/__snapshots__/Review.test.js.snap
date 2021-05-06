@@ -53,7 +53,7 @@ exports[`<Review /> Far renders correctly 1`] = `
       >
         <Text>
           Date: 
-          3/5/2021
+          6/5/2021
         </Text>
       </View>
     </View>
@@ -191,7 +191,7 @@ exports[`<Review /> Near renders correctly 1`] = `
       >
         <Text>
           Date: 
-          3/5/2021
+          6/5/2021
         </Text>
       </View>
     </View>
