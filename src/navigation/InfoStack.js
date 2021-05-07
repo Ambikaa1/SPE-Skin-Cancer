@@ -14,29 +14,30 @@ const Stack = createStackNavigator()
 const InfoStack = () => {
 
     const InfoListScreenHelp = () => {
-      Alert.alert("Help", "This is the information page part of the app.\n\nYou can traverse the information available "+
-      "by clicking the header you think is most relevant to your query.\n\nThis information has been collated "+
-      "and created by doctors and medical students involved with the SCaRF charity.\n\nIf you would like to go back, simply"+
-      " press the back button on the top left corner. Alternatively, you "+
-      "click on the Info icon on the bottom bar to return to the front page.");
+      Alert.alert("Help", "This is the information part of the app.\n\nYou can traverse the information available "+
+      "by clicking the header most relevant to your query.\n\nThis information has been collated "+
+      "and created by doctors and medical students involved with the SCaRF charity.\n\n"+
+          "You can also complete the SCQOLIT survey, which is for people who have had a skin cancer diagnosis");
     };
 
     const InfoScreenHelp = () => {
-        Alert.alert("Help", "Some information pages may also contain external links that direct you to more "+
+        Alert.alert("Help", "You can go back by clicking the back button at the top left or tapping the info icon again \n\n"+
+            "Note: some information pages may contain external links that direct you to more "+
         "information.");
     };
 
     const WhySurveyHelp = () => {
-        Alert.alert("Help", "\nThis page gives a description of the survey. Press 'Next' to continue")
+        Alert.alert("Help", "\nHere you can read more detail about the SCQOLIT survey. \n\nPress 'Next' to start the survey, or press the back button" +
+            " at the top left.");
     };
     const SurveyHelp = () => {
-        Alert.alert("Help","\nThis is the SCQOLIT survey.\n\n Press a button to answer the question and then click 'Next' to move on to the next question\n\n"+
-            " When you're done, press the 'Finished' button to view your score.")
+        Alert.alert("Help","\nThis is the SCQOLIT survey.\n\nPress a button to answer the question and then click 'Next' to move on to the next question\n\n"+
+            "When you're done, press the 'Finished' button to view your score.");
     }
     const FinalSurveyPageHelp = () => {
-        Alert.alert("Help","\nThis is your score for the SCQOLIT survey.\n\nPress 'Done' to save and return to the homepage")
+        Alert.alert("Help","\nThis is your score for the SCQOLIT survey.\n\nPress 'Done' to save and return to the homepage." +
+        " You can complete this survey again at any time.");
     }
-
 
     return(
     <Stack.Navigator

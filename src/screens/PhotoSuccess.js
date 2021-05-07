@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {StyleSheet, Platform, View, Text, TouchableOpacity, SafeAreaView, Button} from 'react-native';
+import {StyleSheet, Platform, View, Text, TouchableOpacity, SafeAreaView, Button, ScrollView} from 'react-native';
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
 
@@ -35,7 +35,8 @@ const PhotoSuccess = ({navigation}) => {
     }, []);
 
     return (
-        <View style = {styles.container}>
+        <ScrollView persistentScrollbar = {true}
+                    style = {styles.container}>
             <Text style = {styles.success}>Your mole photos have been saved!</Text>
             <Text style = {styles.question}>Press the button below if you would like to schedule a notification to remind
             you to take a new picture of this mole in 30 days.</Text>
@@ -61,7 +62,7 @@ const PhotoSuccess = ({navigation}) => {
             <TouchableOpacity style={styles.YesNoBox} onPress={() => navigation.navigate("Swiping")}>
                 <Text style = {styles.doneText}>No, take me back to the body outline</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 };
 

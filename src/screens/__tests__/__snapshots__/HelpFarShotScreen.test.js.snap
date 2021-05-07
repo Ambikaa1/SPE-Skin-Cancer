@@ -69,7 +69,7 @@ exports[`<FrontHomuncScreen /> renders correctly 1`] = `
           }
         }
       >
-        Press continue below to see some tips for taking your photograph.
+        Press 'Continue' below to see some tips for taking your photograph.
       </Text>
       <View
         accessible={true}

@@ -19,8 +19,15 @@ const HomeStack = () => {
 
   const UserHelp = () => {
     Alert.alert("Help", "\nHere you can view your personal information stored in the app.\n\nPress any of the boxes to make"+
-        " changes and then press Done at the bottom to update these changes.\n\nAny information you add to"
+        " changes and then press Next at the bottom to update these changes.\n\nAny information you add to"
       +" this app will be stored locally on your phone so only you have access to it.");
+  };
+
+  const RiskHelp = () => {
+      Alert.alert("Help", "\nHere you can answer 9 questions, that check your risk factors for skin cancer. \n\n" +
+          "Click on the drop down menu, select the most appropriate option and then click 'Next question'." +
+          " When you have finished, click 'Finish' to save your answers. You can change your answers at any time. \n\n" +
+          "All data will be stored locally on your phone so only you have access to it.");
   };
 
   return(
@@ -55,7 +62,7 @@ const HomeStack = () => {
         options = {{
             title: "User Info",
             headerTitle: props => <HeaderText {...props} />,
-            headerRight: props => <HeaderButton {...props} onPressFunction = {UserHelp} />,
+            headerRight: props => <HeaderButton {...props} onPressFunction = {RiskHelp} />,
         }}
       />
     </Stack.Navigator>

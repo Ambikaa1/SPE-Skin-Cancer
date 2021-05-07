@@ -21,7 +21,7 @@ const HelpFarShotScreen = ({navigation, route}) => {
                 circle. Adjust the size of the circle until the location of the mole is clear. If you need more help at that
                 stage, click the question mark in the top right.</Text>
 
-                <Text style = {styles.mainBodyText}>Press continue below to see some tips for taking your photograph.</Text>
+                <Text style = {styles.mainBodyText}>Press 'Continue' below to see some tips for taking your photograph.</Text>
 
                 <TouchableOpacity style={styles.doneBox}
                     onPress = {() => {

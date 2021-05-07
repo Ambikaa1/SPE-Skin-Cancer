@@ -1,166 +1,169 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PhotoSuccess /> renders correctly 1`] = `
-<View
+<RCTScrollView
+  persistentScrollbar={true}
   style={
     Object {
       "flex": 1,
     }
   }
 >
-  <Text
-    style={
-      Object {
-        "fontSize": 30,
-        "fontWeight": "bold",
-        "marginHorizontal": 10,
-        "marginTop": 10,
-      }
-    }
-  >
-    Your mole photos have been saved!
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 17,
-        "marginHorizontal": 10,
-        "marginTop": 10,
-      }
-    }
-  >
-    Press the button below if you would like to schedule a notification to remind you to take a new picture of this mole in 30 days.
-  </Text>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#71A1D1",
-        "borderRadius": 10,
-        "bottom": 10,
-        "marginHorizontal": 10,
-        "marginTop": 25,
-        "opacity": 1,
-      }
-    }
-  >
+  <View>
     <Text
       style={
         Object {
-          "alignSelf": "center",
-          "color": "white",
-          "fontSize": 17,
+          "fontSize": 30,
           "fontWeight": "bold",
-          "marginVertical": 15,
+          "marginHorizontal": 10,
+          "marginTop": 10,
         }
       }
     >
-      Press to schedule a notification
+      Your mole photos have been saved!
     </Text>
-  </View>
-  <Text
-    style={
-      Object {
-        "fontSize": 17,
-        "fontWeight": "bold",
-        "marginHorizontal": 10,
-        "marginTop": 10,
-      }
-    }
-  >
-    Would you now like to complete the SCQOLIT survey? 
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 17,
-        "marginHorizontal": 10,
-        "marginTop": 10,
-      }
-    }
-  >
-    The SCQOLIT is an optional questionnaire for people who have been diagnosed with skin cancer. 
-  </Text>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignSelf": "center",
-        "backgroundColor": "#71A1D1",
-        "borderRadius": 10,
-        "marginHorizontal": 10,
-        "marginTop": 10,
-        "opacity": 1,
-        "width": "95%",
-      }
-    }
-  >
     <Text
       style={
         Object {
-          "alignSelf": "center",
-          "color": "white",
           "fontSize": 17,
-          "fontWeight": "bold",
-          "marginVertical": 15,
+          "marginHorizontal": 10,
+          "marginTop": 10,
         }
       }
     >
-      Yes, take me to the SCQOLIT survey
+      Press the button below if you would like to schedule a notification to remind you to take a new picture of this mole in 30 days.
     </Text>
-  </View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignSelf": "center",
-        "backgroundColor": "#71A1D1",
-        "borderRadius": 10,
-        "marginHorizontal": 10,
-        "marginTop": 10,
-        "opacity": 1,
-        "width": "95%",
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#71A1D1",
+          "borderRadius": 10,
+          "bottom": 10,
+          "marginHorizontal": 10,
+          "marginTop": 25,
+          "opacity": 1,
+        }
       }
-    }
-  >
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "marginVertical": 15,
+          }
+        }
+      >
+        Press to schedule a notification
+      </Text>
+    </View>
     <Text
       style={
         Object {
-          "alignSelf": "center",
-          "color": "white",
           "fontSize": 17,
           "fontWeight": "bold",
-          "marginVertical": 15,
+          "marginHorizontal": 10,
+          "marginTop": 10,
         }
       }
     >
-      No, take me back to the body outline
+      Would you now like to complete the SCQOLIT survey? 
     </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 17,
+          "marginHorizontal": 10,
+          "marginTop": 10,
+        }
+      }
+    >
+      The SCQOLIT is an optional questionnaire for people who have been diagnosed with skin cancer. 
+    </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "#71A1D1",
+          "borderRadius": 10,
+          "marginHorizontal": 10,
+          "marginTop": 10,
+          "opacity": 1,
+          "width": "95%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "marginVertical": 15,
+          }
+        }
+      >
+        Yes, take me to the SCQOLIT survey
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "#71A1D1",
+          "borderRadius": 10,
+          "marginHorizontal": 10,
+          "marginTop": 10,
+          "opacity": 1,
+          "width": "95%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "white",
+            "fontSize": 17,
+            "fontWeight": "bold",
+            "marginVertical": 15,
+          }
+        }
+      >
+        No, take me back to the body outline
+      </Text>
+    </View>
   </View>
-</View>
+</RCTScrollView>
 `;

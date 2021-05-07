@@ -14,7 +14,7 @@ const FarShotTipsScreen = ({navigation, route}) => {
                 </Text>
                 <Text style = {styles.bulletPoints}>
                     <Text>{'\u2022'}</Text>
-                    <Text> Use good lighting—ideally, natural daylight at mid-day</Text>
+                    <Text> Use good lighting—ideally, natural daylight at midday</Text>
                 </Text>
                 <Text style = {styles.bulletPoints}>
                     <Text>{'\u2022'}</Text>
@@ -23,7 +23,7 @@ const FarShotTipsScreen = ({navigation, route}) => {
                 </Text>
                 <Text style = {styles.bulletPoints}>
                     <Text>{'\u2022'}</Text>
-                    <Text> Try to get a good contrast (green or blue is good)</Text>
+                    <Text> Try to get a good contrast (green or blue background is good)</Text>
                 </Text>
                 <Text style = {styles.bulletPoints}>
                     <Text>{'\u2022'}</Text>
@@ -40,7 +40,7 @@ const FarShotTipsScreen = ({navigation, route}) => {
                     </Text>
                 </TouchableOpacity>
 
-                <Text style = {styles.mainBodyText}>Press continue below to take your far shot picture.</Text>
+                <Text style = {styles.mainBodyText}>Press 'Continue' below to take your far shot picture.</Text>
 
                 <TouchableOpacity style={styles.doneBox}
                                   onPress = {() => {

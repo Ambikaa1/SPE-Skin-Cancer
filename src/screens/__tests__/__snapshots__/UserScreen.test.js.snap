@@ -17,7 +17,7 @@ exports[`<UserScreen /> renders correctly 1`] = `
       }
     }
   >
-    You now need to put in some basic information to help the App identify you and your moles.
+    You now need to put in some basic information to help the app identify you and your moles.
   </Text>
   <Text
     style={
@@ -28,7 +28,7 @@ exports[`<UserScreen /> renders correctly 1`] = `
       }
     }
   >
-    This information remains on your phone unless you want to send it with your images by email to a clinician such as your GP or skin doctor.
+    This information remains on your phone unless you want to send it with your images by email to a clinician. 
   </Text>
   <TextInput
     allowFontScaling={true}

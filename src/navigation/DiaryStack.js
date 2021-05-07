@@ -13,7 +13,7 @@ const DiaryStack = () => {
 
     //Help function
     const FarShotScreenHelp = () => {
-        Alert.alert("Help","Here you can see the far shots for each mole you have logged on the app." +
+        Alert.alert("Help","Here you can see the far shots for each mole you have logged on the app, along with the name, comments and when it was last updated." +
         " \n\nTap on an image to see the near shots associated with each mole.");
     };
 
